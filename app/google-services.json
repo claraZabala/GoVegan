@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "28718225302",
+    "firebase_url": "https://govegan-da9a1.firebaseio.com",
+    "project_id": "govegan-da9a1",
+    "storage_bucket": "govegan-da9a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:28718225302:android:818f9a23d65895e3266fb7",
+        "android_client_info": {
+          "package_name": "com.example.govegan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "28718225302-72com73k6ou86k7efcv1qv53qc5ln5et.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDwlJyTHhksN4mumY7QqEInJAYSeB011z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "28718225302-72com73k6ou86k7efcv1qv53qc5ln5et.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
