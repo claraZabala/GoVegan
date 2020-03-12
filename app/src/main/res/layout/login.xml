@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titol"
+        android:layout_width="match_parent"
+        android:layout_height="187dp"
+        android:text="GoVegan"
+        android:layout_gravity="center_horizontal"/>
+
+    <EditText
+        android:id="@+id/nom"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nom" />
+
+    <EditText
+        android:id="@+id/pwd"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:ems="10"
+        android:hint="Contrasenya"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/LogIn"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Iniciar Sessió" />
+
+    <Button
+        android:id="@+id/SignUp"
+        android:layout_width="227dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Registrar-se" />
+
+    <Button
+        android:id="@+id/IniciGoogle"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Registra't amb Google" />
+
+
+    <Button
+        android:id="@+id/loginFcb"
+        android:layout_width="341dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="registra't amb Facebook" />
+</LinearLayout>
