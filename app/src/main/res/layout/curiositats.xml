@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:layout_margin="10sp" >
+
+    <TextView
+        android:id="@+id/textCuriositats"
+        style="@style/TextBlancTitol.Mida"
+        android:layout_width="wrap_content"
+        android:layout_height="165dp"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Curiositats del dia"
+        android:textAppearance="@style/TextBlancTitol" />
+
+    <Button
+        android:id="@+id/butCur1"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 1"
+
+        />
+
+    <TextView
+        android:id="@+id/separacio1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/butCur2"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 2" />
+    <TextView
+        android:id="@+id/separacio2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/butCur3"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 3" />
+    <TextView
+        android:id="@+id/separacio3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/butCur4"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 4" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/butCur5"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 5" />
+    <TextView
+        android:id="@+id/separacio4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
+
+    <Button
+        android:id="@+id/butCur6"
+        android:background="@drawable/estil_botons"
+        android:layout_gravity="center"
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="Curiositat 6" />
+</LinearLayout>
