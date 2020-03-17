@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/titol_recepta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Titol Recepta" />
+
+    <ImageView
+        android:id="@+id/foto_recepta"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/autor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nom de l'autor" />
+
+    <TextView
+        android:id="@+id/passos"
+        android:layout_width="match_parent"
+        android:layout_height="252dp"
+        android:text="Recepta" />
+
+    <TextView
+        android:id="@+id/t_prep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Temps preparacio" />
+
+    <TextView
+        android:id="@+id/t_cuina"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Temps cuina" />
+
+    <TextView
+        android:id="@+id/comensals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Comensals" />
+
+    <ImageButton
+        android:id="@+id/afegir_recepta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        app:srcCompat="@android:drawable/ic_menu_add" />
+</LinearLayout>
