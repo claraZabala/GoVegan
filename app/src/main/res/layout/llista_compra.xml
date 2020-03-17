@@ -1,52 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/capçalera"
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:background="@color/verdFosc"
+        android:gravity="center"
         android:text="Llista de la compra:"
-        android:textAppearance="@style/TextBlancTitol" />
+        android:textAppearance="@style/TextBlancTitol"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"/>
 
     <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/verdClar"
-                android:text="Llegums" />
-
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/verdClar"
-                android:text="Dolços" />
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/verdClar"
-                android:text="Fruita" />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/verdClar"
-                android:text="Verdura" />
-
-    <ListView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="wrap_content"
+        android:background="@color/verdClar"
+        android:text="Llegums"
+        android:layout_below="@id/capçalera"/>
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ListView>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/ingredient1"
+        android:layout_width="182dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/textView6"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginRight="161dp"
+        android:text="Ingredient 1" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verdClar"
+        android:text="Dolços"
+        android:layout_below="@id/ingredient1"/>
+
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verdClar"
+        android:text="Fruita"
+        android:layout_below="@id/textView7"/>
+
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView5"
+        android:background="@color/verdClar"
+        android:text="Verdura" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:clickable="false"
+        android:max="@android:integer/status_bar_notification_info_maxnum"
+        android:progress="@integer/google_play_services_version" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="44dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/textView6"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/ingredient1"
+        android:gravity="center_horizontal|center_vertical" />
+
+
+</RelativeLayout>
