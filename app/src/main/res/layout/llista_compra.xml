@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/blanco"
+    android:background="@color/blanc"
     android:id="@+id/blabla"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -43,7 +43,8 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Ingredient 1" />
+            android:text="Ingredient 1"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/imatge1"
@@ -76,7 +77,8 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Ingredient 2" />
+            android:text="Ingredient 2"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/imatge2"
@@ -109,7 +111,8 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Ingredient 3" />
+            android:text="Ingredient 3"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/imatge3"
@@ -135,14 +138,17 @@
         <CheckBox
             android:id="@+id/check4"
             android:layout_width="48dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:textColor="#000000"
+            android:textColorHint="#000000" />
 
         <TextView
             android:id="@+id/text4"
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Ingredient 4" />
+            android:text="Ingredient 4"
+            android:textColor="#000000" />
 
         <ImageView
             android:id="@+id/imatge4"
@@ -175,7 +181,9 @@
             android:layout_width="300dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Ingredient 5" />
+            android:text="Ingredient 5"
+            android:textColor="#000000"
+            android:textColorHint="#000000" />
 
         <ImageView
             android:id="@+id/imatge5"
