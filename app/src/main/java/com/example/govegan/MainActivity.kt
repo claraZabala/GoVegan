@@ -24,12 +24,14 @@ class MainActivity : AppCompatActivity() {
 
     fun accio3(view: View) {
         intent = Intent(this, LlistaCompra::class.java)
+        //aqui dona error FATAL EXCEPTION
         startActivity(intent)
     }
 
     fun accio4(view: View) {
-        intent = Intent(this, PropostesMenus::class.java)
+        intent = Intent(this, Propostes::class.java)
         startActivity(intent)
     }
+
 
 }

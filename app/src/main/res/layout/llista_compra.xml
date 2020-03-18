@@ -206,8 +206,8 @@
         android:layout_height="25dp"
         android:background="@color/taronjaFosc"
         android:text="Afegir"
-        android:translationX="325dp"
-        android:translationY="210dp" />
+        android:translationX="260dp"
+        android:translationY="130dp" />
 
     <Button
         android:id="@+id/eliminar"
@@ -215,8 +215,8 @@
         android:layout_height="25dp"
         android:background="@color/taronjaFosc"
         android:text="Eliminar"
-        android:translationX="325dp"
-        android:translationY="220dp" />
+        android:translationX="260dp"
+        android:translationY="145dp"/>
 
 
 </LinearLayout>
