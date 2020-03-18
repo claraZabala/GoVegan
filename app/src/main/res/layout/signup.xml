@@ -13,7 +13,7 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/nom"
+        android:id="@+id/pregunta1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/cognoms"
+        android:id="@+id/Resposta1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/pregunta2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -104,7 +104,7 @@
         android:layout_height="45dp" />
 
     <Button
-        android:id="@+id/signup"
+        android:id="@+id/send"
         android:layout_width="331dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
