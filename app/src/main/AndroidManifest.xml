@@ -11,6 +11,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Forum"></activity>
         <activity android:name=".Calendari_Setmanal" />
+        <activity android:name=".Propostes"/>
+        <activity android:name=".LlistaCompra"/>
+        <activity android:name=".Recepta"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

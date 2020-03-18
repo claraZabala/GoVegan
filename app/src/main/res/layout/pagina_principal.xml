@@ -55,7 +55,8 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="Què puc menjar avui?"
-        android:onClick="accio4"/>
+        android:onClick="accio4"
+        />
 
     <TextView
         android:id="@+id/separacio5"
