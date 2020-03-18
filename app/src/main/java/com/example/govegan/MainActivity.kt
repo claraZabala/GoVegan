@@ -16,4 +16,9 @@ class MainActivity : AppCompatActivity() {
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }
+
+    fun accio2(view: View) {
+        intent = Intent(this, Forum::class.java)
+        startActivity(intent)
+    }
 }

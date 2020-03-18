@@ -102,6 +102,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
+        android:onClick="accio2"
         android:text="Fòrum" />
 
     <TextView
