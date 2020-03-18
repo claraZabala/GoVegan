@@ -10,12 +10,12 @@
         android:id="@+id/textView8"
         android:layout_width="311dp"
         android:layout_height="127dp"
+        android:layout_gravity="center|top"
         android:gravity="center"
         android:text="Calendari Setmanal"
         android:textAppearance="@style/TextBlancTitol.Mida"
         tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="44dp"
-        android:layout_gravity="center|top"/>
+        tools:layout_editor_absoluteY="44dp" />
 
     <Button
         android:id="@+id/button2"
