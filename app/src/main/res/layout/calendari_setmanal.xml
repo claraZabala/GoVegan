@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -34,6 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
                 android:orientation="horizontal">
+
 
                 <TextView
                     android:id="@+id/txtEspaiDies"
@@ -98,24 +100,23 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtNoCarn"
+                <ImageView
+                    android:id="@+id/imageCara"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:text="NoCarn"
-                    android:textSize="20dp"></TextView>
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/cara" />
 
                 <TextView
                     android:id="@+id/txtNoCarnDilluns"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text=""
                     android:textSize="20dp"></TextView>
 
                 <TextView
                     android:id="@+id/txtNoCarnDimarts"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text=""
                     android:textSize="20dp"></TextView>
 
@@ -161,12 +162,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtNoAnimals"
+                <ImageView
+                    android:id="@+id/imageOu"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:text="Num. Deriv. Animals"
-                    android:textSize="20dp"></TextView>
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/ou" />
+
+
 
                 <TextView
                     android:id="@+id/txtNoAnimalsDilluns"
@@ -224,12 +226,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/txtNumCarn"
+                <ImageView
+                    android:id="@+id/imageCarn"
                     android:layout_width="90dp"
-                    android:layout_height="wrap_content"
-                    android:text="Num. Carn"
-                    android:textSize="20dp"></TextView>
+                    android:layout_height="40dp"
+                    app:srcCompat="@drawable/carn" />
 
                 <TextView
                     android:id="@+id/txtNumCarnDilluns"
