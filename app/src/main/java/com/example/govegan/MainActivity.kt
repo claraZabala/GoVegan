@@ -21,4 +21,15 @@ class MainActivity : AppCompatActivity() {
         intent = Intent(this, Forum::class.java)
         startActivity(intent)
     }
+
+    fun accio3(view: View) {
+        intent = Intent(this, LlistaCompra::class.java)
+        startActivity(intent)
+    }
+
+    fun accio4(view: View) {
+        intent = Intent(this, PropostesMenus::class.java)
+        startActivity(intent)
+    }
+
 }
