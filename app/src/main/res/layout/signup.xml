@@ -70,7 +70,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="contrasenya" />
+        android:text="Contrasenya" />
 
     <TextView
         android:id="@+id/textView12"
