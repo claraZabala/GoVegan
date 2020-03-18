@@ -11,13 +11,11 @@
     <TextView
         android:id="@+id/textCaleandari"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center|top"
+        android:layout_height="52dp"
         android:gravity="center|top"
         android:text="Calendari Setmanal"
-        android:textAppearance="@style/TextBlancTitol.Mida"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="44dp" />
+        android:textAppearance="@style/TextBlancTitol"
+      />
 
     <HorizontalScrollView
         android:id="@+id/scrollCalendari"
