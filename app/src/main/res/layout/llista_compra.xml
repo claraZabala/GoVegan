@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/blanc"
+    android:background="@android:color/white"
     android:id="@+id/blabla"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -200,11 +200,23 @@
         android:background="@color/verdClar"
         android:text="Ja els tinc" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp">
+    <Button
+        android:id="@+id/afegir"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@color/taronjaFosc"
+        android:text="Afegir"
+        android:translationX="325dp"
+        android:translationY="210dp" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/eliminar"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:background="@color/taronjaFosc"
+        android:text="Eliminar"
+        android:translationX="325dp"
+        android:translationY="220dp" />
 
 
 </LinearLayout>

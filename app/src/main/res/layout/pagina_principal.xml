@@ -54,7 +54,8 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
-        android:text="Què puc menjar avui?" />
+        android:text="Què puc menjar avui?"
+        android:onClick="accio4"/>
 
     <TextView
         android:id="@+id/separacio5"
@@ -70,7 +71,8 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
-        android:text="Llista de la compra" />
+        android:text="Llista de la compra"
+        android:onClick="accio3"/>
 
     <TextView
         android:id="@+id/separacio6"

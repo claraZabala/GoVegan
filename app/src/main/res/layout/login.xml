@@ -13,7 +13,7 @@
         android:layout_gravity="center_horizontal"/>
 
     <EditText
-        android:id="@+id/nom"
+        android:id="@+id/pregunta1"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
