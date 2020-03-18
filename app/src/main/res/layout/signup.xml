@@ -1,127 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#DC8D64"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/capçalera2"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
-        android:text="Completa les teves dades: "
-        android:textSize="20dp" />
+        android:layout_height="48dp"
+        android:layout_aligParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/verdFosc"
+        android:gravity="center"
+        android:text="Registre:"
+        android:textAppearance="@style/TextBlancTitol"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
     <EditText
-        android:id="@+id/nom"
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nom" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Name" />
 
     <EditText
-        android:id="@+id/cognoms"
+        android:id="@+id/editText2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Cognoms" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Name" />
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Nom d'usuari" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="match_parent"
-        android:layout_height="29dp" />
+        android:text="Name" />
 
     <EditText
-        android:id="@+id/mail"
+        android:id="@+id/editText4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Correu electrònic" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:text="Name" />
 
     <EditText
-        android:id="@+id/psw"
+        android:id="@+id/editText5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="contrasenya" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:text="Name" />
 
     <EditText
-        android:id="@+id/psw2"
+        android:id="@+id/editText6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Repetir contrasenya " />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="match_parent"
-        android:layout_height="33dp" />
-
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Edat" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
+        android:text="Name" />
 
     <Button
-        android:id="@+id/signup"
-        android:layout_width="331dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/estil_botons"
-        android:text="Registrar-me" />
-
-    <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/retrocedir"
-        android:layout_width="286dp"
-        android:layout_height="33dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/estil_botons"
-        android:text="Ja tinc un compte" />
-
+        android:layout_height="wrap_content"
+        android:text="Button" />
 </LinearLayout>
