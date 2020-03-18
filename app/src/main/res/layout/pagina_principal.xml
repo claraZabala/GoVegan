@@ -8,12 +8,26 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/titol"
+        android:id="@+id/capçalera"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_aligParentRight="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:background="@color/verdFosc"
+        android:gravity="center"
+        android:text="Go Vegan"
+        android:textAppearance="@style/TextBlancTitol"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/separacio8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:gravity="center"
-        android:text="GoVegan" />
+        android:text="" />
 
     <Button
         android:id="@+id/setmana"

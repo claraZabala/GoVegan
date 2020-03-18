@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/verdClar</item>
         <item name="colorPrimaryDark">@color/verdFosc</item>
         <item name="colorAccent">@color/taronjaClar</item>
+        <item name="colorControlHighlight">@color/blauClar</item>
     </style>
 
     <style name="TextBlancTitol" parent="TextAppearance.AppCompat">
@@ -15,6 +16,7 @@
     <style name="TextBlancTitol.Mida">
         <item name="android:textSize">50dp</item>
     </style>
+
 
 
 
