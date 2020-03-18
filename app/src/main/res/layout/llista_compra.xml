@@ -2,23 +2,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/blanco"
+    android:id="@+id/blabla"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/capçalera"
+        android:id="@+id/titol"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_aligParentRight="true"
         android:background="@color/verdFosc"
         android:gravity="center"
         android:text="Llista de la compra:"
+        android:textAppearance="@style/TextBlancTitol"
         android:textSize="20dp"
-        android:textStyle="bold"
-        android:textAppearance="@style/TextBlancTitol" />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/tipus1"
@@ -32,26 +31,25 @@
         android:id="@+id/ingredient1"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/capçalera">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/check1"
             android:layout_width="48dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/text1"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:text="Ingredient 1"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Ingredient 1" />
 
         <ImageView
             android:id="@+id/imatge1"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </LinearLayout>
 
@@ -61,32 +59,30 @@
         android:layout_height="25dp"
         android:background="@color/verdClar"
         android:text="Verdura"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/capçalera">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/check2"
             android:layout_width="48dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/text2"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:text="Ingredient 2"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:text="Ingredient 2" />
 
         <ImageView
             android:id="@+id/imatge2"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </LinearLayout>
 
@@ -96,32 +92,30 @@
         android:layout_height="25dp"
         android:background="@color/verdClar"
         android:text="Llegums"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/capçalera">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/check3"
             android:layout_width="48dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/text3"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:text="Ingredient 3"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Ingredient 3" />
 
         <ImageView
             android:id="@+id/imatge3"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </LinearLayout>
 
@@ -131,32 +125,30 @@
         android:layout_height="25dp"
         android:background="@color/verdClar"
         android:text="Dolços"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/capçalera">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/check4"
             android:layout_width="48dp"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/text4"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:text="Ingredient 4"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Ingredient 4" />
 
         <ImageView
             android:id="@+id/imatge4"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </LinearLayout>
 
@@ -166,33 +158,30 @@
         android:layout_height="25dp"
         android:background="@color/verdClar"
         android:text="Beguda"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:orientation="horizontal"
-        android:layout_below="@id/capçalera">
+        android:orientation="horizontal">
 
         <CheckBox
             android:id="@+id/check5"
             android:layout_width="48dp"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/text5"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:text="Ingredient 5"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="Ingredient 5" />
 
         <ImageView
             android:id="@+id/imatge5"
             android:layout_width="48dp"
             android:layout_height="match_parent"
-            tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
     </LinearLayout>
 
@@ -201,14 +190,13 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:background="@color/verdClar"
-        android:text="Ja els tinc"/>
+        android:text="Ja els tinc" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp">
 
     </LinearLayout>
-
 
 
 </LinearLayout>

@@ -8,10 +8,10 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/capçalera"
+        android:id="@+id/titol"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_aligParentRight="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_weight="1"
@@ -37,7 +37,7 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="La meva setmana"
-
+        android:onClick="accio1"
         />
 
     <TextView
