@@ -13,9 +13,7 @@
         android:background="@color/verdFosc"
         android:gravity="center"
         android:text="Forum:"
-        android:textAppearance="@style/TextBlancTitol"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextBlancTitolSecundari" />
 
     <TextView
         android:id="@+id/textView7"

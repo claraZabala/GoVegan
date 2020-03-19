@@ -11,9 +11,14 @@
 
     <style name="TextBlancTitol" parent="TextAppearance.AppCompat">
         <item name="android:textColor">#FFFFFF</item>
-        <item name="android:background">@color/verdFosc</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TextBlancTitolSecundari" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20dp</item>
     </style>
 
     <style name="TextBlancTitol.Mida">

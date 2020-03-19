@@ -10,7 +10,7 @@
         android:background="@color/verdFosc"
         android:gravity="center"
         android:text="Propostes de menús:"
-        android:textAppearance="@style/TextBlancTitol"
+        android:textAppearance="@style/TextBlancTitolSecundari"
         android:textSize="20dp"
         android:textStyle="bold" />
 

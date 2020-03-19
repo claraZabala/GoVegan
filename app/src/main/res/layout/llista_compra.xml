@@ -15,9 +15,7 @@
         android:background="@color/verdFosc"
         android:gravity="center"
         android:text="Llista de la compra:"
-        android:textAppearance="@style/TextBlancTitol"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:textAppearance="@style/TextBlancTitolSecundari" />
 
     <TextView
         android:id="@+id/tipus1"

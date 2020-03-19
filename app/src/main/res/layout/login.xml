@@ -35,20 +35,36 @@
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/estil_botons"
         android:text="Iniciar Sessió" />
+
+
+    <TextView
+        android:id="@+id/separacioSU0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <Button
         android:id="@+id/SignUp"
         android:layout_width="227dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/estil_botons"
         android:text="Registrar-se" />
+
+    <TextView
+        android:id="@+id/separacioSU1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <Button
         android:id="@+id/IniciGoogle"
         android:layout_width="341dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:background="@drawable/estil_botons"
         android:text="He perdut la contrasenya" />
 
 

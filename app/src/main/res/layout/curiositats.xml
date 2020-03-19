@@ -8,7 +8,7 @@
         android:layout_height="63dp"
         android:layout_gravity="center"
         android:text="Curiositats del dia"
-        android:textAppearance="@style/TextBlancTitol" />
+        android:textAppearance="@style/TextBlancTitolSecundari" />
 
     <Button
         android:id="@+id/butCur1"
