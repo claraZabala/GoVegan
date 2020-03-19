@@ -89,7 +89,8 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
-        android:text="Curiositats del dia" />
+        android:text="Curiositats del dia"
+        android:onClick="accio5"/>
 
     <TextView
         android:id="@+id/textView4"
