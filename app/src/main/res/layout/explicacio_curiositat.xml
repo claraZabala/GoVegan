@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+     <androidx.cardview.widget.CardView
+         android:layout_width="match_parent"
+         app:cardCornerRadius="20dp"
+         android:layout_margin="8dp"
+         android:layout_height="wrap_content">
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="550dp">
+              <ImageView
+                  android:id="@+id/imageGastronomia"
+                  android:layout_width="match_parent"
+                  android:layout_height="200dp"
+                  android:scaleType="centerCrop"
+                  android:src="@drawable/gastronomia">
+              </ImageView>
+             <TextView
+                 android:id="@+id/titolGastronomia"
+                 android:layout_width="wrap_content"
+                 android:layout_below="@+id/imageGastronomia"
+                 android:layout_marginTop="10dp"
+                 android:layout_marginLeft="16dp"
+                 android:text="Sabies que..."
+                 android:textSize="16sp"
+                 android:layout_height="wrap_content">
+
+             </TextView>
+             <TextView
+                 android:id="@+id/explicacióGastronomia"
+                 android:layout_below="@+id/titolGastronomia"
+                 android:layout_marginTop="3dp"
+                 android:layout_marginLeft="16dp"
+                 android:layout_marginRight="16dp"
+                 android:drawablePadding="10dp"
+                 android:ellipsize="end"
+                 android:text="La industria se empeña en elaborar productos que contenten el alma de los veganos. Mercadona, por ejemplo, no deja de ampliar y mejorar el catálogo de alimentación para este nuevo nicho. Sus productos estéticos ya casi no están testados en animales."
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"></TextView>
+
+         </RelativeLayout>
+
+     </androidx.cardview.widget.CardView>
+</LinearLayout>
