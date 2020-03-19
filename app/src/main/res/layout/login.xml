@@ -1,16 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/titol"
         android:layout_width="match_parent"
-        android:layout_height="187dp"
-        android:text="GoVegan"
-        android:layout_gravity="center_horizontal"/>
+        android:layout_height="59dp"
+        android:layout_gravity="center_horizontal"
+        android:text="GoVegan" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/icono" />
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <EditText
         android:id="@+id/pregunta1"
@@ -19,6 +33,8 @@
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:hint="Nom"
+        android:textColor="#000000"
+        android:textColorHint="#554E4E"
         android:inputType="textPersonName" />
 
     <EditText
@@ -28,7 +44,15 @@
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:hint="Contrasenya"
+        android:textColor="#000000"
+        android:textColorHint="#554E4E"
         android:inputType="textPassword" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="match_parent"
+        android:layout_height="62dp"
+        android:text="TextView" />
 
     <Button
         android:id="@+id/LogIn"
