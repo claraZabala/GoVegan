@@ -4,6 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Adapter
+import androidx.viewpager.widget.ViewPager
+import kotlinx.android.synthetic.main.pagina_principal.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun accio5(view: View) {
-        intent = Intent(this, Curiositats::class.java)
+        intent = Intent(this, layoutCuriositats::class.java)
         startActivity(intent)
     }
 
