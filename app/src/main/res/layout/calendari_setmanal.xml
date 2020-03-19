@@ -103,7 +103,7 @@
                     android:id="@+id/imageCara"
                     android:layout_width="90dp"
                     android:layout_height="40dp"
-                    app:srcCompat="@drawable/cara" />
+                    app:srcCompat="@drawable/cara"/>
 
                 <TextView
                     android:id="@+id/txtNoCarnDilluns"
@@ -169,6 +169,7 @@
 
 
 
+
                 <TextView
                     android:id="@+id/txtNoAnimalsDilluns"
                     android:layout_width="90dp"
@@ -229,7 +230,7 @@
                     android:id="@+id/imageCarn"
                     android:layout_width="90dp"
                     android:layout_height="40dp"
-                    app:srcCompat="@drawable/carn" />
+                    app:srcCompat="@drawable/carn"/>
 
                 <TextView
                     android:id="@+id/txtNumCarnDilluns"
