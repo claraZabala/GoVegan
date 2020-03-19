@@ -14,6 +14,7 @@
         <activity android:name=".Propostes"/>
         <activity android:name=".LlistaCompra"/>
         <activity android:name=".Recepta"/>
+        <activity android:name=".Curiositats"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

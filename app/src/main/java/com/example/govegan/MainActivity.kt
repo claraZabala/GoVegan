@@ -33,5 +33,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    fun accio5(view: View) {
+        intent = Intent(this, Curiositats::class.java)
+        startActivity(intent)
+    }
+
 
 }
