@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DC8D64"
+    android:background="@color/taronjaClar"
     android:orientation="vertical">
 
     <TextView
@@ -109,19 +109,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
-        android:text="Registrar-me" />
+        android:text="Registrar-me"
+        android:onClick="paginaPrincipal"/>
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/retrocedir"
-        android:layout_width="286dp"
-        android:layout_height="33dp"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/estil_botons"
-        android:text="Ja tinc un compte" />
 
 </LinearLayout>

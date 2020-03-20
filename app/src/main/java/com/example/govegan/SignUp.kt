@@ -5,14 +5,14 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-class Login : AppCompatActivity() {
+class SignUp: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.login)
+        setContentView(R.layout.signup)
     }
 
-    fun recuperar_contrasenya(view: View) {
-        intent = Intent(this, Calendari_Setmanal::class.java)
+    fun paginaPrincipal(view: View) {
+        intent = Intent(this, PaginaPrincipal::class.java)
         startActivity(intent)
     }
 }

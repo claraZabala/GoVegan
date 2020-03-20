@@ -60,7 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
-        android:text="Iniciar Sessió" />
+        android:text="Iniciar Sessió"
+        android:onClick="login"/>
 
 
     <TextView
@@ -75,7 +76,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
-        android:text="Registrar-se" />
+        android:text="Registrar-se"
+        android:onClick="signUp"/>
 
     <TextView
         android:id="@+id/separacioSU1"
