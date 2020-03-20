@@ -89,7 +89,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
-        android:text="He perdut la contrasenya" />
+        android:text="He perdut la contrasenya"
+        android:onClick="recuperar_contrasenya"/>
 
 
 </LinearLayout>
