@@ -11,10 +11,13 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Forum"></activity>
         <activity android:name=".Calendari_Setmanal" />
-        <activity android:name=".Propostes"/>
         <activity android:name=".LlistaCompra"/>
         <activity android:name=".Recepta"/>
-        <activity android:name="layoutCuriositats"/>
+        <activity android:name=".PaginaPrincipal"/>
+        <activity android:name=".layoutCuriositats"/>
+        <activity android:name=".LayoutPropostes"/>
+        <activity android:name=".RecuperarContra"/>
+        <activity android:name=".SignUp"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

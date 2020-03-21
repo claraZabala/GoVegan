@@ -1,19 +1,15 @@
 package com.example.govegan
 
-import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 
-class Propostes : AppCompatActivity()  {
+class Propostes (imatge:Int,title:String,desc:String) {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.propostes_menus)
+    var imatge:Int = 0;
+    var title:String = "";
+    var desc:String = "";
+    init{
+        this.imatge = imatge;
+        this.title = title;
+        this.desc = desc;
     }
 
-    fun menu1(view: View) {
-        intent = Intent(this, Recepta::class.java)
-        startActivity(intent)
-    }
 }

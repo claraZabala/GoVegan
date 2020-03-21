@@ -1,72 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/propostes"
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPropostes"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="@color/verdFosc"
-        android:gravity="center"
-        android:text="Propostes de menús:"
-        android:textAppearance="@style/TextBlancTitolSecundari"
-        android:textSize="20dp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:foregroundGravity="center"
+        android:overScrollMode="never">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:background="@color/taronjaClar"
-                android:text="Proposta 1"
-                android:textSize="25dp"
-                android:onClick="menu1"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Proposta 2"
-                android:background="@color/taronjaClar"
-                android:textSize="25dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Proposta 3"
-                android:background="@color/taronjaClar"
-                android:textSize="25dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Proposta 4"
-                android:background="@color/taronjaClar"
-                android:textSize="25dp"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="48dp"
-                android:text="Proposta 5"
-                android:background="@color/taronjaClar"
-                android:textSize="25dp"/>
-
-        </LinearLayout>
-    </ScrollView>
+    </androidx.viewpager.widget.ViewPager>
 
     <Button
-        android:id="@+id/crear"
+        android:id="@+id/novaProposta"
+        android:text="Afegir proposta"
         android:layout_width="wrap_content"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/round"
         android:layout_height="wrap_content"
-        android:text="Crear"/>
+        android:onClick="proposta">
+    </Button>
 
-
-
-</LinearLayout>
+</RelativeLayout>

@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">GoVegan</string>
+    
+    <string-array name="preguntes">
+        <item>Receptes</item>
+        <item>On compro els ingredients?</item>
+        <item>Dietes</item>
+        <item>Restaurants</item>
+        <item>Propietats</item>
+        <item>Moda</item>
+        <item>Higiene</item>
+        <item>Salut</item>
+        <item>Altres</item>
+    </string-array>
 </resources>

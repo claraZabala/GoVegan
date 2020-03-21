@@ -3,8 +3,9 @@
     <color name="verdClar">#508F46</color>
     <color name="verdMoltClar">#B6F4AC</color>
     <color name="verdFosc">#345736</color>
-    <color name="taronjaClar">#C67D2E</color>
-    <color name="taronjaFosc">#D3874D0F</color>
+    <color name="taronjaClar">#EDAD68</color>
+    <color name="taronjaFosc">#D3985105</color>
     <color name="blauClar">#03A9F4</color>
     <color name="blanc">#FFFFFF</color>
+    <color name="negre">#000000</color>
 </resources>

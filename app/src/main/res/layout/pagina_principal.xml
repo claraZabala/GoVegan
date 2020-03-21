@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".PaginaPrincipal">
 
     <TextView
         android:id="@+id/titol"
@@ -22,16 +22,10 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/separacio8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <Button
         android:id="@+id/setmana"
         android:layout_width="296dp"
+        android:layout_margin="20dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_weight="1"
@@ -40,15 +34,10 @@
         android:onClick="accio1"
         />
 
-    <TextView
-        android:id="@+id/separacio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <Button
         android:id="@+id/menu"
+        android:layout_margin="20dp
+"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -58,15 +47,9 @@
         android:onClick="accio4"
         />
 
-    <TextView
-        android:id="@+id/separacio5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <Button
         android:id="@+id/llista_compra"
+        android:layout_margin="20dp"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -75,15 +58,9 @@
         android:text="Llista de la compra"
         android:onClick="accio3"/>
 
-    <TextView
-        android:id="@+id/separacio6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <Button
         android:id="@+id/curiositats"
+        android:layout_margin="20dp"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -92,15 +69,9 @@
         android:text="Curiositats del dia"
         android:onClick="accio5"/>
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
     <Button
         android:id="@+id/forum"
+        android:layout_margin="20dp"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -108,28 +79,5 @@
         android:background="@drawable/estil_botons"
         android:onClick="accio2"
         android:text="Fòrum" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
-
-    <ImageButton
-        android:id="@+id/sortir"
-        android:layout_width="57dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_weight="1"
-        android:background="#EC2020"
-        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
-    <TextView
-        android:id="@+id/separacio7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="" />
 
 </LinearLayout>

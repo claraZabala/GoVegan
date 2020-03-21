@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/verdClar"
     >
 
 
@@ -292,6 +293,7 @@
             android:id="@+id/butMostrarMenu"
             android:layout_width="152dp"
             android:layout_height="42dp"
+            android:layout_marginLeft="20dp"
             android:layout_gravity="center|left"
             android:text="Mostrar menús"
             tools:layout_editor_absoluteX="49dp"
@@ -302,12 +304,12 @@
             android:id="@+id/butAfegirMenu"
             android:layout_width="wrap_content"
             android:layout_height="71dp"
+            android:layout_marginLeft="20dp"
             android:background="@drawable/estil_botons"
             android:text="Afegir Menu" />
 
     </LinearLayout>
 
-    */
 
 
 </LinearLayout>

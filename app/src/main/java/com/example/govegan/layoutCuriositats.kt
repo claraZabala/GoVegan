@@ -6,7 +6,6 @@ import androidx.viewpager.widget.ViewPager
 
 class layoutCuriositats: AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.curiositat_individual)

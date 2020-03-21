@@ -9,37 +9,23 @@ import androidx.viewpager.widget.ViewPager
 import kotlinx.android.synthetic.main.pagina_principal.*
 
 class MainActivity : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.pagina_principal)
+        setContentView(R.layout.login)
     }
 
-    fun accio1(view: View) {
-        intent = Intent(this, Calendari_Setmanal::class.java)
+    fun recuperar_contrasenya(view: View) {
+        intent = Intent(this, RecuperarContra::class.java)
         startActivity(intent)
     }
 
-    fun accio2(view: View) {
-        intent = Intent(this, Forum::class.java)
+    fun login(view: View) {
+        intent = Intent(this, PaginaPrincipal::class.java)
         startActivity(intent)
     }
 
-    fun accio3(view: View) {
-        intent = Intent(this, LlistaCompra::class.java)
-        //aqui dona error FATAL EXCEPTION
+    fun signUp(view: View) {
+        intent = Intent(this, SignUp::class.java)
         startActivity(intent)
     }
-
-    fun accio4(view: View) {
-        intent = Intent(this, Propostes::class.java)
-        startActivity(intent)
-    }
-
-    fun accio5(view: View) {
-        intent = Intent(this, layoutCuriositats::class.java)
-        startActivity(intent)
-    }
-
-
 }
