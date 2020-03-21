@@ -14,7 +14,4 @@ class Curiositats (imatge:Int,title:String,desc:String) {
         this.title = title;
         this.desc = desc;
     }
-
-
-
 }

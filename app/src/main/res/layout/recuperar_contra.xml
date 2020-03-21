@@ -24,6 +24,8 @@
         android:layout_height="67dp"
         android:ems="10"
         android:layout_marginTop="25dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textEmailAddress" />
 
     <Button

@@ -8,6 +8,7 @@
         android:layout_height="63dp"
         android:layout_gravity="center"
         android:text="Curiositats del dia"
+        android:layout_marginTop="10dp"
         android:textAppearance="@style/TextBlancTitolSecundari" />
 
     <Button
@@ -17,15 +18,7 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 1"
-
-        />
-
-    <TextView
-        android:id="@+id/separacio1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:text="Tema 1" />
 
     <Button
         android:id="@+id/butCur2"
@@ -34,12 +27,9 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 2" />
-    <TextView
-        android:id="@+id/separacio2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginTop="20dp"
+        android:text="Tema 2"/>
+
 
     <Button
         android:id="@+id/butCur3"
@@ -48,12 +38,9 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 3" />
-    <TextView
-        android:id="@+id/separacio3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginTop="20dp"
+        android:text="Tema 3" />
+
 
     <Button
         android:id="@+id/butCur4"
@@ -62,12 +49,9 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 4" />
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginTop="20dp"
+        android:text="Tema 4" />
+
 
     <Button
         android:id="@+id/butCur5"
@@ -76,12 +60,9 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 5" />
-    <TextView
-        android:id="@+id/separacio4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
+        android:layout_marginTop="20dp"
+        android:text="Tema 5" />
+
 
     <Button
         android:id="@+id/butCur6"
@@ -90,5 +71,6 @@
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="Curiositat 6" />
+        android:layout_marginTop="20dp"
+        android:text="Tema 6" />
 </LinearLayout>
