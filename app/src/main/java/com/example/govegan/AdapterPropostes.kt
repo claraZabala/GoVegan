@@ -10,7 +10,7 @@ import androidx.viewpager.widget.PagerAdapter
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context;
-    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Gastronomia","la gastronomia ..."),Propostes(R.drawable.healthy,"Salut","la salut ..."),Propostes(R.drawable.moda,"Moda","la moda ..."),Propostes(R.drawable.altres,"Altres","la salut ..."))
+    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","Es tracta d'un plat exquisit."),Propostes(R.drawable.healthy,"Proposta 2","Aquí teinim la proposta del dia."),Propostes(R.drawable.moda,"Proposta 3","Un àpat ràpid."),Propostes(R.drawable.altres,"Proposta 4","Per últim..."))
     init{
         this.context = context;
 
