@@ -19,6 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Nom" />
 
@@ -29,6 +30,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Cognoms" />
 
     <EditText
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Nom d'usuari" />
 
@@ -47,6 +50,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Correu electrònic" />
 
@@ -56,6 +60,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Contrasenya" />
 
@@ -66,6 +71,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Repetir contrasenya " />
 
@@ -75,6 +81,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
         android:text="Edat"/>
 
@@ -87,6 +94,5 @@
         android:layout_marginTop="45dp"
         android:text="Registrar-me"
         android:onClick="paginaPrincipal"/>
-
 
 </LinearLayout>
