@@ -65,11 +65,9 @@
         android:layout_height="20dp"
         android:layout_gravity="center_horizontal"
         android:layout_margin="10dp"
-        android:background=""
+        android:background="@color/verdFosc"
         android:textColor="@color/blanc"
-        android:style="?android:attr/borderlessButtonStyle"
         android:text="He perdut la contrasenya"
-        style="@style/Widget.AppCompat.Button.Borderless"
         android:onClick="recuperar_contrasenya"/>
 
 
