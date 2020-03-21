@@ -9,18 +9,21 @@
          android:layout_width="match_parent"
          app:cardCornerRadius="20dp"
          android:layout_margin="8dp"
+
          android:layout_height="wrap_content">
          <RelativeLayout
              android:background="@color/verdMoltClar"
              android:layout_width="match_parent"
-             android:layout_height="550dp">
-              <ImageView
-                  android:id="@+id/imageGastronomia"
-                  android:layout_width="match_parent"
-                  android:layout_height="200dp"
-                  android:scaleType="centerCrop"
-                  android:src="@drawable/gastronomia">
-              </ImageView>
+             android:layout_height="550dp"
+             >
+
+             <ImageView
+                 android:id="@+id/imageGastronomia"
+                 android:layout_width="match_parent"
+                 android:layout_height="200dp"
+                 android:scaleType="centerCrop"
+                 android:src="@drawable/gastronomia"></ImageView>
+
              <TextView
                  android:id="@+id/titolGastronomia"
                  android:layout_width="wrap_content"
