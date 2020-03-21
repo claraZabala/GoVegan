@@ -4,28 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@color/verdFosc"
     android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/titol"
-        android:layout_width="match_parent"
-        android:layout_height="59dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="@color/negre"
-        android:text="GoVegan" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_margin="80dp"
+        android:layout_width="200dp"
+        android:layout_height="213dp"
+        android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/icono" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
 
     <EditText
         android:id="@+id/pregunta1"
@@ -34,30 +22,26 @@
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:hint="Nom"
-        android:textColor="#000000"
-        android:textColorHint="#554E4E"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/blanc"
+        android:textColorHint="@color/blanc" />
 
     <EditText
         android:id="@+id/pwd"
         android:layout_width="304dp"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:ems="10"
         android:hint="Contrasenya"
-        android:textColor="#000000"
-        android:textColorHint="#554E4E"
+        android:textColor="@color/blanc"
+        android:textColorHint="@color/blanc"
         android:inputType="textPassword" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="match_parent"
-        android:layout_height="62dp"
-        android:text="TextView" />
 
     <Button
         android:id="@+id/LogIn"
         android:layout_width="227dp"
+        android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
@@ -65,34 +49,27 @@
         android:onClick="login"/>
 
 
-    <TextView
-        android:id="@+id/separacioSU0"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-
     <Button
         android:id="@+id/SignUp"
         android:layout_width="227dp"
+        android:layout_margin="10dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/estil_botons"
         android:text="Registrar-se"
         android:onClick="signUp"/>
 
-    <TextView
-        android:id="@+id/separacioSU1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="" />
-
     <Button
         android:id="@+id/IniciGoogle"
-        android:layout_width="341dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="20dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/estil_botons"
+        android:layout_margin="10dp"
+        android:background=""
+        android:textColor="@color/blanc"
+        android:style="?android:attr/borderlessButtonStyle"
         android:text="He perdut la contrasenya"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:onClick="recuperar_contrasenya"/>
 
 
