@@ -18,13 +18,272 @@
         android:gravity="center|top"
         android:text="Calendari Setmanal"
         android:background="@color/verdFosc"
-        android:textAppearance="@style/TextBlancTitolSecundari" />
+        android:textAppearance="@style/TextBlancTitolSecundari"
+
+        />
 
 
-    <CalendarView
-        android:id="@+id/calendarView2"
+    <GridLayout
         android:layout_width="match_parent"
-        android:layout_height="303dp" />
+        android:layout_height="156dp"
+        android:alignmentMode="alignMargins"
+        android:columnCount="8"
+        android:columnOrderPreserved="false"
+        android:rowCount="4"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginTop="15dp">
+
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:text="Dil"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:text="Dimt"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:text="Dim"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_row="0"
+            android:layout_column="4"
+            android:text="Dij"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="45dp"
+            android:layout_row="0"
+            android:layout_column="5"
+            android:text="Div"
+
+            ></TextView>
+        v
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_row="0"
+            android:layout_column="6"
+            android:text="Dis"
+
+            ></TextView>
+
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_column="7"
+
+            android:gravity=""
+            android:text="Diu"></TextView>
+
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:text="Esmorzar"></TextView>
+
+        <TextView
+            android:layout_row="2"
+            android:layout_column="0"
+            android:text="Dinar"
+
+            ></TextView>
+
+        <TextView
+            android:layout_row="3"
+            android:layout_column="0"
+            android:text="Sopar"
+
+            ></TextView>
+
+        <ImageView
+            android:id="@+id/int1"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int2"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int3"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int4"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="4"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int5"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="5"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int6"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="6"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int7"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="1"
+            android:layout_column="7"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int8"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int9"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int10"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="3"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int11"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="4"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int12"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="5"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int13"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="6"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int14"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="2"
+            android:layout_column="7"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int15"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int16"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="2"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int17"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="3"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int18"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="4"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int19"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="5"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int20"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="6"
+            android:src="@drawable/interrogacio"></ImageView>
+
+        <ImageView
+            android:id="@+id/int21"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_row="3"
+            android:layout_column="7"
+            android:src="@drawable/interrogacio"></ImageView>
+
+
+    </GridLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -41,6 +300,7 @@
             tools:layout_editor_absoluteY="393dp" />
 
         <Button
+            android:layout_marginTop="15dp"
             android:id="@+id/butAfegirMenu"
             android:layout_width="wrap_content"
             android:layout_height="71dp"
