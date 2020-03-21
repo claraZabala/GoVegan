@@ -11,10 +11,10 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="200dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="30dp"
         android:text="Introdueixi el seu correu electrònic per a que poguem enviar-li un link on podrà generar una nova contrasenya. "
-        android:textColor="@android:color/black"
-        android:textSize="25dp" />
+        android:textColor="@color/negre"
+        android:textSize="25dp"/>
 
     <EditText
         android:id="@+id/correu"
@@ -26,6 +26,7 @@
         android:layout_marginTop="25dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
+        android:textColor="@color/negre"
         android:inputType="textEmailAddress" />
 
     <Button

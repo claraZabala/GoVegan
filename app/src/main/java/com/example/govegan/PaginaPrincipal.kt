@@ -27,7 +27,7 @@ class PaginaPrincipal : AppCompatActivity() {
     }
 
     fun accio4(view: View) {
-        intent = Intent(this, Propostes::class.java)
+        intent = Intent(this, LayoutPropostes::class.java)
         startActivity(intent)
     }
 
