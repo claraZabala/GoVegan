@@ -57,13 +57,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/estil_botons"
-        android:text="AFEGIR RECEPTA" />
+        android:text="AFEGIR RECEPTA"
+        android:onClick="calendari"/>
 
     <Switch
         android:id="@+id/switch4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Afegir Recepta(Per poder afegir la recepta l'apad ha de ser completament vega)" />
+        android:text="Afegir Recepta(Per poder afegir la recepta l'àpat ha de ser completament vegà/vegetarià)" />
 
     <CheckBox
         android:id="@+id/checkBox5"
@@ -156,6 +157,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/estil_botons"
-        android:text="COMPARTIR RECEPTA"  />
+        android:text="COMPARTIR RECEPTA"
+        android:onClick="recepta"/>
 
 </LinearLayout>
