@@ -18,7 +18,7 @@ class LayoutPropostes : AppCompatActivity() {
     }
 
     fun proposta(view: View){
-        intent = Intent(this, Recepta::class.java)
+        intent = Intent(this, AfegirMenu::class.java)
         startActivity(intent)
     }
 }
