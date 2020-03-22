@@ -52,6 +52,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"></Spinner>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/estil_botons"
+        android:text="AFEGIR RECEPTA" />
+
     <Switch
         android:id="@+id/switch4"
         android:layout_width="match_parent"
@@ -143,12 +150,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="INSEREIX UNA IMATGE AQUI: "></TextView>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="AFEGIR RECEPTA"
-        android:background="@drawable/estil_botons"/>
 
 </LinearLayout>
