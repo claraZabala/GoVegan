@@ -31,7 +31,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nom de la recepta"
+            android:hint="Nom de la recepta"
             >
         </EditText>
     </LinearLayout>
@@ -86,7 +86,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Indica pas a pas com realitzar la recepta"
+            android:hint="Indica pas a pas com realitzar la recepta"
             >
         </EditText>
     </LinearLayout>
@@ -106,7 +106,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temps preparació"
+            android:hint="Temps preparació"
             >
         </EditText>
     </LinearLayout>
@@ -124,7 +124,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Temps cuina"
+            android:hint="Temps cuina"
             >
         </EditText>
     </LinearLayout>
@@ -142,15 +142,16 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Numero comensals"
+            android:hint="Numero comensals"
             >
         </EditText>
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="INSEREIX UNA IMATGE AQUI: "></TextView>
+        android:layout_height="35dp"
+        android:text="INSEREIX UNA IMATGE AQUI: "
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/button2"
