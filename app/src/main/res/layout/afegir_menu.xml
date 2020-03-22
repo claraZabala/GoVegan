@@ -151,4 +151,11 @@
         android:layout_height="wrap_content"
         android:text="INSEREIX UNA IMATGE AQUI: "></TextView>
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/estil_botons"
+        android:text="COMPARTIR RECEPTA"  />
+
 </LinearLayout>
