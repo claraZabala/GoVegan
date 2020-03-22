@@ -13,8 +13,8 @@
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
-            android:layout_width="329dp"
-            android:layout_height="400dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:background="@color/taronjaClar"
             android:layout_gravity="center">
 
@@ -61,7 +61,7 @@
                 android:layout_marginTop="30dp"
                 android:text="Temps de preparació: "
                 android:textColor="@color/taronjaFosc"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/tempsPreparacio"
@@ -73,7 +73,7 @@
                 android:layout_marginRight="16dp"
                 android:text="30 min"
                 android:textColor="@color/taronjaFosc"
-                android:textSize="20dp" />
+                android:textSize="15dp" />
 
             <ImageView
                 android:id="@+id/iconRecepta"
@@ -82,7 +82,7 @@
                 android:src="@drawable/ou"
                 android:layout_below="@id/temps"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="40dp"/>
 
         </RelativeLayout>
 
