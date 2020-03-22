@@ -9,6 +9,7 @@
     <TextView
         android:id="@+id/titol_recepta"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Titol Recepta" />
@@ -25,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Nom de l'autor" />
 
     <TextView
@@ -32,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="252dp"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Recepta" />
 
     <TextView
@@ -39,6 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Temps preparacio" />
 
     <TextView
@@ -46,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Temps cuina" />
 
     <TextView
@@ -53,15 +58,57 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
         android:text="Comensals" />
 
-    <ImageButton
-        android:id="@+id/afegir_recepta"
-        android:layout_width="wrap_content"
-        android:layout_height="61dp"
-        android:layout_gravity="right"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:onClick="llista"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+    <LinearLayout
+        android:layout_width="448dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="10dp"
+            android:text="Afegir a la llista de la compra:" />
+
+        <ImageButton
+            android:id="@+id/afegir_recepta"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/verdMoltClar"
+            android:foregroundGravity="right"
+            android:onClick="llista"
+            app:srcCompat="@android:drawable/ic_menu_add" />
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:text="Afegir al calendari com a àpat:"/>
+
+            <ImageButton
+                android:id="@+id/afegir_calendari"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="right"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@color/vermell"
+                android:foregroundGravity="right"
+                android:onClick="calendari"
+                app:srcCompat="@android:drawable/ic_menu_add" />
+        </LinearLayout>
 </LinearLayout>

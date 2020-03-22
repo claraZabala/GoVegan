@@ -53,4 +53,9 @@ class Calendari_Setmanal : AppCompatActivity() {
         intent = Intent(this, AfegirMenu::class.java)
         startActivity(intent)
     }
+
+    fun recepta(view: View){
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
 }
