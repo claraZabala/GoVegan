@@ -16,4 +16,9 @@ class Recepta : AppCompatActivity() {
         intent = Intent(this, LlistaCompra::class.java)
         startActivity(intent)
     }
+
+    fun calendari(view: View){
+        intent = Intent(this, Calendari_Setmanal::class.java)
+        startActivity(intent)
+    }
 }
