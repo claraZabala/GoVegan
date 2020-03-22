@@ -21,4 +21,9 @@ class LayoutPropostes : AppCompatActivity() {
         intent = Intent(this, AfegirMenu::class.java)
         startActivity(intent)
     }
+
+    fun mostrar_recepta(view: View) {
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
 }

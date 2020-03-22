@@ -10,7 +10,7 @@ import androidx.viewpager.widget.PagerAdapter
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context;
-    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","Es tracta d'un plat exquisit."),Propostes(R.drawable.healthy,"Proposta 2","Aquí teinim la proposta del dia."),Propostes(R.drawable.moda,"Proposta 3","Un àpat ràpid."),Propostes(R.drawable.altres,"Proposta 4","Per últim..."))
+    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou),Propostes(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara),Propostes(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou),Propostes(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut))
     init{
         this.context = context;
 
@@ -26,13 +26,18 @@ class AdapterPropostes(context: Context): PagerAdapter() {
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         var layoutInflater = LayoutInflater.from(context);
-        val view:View = layoutInflater.inflate(R.layout.explicacio_curiositat,container,false);
-        val imageView: ImageView = view.findViewById(R.id.imageGastronomia)
-        val title: TextView = view.findViewById(R.id.titolGastronomia)
-        val explicacio: TextView = view.findViewById(R.id.explicacióGastronomia)
+        val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false);
+        val imageView: ImageView = view.findViewById(R.id.imageRecepta)
+        val title: TextView = view.findViewById(R.id.titolRecepta)
+        val temps: TextView = view.findViewById(R.id.tempsPreparacio)
+        val numPersones: TextView = view.findViewById(R.id.numPersones)
+        val icona: ImageView = view.findViewById(R.id.iconRecepta)
         imageView.setImageResource(propostes.get(position).imatge)
         title.setText(propostes.get(position).title)
-        explicacio.setText(propostes.get(position).desc)
+        temps.setText(propostes.get(position).temps)
+        numPersones.setText(propostes.get(position).numPersones)
+        icona.setImageResource(propostes.get(position).icona)
+
 
         container.addView(view,0)
         return view;
