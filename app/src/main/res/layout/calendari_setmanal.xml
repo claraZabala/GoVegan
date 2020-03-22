@@ -309,6 +309,7 @@
             android:text="Afegir Menu"
             android:onClick="afegirMenu"/>
         <Spinner
+            android:id="@+id/spinner2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></Spinner>
 
