@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.model
 
 
 class Propostes (imatge:Int,title:String,temps:String,numPersones:String,icona:Int) {

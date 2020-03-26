@@ -26,15 +26,16 @@
              <TextView
                  android:id="@+id/titolGastronomia"
                  android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
                  android:layout_below="@+id/imageGastronomia"
-                 android:layout_marginTop="10dp"
                  android:layout_marginLeft="16dp"
+                 android:layout_marginTop="14dp"
                  android:text="Sabies que..."
                  android:textColor="@color/negre"
-                 android:textSize="16sp"
-                 android:layout_height="wrap_content">
+                 android:textSize="16sp">
 
              </TextView>
+
              <TextView
                  android:id="@+id/explicacióGastronomia"
                  android:layout_below="@+id/titolGastronomia"

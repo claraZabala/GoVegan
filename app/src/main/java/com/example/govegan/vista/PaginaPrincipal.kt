@@ -1,9 +1,10 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.govegan.R
 
 class PaginaPrincipal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

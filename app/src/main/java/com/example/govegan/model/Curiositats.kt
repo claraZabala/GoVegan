@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.model
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,17 +1,39 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Context
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.R
+import com.example.govegan.model.Curiositats
 
 class AdapterCuriositats(context: Context): PagerAdapter() {
     var context:Context = context;
-    var curiositats:List<Curiositats> = listOf(Curiositats(R.drawable.gastronomia,"Gastronomia","la gastronomia ..."),Curiositats(R.drawable.healthy,"Salut","la salut ..."),Curiositats(R.drawable.moda,"Moda","la moda ..."),Curiositats(R.drawable.altres,"Altres","la salut ..."))
+    var curiositats:List<Curiositats> = listOf(
+        Curiositats(
+            R.drawable.gastronomia,
+            "Gastronomia",
+            "la gastronomia ..."
+        ),
+        Curiositats(
+            R.drawable.healthy,
+            "Salut",
+            "la salut ..."
+        ),
+        Curiositats(
+            R.drawable.moda,
+            "Moda",
+            "la moda ..."
+        ),
+        Curiositats(
+            R.drawable.altres,
+            "Altres",
+            "la salut ..."
+        )
+    )
     init{
         this.context = context;
 

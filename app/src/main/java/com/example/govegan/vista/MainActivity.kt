@@ -1,12 +1,10 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Adapter
-import androidx.viewpager.widget.ViewPager
-import kotlinx.android.synthetic.main.pagina_principal.*
+import com.example.govegan.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

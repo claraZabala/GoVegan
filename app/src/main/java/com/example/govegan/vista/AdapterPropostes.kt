@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,41 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.R
+import com.example.govegan.model.Propostes
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context;
-    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou),Propostes(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara),Propostes(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou),Propostes(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut))
+    var propostes:List<Propostes> = listOf(
+        Propostes(
+            R.drawable.gastronomia,
+            "Proposta 1",
+            "45 min",
+            "2 persones",
+            R.drawable.ou
+        ),
+        Propostes(
+            R.drawable.healthy,
+            "Proposta 2",
+            "10 min",
+            "1 persona",
+            R.drawable.cara
+        ),
+        Propostes(
+            R.drawable.moda,
+            "Proposta 3",
+            "1 hora",
+            "3 persones",
+            R.drawable.ou
+        ),
+        Propostes(
+            R.drawable.altres,
+            "Proposta 4",
+            "1,5 hores",
+            "3 persones",
+            R.drawable.batut
+        )
+    )
     init{
         this.context = context;
 
