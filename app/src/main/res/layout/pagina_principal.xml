@@ -31,7 +31,7 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="La meva setmana"
-        android:onClick="accio1"
+        android:onClick="calendari"
         />
 
     <Button
@@ -43,7 +43,7 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="Què puc menjar avui?"
-        android:onClick="accio4"
+        android:onClick="propostes"
         />
 
     <Button
@@ -55,7 +55,7 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="Llista de la compra"
-        android:onClick="accio3"/>
+        android:onClick="llistaCompra"/>
 
     <Button
         android:id="@+id/curiositats"
@@ -66,7 +66,7 @@
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
         android:text="Curiositats del dia"
-        android:onClick="accio5"/>
+        android:onClick="curiositats"/>
 
     <Button
         android:id="@+id/forum"
@@ -76,7 +76,7 @@
         android:layout_gravity="center"
         android:layout_weight="1"
         android:background="@drawable/estil_botons"
-        android:onClick="accio2"
+        android:onClick="forum"
         android:text="Fòrum" />
 
 </LinearLayout>

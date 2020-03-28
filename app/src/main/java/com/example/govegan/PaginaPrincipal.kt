@@ -11,27 +11,27 @@ class PaginaPrincipal : AppCompatActivity() {
         setContentView(R.layout.pagina_principal)
     }
 
-    fun accio1(view: View) {
+    fun calendari(view: View) {
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }
 
-    fun accio2(view: View) {
+    fun forum(view: View) {
         intent = Intent(this, Forum::class.java)
         startActivity(intent)
     }
 
-    fun accio3(view: View) {
+    fun llistaCompra(view: View) {
         intent = Intent(this, LlistaCompra::class.java)
         startActivity(intent)
     }
 
-    fun accio4(view: View) {
+    fun propostes(view: View) {
         intent = Intent(this, LayoutPropostes::class.java)
         startActivity(intent)
     }
 
-    fun accio5(view: View) {
+    fun curiositats(view: View) {
         intent = Intent(this, layoutCuriositats::class.java)
         startActivity(intent)
     }

@@ -5,13 +5,13 @@ import android.os.Bundle
 import java.lang.reflect.Constructor
 
 
-private class Curiositats (imatge:Int, title:String, desc:String) {
+class Curiositats (imatge:Int, title:String, desc:String) {
     var imatge:Int = 0;
-    var title:String = "";
-    var desc:String = "";
+    var title:String = ""
+    var desc:String = ""
     init{
-        this.imatge = imatge;
-        this.title = title;
-        this.desc = desc;
+        this.imatge = imatge
+        this.title = title
+        this.desc = desc
     }
 }
