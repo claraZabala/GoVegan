@@ -1,4 +1,4 @@
-package com.example.govegan.vista
+package com.example.govegan
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,57 +7,26 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.example.govegan.R
-import com.example.govegan.model.Propostes
 
 class AdapterPropostes(context: Context): PagerAdapter() {
-    var context:Context = context;
-    var propostes:List<Propostes> = listOf(
-        Propostes(
-            R.drawable.gastronomia,
-            "Proposta 1",
-            "45 min",
-            "2 persones",
-            R.drawable.ou
-        ),
-        Propostes(
-            R.drawable.healthy,
-            "Proposta 2",
-            "10 min",
-            "1 persona",
-            R.drawable.cara
-        ),
-        Propostes(
-            R.drawable.moda,
-            "Proposta 3",
-            "1 hora",
-            "3 persones",
-            R.drawable.ou
-        ),
-        Propostes(
-            R.drawable.altres,
-            "Proposta 4",
-            "1,5 hores",
-            "3 persones",
-            R.drawable.batut
-        )
-    )
+    var context:Context = context
+    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou),Propostes(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara),Propostes(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou),Propostes(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut))
     init{
-        this.context = context;
+        this.context = context
 
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
-        return view.equals(`object`);
+        return view.equals(`object`)
     }
 
     override fun getCount(): Int {
-        return propostes.size;
+        return propostes.size
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        var layoutInflater = LayoutInflater.from(context);
-        val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false);
+        var layoutInflater = LayoutInflater.from(context)
+        val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false)
         val imageView: ImageView = view.findViewById(R.id.imageRecepta)
         val title: TextView = view.findViewById(R.id.titolRecepta)
         val temps: TextView = view.findViewById(R.id.tempsPreparacio)
@@ -71,11 +40,11 @@ class AdapterPropostes(context: Context): PagerAdapter() {
 
 
         container.addView(view,0)
-        return view;
+        return view
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, objecte: Any) {
-        container.removeView(objecte as View?);
+        container.removeView(objecte as View?)
 
     }
 }

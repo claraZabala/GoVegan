@@ -30,7 +30,7 @@ class Forum : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
-            spinner.setAdapter(adapter);
+            spinner.setAdapter(adapter)
             spinner.onItemSelectedListener = object : OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
