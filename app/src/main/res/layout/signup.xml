@@ -75,15 +75,12 @@
         android:inputType="textPersonName"
         android:text="Repetir contrasenya " />
 
-    <EditText
-        android:id="@+id/age"
+    <Spinner
+        android:id="@+id/spinner3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:text="Edat"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"/>
 
     <Button
         android:id="@+id/send"

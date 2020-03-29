@@ -2,20 +2,20 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/taronjaFosc"
+    android:background="@color/taronjaClar"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/titol_recepta"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50"
         android:text="Titol Recepta" />
 
     <ImageView
         android:id="@+id/foto_recepta"
+        android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="158dp"
         android:src="@drawable/batut" />
@@ -25,17 +25,17 @@
         android:id="@+id/autor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
         android:text="Nom de l'autor" />
 
     <TextView
         android:id="@+id/passos"
         android:layout_width="match_parent"
-        android:layout_height="252dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
         android:layout_marginLeft="10dp"
-        android:text="Recepta" />
+        android:text="Recepta " />
 
     <TextView
         android:id="@+id/t_prep"
@@ -69,19 +69,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginLeft="10dp"
+            android:layout_margin="10dp"
             android:text="Afegir a la llista de la compra:" />
 
         <ImageButton
             android:id="@+id/afegir_recepta"
             android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:layout_gravity="right"
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
-            android:background="@color/verdMoltClar"
+            android:background="@color/verdClar"
             android:foregroundGravity="right"
             android:onClick="llista"
             app:srcCompat="@android:drawable/ic_menu_add" />
@@ -94,19 +92,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="20dp"
+            android:layout_margin="10dp"
             android:text="Afegir al calendari com a àpat:"/>
 
             <ImageButton
                 android:id="@+id/afegir_calendari"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="30dp"
                 android:layout_gravity="right"
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
-                android:background="@color/vermell"
+                android:background="@color/verdClar"
                 android:foregroundGravity="right"
                 android:onClick="calendari"
                 app:srcCompat="@android:drawable/ic_menu_add" />

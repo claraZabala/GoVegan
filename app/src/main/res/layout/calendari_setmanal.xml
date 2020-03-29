@@ -23,6 +23,12 @@
         />
 
 
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Spinner>
+
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="156dp"
@@ -31,8 +37,7 @@
         android:columnOrderPreserved="false"
         android:rowCount="4"
         android:layout_marginLeft="10dp"
-
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="10dp">
 
 
         <TextView
@@ -285,7 +290,19 @@
 
     </GridLayout>
 
+    <Button
+        android:id="@+id/butAfegirPlat"
+        android:layout_width="110dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center"
+        android:background="@drawable/estil_botons"
+        android:onClick="afegirMenu"
+        android:text="Afegir Plat" />
+
     <LinearLayout
+        android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -299,20 +316,6 @@
             tools:layout_editor_absoluteX="49dp"
             tools:layout_editor_absoluteY="393dp" />
 
-        <Button
-            android:layout_marginTop="15dp"
-            android:id="@+id/butAfegirMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="71dp"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/estil_botons"
-            android:text="Afegir Menu"
-            android:onClick="afegirMenu"/>
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></Spinner>
-
     </LinearLayout>
 
     <ScrollView
@@ -322,103 +325,108 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="MENU DIA 1:"
-                android:layout_marginRight="30dp"
-                ></TextView>
+
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                >
-                <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                >
-                <TextView
-                    android:layout_width="70dp"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Esmorzar:"
-                    android:layout_marginRight="10dp">
-                </TextView>
+                    android:orientation="vertical">
 
                     <TextView
-                        android:layout_width="170dp"
+                        android:id="@+id/menu1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Cereals amb muesli i un suc de taronja"></TextView>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+INFO"
-                        android:background="@drawable/estil_botons_2"
-                        android:onClick="recepta">
-                    </Button>
+                        android:text="MENÚ DIA 1" />
 
-            </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:text="Dinar:"
-                        android:layout_marginRight="10dp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="170dp"
-                        android:layout_height="wrap_content"
-                        android:text="Patata i mongeta, de segon hamburgesa vegetal i de postre poma"></TextView>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:text="+INFO"
-                        android:background="@drawable/estil_botons_2"
-                        android:onClick="recepta">
-                    </Button>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:text="Esmorzar:"></TextView>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:text="Cereals amb muesli i un suc de taronja"></TextView>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/estil_botons_2"
+                            android:onClick="recepta"
+                            android:text="+INFO"></Button>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:text="Dinar:"></TextView>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:text="Patata i mongeta, de segon hamburgesa vegetal i de postre poma"></TextView>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/estil_botons_2"
+                            android:onClick="recepta"
+                            android:text="+INFO"></Button>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:text="Sopar:"></TextView>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:text="Amanida i entrepa d'aguacate"></TextView>
+
+                        <Button
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/estil_botons_2"
+                            android:onClick="recepta"
+                            android:text="+INFO"></Button>
+
+                    </LinearLayout>
 
 
                 </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"
-                    >
-                    <TextView
-                        android:layout_width="70dp"
-                        android:layout_height="wrap_content"
-                        android:text="Sopar:"
-                        android:layout_marginRight="10dp">
-                    </TextView>
-                    <TextView
-                        android:layout_width="170dp"
-                        android:layout_height="wrap_content"
-                        android:text="Amanida i entrepa d'aguacate"></TextView>
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+INFO"
-                        android:background="@drawable/estil_botons_2"
-                        android:layout_marginTop="5dp"
-                        android:onClick="recepta">
-                    </Button>
-
-                </LinearLayout>
-
-
             </LinearLayout>
-    </LinearLayout>
-    </LinearLayout>
+        </LinearLayout>
 
 
     </ScrollView>
