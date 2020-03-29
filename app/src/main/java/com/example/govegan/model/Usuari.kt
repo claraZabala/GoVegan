@@ -1,8 +1,10 @@
 package com.example.govegan.model
+import com.example.govegan.vista.Calendari_Setmanal
 
 private class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
                      pwd2:String, email:String, edat:Int,
-                     calendari: Calendari_Setmanal) {
+                     calendari: Calendari_Setmanal
+) {
     var nom:String = ""
     var cognoms:String = ""
     var nomUsuari:String = ""
