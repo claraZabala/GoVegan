@@ -9,9 +9,11 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
+import com.example.govegan.controlador.Controlador
 
 
 class Forum : AppCompatActivity() {
+    var controlador:Controlador = Controlador();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
