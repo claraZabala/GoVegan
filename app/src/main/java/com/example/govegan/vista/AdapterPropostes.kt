@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.model.Propostes
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context

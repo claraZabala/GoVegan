@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.model
 
 private class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
                      pwd2:String, email:String, edat:Int,

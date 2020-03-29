@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.model.Curiositats
 
 class AdapterCuriositats(context: Context): PagerAdapter() {
     var context:Context = context
