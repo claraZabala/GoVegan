@@ -1,7 +1,7 @@
 package com.example.govegan.model
 import com.example.govegan.vista.Calendari_Setmanal
 
-private class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
+class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
                      pwd2:String, email:String, edat:Int,
                      calendari: Calendari_Setmanal
 ) {
