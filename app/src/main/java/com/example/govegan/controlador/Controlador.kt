@@ -3,8 +3,16 @@ package com.example.govegan.controlador
 import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Usuari
 
+import com.example.govegan.model.Curiositat
+
 class Controlador {
-    var carteraUsuaris = CarteraUsuaris();
+    var façanaCarteraCuriositats:FaçanaCarteraCuriositats
+    var carteraUsuaris:CarteraUsuaris
+    init{
+        façanaCarteraCuriositats = FaçanaCarteraCuriositats()
+        carteraUsuaris = CarteraUsuaris()
+    }
+
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
                  pwd2: String, edat: String): Int {
         if (pwd.isNullOrBlank() or pwd2.isNullOrBlank() or mail.isNullOrBlank() or nom.isNullOrBlank()
@@ -24,8 +32,26 @@ class Controlador {
         }
     }
 
-    init{
+    fun getLlistaCuriositats():ArrayList<Curiositat> {
+    return façanaCarteraCuriositats.getLlistaCuriositats()
 
     }
 
+    fun getCuriositatByTheme(tema: String): Curiositat? {
+        return façanaCarteraCuriositats.getCuriositatByTheme(tema)
+    }
+    fun changeDescCuriositat(tema: String,descNova: String):Boolean{
+        return façanaCarteraCuriositats.changeDescCuriositat(tema,descNova)
+    }
+    fun addCuriositat(tema:String,desc:String,imatge:Int):Boolean{
+        return façanaCarteraCuriositats.addCuriositat(tema,desc,imatge)
+    }
+
+    fun removeCuriositat(index: Int){
+        return façanaCarteraCuriositats.removeCuriositat(index)
+    }
+
+
+    fun getIndexFromList(tema:String):Int{
+        return façanaCarteraCuriositats.getIndexFromList(tema)
 }

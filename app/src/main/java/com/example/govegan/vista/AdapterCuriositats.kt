@@ -1,6 +1,7 @@
 package com.example.govegan
 
 import android.content.Context
+import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,12 +10,12 @@ import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.govegan.model.Curiositat
 
-class AdapterCuriositats(context: Context): PagerAdapter() {
+class AdapterCuriositats(context: Context,curiositats:ArrayList<Curiositat>): PagerAdapter() {
     var context:Context = context
-    var curiositats:List<Curiositat> = listOf(Curiositat(R.drawable.gastronomia,"Gastronomia","la gastronomia ..."),Curiositat(R.drawable.healthy,"Salut","la salut ..."),Curiositat(R.drawable.moda,"Moda","la moda ..."),Curiositat(R.drawable.altres,"Altres","la salut ..."))
+    var curiositats:ArrayList<Curiositat>
     init{
         this.context = context
-
+        this.curiositats = curiositats
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
