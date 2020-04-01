@@ -15,20 +15,24 @@ import com.example.govegan.model.Resposta
 
 
 class Forum : AppCompatActivity() {
-    var controlador:Controlador = Controlador();
-    val pregReceptes = arrayOf<Pregunta>()
-    val pregOnCompro = arrayOf<Pregunta>()
-    val pregDietes = arrayOf<Pregunta>()
-    val pregRestaurants = arrayOf<Pregunta>()
-    val pregPropietats = arrayOf<Pregunta>()
-    val pregModa = arrayOf<Pregunta>()
-    val pregHigiene = arrayOf<Pregunta>()
-    val pregSalut = arrayOf<Pregunta>()
-    val pregAltres = arrayOf<Pregunta>()
 
-    fun initPreguntes(){
-        //Fem que per cada pregunta cridi al metode de la classe pregunta init respostes
-        // Falta completar
+    var controlador:Controlador = Controlador();
+
+    // Tenim un array de preguntes
+    var preguntes: ArrayList<Pregunta> = ArrayList()
+
+    init {
+        preguntes.add(Pregunta("Paquita12", "On puc comprar heura?", "On compro els ingredients?"))
+        preguntes.add(Pregunta("Rosa_", "La marca Sephora és vegana?", "Moda"))
+        preguntes.add(Pregunta("Paquita12", "Quin xampú puc fer servir?", "Higiene"))
+        preguntes.add(Pregunta("Florenciooo", "Quin restaurant em recomenarieu a Barcelona?", "Restaurants"))
+        preguntes.add(Pregunta("Carlos_00", "Sabeu si hi ha hamburgeses veganes al lidl?", "On compro els ingredients?"))
+        preguntes.add(Pregunta("SaraAO", "La Woper Rebel del Burguer King es vegetariana o vegana?", "Restaurants?"))
+        preguntes.add(Pregunta("Lola123", "La soja texteuriçada és rica en proteina?", "Propietats"))
+        preguntes.add(Pregunta("LindaSIS", "On venen seitán?", "On compro els ingredients?"))
+        preguntes.add(Pregunta("Paquita12", "De que està feta la beyound meet?", "Propietats"))
+        preguntes.add(Pregunta("Carlos_00", "Sabeu algun actor que sigui vegà?", "Moda"))
+
     }
 
     fun crearPregunta(){
@@ -36,7 +40,7 @@ class Forum : AppCompatActivity() {
         //Falta completar
     }
 
-    fun mostrarPreguntesPerTema(){
+    fun mostrarPreguntes(){
         // Fem un when per cada tema i mostrem l'array pel layout o que el retorni
     }
 

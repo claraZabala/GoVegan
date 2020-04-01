@@ -5,8 +5,13 @@ import android.os.Bundle
 import java.lang.reflect.Constructor
 
 
-class Resposta (imatge:Int, title:String, desc:String) : Pregunta(imatge, title, desc){
-    var idPrgegunta:String = ""
+class Resposta (idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
+    var idDestinatari:String = ""
     var esCertificat:Boolean = false
+
+    init{
+        this.idUsuari = idUsuari
+        this.esCertificat = esCertificat
+    }
 
 }
