@@ -5,7 +5,7 @@ import android.os.Bundle
 import java.lang.reflect.Constructor
 
 
-class Pregunta (imatge:Int, title:String, desc:String) {
+open class Pregunta (imatge:Int, title:String, desc:String) {
     var id:String = ""
     var idUsuari:String= ""
     var descripcio:String = ""
