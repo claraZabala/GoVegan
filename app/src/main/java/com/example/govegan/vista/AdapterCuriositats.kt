@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.example.govegan.model.Curiositats
+import com.example.govegan.model.Curiositat
 
-class AdapterCuriositats(context: Context): PagerAdapter() {
+class AdapterCuriositats(context: Context,curiositats:ArrayList<Curiositat>): PagerAdapter() {
     var context:Context = context
-    var curiositats:List<Curiositats> = listOf(Curiositats(R.drawable.gastronomia,"Gastronomia","la gastronomia ..."),Curiositats(R.drawable.healthy,"Salut","la salut ..."),Curiositats(R.drawable.moda,"Moda","la moda ..."),Curiositats(R.drawable.altres,"Altres","la salut ..."))
+    var curiositats:ArrayList<Curiositat>
     init{
         this.context = context
-
+        this.curiositats = curiositats
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
