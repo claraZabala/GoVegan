@@ -2,14 +2,17 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Curiositat
+import com.example.govegan.model.Usuari
 
 class Controlador {
     var facadeCarteraCuriositats: FacadeCarteraCuriositats
     var carteraUsuaris: CarteraUsuaris
+    var usuariActiu: Usuari?
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
         carteraUsuaris = CarteraUsuaris()
+        usuariActiu = null
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
