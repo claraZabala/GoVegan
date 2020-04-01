@@ -21,7 +21,7 @@
         android:ems="10"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Nom" />
+        android:hint="Nom" />
 
     <EditText
         android:id="@+id/cognoms"
@@ -31,7 +31,7 @@
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Cognoms" />
+        android:hint="Cognoms" />
 
     <EditText
         android:id="@+id/nomUsuari"
@@ -41,7 +41,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Nom d'usuari" />
+        android:hint="Nom d'usuari" />
 
 
     <EditText
@@ -52,7 +52,7 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Correu electrònic" />
+        android:hint="Correu electrònic" />
 
     <EditText
         android:id="@+id/pwd"
@@ -61,8 +61,8 @@
         android:ems="10"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:text="Contrasenya" />
+        android:inputType="textPassword"
+        android:hint="Contrasenya" />
 
 
     <EditText
@@ -72,8 +72,8 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Repetir contrasenya " />
+        android:inputType="textPassword"
+        android:hint="Repetir contrasenya " />
 
     <Spinner
         android:id="@+id/edat"

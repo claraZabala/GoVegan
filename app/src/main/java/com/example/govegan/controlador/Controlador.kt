@@ -12,13 +12,10 @@ class Controlador {
         carteraUsuaris = CarteraUsuaris()
     }
 
-    fun registre(
-        nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
-        pwd2: String, edat: String
-    ): Int {
+    fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
+        pwd2: String, edat: String): Int {
         if (pwd.isNullOrBlank() or pwd2.isNullOrBlank() or mail.isNullOrBlank() or nom.isNullOrBlank()
-            or edat.isNullOrBlank() or cognoms.isNullOrBlank() or nomUsuari.isNullOrBlank()
-        ) {
+            or edat.isNullOrBlank() or cognoms.isNullOrBlank() or nomUsuari.isNullOrBlank()) {
             return 1
         } else if (!pwd.equals(pwd2)) {
             return 2
