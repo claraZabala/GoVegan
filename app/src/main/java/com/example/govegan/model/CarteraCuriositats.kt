@@ -9,9 +9,8 @@ class CarteraCuriositats {
         llistaCuriositats.add(Curiositats(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))
         llistaCuriositats.add(Curiositats(R.drawable.healthy, "Salut", "la salut ..."))
         llistaCuriositats.add(Curiositats(R.drawable.moda, "Moda", "la moda ..."))
-        llistaCuriositats.add(Curiositats(R.drawable.altres, "Altres", "la salut ..."))
+        llistaCuriositats.add(Curiositats(R.drawable.altres, "ALTRES", "la salut ..."))
     }
-
 
     fun getCuriositatByTheme(tema: String): Curiositats? {
         for (item in llistaCuriositats) {
@@ -37,6 +36,7 @@ class CarteraCuriositats {
             }
         }
         var curiositat:Curiositats = Curiositats(imatge,tema,desc)
+        llistaCuriositats.add(curiositat)
         return true
     }
 

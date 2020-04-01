@@ -8,6 +8,10 @@ class FaçanaCarteraCuriositats() {
     init{
         carteraCuriositats = CarteraCuriositats()
     }
+
+    fun getLlistaCuriositats():ArrayList<Curiositats>{
+        return carteraCuriositats.llistaCuriositats
+    }
     fun getCuriositatByTheme(tema: String): Curiositats? {
        return carteraCuriositats.getCuriositatByTheme(tema)
     }

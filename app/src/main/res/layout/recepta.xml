@@ -10,7 +10,7 @@
         android:id="@+id/titol_recepta"
         android:layout_margin="10dp"
         android:layout_width="match_parent"
-        android:layout_height="50"
+        android:layout_height="50dp"
         android:text="Titol Recepta" />
 
     <ImageView
