@@ -15,33 +15,33 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/pregunta1"
+        android:id="@+id/nom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Nom" />
+        android:hint="Nom" />
 
     <EditText
-        android:id="@+id/Resposta1"
+        android:id="@+id/cognoms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:text="Cognoms" />
+        android:hint="Cognoms" />
 
     <EditText
-        android:id="@+id/pregunta2"
+        android:id="@+id/nomUsuari"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Nom d'usuari" />
+        android:hint="Nom d'usuari" />
 
 
     <EditText
@@ -52,31 +52,31 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:text="Correu electrònic" />
+        android:hint="Correu electrònic" />
 
     <EditText
-        android:id="@+id/psw"
+        android:id="@+id/pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:text="Contrasenya" />
+        android:inputType="textPassword"
+        android:hint="Contrasenya" />
 
 
     <EditText
-        android:id="@+id/psw2"
+        android:id="@+id/pwd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:inputType="textPersonName"
-        android:text="Repetir contrasenya " />
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:hint="Repetir contrasenya " />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/edat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

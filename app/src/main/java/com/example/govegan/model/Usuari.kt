@@ -1,18 +1,16 @@
 package com.example.govegan.model
 import com.example.govegan.vista.Calendari_Setmanal
 
-class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
-                     pwd2:String, email:String, edat:Int,
-                     calendari: Calendari_Setmanal
-) {
-    var nom:String = ""
-    var cognoms:String = ""
-    var nomUsuari:String = ""
-    var pwd:String = ""
-    var pwd2:String = ""
-    var email:String = ""
-    var edat:Int = 0
-    var calendari: Calendari_Setmanal? = null
+
+
+class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
+    private var nom:String
+    var cognoms:String
+    var nomUsuari:String
+    var pwd:String
+    var edat:Int
+    var email:String
+    var calendari:Calendari_Setmanal
 
     init {
         this.nom = nom
@@ -20,8 +18,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
         this.edat = edat
         this.nomUsuari = nomUsuari
         this.pwd = pwd
-        this.pwd2 = pwd2
         this.email = email
-        this.calendari = calendari
+        calendari = Calendari_Setmanal()
     }
 }

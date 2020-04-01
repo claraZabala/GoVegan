@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.example.govegan.model.Curiositats
+import com.example.govegan.model.Curiositat
 
-class AdapterCuriositats(context: Context,curiositats:ArrayList<Curiositats>): PagerAdapter() {
+class AdapterCuriositats(context: Context,curiositats:ArrayList<Curiositat>): PagerAdapter() {
     var context:Context = context
-    var curiositats:ArrayList<Curiositats>
+    var curiositats:ArrayList<Curiositat>
     init{
         this.context = context
         this.curiositats = curiositats

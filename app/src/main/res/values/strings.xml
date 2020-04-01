@@ -20,4 +20,11 @@
         <item>Setmana 4</item>
     </string-array>
 
+    <string-array name="edat">
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+    </string-array>
+
 </resources>
