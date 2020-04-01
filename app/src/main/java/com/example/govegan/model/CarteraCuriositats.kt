@@ -30,14 +30,14 @@ class CarteraCuriositats {
         }
         return false
     }
-    fun addCuriositat(novaCur:Curiositats):Boolean{
-        if (novaCur != null) {
-            llistaCuriositats.add(novaCur)
-            return true
+    fun addCuriositat(tema:String,desc:String,imatge:Int):Boolean{
+        for (item in llistaCuriositats) {
+            if (item.title.equals(tema)){
+                return false
+            }
         }
-        else{
-            return false
-        }
+        var curiositat:Curiositats = Curiositats(imatge,tema,desc)
+        return true
     }
 
     fun removeCuriositat(index: Int){
