@@ -1,7 +1,7 @@
 package com.example.govegan.model
 
 class CarteraReceptes {
-    private var propostes: ArrayList<Propostes>
+    private var propostes: ArrayList<Proposta>
         get(){
             return propostes
         }

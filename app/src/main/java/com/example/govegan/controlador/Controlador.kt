@@ -3,10 +3,12 @@ package com.example.govegan.controlador
 import com.example.govegan.model.Curiositats
 
 class Controlador {
-    var façanaCarteraCuriositats:FaçanaCarteraCuriositats
-    init{
-        façanaCarteraCuriositats=FaçanaCarteraCuriositats()
+    var façanaCarteraCuriositats: FaçanaCarteraCuriositats
+    var façanaCarteraReceptes: FaçanaCarteraReceptes
 
+    init{
+        façanaCarteraCuriositats = FaçanaCarteraCuriositats()
+        façanaCarteraReceptes = FaçanaCarteraReceptes()
     }
     fun getLlistaCuriositats():ArrayList<Curiositats> {
     return façanaCarteraCuriositats.getLlistaCuriositats()
