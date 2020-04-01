@@ -57,18 +57,17 @@ class SignUp: AppCompatActivity() {
     }
 
     fun paginaPrincipal(view: View) {
-        var editText = edat.selectedItem.toString()
         var registre = controlador.registre(nom.text.toString(), cognoms.text.toString(), nomUsuari.text.toString(), mail.text.toString(),
             pwd.text.toString(), pwd2.text.toString(), edat.selectedItem.toString())
         if (registre.equals(0)){
             intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)
         } else if (registre.equals(1)){
-            println("Has d'omplir tots els camps")
+            Toast.makeText(applicationContext, "Has d'omplir tots els camps", Toast.LENGTH_LONG).show()
         } else if (registre.equals(2)){
-            println("Les contrasenyes han de coincidir")
+            Toast.makeText(applicationContext, "Les contrasenyes han de coincidir", Toast.LENGTH_LONG).show()
         } else {
-            println("El nom d'usuari ja existeix")
+            Toast.makeText(applicationContext, "El nom d'usuari ja existeix", Toast.LENGTH_LONG).show()
         }
     }
 }

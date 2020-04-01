@@ -7,7 +7,7 @@ class CarteraUsuaris {
     val llistaUsuaris: ArrayList<Usuari> = ArrayList()
 
     init {
-        //llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22))
+        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22))
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
