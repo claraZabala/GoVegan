@@ -5,6 +5,7 @@ import com.example.govegan.model.Curiositat
 import com.example.govegan.model.Usuari
 
 class Controlador {
+ 
     var facadeCarteraCuriositats: FacadeCarteraCuriositats
     var carteraUsuaris: CarteraUsuaris
     var usuariActiu: Usuari?

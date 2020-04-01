@@ -2,14 +2,14 @@ package com.example.govegan.model
 
 class Ingredient (imatge:Int, nom:String, icones:Array<String>){
 
-    var imatge:Int
+    private var imatge:Int
         get(){
             return imatge
         }
         set(newImatge){
             this.imatge = newImatge
         }
-    var nom:String
+    private var nom:String
         get(){
             return nom
         }
@@ -17,7 +17,7 @@ class Ingredient (imatge:Int, nom:String, icones:Array<String>){
             this.nom = newName
 
         }
-    var icones:Array<String>
+    private var icones:Array<String>
         get(){
             return icones
         }
@@ -25,6 +25,7 @@ class Ingredient (imatge:Int, nom:String, icones:Array<String>){
             this.icones = newIcones
 
         }
+
     init{
         this.imatge = imatge
         this.nom = nom
