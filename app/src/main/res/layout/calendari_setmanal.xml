@@ -25,9 +25,9 @@
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></Spinner>
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"></Spinner>
 
     <GridLayout
         android:layout_width="match_parent"
@@ -335,7 +335,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
@@ -357,7 +357,7 @@
                             android:text="Esmorzar:"></TextView>
 
                         <TextView
-                            android:layout_width="170dp"
+                            android:layout_width="229dp"
                             android:layout_height="wrap_content"
                             android:text="Cereals amb muesli i un suc de taronja"></TextView>
 
@@ -382,7 +382,7 @@
                             android:text="Dinar:"></TextView>
 
                         <TextView
-                            android:layout_width="170dp"
+                            android:layout_width="229dp"
                             android:layout_height="wrap_content"
                             android:text="Patata i mongeta, de segon hamburgesa vegetal i de postre poma"></TextView>
 
@@ -409,7 +409,7 @@
                             android:text="Sopar:"></TextView>
 
                         <TextView
-                            android:layout_width="170dp"
+                            android:layout_width="227dp"
                             android:layout_height="wrap_content"
                             android:text="Amanida i entrepa d'aguacate"></TextView>
 
