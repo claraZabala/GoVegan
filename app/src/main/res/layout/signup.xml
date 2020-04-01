@@ -15,7 +15,7 @@
         android:textSize="20dp" />
 
     <EditText
-        android:id="@+id/pregunta1"
+        android:id="@+id/nom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -24,7 +24,7 @@
         android:text="Nom" />
 
     <EditText
-        android:id="@+id/Resposta1"
+        android:id="@+id/cognoms"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -34,7 +34,7 @@
         android:text="Cognoms" />
 
     <EditText
-        android:id="@+id/pregunta2"
+        android:id="@+id/nomUsuari"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -55,7 +55,7 @@
         android:text="Correu electrònic" />
 
     <EditText
-        android:id="@+id/psw"
+        android:id="@+id/pwd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -66,17 +66,17 @@
 
 
     <EditText
-        android:id="@+id/psw2"
+        android:id="@+id/pwd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:ems="10"
         android:inputType="textPersonName"
         android:text="Repetir contrasenya " />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/edat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"

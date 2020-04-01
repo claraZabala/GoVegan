@@ -1,18 +1,62 @@
 package com.example.govegan.model
 import com.example.govegan.vista.Calendari_Setmanal
 
-private class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
-                     pwd2:String, email:String, edat:Int,
-                     calendari: Calendari_Setmanal
-) {
-    var nom:String = ""
-    var cognoms:String = ""
-    var nomUsuari:String = ""
-    var pwd:String = ""
-    var pwd2:String = ""
-    var email:String = ""
-    var edat:Int = 0
-    var calendari: Calendari_Setmanal? = null
+class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
+    var nom:String
+        get(){
+            return nom
+        }
+        set(newNom){
+            this.nom = newNom
+        }
+
+    var cognoms:String
+        get(){
+            return cognoms
+        }
+        set(newCognoms){
+            this.cognoms = newCognoms
+        }
+
+    var nomUsuari:String
+        get(){
+            return nomUsuari
+        }
+        set(newNomUser){
+            this.nomUsuari = newNomUser
+        }
+
+    var pwd:String
+        get(){
+            return pwd
+        }
+        set(newPWD){
+            this.pwd = newPWD
+        }
+
+    var edat:Int
+        get(){
+            return edat
+        }
+        set(newEdat){
+            this.edat = newEdat
+        }
+
+    var email:String
+        get(){
+            return email
+        }
+        set(newEmail){
+            this.email = newEmail
+        }
+
+    var calendari:Calendari_Setmanal
+        get(){
+            return calendari
+        }
+        set(newCalendari){
+            this.calendari = newCalendari
+        }
 
     init {
         this.nom = nom
@@ -20,8 +64,6 @@ private class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String,
         this.edat = edat
         this.nomUsuari = nomUsuari
         this.pwd = pwd
-        this.pwd2 = pwd2
         this.email = email
-        this.calendari = calendari
     }
 }

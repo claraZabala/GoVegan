@@ -1,14 +1,14 @@
 package com.example.govegan.controlador
 
 import com.example.govegan.model.CarteraCuriositats
-import com.example.govegan.model.Curiositats
+import com.example.govegan.model.Curiositat
 
 class FaçanaCarteraCuriositats() {
     var carteraCuriositats: CarteraCuriositats
     init{
         carteraCuriositats = CarteraCuriositats()
     }
-    fun getCuriositatByTheme(tema: String): Curiositats? {
+    fun getCuriositatByTheme(tema: String): Curiositat? {
        return carteraCuriositats.getCuriositatByTheme(tema)
     }
     fun changeDescCuriositat(tema: String,descNova: String):Boolean{

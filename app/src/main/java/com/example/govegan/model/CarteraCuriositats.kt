@@ -3,17 +3,17 @@ package com.example.govegan.model
 import com.example.govegan.R
 
 class CarteraCuriositats {
-    val llistaCuriositats: ArrayList<Curiositats> = ArrayList()
+    val llistaCuriositats: ArrayList<Curiositat> = ArrayList()
 
     init {
-        llistaCuriositats.add(Curiositats(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))
-        llistaCuriositats.add(Curiositats(R.drawable.healthy, "Salut", "la salut ..."))
-        llistaCuriositats.add(Curiositats(R.drawable.moda, "Moda", "la moda ..."))
-        llistaCuriositats.add(Curiositats(R.drawable.altres, "Altres", "la salut ..."))
+        llistaCuriositats.add(Curiositat(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))
+        llistaCuriositats.add(Curiositat(R.drawable.healthy, "Salut", "la salut ..."))
+        llistaCuriositats.add(Curiositat(R.drawable.moda, "Moda", "la moda ..."))
+        llistaCuriositats.add(Curiositat(R.drawable.altres, "Altres", "la salut ..."))
     }
 
 
-    fun getCuriositatByTheme(tema: String): Curiositats? {
+    fun getCuriositatByTheme(tema: String): Curiositat? {
         for (item in llistaCuriositats) {
             if (item.title.equals(tema)){
                 return item
@@ -36,7 +36,7 @@ class CarteraCuriositats {
                 return false
             }
         }
-        var curiositat:Curiositats = Curiositats(imatge,tema,desc)
+        var curiositat:Curiositat = Curiositat(imatge,tema,desc)
         return true
     }
 

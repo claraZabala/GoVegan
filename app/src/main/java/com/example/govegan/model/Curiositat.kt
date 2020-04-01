@@ -5,7 +5,7 @@ import android.os.Bundle
 import java.lang.reflect.Constructor
 
 
-class Curiositats (imatge:Int, title:String, desc:String) {
+class Curiositat (imatge:Int, title:String, desc:String) {
     var imatge:Int
         get(){
             return imatge
