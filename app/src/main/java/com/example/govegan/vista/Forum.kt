@@ -10,10 +10,35 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.model.Pregunta
+import com.example.govegan.model.Resposta
 
 
 class Forum : AppCompatActivity() {
     var controlador:Controlador = Controlador();
+    val pregReceptes = arrayOf<Pregunta>()
+    val pregOnCompro = arrayOf<Pregunta>()
+    val pregDietes = arrayOf<Pregunta>()
+    val pregRestaurants = arrayOf<Pregunta>()
+    val pregPropietats = arrayOf<Pregunta>()
+    val pregModa = arrayOf<Pregunta>()
+    val pregHigiene = arrayOf<Pregunta>()
+    val pregSalut = arrayOf<Pregunta>()
+    val pregAltres = arrayOf<Pregunta>()
+
+    fun initPreguntes(){
+        //Fem que per cada pregunta cridi al metode de la classe pregunta init respostes
+        // Falta completar
+    }
+
+    fun crearPregunta(){
+        //Crea una pregunta i l'afegeix a l'arrai i fem que crei un layout amb el botó
+        //Falta completar
+    }
+
+    fun mostrarPreguntesPerTema(){
+        // Fem un when per cada tema i mostrem l'array pel layout o que el retorni
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
