@@ -7,11 +7,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
-import com.example.govegan.model.Propostes
+import com.example.govegan.model.Ingredient
+import com.example.govegan.model.Proposta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context
-    var propostes:List<Propostes> = listOf(Propostes(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou),Propostes(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara),Propostes(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou),Propostes(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut))
+    var propostes:List<Proposta> = listOf(Proposta(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou, ArrayList<Ingredient?>()),
+        Proposta(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara, ArrayList<Ingredient?>()),
+        Proposta(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou, ArrayList<Ingredient?>()),
+        Proposta(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut, ArrayList<Ingredient?>()))
     init{
         this.context = context
 

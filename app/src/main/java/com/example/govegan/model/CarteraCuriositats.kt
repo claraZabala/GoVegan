@@ -37,6 +37,7 @@ class CarteraCuriositats {
             }
         }
         var curiositat:Curiositat = Curiositat(imatge,tema,desc)
+        llistaCuriositats.add(curiositat)
         return true
     }
 
