@@ -13,9 +13,9 @@ import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.signup.*
 
 class SignUp: AppCompatActivity() {
-    var controlador:Controlador
+    var controlador: Controlador
     init {
-        controlador = Controlador()
+        controlador = Controlador
     }
 
 

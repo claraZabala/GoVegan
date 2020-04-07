@@ -5,8 +5,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
+import com.example.govegan.controlador.Controlador
 
 class PaginaPrincipal : AppCompatActivity() {
+    var controlador:Controlador
+    init {
+        controlador = Controlador
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pagina_principal)

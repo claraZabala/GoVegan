@@ -16,12 +16,12 @@
         app:srcCompat="@drawable/icono" />
 
     <EditText
-        android:id="@+id/pregunta1"
+        android:id="@+id/nomUsuari"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:ems="10"
-        android:hint="Nom"
+        android:hint="Nom d'usuari"
         android:inputType="textPersonName"
         android:textColor="@color/blanc"
         android:textColorHint="@color/blanc" />
@@ -39,7 +39,7 @@
         android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/LogIn"
+        android:id="@+id/logIn"
         android:layout_width="227dp"
         android:layout_marginTop="20dp"
         android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
 
 
     <Button
-        android:id="@+id/SignUp"
+        android:id="@+id/signUp"
         android:layout_width="227dp"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"

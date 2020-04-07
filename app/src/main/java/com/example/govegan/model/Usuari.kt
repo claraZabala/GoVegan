@@ -4,7 +4,7 @@ import com.example.govegan.vista.Calendari_Setmanal
 
 
 class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
-    private var nom:String
+    var nom:String
     var cognoms:String
     var nomUsuari:String
     var pwd:String

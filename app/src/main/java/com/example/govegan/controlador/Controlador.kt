@@ -4,8 +4,7 @@ import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Curiositat
 import com.example.govegan.model.Usuari
 
-class Controlador {
- 
+object Controlador {
     var facadeCarteraCuriositats: FacadeCarteraCuriositats
     var carteraUsuaris: CarteraUsuaris
     var usuariActiu: Usuari?
@@ -28,6 +27,20 @@ class Controlador {
                 return 0
             } else {
                 return 3
+            }
+        }
+    }
+
+    fun login(nomUsuari: String, pwd: String): Int {
+        if (pwd.isNullOrBlank() or nomUsuari.isNullOrBlank()) {
+            return 1
+        } else {
+            if (carteraUsuaris.login(nomUsuari, pwd)) {
+                usuariActiu = carteraUsuaris.setUsuariActiu(nomUsuari)
+                return 0
+            }
+            else{
+                return 2
             }
         }
     }
@@ -56,5 +69,4 @@ class Controlador {
     fun getIndexFromList(tema: String): Int {
         return facadeCarteraCuriositats.getIndexFromList(tema)
     }
-
 }

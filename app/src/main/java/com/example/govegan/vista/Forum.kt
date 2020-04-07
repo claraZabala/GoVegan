@@ -16,7 +16,7 @@ import com.example.govegan.model.Resposta
 
 class Forum : AppCompatActivity() {
 
-    var controlador:Controlador = Controlador();
+    var controlador:Controlador = Controlador
 
     // Tenim un array de preguntes
     var preguntes: ArrayList<Pregunta> = ArrayList()

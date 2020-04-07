@@ -10,7 +10,7 @@ import com.example.govegan.controlador.Controlador
 class layoutCuriositats: AppCompatActivity() {
     var controlador:Controlador
     init {
-        controlador = Controlador()
+        controlador = Controlador
     }
 
     override fun onCreate(savedInstanceState: Bundle?){
