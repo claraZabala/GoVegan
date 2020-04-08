@@ -7,9 +7,12 @@ import android.view.View
 import android.widget.Toast
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.login.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity: AppCompatActivity(){
+    private lateinit var auth: FirebaseAuth
     var controlador: Controlador
     init {
         controlador = Controlador
@@ -17,6 +20,13 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
+        auth = FirebaseAuth.getInstance()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        //updateUI(currentUser)
     }
 
     fun recuperar_contrasenya(view: View) {

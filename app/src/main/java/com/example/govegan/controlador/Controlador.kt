@@ -1,13 +1,17 @@
 package com.example.govegan.controlador
 
+import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Curiositat
 import com.example.govegan.model.Usuari
+import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 
 object Controlador {
-    var facadeCarteraCuriositats: FacadeCarteraCuriositats
-    var carteraUsuaris: CarteraUsuaris
-    var usuariActiu: Usuari?
+    private var facadeCarteraCuriositats: FacadeCarteraCuriositats
+    private var carteraUsuaris: CarteraUsuaris
+    private var usuariActiu: Usuari?
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
@@ -23,7 +27,7 @@ object Controlador {
         } else if (!pwd.equals(pwd2)) {
             return 2
         } else {
-            if (carteraUsuaris.registre(nom, cognoms, nomUsuari, mail, pwd, edat)) {
+            if (carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat)) {
                 return 0
             } else {
                 return 3
