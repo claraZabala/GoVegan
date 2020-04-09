@@ -2,15 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    >
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fresas" />
+        android:id="@+id/layoutIngredientsBD"
+        android:orientation="vertical">
 
-    <CheckBox
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fresas" />
+
+        <CheckBox
         android:id="@+id/checkBox4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,25 +47,31 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="CheckBox" />
+    </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
             android:orientation="horizontal">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
-            android:layout_width="34dp"
-            android:layout_height="25dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/cara" />
-        <TextView
-            android:id="@+id/textView"
+            android:id="@+id/floatingNousIngredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afegeix ingredient si no està a la llista" /></LinearLayout>
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            app:fabSize="mini"
+            android:onClick="afegirIngredient"
+            app:srcCompat="@drawable/afegir" />
+        <EditText
+            android:id="@+id/textAfegirNousIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Afegeix ingredient si no està a la llista" /></LinearLayout>
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
+        android:id="@+id/butAfegirIngredients"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="aceptarAfegirIngredients"
         android:text="Afegir ingredients" />
 </LinearLayout>

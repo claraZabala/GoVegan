@@ -2,25 +2,16 @@ package com.example.govegan.model
 
 class CarteraIngredients (usuari: Usuari, ingredients: ArrayList<Ingredient>){
 
-    private var ingredients: ArrayList<Ingredient>
+    private var ingredients: ArrayList<Ingredient> = ArrayList()
         get(){
-            return ingredients
+            return field
         }
         set(newIngredients){
-            this.ingredients = newIngredients
-        }
-
-    private var usuari: Usuari
-        get(){
-            return usuari
-        }
-        set(newUsuari){
-            this.usuari = newUsuari
+            field = newIngredients
         }
 
     init {
         this.ingredients = ingredients
-        this.usuari = usuari
     }
 
 }

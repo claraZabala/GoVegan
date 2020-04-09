@@ -20,5 +20,6 @@ class layoutCuriositats: AppCompatActivity() {
         var viewPager: ViewPager = findViewById(R.id.viewCuriositats)
         viewPager.adapter = adapter
         viewPager.setPadding(130,0,130,0)
+
     }
 }
