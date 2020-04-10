@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
 import android.view.View
 import android.widget.Button
 import android.widget.CheckBox
@@ -49,12 +50,36 @@ class AfegirMenu : AppCompatActivity() {
                 AfegirNouIngredientLlista(dialogView)
 
             }
+            dialogView.floatingLupa.setOnClickListener{
+                buscarIngredient(dialogView)
+
+            }
 
 
         }
 
     }
+
+    fun buscarIngredient(dialogView: View) {
+        if (dialogView.textCercaIngredient.text.toString().length == 0) {
+            actualitzarLlistaIngredients(dialogView)
+        }
+
+        else {
+            for (i in llistaIngredients) {
+                if (i.equals(dialogView.textCercaIngredient.text.toString())) {
+                    dialogView.layoutIngredientsBD.removeAllViews()
+                    var btnIngredient: CheckBox = CheckBox(this)
+                    btnIngredient.setText(i)
+                    dialogView.layoutIngredientsBD.addView(btnIngredient)
+                }
+            }
+        }
+        dialogView.textCercaIngredient.setText("")
+    }
+
     fun actualitzarLlistaIngredients(dialogView: View){
+        dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             var btnIngredient: CheckBox = CheckBox(this)
             btnIngredient.setText(i)
@@ -88,6 +113,7 @@ class AfegirMenu : AppCompatActivity() {
                 textIngredients.text = llistaIngredientsCompra.toString()
             }
         }
+        dialogView.textAfegirNousIngredients.setText("")
     }
 
 

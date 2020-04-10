@@ -1,20 +1,19 @@
 package com.example.govegan.controlador
 
-import com.example.govegan.model.BaseDades
-import com.example.govegan.model.CarteraUsuaris
-import com.example.govegan.model.Curiositat
-import com.example.govegan.model.Usuari
+import com.example.govegan.model.*
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
+    private var façanaCarteraIngredients:FaçanaCarteraIngredients
     private var carteraUsuaris: CarteraUsuaris
     private var usuariActiu: Usuari?
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
+        façanaCarteraIngredients = FaçanaCarteraIngredients()
         carteraUsuaris = CarteraUsuaris()
         usuariActiu = null
     }
@@ -73,4 +72,22 @@ object Controlador {
     fun getIndexFromList(tema: String): Int {
         return facadeCarteraCuriositats.getIndexFromList(tema)
     }
+
+    fun getIngredientsByName(nomIngredient: String): Ingredient?{
+        return façanaCarteraIngredients.getIngredientsByName(nomIngredient)
+    }
+
+    fun getNameIngredients():ArrayList<String>{
+        return façanaCarteraIngredients.getNameIngredients()
+    }
+
+    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
+        façanaCarteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
+    }
+
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        façanaCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
+
 }
