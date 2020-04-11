@@ -11,6 +11,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     var edat:Int
     var email:String
     var calendari:Calendari_Setmanal
+    var llistaIngredientsCompra:ArrayList<String> = ArrayList()
 
     init {
         this.nom = nom
