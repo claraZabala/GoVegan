@@ -73,4 +73,10 @@ object Controlador {
     fun getIndexFromList(tema: String): Int {
         return facadeCarteraCuriositats.getIndexFromList(tema)
     }
+
+    //afegeix una nova recepta al calendari
+    fun afegir_menu(toString: String, toString1: String): Any {
+    return 0
+    }
+
 }
