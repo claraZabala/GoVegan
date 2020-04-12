@@ -6,12 +6,30 @@ import java.lang.reflect.Constructor
 
 
 open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
-    var idUsuari:String= ""
-    var descripcio:String = ""
-    var tema: String = ""
+    private var idUsuari:String
+        get(){
+            return idUsuari
+        }
+        set(newIdUsuari){
+            this.idUsuari = newIdUsuari
+        }
+    private var descripcio:String
+        get(){
+            return descripcio
+        }
+        set(descripcio){
+            this.descripcio = descripcio
+        }
+    private var tema: String
+        get(){
+            return tema
+        }
+        set(tema){
+            this.tema = tema
+        }
 
     // Tenim un array de respostes
-    var respostes: ArrayList<Pregunta> = ArrayList()
+    var respostes: ArrayList<Resposta> = ArrayList()
 
     init{
         this.idUsuari = idUsuari
@@ -26,12 +44,19 @@ open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
        }
 
 
-    fun crearResposta(){
-        // Falta completar
+    fun crearResposta( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String ){
+        // El constructor de resposta rep per paràmetre:
+        // idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String
+        var resp = Resposta(idUsuari, esCertificat,idDestinatari, descripcio, tema)
     }
 
-    fun mostrarRespostes(){
-        //S'obri un threat
-        // Falta completar
+    fun mostrarRespostesPerDestinatari(destinatari: String):  ArrayList<Resposta>?{
+        for (i: Resposta in respostes){
+            var respostesPerDestinatari: ArrayList<Resposta> = ArrayList()
+            if ( i.idDestinatari.equals(destinatari) ){
+                respostesPerDestinatari.add(i);
+            }
+            return respostesPerDestinatari
+        }
     }
 }
