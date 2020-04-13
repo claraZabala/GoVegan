@@ -42,13 +42,13 @@ class Forum : AppCompatActivity() {
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+        var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
         for (i: Pregunta in preguntes){
-            var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
             if ( i.tema.equals(temaP) ){
                 preguntesPerTema.add(i);
             }
-            return preguntesPerTema
         }
+        return preguntesPerTema
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

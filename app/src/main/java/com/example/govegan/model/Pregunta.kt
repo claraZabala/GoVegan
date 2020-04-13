@@ -20,7 +20,7 @@ open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         set(descripcio){
             this.descripcio = descripcio
         }
-    private var tema: String
+    internal var tema: String
         get(){
             return tema
         }
@@ -51,12 +51,12 @@ open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
     }
 
     fun mostrarRespostesPerDestinatari(destinatari: String):  ArrayList<Resposta>?{
+        var respostesPerDestinatari: ArrayList<Resposta> = ArrayList()
         for (i: Resposta in respostes){
-            var respostesPerDestinatari: ArrayList<Resposta> = ArrayList()
             if ( i.idDestinatari.equals(destinatari) ){
                 respostesPerDestinatari.add(i);
             }
-            return respostesPerDestinatari
         }
+        return respostesPerDestinatari
     }
 }

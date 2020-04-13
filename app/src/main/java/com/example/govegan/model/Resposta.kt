@@ -6,7 +6,7 @@ import java.lang.reflect.Constructor
 
 
 class Resposta (idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
-    private var idDestinatari:String
+    internal var idDestinatari:String
         get(){
             return idDestinatari
         }
@@ -23,8 +23,8 @@ class Resposta (idUsuari:String, esCertificat:Boolean,idDestinatari: String, des
 
 
     init{
-        this.idUsuari = idUsuari
         this.esCertificat = esCertificat
+        this.idDestinatari = idDestinatari
     }
 
 }
