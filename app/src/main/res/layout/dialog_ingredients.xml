@@ -23,7 +23,7 @@
             android:clickable="true"
             app:fabSize="mini"
             android:onClick="buscarIngredient"
-            app:srcCompat="@drawable/lupa" />
+            app:srcCompat="@drawable/lupa"/>
 
 
     </LinearLayout>

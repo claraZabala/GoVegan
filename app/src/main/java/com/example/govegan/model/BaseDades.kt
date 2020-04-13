@@ -3,6 +3,7 @@ package com.example.govegan.model
 import android.util.Log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
+import com.google.firebase.firestore.Query
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
@@ -17,83 +18,54 @@ class BaseDades(val db: FirebaseFirestore) {
         )
     }
 
-    fun setup() {
-        // [START get_firestore_instance]
-        val db = FirebaseFirestore.getInstance()
-        // [END get_firestore_instance]
-
-        // [START set_firestore_settings]
-        val settings = FirebaseFirestoreSettings.Builder()
-            .setPersistenceEnabled(true)
-            .build()
-        db.firestoreSettings = settings
-        // [END set_firestore_settings]
-    }
-
-    fun setupCacheSize() {
-        // [START fs_setup_cache]
-        val settings = FirebaseFirestoreSettings.Builder()
-            .setCacheSizeBytes(FirebaseFirestoreSettings.CACHE_SIZE_UNLIMITED)
-            .build()
-        db.firestoreSettings = settings
-        // [END fs_setup_cache]
-    }
-
     fun addUser(nom: String, cognom: String, nomUsuari:String, pwd:String, email:String, edat: Int) {
-        val user = hashMapOf(
-            "nom" to nom,
-            "cognom" to cognom,
-            "nomUsuari" to nomUsuari,
-            "pwd" to pwd,
-            "email" to email,
-            "edat" to edat
-        )
-
-        // Add a new document with a generated ID
-        db.collection("users")
-            .add(user)
-            .addOnSuccessListener { documentReference ->
-                Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
-            }
-            .addOnFailureListener { e ->
-                Log.w(TAG, "Error adding document", e)
-            }
-
-        db.collection("users").document(nomUsuari).set(user)
-        // [END add_ada_lovelace]
+        val users = db.collection("users")
+        if (!userExists(nomUsuari)){
+            val user = hashMapOf(
+                "nom" to nom,
+                "cognom" to cognom,
+                "nomUsuari" to nomUsuari,
+                "pwd" to pwd,
+                "email" to email,
+                "edat" to edat
+            )
+            users.document(nomUsuari).set(user)
+        }
     }
 
-    fun getAllUsers() {
-        // [START get_all_users]
-        db.collection("users")
-            .get()
-            .addOnSuccessListener { result ->
-                for (document in result) {
-                    Log.d(TAG, "${document.id} => ${document.data}")
-                }
-            }
-            .addOnFailureListener { exception ->
-                Log.w(TAG, "Error getting documents.", exception)
-            }
-        // [END get_all_users]
-    }
-
-    fun getUserByID(nomUsuari: String): String{
-        var mess: String = ""
-        val docRef = db.collection("users").document("dtomacal")
+    fun userExists(nomUsuari: String): Boolean {
+        var exists = true
+        val docRef = db.collection("users").document(nomUsuari)
         docRef.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    mess = "DocumentSnapshot data: ${document.data}"
+                    exists = true
                 } else {
                     Log.d(TAG, "No such document")
-                    mess = "No such document"
+                    exists = false
                 }
             }
             .addOnFailureListener { exception ->
                 Log.d(TAG, "get failed with ", exception)
             }
-        return mess
+        return exists
     }
+
+        fun getAllUsers(): ArrayList<String> {
+            // [START get_all_users]
+            var users : ArrayList<String> = ArrayList()
+            val returnUsers = db.collection("users").get()
+                .addOnSuccessListener { result ->
+                    for (document in result) {
+                        users.add(document.data.values.toString())
+                        Log.d(TAG, "${document.id} => ${document.data}")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w(TAG, "Error getting documents.", exception)
+                }
+            return users
+            // [END get_all_users]
+        }
 }
