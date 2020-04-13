@@ -1,6 +1,7 @@
 package com.example.govegan.controlador
 
 import com.example.govegan.model.*
+import com.example.govegan.vista.Forum
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -9,6 +10,7 @@ object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
     private var façanaCarteraIngredients:FaçanaCarteraIngredients
     private var carteraUsuaris: CarteraUsuaris
+    private var forum: Forum
     private var usuariActiu: Usuari?
 
     init {
@@ -16,6 +18,7 @@ object Controlador {
         façanaCarteraIngredients = FaçanaCarteraIngredients()
         carteraUsuaris = CarteraUsuaris()
         usuariActiu = null
+        forum = Forum()
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
@@ -87,6 +90,21 @@ object Controlador {
 
     fun addNouIngredientSenseFoto(nomIngredient: String){
         façanaCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
+    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
+        var idPregunta = idUsuari + "-" + descripcio + "-" + tema
+        forum.crearPregunta(idUsuari, descripcio, tema, idPregunta)
+    }
+
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+        var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
+        for (i: Pregunta in preguntesPerTema){
+            if ( i.tema.equals(temaP) ){
+                preguntesPerTema.add(i);
+            }
+        }
+        return preguntesPerTema
     }
 
 

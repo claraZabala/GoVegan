@@ -12,6 +12,7 @@ import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.model.Pregunta
 import com.example.govegan.model.Resposta
+import com.example.govegan.model.Usuari
 
 
 class Forum : AppCompatActivity() {
@@ -22,34 +23,41 @@ class Forum : AppCompatActivity() {
     var preguntes: ArrayList<Pregunta> = ArrayList()
 
     init {
-        preguntes.add(Pregunta("Paquita12", "On puc comprar heura?", "On compro els ingredients?"))
-        preguntes.add(Pregunta("Rosa_", "La marca Sephora és vegana?", "Moda"))
-        preguntes.add(Pregunta("Paquita12", "Quin xampú puc fer servir?", "Higiene"))
-        preguntes.add(Pregunta("Florenciooo", "Quin restaurant em recomenarieu a Barcelona?", "Restaurants"))
-        preguntes.add(Pregunta("Carlos_00", "Sabeu si hi ha hamburgeses veganes al lidl?", "On compro els ingredients?"))
-        preguntes.add(Pregunta("SaraAO", "La Woper Rebel del Burguer King es vegetariana o vegana?", "Restaurants?"))
-        preguntes.add(Pregunta("Lola123", "La soja texteuriçada és rica en proteina?", "Propietats"))
-        preguntes.add(Pregunta("LindaSIS", "On venen seitán?", "On compro els ingredients?"))
-        preguntes.add(Pregunta("Paquita12", "De que està feta la beyound meet?", "Propietats"))
-        preguntes.add(Pregunta("Carlos_00", "Sabeu algun actor que sigui vegà?", "Moda"))
+        preguntes.add(Pregunta("Paquita12", "On puc comprar heura?", "On compro els ingredients?", "Paquita12-On puc comprar heura?-On compro els ingredients?"))
+        preguntes.add(Pregunta("Rosa_", "La marca Sephora és vegana?", "Moda", "Rosa_-La marca Sephora és vegana?-Moda"))
+        preguntes.add(Pregunta("Paquita12", "Quin xampú puc fer servir?", "Higiene", "Paquita12-Quin xampú puc fer servir?-Higiene"))
+        preguntes.add(Pregunta("Florenciooo", "Quin restaurant em recomenarieu a Barcelona?", "Restaurants", "Florenciooo-Quin restaurant em recomenarieu a Barcelona?-Restaurants"))
+        preguntes.add(Pregunta("Carlos_00", "Sabeu si hi ha hamburgeses veganes al lidl?", "On compro els ingredients?", "Carlos_00-Sabeu si hi ha hamburgeses veganes al lidl?-On compro els ingredients?"))
+        preguntes.add(Pregunta("SaraAO", "La Woper Rebel del Burguer King es vegetariana o vegana?", "Restaurants", "SaraAO-La Woper Rebel del Burguer King es vegetariana o vegana?-Restaurants"))
+        preguntes.add(Pregunta("Lola123", "La soja texteuriçada és rica en proteina?", "Propietats", "Lola123-La soja texteuriçada és rica en proteina?-Propietats"))
+        preguntes.add(Pregunta("LindaSIS", "On venen seitán?", "On compro els ingredients?", "LindaSIS-On venen seitán?-On compro els ingredients?"))
+        preguntes.add(Pregunta("Paquita12", "De que està feta la beyound meet?", "Propietats", "Paquita12-De que està feta la beyound meet?-Propietats"))
+        preguntes.add(Pregunta("Carlos_00", "Sabeu algun actor que sigui vegà?", "Moda", "Carlos_00-Sabeu algun actor que sigui vegà?-Moda"))
 
     }
 
-    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
+    fun crearPregunta(idUsuari: String, descripcio: String, tema: String, idPregunta: String){
         //El constructor de pregunta rep per paràmetre:
         //idUsuari: String, descripcio:String, tema:String
-        var preg = Pregunta(idUsuari, descripcio, tema)
+        var preg = Pregunta(idUsuari, descripcio, tema, idPregunta)
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
         var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
-        for (i: Pregunta in preguntes){
+        for (i: Pregunta in preguntesPerTema){
             if ( i.tema.equals(temaP) ){
                 preguntesPerTema.add(i);
             }
         }
         return preguntesPerTema
     }
+
+    fun crearResp( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String ){
+        //tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String
+        //No se com fer-ho per cridar als mètodes de pregunta: crear una pregunta a forum per cridar als mètodes té sentit?
+        // També per mostrarRespostesPerDestinatari
+        //I finalment cridar a aquests 2 mètodes des de controlador
+}
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
