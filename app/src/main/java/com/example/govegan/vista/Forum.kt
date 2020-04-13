@@ -35,13 +35,20 @@ class Forum : AppCompatActivity() {
 
     }
 
-    fun crearPregunta(){
-        //Crea una pregunta i l'afegeix a l'arrai i fem que crei un layout amb el botó
-        //Falta completar
+    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
+        //El constructor de pregunta rep per paràmetre:
+        //idUsuari: String, descripcio:String, tema:String
+        var preg = Pregunta(idUsuari, descripcio, tema)
     }
 
-    fun mostrarPreguntes(){
-        // Fem un when per cada tema i mostrem l'array pel layout o que el retorni
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+        var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
+        for (i: Pregunta in preguntes){
+            if ( i.tema.equals(temaP) ){
+                preguntesPerTema.add(i);
+            }
+        }
+        return preguntesPerTema
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
