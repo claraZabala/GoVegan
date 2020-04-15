@@ -11,23 +11,21 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.login.*
 
-class MainActivity: AppCompatActivity(){
-    private lateinit var auth: FirebaseAuth
-    var controlador: Controlador
-    init {
-        controlador = Controlador
-    }
+class MainActivity: AppCompatActivity() {
+    //private lateinit var auth: FirebaseAuth
+    var controlador: Controlador = Controlador
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-        auth = FirebaseAuth.getInstance()
+        //auth = FirebaseAuth.getInstance()
     }
 
-    override fun onStart() {
+    /*override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
         //updateUI(currentUser)
-    }
+    }*/
 
     fun recuperar_contrasenya(view: View) {
         intent = Intent(this, RecuperarContra::class.java)

@@ -1,21 +1,23 @@
 package com.example.govegan.controlador
 
-import com.example.govegan.model.BaseDades
-import com.example.govegan.model.CarteraUsuaris
-import com.example.govegan.model.Curiositat
-import com.example.govegan.model.Usuari
+import com.example.govegan.model.*
+import com.example.govegan.vista.Forum
 import com.google.firebase.FirebaseApp
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
 
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
+    private var façanaCarteraIngredients:FaçanaCarteraIngredients
     private var carteraUsuaris: CarteraUsuaris
+    private var carteraPreguntes: CarteraPreguntes
     private var usuariActiu: Usuari?
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
+        façanaCarteraIngredients = FaçanaCarteraIngredients()
         carteraUsuaris = CarteraUsuaris()
+        carteraPreguntes = CarteraPreguntes()
         usuariActiu = null
     }
 
@@ -74,9 +76,35 @@ object Controlador {
         return facadeCarteraCuriositats.getIndexFromList(tema)
     }
 
-    //afegeix una nova recepta al calendari
-    fun afegir_menu(toString: String, toString1: String): Any {
-    return 0
+    fun getIngredientsByName(nomIngredient: String): Ingredient?{
+        return façanaCarteraIngredients.getIngredientsByName(nomIngredient)
     }
 
+    fun getNameIngredients():ArrayList<String>{
+        return façanaCarteraIngredients.getNameIngredients()
+    }
+
+    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
+        façanaCarteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
+    }
+
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        façanaCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
+    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
+        carteraPreguntes.crearPregunta(idUsuari, descripcio, tema)
+    }
+
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+        return carteraPreguntes.mostrarPreguntesPerTema(temaP)
+    }
+
+    fun crearResposta(tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
+        carteraPreguntes.crearResp(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
+
+    fun mostrarRespPerIdPregtema(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
+        return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
 }

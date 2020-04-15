@@ -2,62 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fresas" />
-
-    <CheckBox
-        android:id="@+id/checkBox4"
-        android:layout_width="match_parent"
+        android:orientation="horizontal">
+    <EditText
+        android:id="@+id/textCercaIngredient"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sucre" />
+        android:hint="Nom ingredient">
+    </EditText>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingLupa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            app:fabSize="mini"
+            android:onClick="buscarIngredient"
+            app:srcCompat="@drawable/lupa"/>
 
-    <CheckBox
-        android:id="@+id/checkBox6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sal" />
 
-    <CheckBox
-        android:id="@+id/checkBox7"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox" />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp">
 
-    <CheckBox
-        android:id="@+id/checkBox8"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox" />
+        <LinearLayout
+            android:id="@+id/layoutIngredientsBD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+    </ScrollView>
 
-    <CheckBox
-        android:id="@+id/checkBox9"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="CheckBox" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
             android:orientation="horizontal">
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingActionButton2"
-            android:layout_width="34dp"
-            android:layout_height="25dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/cara" />
-        <TextView
-            android:id="@+id/textView"
+            android:id="@+id/floatingNousIngredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afegeix ingredient si no està a la llista" /></LinearLayout>
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/afegir" />
+        <EditText
+            android:id="@+id/textAfegirNousIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Afegeix ingredient si no està a la llista" /></LinearLayout>
 
     <Button
-        android:id="@+id/button3"
-        android:layout_width="match_parent"
+        android:id="@+id/butAfegirIngredients"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="aceptarAfegirIngredients"
         android:text="Afegir ingredients" />
 </LinearLayout>

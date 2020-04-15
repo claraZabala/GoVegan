@@ -3,7 +3,13 @@ package com.example.govegan.model
 import com.example.govegan.R
 
 class CarteraCuriositats {
-    val llistaCuriositats: ArrayList<Curiositat> = ArrayList()
+    var llistaCuriositats: ArrayList<Curiositat> = ArrayList()
+        get(){
+            return field
+        }
+        set(newCuriositat){
+            field = newCuriositat
+        }
 
     init {
         llistaCuriositats.add(Curiositat(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))

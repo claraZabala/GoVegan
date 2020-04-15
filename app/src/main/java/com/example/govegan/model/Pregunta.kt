@@ -6,12 +6,38 @@ import java.lang.reflect.Constructor
 
 
 open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
-    var idUsuari:String= ""
-    var descripcio:String = ""
-    var tema: String = ""
+     var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
+    private var contRespostes: Int
+        get(){
+            return contRespostes
+        }
+        set(cont){
+            this.contRespostes = cont
+        }
+    private var idUsuari:String
+        get(){
+            return idUsuari
+        }
+        set(newIdUsuari){
+            this.idUsuari = newIdUsuari
+        }
+    private var descripcio:String
+        get(){
+            return descripcio
+        }
+        set(descripcio){
+            this.descripcio = descripcio
+        }
+    internal var tema: String
+        get(){
+            return tema
+        }
+        set(tema){
+            this.tema = tema
+        }
 
     // Tenim un array de respostes
-    var respostes: ArrayList<Pregunta> = ArrayList()
+    var respostes: ArrayList<Resposta> = ArrayList()
 
     init{
         this.idUsuari = idUsuari
@@ -26,12 +52,12 @@ open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
        }
 
 
-    fun crearResposta(){
-        // Falta completar
+    fun crearResposta( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
+        var resp = Resposta(idUsuari, esCertificat,idDestinatari, descripcio, tema)
+        contRespostes++
     }
 
-    fun mostrarRespostes(){
-        //S'obri un threat
-        // Falta completar
+    fun mostrarRespostes():  ArrayList<Resposta>?{
+        return this.respostes
     }
 }
