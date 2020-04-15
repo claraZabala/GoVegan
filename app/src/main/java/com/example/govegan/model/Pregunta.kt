@@ -5,14 +5,8 @@ import android.os.Bundle
 import java.lang.reflect.Constructor
 
 
-open class Pregunta (idUsuari: String, descripcio:String, tema:String, idPregunta: String) {
-    internal var idPregunta : String
-        get(){
-            return idPregunta
-        }
-        set(id){
-            this.idPregunta = id
-        }
+open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
+     var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
     private var contRespostes: Int
         get(){
             return contRespostes
@@ -58,20 +52,12 @@ open class Pregunta (idUsuari: String, descripcio:String, tema:String, idPregunt
        }
 
 
-    fun crearResposta( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String ){
-        // El constructor de resposta rep per paràmetre:
-        // idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String
+    fun crearResposta( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
         var resp = Resposta(idUsuari, esCertificat,idDestinatari, descripcio, tema)
         contRespostes++
     }
 
-    fun mostrarRespostesPerIdPregunta(idPregunta: String):  ArrayList<Resposta>?{
-        var respostesPerDestinatari: ArrayList<Resposta> = ArrayList()
-        for (i: Resposta in respostes){
-            if ( i.idPregunta.equals(idPregunta) ){
-                respostesPerDestinatari.add(i);
-            }
-        }
-        return respostesPerDestinatari
+    fun mostrarRespostes():  ArrayList<Resposta>?{
+        return this.respostes
     }
 }

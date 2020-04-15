@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.lang.reflect.Constructor
 
-
 class Resposta (idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
     internal var idDestinatari:String
         get(){

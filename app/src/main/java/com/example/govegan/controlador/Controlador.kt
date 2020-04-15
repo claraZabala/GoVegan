@@ -10,15 +10,15 @@ object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
     private var façanaCarteraIngredients:FaçanaCarteraIngredients
     private var carteraUsuaris: CarteraUsuaris
-    private var forum: Forum
+    private var carteraPreguntes: CarteraPreguntes
     private var usuariActiu: Usuari?
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
         façanaCarteraIngredients = FaçanaCarteraIngredients()
         carteraUsuaris = CarteraUsuaris()
+        carteraPreguntes = CarteraPreguntes()
         usuariActiu = null
-        forum = Forum()
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
@@ -93,19 +93,18 @@ object Controlador {
     }
 
     fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
-        var idPregunta = idUsuari + "-" + descripcio + "-" + tema
-        forum.crearPregunta(idUsuari, descripcio, tema, idPregunta)
+        carteraPreguntes.crearPregunta(idUsuari, descripcio, tema)
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
-        var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
-        for (i: Pregunta in preguntesPerTema){
-            if ( i.tema.equals(temaP) ){
-                preguntesPerTema.add(i);
-            }
-        }
-        return preguntesPerTema
+        return carteraPreguntes.mostrarPreguntesPerTema(temaP)
     }
 
+    fun crearResposta(tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
+        carteraPreguntes.crearResp(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
 
+    fun mostrarRespPerIdPregtema(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
+        return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
 }
