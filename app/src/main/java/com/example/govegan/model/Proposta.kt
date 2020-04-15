@@ -13,7 +13,6 @@ class Proposta (imatge: Int, title: String, temps: String, numPersones: String, 
             return ingredients
         }
         set(newIngredients){
-            //excepció aqui
             field = newIngredients
         }
     init{

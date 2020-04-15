@@ -9,9 +9,10 @@ import com.example.govegan.R
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 
 class Calendari_Setmanal : AppCompatActivity() {
-    var icones: ArrayList<ImageView>
-    init{
-        icones = ArrayList()
+    //var icones: ArrayList<ImageView> = ArrayList()
+
+    //em dona error al inicialitzar
+    /*init{
         icones.add(int1)
         icones.add(int2)
         icones.add(int3)
@@ -32,7 +33,7 @@ class Calendari_Setmanal : AppCompatActivity() {
         icones.add(int19)
         icones.add(int20)
         icones.add(int21)
-    }
+    }*/
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +76,7 @@ class Calendari_Setmanal : AppCompatActivity() {
         * Amb un for es recorren les 21 icones i se'ls aplica l'escoltador
          */
         for (i in 0..20){
-            afegirPlat(icones[i])
+            //afegirPlat(icones[i])
         }
     }
 
