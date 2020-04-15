@@ -11,9 +11,6 @@ import java.util.concurrent.TimeUnit
 
 class CarteraPreguntes() {
 
-
-    var controlador: Controlador = Controlador
-
     // Tenim un array que és una llista de preguntes
     var preguntes: ArrayList<Pregunta> = ArrayList()
 

@@ -16,6 +16,9 @@ import com.example.govegan.model.Usuari
 
 
 class Forum : AppCompatActivity() {
+
+    var controlador: Controlador = Controlador
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.forum)
