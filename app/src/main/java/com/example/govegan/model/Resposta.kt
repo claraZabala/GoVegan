@@ -4,26 +4,19 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.lang.reflect.Constructor
 
-class Resposta (idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
-    internal var idDestinatari:String
+class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Boolean, idDestinatari: String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
+    var idDestinatari:String = idDestinatari
         get(){
-            return idDestinatari
+            return field
         }
         set(newId){
-            this.idDestinatari = newId
+            field = newId
         }
-    private var esCertificat:Boolean
+    var esCertificat:Boolean = esCertificat
         get(){
-            return esCertificat
+            return field
         }
         set(newEsCertificat){
-            this.esCertificat = newEsCertificat
+            field = newEsCertificat
         }
-
-
-    init{
-        this.esCertificat = esCertificat
-        this.idDestinatari = idDestinatari
-    }
-
 }
