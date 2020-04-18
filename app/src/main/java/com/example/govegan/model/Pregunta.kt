@@ -7,53 +7,48 @@ import java.lang.reflect.Constructor
 
 open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
      var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
-    private var contRespostes: Int
+
+    // Tenim un array de respostes
+    var respostes: ArrayList<Resposta> = ArrayList()
+    var contRespostes: Int
         get(){
             return contRespostes
         }
         set(cont){
             this.contRespostes = cont
         }
-    private var idUsuari:String
+    var idUsuari: String = idUsuari
         get(){
-            return idUsuari
+            return field
         }
         set(newIdUsuari){
-            this.idUsuari = newIdUsuari
+            field = newIdUsuari
         }
-    private var descripcio:String
+    var descripcio: String = descripcio
         get(){
-            return descripcio
+            return field
         }
         set(descripcio){
-            this.descripcio = descripcio
+            field = descripcio
         }
-    internal var tema: String
+    var tema: String = tema
         get(){
-            return tema
+            return field
         }
         set(tema){
-            this.tema = tema
+            field = tema
         }
 
-    // Tenim un array de respostes
-    var respostes: ArrayList<Resposta> = ArrayList()
-
     init{
-        this.idUsuari = idUsuari
-        this.descripcio = descripcio
-        this.tema = tema
-
         //idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String
-        respostes.add(Resposta("Romeo29", false, "Paquita12", "Al mercadona venen pizzas de heura", "On compro els ingredients?"))
-        respostes.add(Resposta("GoVeganApp", true, "Paquita12", "Pot demanar-la a la següent pàgina web https://www.deliberry.com/lasirena o a la tenda física de La Sirena.", "On compro els ingredients?"))
-        respostes.add(Resposta("MiriamRR", false, "Paquita12", "A la etiqueta de cada xampú apareix si ha estat provat en animals", "Higiene"))
-        respostes.add(Resposta("Samanta143", false, "SaraAO","És vegetariana", "Restaurants"))
-       }
-
+        respostes.add(Resposta("Romeo29","Al mercadona venen pizzas de heura", "On compro els ingredients?", false, "Paquita12"))
+        respostes.add(Resposta("GoVeganApp","Pot demanar-la a la següent pàgina web https://www.deliberry.com/lasirena o a la tenda física de La Sirena.", "On compro els ingredients?", true, "Paquita12"))
+        respostes.add(Resposta("MiriamRR", "A la etiqueta de cada xampú apareix si ha estat provat en animals", "Higiene",false, "Paquita12"))
+        respostes.add(Resposta("Samanta143", "És vegetariana", "Restaurants", false, "SaraAO"))
+    }
 
     fun crearResposta( tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
-        var resp = Resposta(idUsuari, esCertificat,idDestinatari, descripcio, tema)
+        var resp = Resposta(idUsuari, descripcio, tema, esCertificat,idDestinatari)
         contRespostes++
     }
 

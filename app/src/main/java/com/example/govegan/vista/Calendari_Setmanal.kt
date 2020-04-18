@@ -1,39 +1,20 @@
 package com.example.govegan.vista
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
+import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 
-class Calendari_Setmanal : AppCompatActivity() {
-    //var icones: ArrayList<ImageView> = ArrayList()
 
-    //em dona error al inicialitzar
-    /*init{
-        icones.add(int1)
-        icones.add(int2)
-        icones.add(int3)
-        icones.add(int4)
-        icones.add(int5)
-        icones.add(int6)
-        icones.add(int7)
-        icones.add(int8)
-        icones.add(int9)
-        icones.add(int10)
-        icones.add(int12)
-        icones.add(int13)
-        icones.add(int14)
-        icones.add(int15)
-        icones.add(int16)
-        icones.add(int17)
-        icones.add(int18)
-        icones.add(int19)
-        icones.add(int20)
-        icones.add(int21)
-    }*/
+class Calendari_Setmanal : AppCompatActivity() {
+    var controlador: Controlador
+    init {
+        controlador = Controlador
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,7 +34,7 @@ class Calendari_Setmanal : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
-            spinner.setAdapter(adapter)
+            spinner.adapter = adapter
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
@@ -69,14 +50,58 @@ class Calendari_Setmanal : AppCompatActivity() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
+
+
         }
 
-        /*
-        * Mètode que defineix el Listener de doble click per a cada icona (àpat)
-        * Amb un for es recorren les 21 icones i se'ls aplica l'escoltador
-         */
-        for (i in 0..20){
-            //afegirPlat(icones[i])
+        if (controlador.getSetRecepta()){
+            int1.setOnClickListener(clickListener)
+            int2.setOnClickListener(clickListener)
+            int3.setOnClickListener(clickListener)
+            int4.setOnClickListener(clickListener)
+            int5.setOnClickListener(clickListener)
+            int6.setOnClickListener(clickListener)
+            int7.setOnClickListener(clickListener)
+            int8.setOnClickListener(clickListener)
+            int9.setOnClickListener(clickListener)
+            int10.setOnClickListener(clickListener)
+            int11.setOnClickListener(clickListener)
+            int12.setOnClickListener(clickListener)
+            int13.setOnClickListener(clickListener)
+            int14.setOnClickListener(clickListener)
+            int15.setOnClickListener(clickListener)
+            int16.setOnClickListener(clickListener)
+            int17.setOnClickListener(clickListener)
+            int18.setOnClickListener(clickListener)
+            int19.setOnClickListener(clickListener)
+            int20.setOnClickListener(clickListener)
+            int21.setOnClickListener(clickListener)
+        }
+    }
+
+    private val clickListener = View.OnClickListener { view ->
+        when (view.id) {
+            R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int2 -> controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int3 -> controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int4 -> controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString())
+            R.id.int5 -> controlador.setDiaRecepta("divendres","esmorzar",spinner2.selectedItem.toString())
+            R.id.int6 -> controlador.setDiaRecepta("dissabte","esmorzar",spinner2.selectedItem.toString())
+            R.id.int7 -> controlador.setDiaRecepta("diumenge","esmorzar",spinner2.selectedItem.toString())
+            R.id.int8 -> controlador.setDiaRecepta("dilluns","dinar",spinner2.selectedItem.toString())
+            R.id.int9 -> controlador.setDiaRecepta("dimarts","dinar",spinner2.selectedItem.toString())
+            R.id.int10 -> controlador.setDiaRecepta("dimecres","dinar",spinner2.selectedItem.toString())
+            R.id.int11 -> controlador.setDiaRecepta("dijous","dinar",spinner2.selectedItem.toString())
+            R.id.int12 -> controlador.setDiaRecepta("divendres","dinar",spinner2.selectedItem.toString())
+            R.id.int13 -> controlador.setDiaRecepta("dissabte","dinar",spinner2.selectedItem.toString())
+            R.id.int14 -> controlador.setDiaRecepta("diumenge","dinar",spinner2.selectedItem.toString())
+            R.id.int15 -> controlador.setDiaRecepta("dilluns","sopar",spinner2.selectedItem.toString())
+            R.id.int16 -> controlador.setDiaRecepta("dimarts","sopar",spinner2.selectedItem.toString())
+            R.id.int17 -> controlador.setDiaRecepta("dimecres","sopar",spinner2.selectedItem.toString())
+            R.id.int18 -> controlador.setDiaRecepta("dijous","sopar",spinner2.selectedItem.toString())
+            R.id.int19 -> controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString())
+            R.id.int20 -> controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString())
+            R.id.int21 -> controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString())
         }
     }
 
@@ -101,5 +126,3 @@ class Calendari_Setmanal : AppCompatActivity() {
         startActivity(intent)
     }
 }
-
-

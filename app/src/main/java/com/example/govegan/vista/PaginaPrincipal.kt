@@ -6,6 +6,7 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import kotlinx.android.synthetic.main.recepta.*
 
 class PaginaPrincipal : AppCompatActivity() {
     var controlador:Controlador
@@ -18,6 +19,7 @@ class PaginaPrincipal : AppCompatActivity() {
     }
 
     fun calendari(view: View) {
+        controlador.setReceptaFromProposta(titol_recepta.text.toString())
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }
