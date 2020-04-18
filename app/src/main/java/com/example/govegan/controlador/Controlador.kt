@@ -12,6 +12,8 @@ object Controlador {
     private var carteraUsuaris: CarteraUsuaris
     private var carteraPreguntes: CarteraPreguntes
     private var usuariActiu: Usuari?
+    private var setRecepta: Boolean
+    private var titolReceptaProp: String
 
     init {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
@@ -19,6 +21,8 @@ object Controlador {
         carteraUsuaris = CarteraUsuaris()
         carteraPreguntes = CarteraPreguntes()
         usuariActiu = null
+        setRecepta = false
+        titolReceptaProp = ""
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
@@ -106,5 +110,22 @@ object Controlador {
 
     fun mostrarRespPerIdPregtema(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
+
+    fun setReceptaFromProposta(titolRecepta: String) {
+        setRecepta = true
+        titolReceptaProp = titolRecepta
+    }
+
+    fun getSetRecepta(): Boolean{
+        return setRecepta
+    }
+
+    fun getTitolRecepta(): String{
+        return titolReceptaProp
+    }
+
+    fun setDiaRecepta(dia: String, apat: String, setmana: String) {
+
     }
 }

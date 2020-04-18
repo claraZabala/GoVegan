@@ -358,6 +358,7 @@
                             android:text="Esmorzar:"></TextView>
 
                         <TextView
+                            android:id="@+id/esmorzar"
                             android:layout_width="229dp"
                             android:layout_height="wrap_content"
                             android:text="Cereals amb muesli i un suc de taronja"></TextView>
@@ -383,6 +384,7 @@
                             android:text="Dinar:"></TextView>
 
                         <TextView
+                            android:id="@+id/dinar"
                             android:layout_width="229dp"
                             android:layout_height="wrap_content"
                             android:text="Patata i mongeta, de segon hamburgesa vegetal i de postre poma"></TextView>
@@ -410,6 +412,7 @@
                             android:text="Sopar:"></TextView>
 
                         <TextView
+                            android:id="@+id/sopar"
                             android:layout_width="227dp"
                             android:layout_height="wrap_content"
                             android:text="Amanida i entrepa d'aguacate"></TextView>
