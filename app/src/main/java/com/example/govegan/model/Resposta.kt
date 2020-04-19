@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import java.lang.reflect.Constructor
 
-class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Boolean, idDestinatari: String) : Pregunta(idUsuari = idUsuari, descripcio = descripcio, tema = tema){
-    var idDestinatari:String = idDestinatari
+class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Boolean, idPregunta: String) {
+    var idUsuari:String = idUsuari
+    var descripcio: String = descripcio
+    var tema: String = tema
     var esCertificat:Boolean = esCertificat
+    var idPregunta: String = idPregunta
 }
