@@ -14,7 +14,6 @@ import com.example.govegan.model.Pregunta
 import com.example.govegan.model.Resposta
 import com.example.govegan.model.Usuari
 
-
 class Forum : AppCompatActivity() {
 
     var controlador: Controlador = Controlador

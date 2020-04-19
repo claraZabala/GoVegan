@@ -7,37 +7,14 @@ import java.lang.reflect.Constructor
 
 open class Pregunta (idUsuari: String, descripcio:String, tema:String) {
      var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
+    var contRespostes: Int = 0
 
     // Tenim un array de respostes
     var respostes: ArrayList<Resposta> = ArrayList()
-    var contRespostes: Int
-        get(){
-            return contRespostes
-        }
-        set(cont){
-            this.contRespostes = cont
-        }
     var idUsuari: String = idUsuari
-        get(){
-            return field
-        }
-        set(newIdUsuari){
-            field = newIdUsuari
-        }
     var descripcio: String = descripcio
-        get(){
-            return field
-        }
-        set(descripcio){
-            field = descripcio
-        }
     var tema: String = tema
-        get(){
-            return field
-        }
-        set(tema){
-            field = tema
-        }
+
 
     init{
         //idUsuari:String, esCertificat:Boolean,idDestinatari: String, descripcio:String, tema:String
