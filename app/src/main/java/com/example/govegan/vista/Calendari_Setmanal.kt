@@ -7,13 +7,19 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.model.Setmana
 import kotlinx.android.synthetic.main.calendari_setmanal.*
-
 
 class Calendari_Setmanal : AppCompatActivity() {
     var controlador: Controlador
     init {
         controlador = Controlador
+    }
+
+    lateinit var setmanes: ArrayList<Setmana>
+    //em dona error al inicialitzar
+    init{
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,3 +132,5 @@ class Calendari_Setmanal : AppCompatActivity() {
         startActivity(intent)
     }
 }
+
+
