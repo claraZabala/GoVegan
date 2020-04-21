@@ -46,7 +46,9 @@ object Controlador {
             return 1
         } else {
             if (carteraUsuaris.login(nomUsuari, pwd)) {
+                //es porta a memòria la info de l'usuari (les seves setmanes)
                 usuariActiu = carteraUsuaris.setUsuariActiu(nomUsuari)
+                if (usuariActiu == null) println("Usuari null")
                 return 0
             }
             else{

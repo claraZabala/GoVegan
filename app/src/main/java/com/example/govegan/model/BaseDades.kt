@@ -52,20 +52,35 @@ class BaseDades(val db: FirebaseFirestore) {
         return exists
     }
 
-        fun getAllUsers(): ArrayList<String> {
-            // [START get_all_users]
-            var users : ArrayList<String> = ArrayList()
-            val returnUsers = db.collection("users").get()
-                .addOnSuccessListener { result ->
-                    for (document in result) {
-                        users.add(document.data.values.toString())
-                        Log.d(TAG, "${document.id} => ${document.data}")
-                    }
+    fun getAllUsers(): ArrayList<String> {
+        // [START get_all_users]
+        var users : ArrayList<String> = ArrayList()
+        val returnUsers = db.collection("users").get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    users.add(document.data.values.toString())
+                    Log.d(TAG, "${document.id} => ${document.data}")
                 }
-                .addOnFailureListener { exception ->
-                    Log.w(TAG, "Error getting documents.", exception)
-                }
-            return users
-            // [END get_all_users]
-        }
+            }
+            .addOnFailureListener { exception ->
+                Log.w(TAG, "Error getting documents.", exception)
+            }
+        return users
+        // [END get_all_users]
+    }
+
+    /*
+    * Es cerquen totes les setmanes corresponets a l'usuari en la base de dades
+     */
+    fun inicialitzar_setmanes_usuari(nomUsuari: String): ArrayList<Setmana> {
+        val setmanes_usuari: ArrayList<Setmana> = ArrayList()
+        /*
+        setmanes_usuari = getAllSetmanes()
+        for i in setmanes_usuari comparar idUsuari
+        si coincideix --> setmanes_usuari.add(i)
+         */
+        return setmanes_usuari
+    }
+
+
 }

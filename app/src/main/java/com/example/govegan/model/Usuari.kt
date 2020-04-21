@@ -4,13 +4,15 @@ import com.example.govegan.vista.Calendari_Setmanal
 
 
 class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
+
+
     var nom:String
     var cognoms:String
     var nomUsuari:String
     var pwd:String
     var edat:Int
     var email:String
-    var calendari:Calendari_Setmanal
+    lateinit var setmanes: ArrayList<Setmana>
     var llistaIngredientsCompra:ArrayList<String> = ArrayList()
 
     init {
@@ -20,6 +22,13 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         this.nomUsuari = nomUsuari
         this.pwd = pwd
         this.email = email
-        calendari = Calendari_Setmanal()
+
+    }
+
+    /*
+    * Inicialitza l'atribut llistat de setmanes que conté tota la info de l'usuari
+     */
+    fun setSetmanesUsuari(setmanes: ArrayList<Setmana>) {
+        this.setmanes = setmanes
     }
 }

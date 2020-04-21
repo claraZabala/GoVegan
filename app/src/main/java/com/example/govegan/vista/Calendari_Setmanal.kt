@@ -16,12 +16,6 @@ class Calendari_Setmanal : AppCompatActivity() {
         controlador = Controlador
     }
 
-    lateinit var setmanes: ArrayList<Setmana>
-    //em dona error al inicialitzar
-    init{
-
-    }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendari_setmanal)

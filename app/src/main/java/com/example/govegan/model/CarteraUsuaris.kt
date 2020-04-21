@@ -54,7 +54,21 @@ class CarteraUsuaris {
         return null
     }
 
+
+    /*
+    S'inicialitza la informació de l'usuari passsat per paràmetre
+     */
     fun setUsuariActiu(nomUsuari: String): Usuari? {
-        return getByID(nomUsuari)
+        val usuari: Usuari? = getByID(nomUsuari)
+        val setmanes: ArrayList<Setmana> = baseDades.inicialitzar_setmanes_usuari(nomUsuari)
+        if (usuari != null) {
+            usuari.setSetmanesUsuari(setmanes)
+        } else {
+            return null
+        }
+        return usuari
     }
+
+
+
 }
