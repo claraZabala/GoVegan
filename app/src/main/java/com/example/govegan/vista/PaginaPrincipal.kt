@@ -19,7 +19,7 @@ class PaginaPrincipal : AppCompatActivity() {
     }
 
     fun calendari(view: View) {
-        controlador.setReceptaFromProposta(titol_recepta.text.toString())
+        controlador.setReceptaFromProposta(titol_recepta?.text.toString())
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }
