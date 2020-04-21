@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/titolAfegirPlat"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/verdFosc"
+        android:text="Afegir Plat:"
+        android:gravity="center_vertical"
+        android:textAppearance="@style/TextBlancTitolSecundari"
+        android:textSize="23dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom del plat:"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/nomPlat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nom"
+        android:layout_marginBottom="20dp"/>
+
+
+        <CheckBox
+            android:id="@+id/teCarn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Conté carn" />
+
+    <CheckBox
+        android:id="@+id/teDerivats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté productes d'origen animal"
+        android:layout_marginBottom="20dp"/>
+
+
+    <Button
+        android:id="@+id/afegirPlatACalendari"
+        android:layout_width="110dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:background="@drawable/estil_botons"
+        android:text="Afegir" />
+</LinearLayout>
