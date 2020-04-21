@@ -14,7 +14,6 @@ import com.example.govegan.model.Pregunta
 import com.example.govegan.model.Resposta
 import com.example.govegan.model.Usuari
 
-
 class Forum : AppCompatActivity() {
 
     var controlador: Controlador = Controlador
@@ -55,5 +54,69 @@ class Forum : AppCompatActivity() {
 
             }
         }
+
+
+
+    /*On clic de enviar resposta:
+    Agafem el text definit a la scroll view
+
+    var text:String = textVew.text() ????
+
+    new dins de la scrollview :
+
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/verdClar"
+                android:layout_margin="2dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="65dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="Usuari:"></TextView>
+
+                        <TextView
+                            android:layout_width="170dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:text="On puc comprar heura?          5 respostes"></TextView>
+
+                        <Button
+                            android:layout_width="52dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@color/verdClar"
+                            android:text="respostes"></Button>
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+     */
+
+
+
+
+
     }
 
