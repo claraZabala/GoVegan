@@ -9,8 +9,8 @@ import com.google.firebase.storage.FirebaseStorage
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
     private var façanaCarteraIngredients:FaçanaCarteraIngredients
+    private var facadeCarteraPreguntes:FacadeCarteraPreguntes
     private var carteraUsuaris: CarteraUsuaris
-    private var carteraPreguntes: CarteraPreguntes
     private var usuariActiu: Usuari?
     private var setRecepta: Boolean
     private var titolReceptaProp: String
@@ -19,7 +19,7 @@ object Controlador {
         facadeCarteraCuriositats = FacadeCarteraCuriositats()
         façanaCarteraIngredients = FaçanaCarteraIngredients()
         carteraUsuaris = CarteraUsuaris()
-        carteraPreguntes = CarteraPreguntes()
+        facadeCarteraPreguntes = FacadeCarteraPreguntes()
         usuariActiu = null
         setRecepta = false
         titolReceptaProp = ""
@@ -97,19 +97,19 @@ object Controlador {
     }
 
     fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
-        carteraPreguntes.crearPregunta(idUsuari, descripcio, tema)
+        facadeCarteraPreguntes.crearPreguntaF(idUsuari, descripcio, tema)
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
-        return carteraPreguntes.mostrarPreguntesPerTema(temaP)
+        return facadeCarteraPreguntes.mostrarPreguntesPerTemaF(temaP)
     }
 
     fun crearResposta(tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
-        carteraPreguntes.crearResp(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+        facadeCarteraPreguntes.crearRespostaF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
 
-    fun mostrarRespPerIdPregtema(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
-        return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
+        return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
 
     fun setReceptaFromProposta(titolRecepta: String) {
