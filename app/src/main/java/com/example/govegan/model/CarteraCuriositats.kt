@@ -18,7 +18,6 @@ class CarteraCuriositats {
         llistaCuriositats.add(Curiositat(R.drawable.altres, "Altres", "la salut ..."))
     }
 
-
     fun getCuriositatByTheme(tema: String): Curiositat? {
         for (item in llistaCuriositats) {
             if (item.title.equals(tema)){

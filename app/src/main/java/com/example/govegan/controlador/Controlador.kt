@@ -94,8 +94,8 @@ object Controlador {
         façanaCarteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
     }
 
-    fun addNouIngredientSenseFoto(nomIngredient: String){
-        façanaCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    fun getAllIngredientsByName():ArrayList<String>{
+        return façanaCarteraIngredients.getAllIngredientsByName()
     }
 
     fun crearPregunta(idUsuari: String, descripcio: String, tema: String){

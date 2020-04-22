@@ -5,6 +5,7 @@
     android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/layoutCompra"
     android:orientation="vertical">
 
     <TextView
@@ -21,8 +22,14 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:background="@color/verdClar"
-        android:text="Fruita"
+        android:text="Ingredients"
         android:textSize="15dp" />
+    <LinearLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutLlistaCompra"
+        android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/ingredient1"
@@ -52,14 +59,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tipus2"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/verdClar"
-        android:text="Verdura"
-        android:textSize="15dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -87,14 +86,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tipus3"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/verdClar"
-        android:text="Llegums"
-        android:textSize="15dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -121,14 +112,6 @@
             android:src="@drawable/llentia" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tipus4"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/verdClar"
-        android:text="Dolços"
-        android:textSize="15dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,14 +142,6 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tipus5"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/verdClar"
-        android:text="Beguda"
-        android:textSize="15dp" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -194,13 +169,7 @@
             android:src="@drawable/batut" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tipus6"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
-        android:background="@color/verdClar"
-        android:text="Ja els tinc" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/afegir"

@@ -22,8 +22,7 @@ class FaçanaCarteraIngredients() {
     fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
         carteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
     }
-
-    fun addNouIngredientSenseFoto(nomIngredient: String){
-        carteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    fun getAllIngredientsByName():ArrayList<String>{
+        return  carteraIngredients.getAllIngredientsByName()
     }
 }

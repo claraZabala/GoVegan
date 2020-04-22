@@ -19,7 +19,6 @@
         <activity android:name=".vista.RecuperarContra"/>
         <activity android:name=".vista.AfegirMenu"/>
         <activity android:name=".vista.SignUp"/>
-        <activity android:name=".vista.AfegirIngredients"/>
         <activity android:name=".vista.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

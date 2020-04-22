@@ -12,6 +12,7 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
+import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.afegir_menu.*
 import kotlinx.android.synthetic.main.afegir_menu.floatingAfegirIngredients
 import kotlinx.android.synthetic.main.dialog_ingredients.*
@@ -20,16 +21,12 @@ import java.lang.StringBuilder
 
 class AfegirMenu : AppCompatActivity() {
     var llistaIngredients:ArrayList<String> = ArrayList()
+    var controlador:Controlador = Controlador
     var llistaIngredientsCompra:ArrayList<String> = ArrayList()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.afegir_menu)
-        llistaIngredients.add("PA")
-        llistaIngredients.add("OLI")
-        llistaIngredients.add("SAL")
-        llistaIngredients.add("SUCRE")
-        llistaIngredients.add("AIGUA")
-        llistaIngredients.add("MACARRONS")
+        llistaIngredients = controlador.getAllIngredientsByName()
 
 
 
@@ -86,7 +83,7 @@ class AfegirMenu : AppCompatActivity() {
             dialogView.layoutIngredientsBD.addView(btnIngredient)
             if (i in llistaIngredientsCompra)
                 btnIngredient.isChecked = true
-            btnIngredient.setOnClickListener {
+                 btnIngredient.setOnClickListener {
                 if (btnIngredient.isChecked) {
                     llistaIngredientsCompra.add(btnIngredient.text.toString())
                     textIngredients.text = llistaIngredientsCompra.toString()
