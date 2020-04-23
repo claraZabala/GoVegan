@@ -3,7 +3,7 @@ package com.example.govegan.controlador
 import com.example.govegan.model.CarteraIngredients
 import com.example.govegan.model.Ingredient
 
-class FaçanaCarteraIngredients() {
+class FacadeCarteraIngredients() {
 
     var carteraIngredients: CarteraIngredients
 

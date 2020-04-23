@@ -2,7 +2,7 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.CarteraReceptes
 
-class FaçanaCarteraReceptes {
+class FacadeCarteraReceptes {
 
     private var carteraReceptes: CarteraReceptes
         get() {

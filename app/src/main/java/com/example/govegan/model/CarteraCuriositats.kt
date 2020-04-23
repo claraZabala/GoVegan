@@ -62,9 +62,4 @@ class CarteraCuriositats {
         return -1
 
     }
-
-
-
-
-
 }
