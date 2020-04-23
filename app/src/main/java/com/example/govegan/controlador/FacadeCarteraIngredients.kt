@@ -1,14 +1,17 @@
 package com.example.govegan.controlador
 
+import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraIngredients
 import com.example.govegan.model.Ingredient
 
-class FacadeCarteraIngredients() {
+class FacadeCarteraIngredients(baseDades: BaseDades) {
 
     var carteraIngredients: CarteraIngredients
+    var baseDades: BaseDades
 
     init {
         carteraIngredients = CarteraIngredients()
+        this.baseDades = baseDades
     }
 
     fun getIngredientsByName(nomIngredient: String): Ingredient?{

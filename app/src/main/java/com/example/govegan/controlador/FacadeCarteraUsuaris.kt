@@ -1,14 +1,17 @@
 package com.example.govegan.controlador
 
+import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
 
-class FacadeCarteraUsuaris {
+class FacadeCarteraUsuaris (baseDades: BaseDades) {
     var carteraUsuaris: CarteraUsuaris
     var controlador: Controlador
+    var baseDades: BaseDades
 
     init{
-        carteraUsuaris = CarteraUsuaris()
+        carteraUsuaris = CarteraUsuaris(baseDades)
         controlador = Controlador
+        this.baseDades = baseDades
     }
 
     fun login(nomUsuari: String, pwd: String): Int {

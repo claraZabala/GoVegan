@@ -1,6 +1,7 @@
 package com.example.govegan.controlador
 
 import com.example.govegan.model.*
+import com.google.firebase.firestore.FirebaseFirestore
 
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
@@ -10,12 +11,16 @@ object Controlador {
     private var usuariActiu: Usuari?
     private var setRecepta: Boolean
     private var titolReceptaProp: String
+    val baseDades: BaseDades
+    val db: FirebaseFirestore
 
     init {
-        facadeCarteraCuriositats = FacadeCarteraCuriositats()
-        facadeCarteraIngredients = FacadeCarteraIngredients()
-        facadeCarteraUsuaris = FacadeCarteraUsuaris()
-        facadeCarteraPreguntes = FacadeCarteraPreguntes()
+        db = FirebaseFirestore.getInstance()
+        baseDades = BaseDades(db)
+        facadeCarteraCuriositats = FacadeCarteraCuriositats(baseDades)
+        facadeCarteraIngredients = FacadeCarteraIngredients(baseDades)
+        facadeCarteraUsuaris = FacadeCarteraUsuaris(baseDades)
+        facadeCarteraPreguntes = FacadeCarteraPreguntes(baseDades)
         usuariActiu = null
         setRecepta = false
         titolReceptaProp = ""

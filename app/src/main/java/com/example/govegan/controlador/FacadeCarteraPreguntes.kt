@@ -2,11 +2,13 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.*
 
-class FacadeCarteraPreguntes() {
+class FacadeCarteraPreguntes(baseDades: BaseDades) {
     var carteraPreguntes: CarteraPreguntes
+    var baseDades: BaseDades
 
     init {
         carteraPreguntes = CarteraPreguntes()
+        this.baseDades = baseDades
     }
 
     fun crearPreguntaF(idUsuari: String, descripcio: String, tema: String){

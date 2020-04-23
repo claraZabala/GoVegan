@@ -1,13 +1,16 @@
 package com.example.govegan.controlador
 
+import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraCuriositats
 import com.example.govegan.model.Curiositat
 
-class FacadeCarteraCuriositats() {
+class FacadeCarteraCuriositats(baseDades: BaseDades) {
     var carteraCuriositats: CarteraCuriositats
+    var baseDades: BaseDades
 
     init {
         carteraCuriositats = CarteraCuriositats()
+        this.baseDades = baseDades
     }
 
     fun getLlistaCuriositats(): ArrayList<Curiositat> {
