@@ -118,7 +118,8 @@ object Controlador {
     }
 
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-
+        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
+        //setRecepta = false
     }
 
     fun Context.toast(missatge: String){
