@@ -4,6 +4,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verdClar"
+    android:layout_marginTop="15dp"
     android:id="@+id/layoutCompartirRecepta"
     >
     <TextView
@@ -17,67 +18,18 @@
         android:textAppearance="@style/TextBlancTitolSecundari"
 
         />
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NOM DE MENÚ:"
-            android:layout_marginRight="15dp">
-
-        </TextView>
-        <EditText
-            android:id="@+id/nomNovaRecepta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Nom de la recepta"
-            >
-        </EditText>
-    </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Carn" />
-
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Derivats Animals" />
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/estil_botons"
-        android:text="AFEGIR RECEPTA"
-        android:onClick="calendari"/>
-
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Afegir Recepta(Per poder afegir la recepta l'àpat ha de ser completament vegà/vegetarià)" />
-
-    <CheckBox
-        android:id="@+id/checkBox5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Gluten" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PASOS A SEGUIR:"
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp">
 
         </TextView>
         <EditText
@@ -96,6 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
             android:text="TEMPS PREPARACIÓ:">
 
         </TextView>
@@ -115,7 +68,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TEMPS CUINA:"
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp">
 
         </TextView>
         <EditText
@@ -128,12 +82,14 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="COMENSALS: "
-            android:layout_marginRight="15dp">
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp">
 
         </TextView>
 
@@ -145,15 +101,30 @@
         </EditText>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marca a continuació si la recepta conté gluten:: "
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"/>
+    <CheckBox
+        android:id="@+id/checkBoxGluten"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Gluten" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
             android:text="INGREDIENTS: ">
 
         </TextView>
@@ -165,8 +136,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"
             android:clickable="true"
-            app:fabSize="mini"
             android:onClick="afegirIngredient"
+            app:fabSize="mini"
             app:srcCompat="@drawable/afegir" />
 
         <TextView
@@ -180,15 +151,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:text="INSEREIX UNA IMATGE AQUI: "
-        android:gravity="center"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:text="INSEREIX UNA IMATGE AQUI: " />
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="match_parent"
+        android:layout_width="381dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
         android:background="@drawable/estil_botons"
-        android:text="COMPARTIR RECEPTA"
-        android:onClick="recepta"/>
+        android:onClick="recepta"
+        android:text="COMPARTIR RECEPTA" />
 
 </LinearLayout>
