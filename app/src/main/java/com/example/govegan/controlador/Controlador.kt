@@ -1,5 +1,7 @@
 package com.example.govegan.controlador
 
+import android.content.Context
+import android.widget.Toast
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -8,6 +10,7 @@ object Controlador {
     private var facadeCarteraIngredients:FacadeCarteraIngredients
     private var facadeCarteraPreguntes:FacadeCarteraPreguntes
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
+    private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: Usuari?
     private var setRecepta: Boolean
     private var titolReceptaProp: String
@@ -21,6 +24,7 @@ object Controlador {
         facadeCarteraIngredients = FacadeCarteraIngredients(baseDades)
         facadeCarteraUsuaris = FacadeCarteraUsuaris(baseDades)
         facadeCarteraPreguntes = FacadeCarteraPreguntes(baseDades)
+        facadeCarteraReceptes = FacadeCarteraReceptes(baseDades)
         usuariActiu = null
         setRecepta = false
         titolReceptaProp = ""
@@ -115,5 +119,9 @@ object Controlador {
 
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
 
+    }
+
+    fun Context.toast(missatge: String){
+        Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
     }
 }

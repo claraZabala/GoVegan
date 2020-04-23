@@ -9,17 +9,13 @@ import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.recepta.*
 
 class PaginaPrincipal : AppCompatActivity() {
-    var controlador:Controlador
-    init {
-        controlador = Controlador
-    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.pagina_principal)
     }
 
     fun calendari(view: View) {
-        controlador.setReceptaFromProposta(titol_recepta?.text.toString())
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }

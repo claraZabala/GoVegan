@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.controlador.Controlador.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
@@ -78,11 +79,11 @@ class SignUp: AppCompatActivity() {
             intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)
         } else if (registre.equals(1)){
-            Toast.makeText(applicationContext, "Has d'omplir tots els camps", Toast.LENGTH_LONG).show()
+            toast("Has d'omplir tots els camps")
         } else if (registre.equals(2)){
-            Toast.makeText(applicationContext, "Les contrasenyes han de coincidir", Toast.LENGTH_LONG).show()
+            toast("Les contrasenyes han de coincidir")
         } else {
-            Toast.makeText(applicationContext, "El nom d'usuari ja existeix", Toast.LENGTH_LONG).show()
+            toast("El nom d'usuari ja existeix")
         }
     }
 }

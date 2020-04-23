@@ -8,13 +8,8 @@ class Proposta (imatge: Int, title: String, temps: String, numPersones: String, 
     var temps:String = ""
     var numPersones:String = ""
     var icona:Int = 0
-    private var ingredients: ArrayList<Ingredient?> = TODO()
-        get(){
-            return ingredients
-        }
-        set(newIngredients){
-            field = newIngredients
-        }
+    var ingredients: ArrayList<Ingredient?>
+
     init{
         this.imatge = imatge
         this.title = title

@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.controlador.Controlador.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.login.*
@@ -38,9 +39,9 @@ class MainActivity: AppCompatActivity() {
             intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)
         } else if(login.equals(1)){
-            Toast.makeText(applicationContext, "Usuari o contrasenya sense omplir", Toast.LENGTH_LONG).show()
+            toast("Usuari o contrasenya sense omplir")
         } else if (login.equals(2)){
-            Toast.makeText(applicationContext, "Usuari o contrasenya incorrectes", Toast.LENGTH_LONG).show()
+            toast("Usuari o contrasenya incorrectes")
         }
     }
 
