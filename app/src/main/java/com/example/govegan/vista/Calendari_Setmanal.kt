@@ -16,6 +16,13 @@ class Calendari_Setmanal : AppCompatActivity() {
         controlador = Controlador
     }
 
+    //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
+    var setmanaActual: String
+    init {
+        //TODO: gestionar la inicialització de la setmana
+        setmanaActual = "Setmana 1"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.calendari_setmanal)
@@ -55,6 +62,7 @@ class Calendari_Setmanal : AppCompatActivity() {
         }
 
         //si vens d'una recepta és true i es creen els on click listener
+        //un click per triar el dia i àpat en què s'afegeix la recepta
         if (controlador.getSetRecepta()){
             int1.setOnClickListener(clickListener)
             int2.setOnClickListener(clickListener)
@@ -82,7 +90,7 @@ class Calendari_Setmanal : AppCompatActivity() {
 
     private val clickListener = View.OnClickListener { view ->
         when (view.id) {
-            R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar", spinner2.selectedItem.toString())
+            R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString())
             R.id.int2 -> controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString())
             R.id.int3 -> controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString())
             R.id.int4 -> controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString())

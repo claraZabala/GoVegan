@@ -27,7 +27,7 @@
         android:id="@+id/spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"></Spinner>
+        android:layout_margin="10dp" />
 
     <GridLayout
         android:layout_width="match_parent"
