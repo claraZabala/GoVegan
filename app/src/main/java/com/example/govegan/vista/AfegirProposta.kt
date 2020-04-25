@@ -129,6 +129,8 @@ class AfegirProposta : AppCompatActivity() {
         var result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
         if (result==1){
             toast("Has d'omplir tots els camps")
+        } else if(result==2){
+            toast("El nom de recepta ja existeix")
         } else if (result==0) {
             intent = Intent(this, Recepta::class.java)
             startActivity(intent)

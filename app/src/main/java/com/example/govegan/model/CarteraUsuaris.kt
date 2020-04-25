@@ -48,7 +48,6 @@ class CarteraUsuaris(baseDades: BaseDades) {
         return null
     }
 
-
     /*
     S'inicialitza la informació de l'usuari passsat per paràmetre
      */
@@ -85,6 +84,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
         }
         return false
     }
+
     fun getLlistaUsuari(nomUsuari: String?):ArrayList<String>?{
         for (item in llistaUsuaris) {
             if (item.nomUsuari.equals(nomUsuari)) {
@@ -94,7 +94,8 @@ class CarteraUsuaris(baseDades: BaseDades) {
 
     return null
     }
-    }
+
+}
 
 
 

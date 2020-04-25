@@ -121,10 +121,24 @@ class Calendari_Setmanal : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun recepta(view: View){
+    fun recepta1(view: View){
+        controlador.getReceptaByName(esmorzar.text.toString())
         intent = Intent(this, Recepta::class.java)
         startActivity(intent)
     }
+
+    fun recepta2(view: View){
+        controlador.getReceptaByName(dinar.text.toString())
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
+
+    fun recepta3(view: View){
+        controlador.getReceptaByName(sopar.text.toString())
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
+
 }
 
 

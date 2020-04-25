@@ -12,10 +12,10 @@ import com.example.govegan.model.Proposta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context
-    var propostes:List<Proposta> = listOf(Proposta(R.drawable.gastronomia,"Proposta 1","45 min", "", "2 persones", R.drawable.ou,"", ArrayList()),
-        Proposta(R.drawable.healthy,"Proposta 2","10 min", "","1 persona", R.drawable.cara, "", ArrayList()),
-        Proposta(R.drawable.moda,"Proposta 3","1 hora", "","3 persones", R.drawable.ou, "", ArrayList()),
-        Proposta(R.drawable.altres,"Proposta 4","1,5 hores", "","3 persones", R.drawable.batut, "", ArrayList()))
+    var propostes:List<Proposta> = listOf(Proposta(R.drawable.gastronomia,"Proposta 1","45 min", "10 min", "2 persones", R.drawable.ou,"", ArrayList()),
+        Proposta(R.drawable.healthy,"Proposta 2","10 min", "5 min","1 persona", R.drawable.cara, "", ArrayList()),
+        Proposta(R.drawable.moda,"Proposta 3","1 hora", "30 min","3 persones", R.drawable.ou, "", ArrayList()),
+        Proposta(R.drawable.altres,"Proposta 4","1,5 hores", "20 min","3 persones", R.drawable.batut, "", ArrayList()))
     init{
         this.context = context
 
@@ -34,12 +34,14 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false)
         val imageView: ImageView = view.findViewById(R.id.imageRecepta)
         val title: TextView = view.findViewById(R.id.titolRecepta)
-        val temps: TextView = view.findViewById(R.id.tempsPreparacio)
+        val tempsP: TextView = view.findViewById(R.id.tempsPreparacio)
+        val tempsC: TextView = view.findViewById(R.id.tempsCuina)
         val numPersones: TextView = view.findViewById(R.id.numPersones)
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
         imageView.setImageResource(propostes.get(position).imatge)
         title.setText(propostes.get(position).title)
-        temps.setText(propostes.get(position).tempsPrep)
+        tempsP.setText(propostes.get(position).tempsPrep)
+        tempsC.setText(propostes.get(position).tempsCuina)
         numPersones.setText(propostes.get(position).numPersones)
         icona.setImageResource(propostes.get(position).icona)
 
