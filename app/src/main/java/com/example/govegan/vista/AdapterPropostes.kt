@@ -12,10 +12,10 @@ import com.example.govegan.model.Proposta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context
-    var propostes:List<Proposta> = listOf(Proposta(R.drawable.gastronomia,"Proposta 1","45 min", "2 persones", R.drawable.ou, ArrayList<Ingredient?>()),
-        Proposta(R.drawable.healthy,"Proposta 2","10 min", "1 persona", R.drawable.cara, ArrayList<Ingredient?>()),
-        Proposta(R.drawable.moda,"Proposta 3","1 hora", "3 persones", R.drawable.ou, ArrayList<Ingredient?>()),
-        Proposta(R.drawable.altres,"Proposta 4","1,5 hores", "3 persones", R.drawable.batut, ArrayList<Ingredient?>()))
+    var propostes:List<Proposta> = listOf(Proposta(R.drawable.gastronomia,"Proposta 1","45 min", "", "2 persones", R.drawable.ou,"", ArrayList()),
+        Proposta(R.drawable.healthy,"Proposta 2","10 min", "","1 persona", R.drawable.cara, "", ArrayList()),
+        Proposta(R.drawable.moda,"Proposta 3","1 hora", "","3 persones", R.drawable.ou, "", ArrayList()),
+        Proposta(R.drawable.altres,"Proposta 4","1,5 hores", "","3 persones", R.drawable.batut, "", ArrayList()))
     init{
         this.context = context
 
@@ -39,7 +39,7 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
         imageView.setImageResource(propostes.get(position).imatge)
         title.setText(propostes.get(position).title)
-        temps.setText(propostes.get(position).temps)
+        temps.setText(propostes.get(position).tempsPrep)
         numPersones.setText(propostes.get(position).numPersones)
         icona.setImageResource(propostes.get(position).icona)
 

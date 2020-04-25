@@ -17,7 +17,7 @@
         <activity android:name=".vista.layoutCuriositats"/>
         <activity android:name=".vista.LayoutPropostes"/>
         <activity android:name=".vista.RecuperarContra"/>
-        <activity android:name=".vista.AfegirMenu"/>
+        <activity android:name=".vista.AfegirProposta"/>
         <activity android:name=".vista.SignUp"/>
         <activity android:name=".vista.MainActivity">
             <intent-filter>

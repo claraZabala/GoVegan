@@ -31,11 +31,11 @@
         android:layout_marginBottom="20dp"/>
 
 
-        <CheckBox
-            android:id="@+id/teCarn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Conté carn" />
+    <CheckBox
+        android:id="@+id/teCarn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté carn" />
 
     <CheckBox
         android:id="@+id/teDerivats"

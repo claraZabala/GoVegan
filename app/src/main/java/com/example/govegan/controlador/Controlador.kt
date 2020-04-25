@@ -2,6 +2,7 @@ package com.example.govegan.controlador
 
 import android.content.Context
 import android.widget.Toast
+import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -12,6 +13,7 @@ object Controlador {
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: Usuari?
+    private var receptaActiva: Proposta?
     private var setRecepta: Boolean
     private var titolReceptaProp: String
     val baseDades: BaseDades
@@ -26,8 +28,13 @@ object Controlador {
         facadeCarteraPreguntes = FacadeCarteraPreguntes(baseDades)
         facadeCarteraReceptes = FacadeCarteraReceptes(baseDades)
         usuariActiu = null
+        receptaActiva = null
         setRecepta = false
         titolReceptaProp = ""
+    }
+
+    fun Context.toast(missatge: String){
+        Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
     }
 
     fun getUsuariActiu(): Usuari? {
@@ -45,6 +52,14 @@ object Controlador {
 
     fun login(nomUsuari: String, pwd: String): Int {
         return facadeCarteraUsuaris.login(nomUsuari, pwd)
+    }
+
+    fun setReceptaActiva(recepta: Proposta?){
+        receptaActiva = recepta
+    }
+
+    fun getReceptaActiva(): Proposta? {
+        return receptaActiva
     }
 
     fun getLlistaCuriositats(): ArrayList<Curiositat> {
@@ -122,7 +137,13 @@ object Controlador {
         //setRecepta = false
     }
 
-    fun Context.toast(missatge: String){
-        Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
+    fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
+                          comensals:String, tipusRecepta:Int): Int {
+        if (nom.isNullOrEmpty() or pasos.isNullOrEmpty() or tempsPrep.isNullOrEmpty() or
+            tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty()){
+            return 1
+        }
+        facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
+        return 0
     }
 }

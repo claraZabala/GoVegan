@@ -5,12 +5,27 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
     <TextView
         android:id="@+id/titol_recepta"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="30dp"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="Titol Recepta" />
+        android:layout_height="match_parent"
+        android:text="Titol Recepta"
+        android:textSize="20dp"/>
+
+        <ImageView
+            android:id="@+id/iconRecepta"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ou" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/foto_recepta"
@@ -31,7 +46,7 @@
     <TextView
         android:id="@+id/passos"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="100dp"
         android:layout_margin="20dp"
         android:layout_marginLeft="10dp"
         android:text="Recepta " />
@@ -53,7 +68,7 @@
         android:text="Temps cuina" />
 
     <TextView
-        android:id="@+id/comensals"
+        android:id="@+id/comensales"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -63,47 +78,49 @@
     <LinearLayout
         android:layout_width="448dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Afegir a la llista de la compra:" />
+            android:text="Afegir ingredients a la llista de la compra:" />
 
-        <ImageButton
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            app:fabSize="mini"
             android:id="@+id/afegir_recepta"
-            android:layout_width="50dp"
-            android:layout_height="30dp"
-            android:layout_gravity="right"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:background="@color/verdClar"
-            android:foregroundGravity="right"
             android:onClick="llista"
-            app:srcCompat="@android:drawable/ic_menu_add" />
+            app:srcCompat="@drawable/afegir" />
     </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Afegir al calendari com a àpat:"/>
+            android:gravity="center"
+            android:text="Afegir al calendari com a àpat:" />
 
-            <ImageButton
-                android:id="@+id/afegir_calendari"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
-                android:layout_gravity="right"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:background="@color/verdClar"
-                android:foregroundGravity="right"
-                android:onClick="calendari"
-                app:srcCompat="@android:drawable/ic_menu_add" />
-        </LinearLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/afegir_calendari"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            android:onClick="calendari"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/afegir" />
+    </LinearLayout>
 </LinearLayout>
