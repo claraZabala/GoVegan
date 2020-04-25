@@ -12,11 +12,8 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.controlador.Controlador
-import kotlinx.android.synthetic.main.afegir_menu.*
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.llista_compra.*
-import kotlinx.android.synthetic.main.pagina_principal.*
-
 
 class LlistaCompra : AppCompatActivity() {
     var ingredients:ArrayList<String> = ArrayList()

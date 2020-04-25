@@ -147,8 +147,10 @@ object Controlador {
             tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty()){
             return 1
         }
-        facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
-        return 0
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)){
+            return 0
+        }
+        return 2
     }
 
     fun afegirIngredientLlistaCompra(ingredient: String): Boolean {
@@ -166,5 +168,10 @@ object Controlador {
 
     fun getLlistaIngredientsUsuari():ArrayList<String>?{
         return facadeCarteraUsuaris.getLlistaUsuari(getUsuariActiu()?.nomUsuari)
+    }
+
+    fun getReceptaByName(nom: String) {
+        var recepta = facadeCarteraReceptes.getReceptaByName(nom)
+        setReceptaActiva(recepta)
     }
 }

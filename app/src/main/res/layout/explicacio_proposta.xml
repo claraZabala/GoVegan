@@ -75,14 +75,37 @@
                 android:textColor="@color/taronjaFosc"
                 android:textSize="15dp" />
 
+            <TextView
+                android:id="@+id/tempsC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/temps"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:text="Temps de cuinat: "
+                android:textColor="@color/taronjaFosc"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/tempsCuina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tempsPreparacio"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:text="30 min"
+                android:textColor="@color/taronjaFosc"
+                android:textSize="15dp" />
+
             <ImageView
                 android:id="@+id/iconRecepta"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:src="@drawable/ou"
-                android:layout_below="@id/temps"
+                android:layout_below="@id/tempsC"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="40dp"/>
+                android:layout_marginTop="30dp"/>
 
         </RelativeLayout>
 
