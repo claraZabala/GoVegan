@@ -111,7 +111,7 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun recepta(view: View){
-        var nom: String = nomPlat.text.toString()
+        var nom: String = resposta.text.toString()
         var pasos: String = pasos.text.toString()
         var tempsPrep: String = temps_prep.text.toString()
         var tempsCuina: String = temps_cuina.text.toString()

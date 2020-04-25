@@ -9,41 +9,47 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/verdFosc"
-        android:text="Afegir Plat:"
         android:gravity="center_vertical"
+        android:text="Enviar Resposta: "
         android:textAppearance="@style/TextBlancTitolSecundari"
         android:textSize="23dp"
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/idDestinatari"
         android:layout_width="wrap_content"
+        android:textSize="15dp"
         android:layout_height="wrap_content"
-        android:text="Nom del plat:"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_margin="3dp"
+        android:text="Paquita pregunta:" />
+
+    <TextView
+        android:id="@+id/pregunta"
+        android:textSize="25dp"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10dp"
+        android:layout_margin="4dp"
+        android:layout_height="32dp"
+        android:text="Hi ha marques veganes? " />
+
+
+    <TextView
+        android:id="@+id/resposta1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_margin="10dp"
+        android:text="Maria: Si, però no les conec." />
 
     <EditText
         android:id="@+id/resposta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Nom"
-        android:layout_marginBottom="20dp"/>
-
-
-    <CheckBox
-        android:id="@+id/teCarn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Conté carn" />
-
-    <CheckBox
-        android:id="@+id/teDerivats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Conté productes d'origen animal"
-        android:layout_marginBottom="20dp"/>
-
+        android:hint="Resposta"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/enviarRespostaAlForum"
@@ -51,5 +57,5 @@
         android:layout_height="36dp"
         android:layout_gravity="center"
         android:background="@drawable/estil_botons"
-        android:text="Afegir" />
+        android:text="Enviar" />
 </LinearLayout>
