@@ -14,15 +14,15 @@
         android:id="@+id/titol_recepta"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="30dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="Titol Recepta"
-        android:textSize="20dp"/>
+        android:textSize="30dp"/>
 
         <ImageView
             android:id="@+id/iconRecepta"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/ou" />
 
     </LinearLayout>
@@ -41,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
+        android:textSize="20dp"
         android:text="Nom de l'autor" />
 
     <TextView
@@ -48,6 +49,7 @@
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="20dp"
+        android:textSize="15dp"
         android:layout_marginLeft="10dp"
         android:text="Recepta " />
 
@@ -56,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
+        android:textSize="15dp"
         android:layout_marginLeft="10dp"
         android:text="Temps preparacio" />
 
@@ -65,6 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:textSize="15dp"
         android:text="Temps cuina" />
 
     <TextView
@@ -73,6 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
+        android:textSize="15dp"
         android:text="Comensals" />
 
     <LinearLayout
@@ -85,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:textSize="15dp"
             android:text="Afegir ingredients a la llista de la compra:" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -109,6 +115,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:textSize="15dp"
             android:gravity="center"
             android:text="Afegir al calendari com a àpat:" />
 
