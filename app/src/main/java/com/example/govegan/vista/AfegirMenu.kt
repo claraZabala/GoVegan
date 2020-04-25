@@ -27,6 +27,7 @@ class AfegirMenu : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.afegir_menu)
         llistaIngredients = controlador.getAllIngredientsByName()
+        llistaIngredientsCompra = controlador.getLlistaIngredientsUsuari()!!
 
 
 
@@ -107,6 +108,7 @@ class AfegirMenu : AppCompatActivity() {
                 dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
                 llistaIngredients.add(chkBoxNouIngredient.text.toString())
                 llistaIngredientsCompra.add(chkBoxNouIngredient.text.toString())
+                controlador.addNouIngredientSenseFoto(chkBoxNouIngredient.text.toString())
                 textIngredients.text = llistaIngredientsCompra.toString()
             }
         }

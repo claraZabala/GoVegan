@@ -25,7 +25,17 @@ class FacadeCarteraIngredients(baseDades: BaseDades) {
     fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
         carteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
     }
+
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        carteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
+
     fun getAllIngredientsByName():ArrayList<String>{
         return  carteraIngredients.getAllIngredientsByName()
+    }
+
+    fun getImatgeIngredient(nomIngredient: String):Int{
+        return carteraIngredients.getImatgeIngredient(nomIngredient)
     }
 }
