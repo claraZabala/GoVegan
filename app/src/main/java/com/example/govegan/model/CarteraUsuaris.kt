@@ -64,5 +64,37 @@ class CarteraUsuaris(baseDades: BaseDades) {
     }
 
 
+    fun afegirIngredientLlistaCompra(nomUsuari: String?,ingredient: String): Boolean {
+        for (item in llistaUsuaris) {
+            if (item.nomUsuari.equals(nomUsuari)){
+                item.llistaIngredientsCompra.add(ingredient)
+                return true
+            }
+        }
+        return false
+    }
 
-}
+    fun treureIngredientLlistaCompra(nomUsuari: String?,ingredient: String):Boolean{
+        for (item in llistaUsuaris) {
+            if (item.nomUsuari.equals(nomUsuari)){
+                if(ingredient in item.llistaIngredientsCompra) {
+                    item.llistaIngredientsCompra.remove(ingredient)
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    fun getLlistaUsuari(nomUsuari: String?):ArrayList<String>?{
+        for (item in llistaUsuaris) {
+            if (item.nomUsuari.equals(nomUsuari)) {
+                return item.llistaIngredientsCompra
+            }
+        }
+
+    return null
+    }
+    }
+
+
+

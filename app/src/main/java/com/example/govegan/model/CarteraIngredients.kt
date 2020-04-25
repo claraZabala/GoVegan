@@ -15,6 +15,14 @@ class CarteraIngredients (){
         ingredients.add(Ingredient("maduixa",R.drawable.maduixa))
         ingredients.add(Ingredient("brocoli",R.drawable.brocoli))
         ingredients.add(Ingredient("xocolata",R.drawable.xocolata))
+        ingredients.add(Ingredient("batut",R.drawable.batut))
+        ingredients.add(Ingredient("ou",R.drawable.ou))
+        ingredients.add(Ingredient("arros",R.drawable.arros))
+        ingredients.add(Ingredient("macarrons",R.drawable.macarrons))
+        ingredients.add(Ingredient("pa",R.drawable.pa))
+        ingredients.add(Ingredient("pebrot",R.drawable.pebrot))
+        ingredients.add(Ingredient("tomaquet",R.drawable.tomaquet))
+        ingredients.add(Ingredient("ceba",R.drawable.ceba))
 
     }
 
@@ -45,6 +53,22 @@ class CarteraIngredients (){
     fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
         var nouIngredient:Ingredient = Ingredient(nomIngredient,fotoInt)
         ingredients.add(nouIngredient)
+    }
+
+
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        var nouIngredient:Ingredient = Ingredient(nomIngredient)
+        ingredients.add(nouIngredient)
+    }
+    
+    fun getImatgeIngredient(nomIngredient: String):Int{
+        for (i in ingredients){
+            if(i.nom.equals(nomIngredient))
+                if(i.imatge != null)
+                    return  i.imatge
+        }
+        return 0
+
     }
 
 

@@ -24,152 +24,19 @@
         android:background="@color/verdClar"
         android:text="Ingredients"
         android:textSize="15dp" />
-    <LinearLayout
-        android:background="@android:color/white"
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/layoutLlistaCompra"
-        android:orientation="vertical">
+        android:layout_height="361dp">
 
-    <LinearLayout
-        android:id="@+id/ingredient1"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/check1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/verdClar" />
-
-        <TextView
-            android:id="@+id/text1"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ingredient 1"
-            android:textColor="#000000" />
-
-        <ImageView
-            android:id="@+id/imatge1"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/maduixa" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/check2"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/verdClar" />
-
-        <TextView
-            android:id="@+id/text2"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ingredient 2"
-            android:textColor="#000000" />
-
-        <ImageView
-            android:id="@+id/imatge2"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/brocoli" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/check3"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/verdClar" />
-
-        <TextView
-            android:id="@+id/text3"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ingredient 3"
-            android:textColor="#000000" />
-
-        <ImageView
-            android:id="@+id/imatge3"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/llentia" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/check4"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/verdClar"
-            android:textColor="#000000"
-            android:textColorHint="#000000" />
-
-        <TextView
-            android:id="@+id/text4"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ingredient 4"
-            android:textColor="#000000" />
-
-        <ImageView
-            android:id="@+id/imatge4"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/xocolata" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/check5"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="@color/verdClar" />
-
-        <TextView
-            android:id="@+id/text5"
-            android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Ingredient 5"
-            android:textColor="#000000"
-            android:textColorHint="#000000" />
-
-        <ImageView
-            android:id="@+id/imatge5"
-            android:layout_width="48dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/batut" />
-
-    </LinearLayout>
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutLlistaCompra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical">
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <Button
         android:id="@+id/afegir"

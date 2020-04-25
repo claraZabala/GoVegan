@@ -99,6 +99,10 @@ object Controlador {
         facadeCarteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
     }
 
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        facadeCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
     fun getAllIngredientsByName():ArrayList<String>{
         return facadeCarteraIngredients.getAllIngredientsByName()
     }
@@ -145,5 +149,22 @@ object Controlador {
         }
         facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
         return 0
+    }
+
+    fun afegirIngredientLlistaCompra(ingredient: String): Boolean {
+        return facadeCarteraUsuaris.afegirIngredientLlistaCompra(getUsuariActiu()?.nomUsuari,ingredient)
+    }
+
+    fun treureIngredientLlistaCompra(ingredient: String):Boolean{
+        return facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu()?.nomUsuari, ingredient)
+    }
+
+
+    fun getImatgeIngredient(nomIngredient: String):Int{
+        return facadeCarteraIngredients.getImatgeIngredient(nomIngredient)
+    }
+
+    fun getLlistaIngredientsUsuari():ArrayList<String>?{
+        return facadeCarteraUsuaris.getLlistaUsuari(getUsuariActiu()?.nomUsuari)
     }
 }

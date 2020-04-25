@@ -2,6 +2,7 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
+import com.example.govegan.model.Ingredient
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
     var carteraUsuaris: CarteraUsuaris
@@ -44,5 +45,16 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
                 return 3
             }
         }
+    }
+
+    fun afegirIngredientLlistaCompra(nomUsuari: String?,ingredient: String): Boolean {
+        return carteraUsuaris.afegirIngredientLlistaCompra(nomUsuari,ingredient)
+    }
+    fun treureIngredientLlistaCompra(nomUsuari: String?,ingredient: String):Boolean{
+        return carteraUsuaris.treureIngredientLlistaCompra(nomUsuari,ingredient)
+    }
+
+    fun getLlistaUsuari(nomUsuari: String?):ArrayList<String>? {
+        return carteraUsuaris.getLlistaUsuari(nomUsuari)
     }
 }
