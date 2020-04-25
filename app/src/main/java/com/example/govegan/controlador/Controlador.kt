@@ -188,11 +188,11 @@ object Controlador {
      *      **********************
      */
 
-    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
-        facadeCarteraPreguntes.crearPreguntaF(idUsuari, descripcio, tema)
+    fun crearPregunta(descripcio: String, tema: String){
+        facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!.nomUsuari, descripcio, tema)
     }
 
-    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>?{
         return facadeCarteraPreguntes.mostrarPreguntesPerTemaF(temaP)
     }
 

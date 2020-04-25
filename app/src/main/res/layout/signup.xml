@@ -82,7 +82,7 @@
         android:layout_marginLeft="10dp"/>
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/sendPregunta"
         android:layout_width="331dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"

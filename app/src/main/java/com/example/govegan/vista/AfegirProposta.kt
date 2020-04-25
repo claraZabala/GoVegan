@@ -45,10 +45,7 @@ class AfegirProposta : AppCompatActivity() {
             }
             dialogView.floatingLupa.setOnClickListener{
                 buscarIngredient(dialogView)
-
             }
-
-
         }
 
     }
@@ -88,8 +85,6 @@ class AfegirProposta : AppCompatActivity() {
                     llistaIngredientsCompra.remove(btnIngredient.text.toString())
                     textIngredients.text = llistaIngredientsCompra.toString()
                 }
-
-
             }
         }
 
