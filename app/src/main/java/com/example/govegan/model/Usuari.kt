@@ -1,6 +1,4 @@
 package com.example.govegan.model
-import com.example.govegan.vista.Calendari_Setmanal
-import com.example.govegan.vista.Recepta
 
 
 class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {

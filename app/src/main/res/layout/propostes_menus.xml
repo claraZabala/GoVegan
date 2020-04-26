@@ -13,7 +13,6 @@
     </androidx.viewpager.widget.ViewPager>
 
     <Button
-        android:id="@+id/novaProposta"
         android:text="Afegir proposta"
         android:layout_width="wrap_content"
         android:paddingLeft="30dp"

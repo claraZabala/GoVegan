@@ -12,7 +12,7 @@ import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
 
-class Calendari_Setmanal : AppCompatActivity() {
+class CalendariSetmanal : AppCompatActivity() {
     var controlador: Controlador
     init {
         controlador = Controlador
@@ -154,7 +154,7 @@ class Calendari_Setmanal : AppCompatActivity() {
                 callback = object : DoubleClickListener.Callback {
                     override fun doubleClicked() {
                         //s'obre l'AlertDialog per a omplir les dades
-                        val dialog = AlertDialog.Builder(this@Calendari_Setmanal)
+                        val dialog = AlertDialog.Builder(this@CalendariSetmanal)
                         val dialogView = layoutInflater.inflate(R.layout.dialog_afegir_plat, null)
                         dialog.setView(dialogView)
                         dialog.setCancelable(false)

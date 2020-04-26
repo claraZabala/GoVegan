@@ -18,7 +18,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Titol Recepta"
-        android:textSize="30dp"/>
+        android:textSize="30sp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginStart="15dp" />
 
         <ImageView
             android:id="@+id/iconRecepta"
@@ -29,7 +31,6 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/foto_recepta"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
         android:layout_height="158dp"
@@ -41,26 +42,29 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="20dp"
-        android:text="Nom de l'autor" />
+        android:textSize="20sp"
+        android:text="Nom de l'autor"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/passos"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="20dp"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_marginLeft="10dp"
-        android:text="Recepta " />
+        android:text="Recepta "
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/t_prep"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_marginLeft="10dp"
-        android:text="Temps preparacio" />
+        android:text="Temps preparacio"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/t_cuina"
@@ -68,8 +72,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        android:text="Temps cuina" />
+        android:textSize="15sp"
+        android:text="Temps cuina"
+        android:layout_marginStart="10dp" />
 
     <TextView
         android:id="@+id/comensales"
@@ -77,8 +82,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:textSize="15dp"
-        android:text="Comensals" />
+        android:textSize="15sp"
+        android:text="Comensals"
+        android:layout_marginStart="10dp" />
 
     <LinearLayout
         android:layout_width="448dp"
@@ -90,17 +96,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:text="Afegir ingredients a la llista de la compra:" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"
             android:clickable="true"
             app:fabSize="mini"
-            android:id="@+id/afegir_recepta"
             android:onClick="llista"
             app:srcCompat="@drawable/afegir" />
     </LinearLayout>
@@ -115,13 +120,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:textSize="15dp"
+            android:textSize="15sp"
             android:gravity="center"
             android:text="Afegir al calendari com a àpat:" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/afegir_calendari"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"

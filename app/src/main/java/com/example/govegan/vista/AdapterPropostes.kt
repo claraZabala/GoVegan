@@ -8,8 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.controlador.FacadeCarteraReceptes
-import com.example.govegan.model.Ingredient
 import com.example.govegan.model.Proposta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
@@ -31,7 +29,7 @@ class AdapterPropostes(context: Context): PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        var layoutInflater = LayoutInflater.from(context)
+        val layoutInflater = LayoutInflater.from(context)
         val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false)
         val imageView: ImageView = view.findViewById(R.id.imageRecepta)
         val title: TextView = view.findViewById(R.id.titolReceptaP)
@@ -39,12 +37,12 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         val tempsC: TextView = view.findViewById(R.id.tempsCuina)
         val numPersones: TextView = view.findViewById(R.id.numPersones)
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
-        imageView.setImageResource(propostes.get(position).imatge)
-        title.setText(propostes.get(position).title)
-        tempsP.setText(propostes.get(position).tempsPrep)
-        tempsC.setText(propostes.get(position).tempsCuina)
-        numPersones.setText(propostes.get(position).numPersones)
-        val tipus = propostes.get(position).icona
+        imageView.setImageResource(propostes[position].imatge)
+        title.text = propostes[position].title
+        tempsP.text = propostes[position].tempsPrep
+        tempsC.text = propostes[position].tempsCuina
+        numPersones.text = propostes[position].numPersones
+        val tipus = propostes[position].icona
         if (tipus == 0){
             icona.setImageResource(R.drawable.cara)
         } else if (tipus == 1){

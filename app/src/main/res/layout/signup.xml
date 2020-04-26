@@ -6,13 +6,12 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="61dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:text="Completa les teves dades: "
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/nom"
@@ -21,7 +20,8 @@
         android:ems="10"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:hint="Nom" />
+        android:hint="Nom"
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/cognoms"
@@ -31,7 +31,8 @@
         android:inputType="textPersonName"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
-        android:hint="Cognoms" />
+        android:hint="Cognoms"
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/nomUsuari"
@@ -41,7 +42,8 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPersonName"
-        android:hint="Nom d'usuari" />
+        android:hint="Nom d'usuari"
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/mail"
@@ -51,7 +53,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:inputType="textEmailAddress"
-        android:hint="Correu electrònic" />
+        android:hint="Correu electrònic"
+        android:layout_marginStart="10dp" />
 
     <EditText
         android:id="@+id/pwd"
@@ -61,7 +64,8 @@
         android:layout_marginTop="30dp"
         android:layout_marginLeft="10dp"
         android:inputType="textPassword"
-        android:hint="Contrasenya" />
+        android:hint="Contrasenya"
+        android:layout_marginStart="10dp" />
 
 
     <EditText
@@ -72,14 +76,16 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPassword"
-        android:hint="Repetir contrasenya " />
+        android:hint="Repetir contrasenya "
+        android:layout_marginStart="10dp" />
 
     <Spinner
         android:id="@+id/edat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp" />
 
     <Button
         android:id="@+id/sendPregunta"

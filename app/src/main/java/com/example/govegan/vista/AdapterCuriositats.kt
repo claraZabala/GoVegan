@@ -27,14 +27,14 @@ class AdapterCuriositats(context: Context,curiositats:ArrayList<Curiositat>): Pa
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        var layoutInflater = LayoutInflater.from(context)
+        val layoutInflater = LayoutInflater.from(context)
         val view:View = layoutInflater.inflate(R.layout.explicacio_curiositat,container,false)
         val imageView:ImageView = view.findViewById(R.id.imageGastronomia)
         val title:TextView = view.findViewById(R.id.titolGastronomia)
         val explicacio:TextView = view.findViewById(R.id.explicacióGastronomia)
-        imageView.setImageResource(curiositats.get(position).imatge)
-        title.setText(curiositats.get(position).title)
-        explicacio.setText(curiositats.get(position).desc)
+        imageView.setImageResource(curiositats[position].imatge)
+        title.text = curiositats[position].title
+        explicacio.text = curiositats[position].desc
 
         container.addView(view,0)
         return view

@@ -1,15 +1,12 @@
 package com.example.govegan.vista
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.login.*
 
 class MainActivity: AppCompatActivity() {
@@ -28,13 +25,13 @@ class MainActivity: AppCompatActivity() {
         //updateUI(currentUser)
     }*/
 
-    fun recuperar_contrasenya(view: View) {
+    fun recuperarContrasenya(view: View) {
         intent = Intent(this, RecuperarContra::class.java)
         startActivity(intent)
     }
 
     fun login(view: View) {
-        var login = controlador.login(nomUsuari.text.toString(), pwd.text.toString())
+        val login = controlador.login(nomUsuari.text.toString(), pwd.text.toString())
         if (login.equals(0)){
             intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)

@@ -26,7 +26,7 @@ class AfegirProposta : AppCompatActivity() {
 
 
 
-        floatingAfegirIngredients.setOnClickListener() {
+        floatingAfegirIngredients.setOnClickListener {
             val dialog = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.dialog_ingredients, null)
             dialog.setView(dialogView)
@@ -58,8 +58,8 @@ class AfegirProposta : AppCompatActivity() {
             for (i in llistaIngredients) {
                 if (i.equals(dialogView.textCercaIngredient.text.toString())) {
                     dialogView.layoutIngredientsBD.removeAllViews()
-                    var btnIngredient: CheckBox = CheckBox(this)
-                    btnIngredient.setText(i)
+                    val btnIngredient: CheckBox = CheckBox(this)
+                    btnIngredient.text = i
                     dialogView.layoutIngredientsBD.addView(btnIngredient)
                 }
             }
@@ -70,8 +70,8 @@ class AfegirProposta : AppCompatActivity() {
     fun actualitzarLlistaIngredients(dialogView: View){
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
-            var btnIngredient: CheckBox = CheckBox(this)
-            btnIngredient.setText(i)
+            val btnIngredient: CheckBox = CheckBox(this)
+            btnIngredient.text = i
             dialogView.layoutIngredientsBD.addView(btnIngredient)
             if (i in llistaIngredientsCompra)
                 btnIngredient.isChecked = true
@@ -91,8 +91,8 @@ class AfegirProposta : AppCompatActivity() {
 
     fun AfegirNouIngredientLlista(dialogView: View){
         if (!dialogView.textAfegirNousIngredients.toString().equals("")){
-            var chkBoxNouIngredient: CheckBox = CheckBox(this)
-            chkBoxNouIngredient.setText(dialogView.textAfegirNousIngredients.text.toString())
+            val chkBoxNouIngredient: CheckBox = CheckBox(this)
+            chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()
             if(dialogView.textAfegirNousIngredients.text.toString() !in llistaIngredients) {
                 dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
                 llistaIngredients.add(chkBoxNouIngredient.text.toString())
@@ -105,11 +105,11 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun recepta(view: View){
-        var nom: String = resposta.text.toString()
-        var pasos: String = pasos.text.toString()
-        var tempsPrep: String = temps_prep.text.toString()
-        var tempsCuina: String = temps_cuina.text.toString()
-        var comensals: String = comensals.text.toString()
+        val nom: String = resposta.text.toString()
+        val pasos: String = pasos.text.toString()
+        val tempsPrep: String = temps_prep.text.toString()
+        val tempsCuina: String = temps_cuina.text.toString()
+        val comensals: String = comensals.text.toString()
         var tipusRecepta = 4
         if (teCarn.isChecked){
             tipusRecepta = 2
@@ -120,8 +120,8 @@ class AfegirProposta : AppCompatActivity() {
         if (!teDerivats.isChecked and !teCarn.isChecked){
             tipusRecepta = 0
         }
-        var ingredients: ArrayList<String> = llistaIngredientsCompra
-        var result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients)
+        val ingredients: ArrayList<String> = llistaIngredientsCompra
+        val result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients)
         if (result==1){
             toast("Has d'omplir tots els camps")
         } else if(result==2){

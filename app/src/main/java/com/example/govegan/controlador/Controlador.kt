@@ -2,7 +2,6 @@ package com.example.govegan.controlador
 
 import android.content.Context
 import android.widget.Toast
-import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -103,8 +102,8 @@ object Controlador {
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
                           comensals:String, tipusRecepta:Int, ingredients: ArrayList<String>): Int {
-        if (nom.isNullOrEmpty() or pasos.isNullOrEmpty() or tempsPrep.isNullOrEmpty() or
-            tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty() or ingredients.isNullOrEmpty()){
+        if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
+            tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
         if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients,
@@ -115,7 +114,7 @@ object Controlador {
     }
 
     fun getReceptaByName(nom: String): Proposta? {
-        var recepta = facadeCarteraReceptes.getReceptaByName(nom)
+        val recepta = facadeCarteraReceptes.getReceptaByName(nom)
         setReceptaActiva(recepta)
         return recepta
     }

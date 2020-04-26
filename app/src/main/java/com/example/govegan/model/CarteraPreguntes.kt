@@ -1,15 +1,6 @@
 package com.example.govegan.model
 
-import android.util.Log
-import com.example.govegan.controlador.Controlador
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.Query
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
-
-class CarteraPreguntes() {
+class CarteraPreguntes {
 
     // Tenim un array que és una llista de preguntes
     var preguntes: ArrayList<Pregunta> = ArrayList()
@@ -33,17 +24,17 @@ class CarteraPreguntes() {
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>?{
-        var preguntesPerTema: ArrayList<String> = ArrayList()
+        val preguntesPerTema: ArrayList<String> = ArrayList()
         for (i: Pregunta in preguntes){
             if ( i.tema.equals(temaP) ){
-                preguntesPerTema.add(i.descripcio);
+                preguntesPerTema.add(i.descripcio)
             }
         }
         return preguntesPerTema
     }
 
     fun crearResp( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String ) {
-        var idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {
                 i.crearResposta(temaa, descripcioo, esCertificat, idUsuarii, idDestinatari)
@@ -52,7 +43,7 @@ class CarteraPreguntes() {
     }
 
     fun mostrarRespPerIdPregunta( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String): ArrayList<Resposta>? {
-        var idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
         var respostesPerIdPregunta: ArrayList<Resposta>? = ArrayList()
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {

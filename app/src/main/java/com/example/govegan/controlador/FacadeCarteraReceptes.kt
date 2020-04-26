@@ -16,7 +16,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     }
 
     fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:Int,ingredients: ArrayList<String>, autor:String): Boolean {
-        var recepta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,ingredients)
+        val recepta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,ingredients)
         if (recepta == null){
             return false
         }

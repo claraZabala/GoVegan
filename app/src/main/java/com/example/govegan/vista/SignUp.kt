@@ -44,7 +44,7 @@ class SignUp: AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
-            spinner.setAdapter(adapter)
+            spinner.adapter = adapter
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
@@ -65,7 +65,7 @@ class SignUp: AppCompatActivity() {
     }
 
     fun paginaPrincipal(view: View) {
-        var registre = controlador.registre(nom.text.toString(), cognoms.text.toString(), nomUsuari.text.toString(), mail.text.toString(),
+        val registre = controlador.registre(nom.text.toString(), cognoms.text.toString(), nomUsuari.text.toString(), mail.text.toString(),
             pwd.text.toString(), pwd2.text.toString(), edat.selectedItem.toString())
         if (registre.equals(0)){
             auth.createUserWithEmailAndPassword(mail.text.toString(),pwd.text.toString())

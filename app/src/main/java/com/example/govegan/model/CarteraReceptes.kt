@@ -14,7 +14,7 @@ class CarteraReceptes {
     }
 
     fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:Int,autor:String,ingredients:ArrayList<String>): Proposta? {
-        var recepta = Proposta(0, nom, tempsPrep, tempsCuina, comensals,tipusRecepta, pasos, ingredients,autor)
+        val recepta = Proposta(0, nom, tempsPrep, tempsCuina, comensals,tipusRecepta, pasos, ingredients,autor)
         if (getByName(nom) == null) {
             propostes.add(recepta)
             return recepta

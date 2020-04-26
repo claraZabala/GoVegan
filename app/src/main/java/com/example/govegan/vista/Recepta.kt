@@ -3,12 +3,10 @@ package com.example.govegan.vista
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.model.Ingredient
-import kotlinx.android.synthetic.main.afegir_proposta.*
 import kotlinx.android.synthetic.main.recepta.*
 
 class Recepta : AppCompatActivity() {
@@ -16,7 +14,7 @@ class Recepta : AppCompatActivity() {
     var nom:String = R.id.titol_recepta.toString()
     var tempsPreparacio: Float = R.id.t_prep.toFloat()
     var tempsCuina: Float = R.id.t_cuina.toFloat()
-    var numPersones : Int = R.id.comensals.toInt()
+    var numPersones : Int = R.id.comensals
     var descripcio : String = R.id.passos.toString()
     val ingredients = arrayOf<Ingredient>()
     var imatge : String = ""
@@ -58,7 +56,7 @@ class Recepta : AppCompatActivity() {
     fun calendari(view: View){
         controlador.setReceptaFromProposta(titol_recepta.text.toString())
         controlador.setReceptaActiva(controlador.getReceptaByName(titol_recepta.text.toString()))
-        intent = Intent(this, Calendari_Setmanal::class.java)
+        intent = Intent(this, CalendariSetmanal::class.java)
         startActivity(intent)
     }
 }

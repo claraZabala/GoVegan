@@ -9,7 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="454dp"
         android:layout_margin="8dp"
-        android:onClick="mostrar_recepta"
+        android:onClick="mostrarRecepta"
         app:cardCornerRadius="20dp">
 
         <RelativeLayout
@@ -37,8 +37,9 @@
                 android:layout_marginTop="10dp"
                 android:text="Nom recepta"
                 android:textColor="@color/taronjaFosc"
-                android:textSize="25dp"
-                android:textStyle="bold" />
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:id="@+id/numPersones"
@@ -50,7 +51,9 @@
                 android:layout_marginRight="16dp"
                 android:text="4 persones"
                 android:textColor="@color/taronjaFosc"
-                android:textSize="20dp" />
+                android:textSize="20sp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
 
             <TextView
                 android:id="@+id/temps"
@@ -61,7 +64,8 @@
                 android:layout_marginTop="30dp"
                 android:text="Temps de preparació: "
                 android:textColor="@color/taronjaFosc"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:id="@+id/tempsPreparacio"
@@ -73,7 +77,9 @@
                 android:layout_marginRight="16dp"
                 android:text="30 min"
                 android:textColor="@color/taronjaFosc"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
 
             <TextView
                 android:id="@+id/tempsC"
@@ -84,7 +90,8 @@
                 android:layout_marginTop="10dp"
                 android:text="Temps de cuinat: "
                 android:textColor="@color/taronjaFosc"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:layout_marginStart="16dp" />
 
             <TextView
                 android:id="@+id/tempsCuina"
@@ -96,7 +103,9 @@
                 android:layout_marginRight="16dp"
                 android:text="30 min"
                 android:textColor="@color/taronjaFosc"
-                android:textSize="15dp" />
+                android:textSize="15sp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp" />
 
             <ImageView
                 android:id="@+id/iconRecepta"
@@ -105,7 +114,8 @@
                 android:src="@drawable/ou"
                 android:layout_below="@id/tempsC"
                 android:layout_marginLeft="16dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="16dp" />
 
         </RelativeLayout>
 
