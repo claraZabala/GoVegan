@@ -1,9 +1,5 @@
 package com.example.govegan.model
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import java.lang.reflect.Constructor
-
 class Pregunta (idUsuari: String, descripcio:String, tema:String) {
      var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
     var contRespostes: Int = 0

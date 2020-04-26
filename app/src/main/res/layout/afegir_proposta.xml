@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verdClar"
-    android:id="@+id/layoutCompartirRecepta"
-    >
+    tools:ignore="Overdraw">
     <TextView
-        android:id="@+id/textCalendari"
         android:layout_width="match_parent"
         android:layout_height="52dp"
         android:background="@color/verdFosc"
@@ -53,7 +52,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
-            android:text="PASOS A SEGUIR:">
+            android:text="PASOS A SEGUIR:"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
         </TextView>
 
@@ -62,7 +63,8 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
             android:id="@+id/pasos"
-            android:hint="Indica pas a pas com realitzar la recepta"></EditText>
+            android:hint="Indica pas a pas com realitzar la recepta"
+            android:layout_marginEnd="10dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,7 +77,9 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="10dp"
-            android:text="TEMPS PREPARACIÓ:">
+            android:text="TEMPS PREPARACIÓ:"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
         </TextView>
 
@@ -96,7 +100,9 @@
             android:layout_height="wrap_content"
             android:text="TEMPS CUINA:"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
         </TextView>
         <EditText
@@ -117,7 +123,9 @@
             android:layout_height="wrap_content"
             android:text="COMENSALS: "
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
         </TextView>
 
@@ -135,13 +143,14 @@
         android:layout_height="wrap_content"
         android:text="Marca a continuació si la recepta conté gluten:: "
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp" />
     <CheckBox
-        android:id="@+id/checkBoxGluten"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:text="Gluten" />
+        android:text="Gluten"
+        android:layout_marginStart="20dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -155,13 +164,15 @@
             android:gravity="center"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="10dp"
-            android:text="INGREDIENTS: ">
+            android:text="INGREDIENTS: "
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
         </TextView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingAfegirIngredients"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"
@@ -169,7 +180,8 @@
             android:onClick="afegirIngredients"
             app:fabSize="mini"
             app:srcCompat="@drawable/afegir"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
 
         <TextView
             android:id="@+id/textIngredients"
@@ -192,11 +204,11 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="15dp"
         android:text="INSEREIX UNA IMATGE AQUI: "
-        />
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingAfegirImatge"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1"
@@ -209,7 +221,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
         android:layout_width="381dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

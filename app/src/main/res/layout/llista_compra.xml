@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/layoutCompra"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/titol"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/verdFosc"
@@ -18,12 +14,11 @@
         android:textAppearance="@style/TextBlancTitolSecundari" />
 
     <TextView
-        android:id="@+id/tipus1"
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:background="@color/verdClar"
         android:text="Ingredients"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"

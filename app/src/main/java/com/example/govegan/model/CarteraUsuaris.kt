@@ -1,7 +1,5 @@
 package com.example.govegan.model
 
-import com.google.firebase.firestore.FirebaseFirestore
-
 class CarteraUsuaris(baseDades: BaseDades) {
     val llistaUsuaris: ArrayList<Usuari> = ArrayList()
     var baseDades: BaseDades
@@ -30,7 +28,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
     }
 
     fun login(nomUsuari: String, pwd: String): Boolean {
-        var user = getByID(nomUsuari)
+        val user = getByID(nomUsuari)
         if (user == null) {
             return false
         } else if(!user.pwd.equals(pwd)){
@@ -53,7 +51,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
      */
     fun setUsuariActiu(nomUsuari: String): Usuari? {
         val usuari: Usuari? = getByID(nomUsuari)
-        val setmanes: ArrayList<Setmana> = baseDades.inicialitzar_setmanes_usuari(nomUsuari)
+        val setmanes: ArrayList<Setmana> = baseDades.inicialitzarSetmanesUsuari(nomUsuari)
         if (usuari != null) {
             usuari.setSetmanesUsuari(setmanes)
         } else {

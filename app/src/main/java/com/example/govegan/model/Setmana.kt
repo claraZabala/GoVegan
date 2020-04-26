@@ -2,27 +2,20 @@ package com.example.govegan.model
 
 class Setmana (usuari: Usuari, id: Int){
 
-
     var id: Int = 0
-        get() {
-            return this.id
-        }
-        set(value) {
-            field = value
-        }
     var usuari: Usuari
     var dies: ArrayList<Dia> = ArrayList(7)
-        get() {
-            return dies
-        }
-
-
 
     init {
         this.id = id
         this.usuari = usuari
         dies.add(Dia(id, "dilluns"))
-        //TODO:afegir altres dies
+        dies.add(Dia(id,"dimarts"))
+        dies.add(Dia(id,"dimecres"))
+        dies.add(Dia(id,"dijous"))
+        dies.add(Dia(id,"divendres"))
+        dies.add(Dia(id,"dissabte"))
+        dies.add(Dia(id,"diumenge"))
     }
 
     fun getName(): String {

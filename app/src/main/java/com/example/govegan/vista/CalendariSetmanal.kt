@@ -12,8 +12,7 @@ import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
 
-
-class Calendari_Setmanal : AppCompatActivity() {
+class CalendariSetmanal : AppCompatActivity() {
     var controlador: Controlador
     init {
         controlador = Controlador
@@ -166,7 +165,7 @@ class Calendari_Setmanal : AppCompatActivity() {
     }
 
     /*
-    * Estableox l'escoltador per quan es fa doble click en una icona.
+    * Estableix l'escoltador per quan es fa doble click en una icona.
     * S'obre un AlertDialog on omplir el nom i si és vegà l'àpat i s'afegeix la informació a les
     * dades de l'usuari, a banda de canviar la icona del calendari per la adient.
      */
@@ -176,7 +175,7 @@ class Calendari_Setmanal : AppCompatActivity() {
                 callback = object : DoubleClickListener.Callback {
                     override fun doubleClicked() {
                         //s'obre l'AlertDialog per a omplir les dades
-                        val dialog = AlertDialog.Builder(this@Calendari_Setmanal)
+                        val dialog = AlertDialog.Builder(this@CalendariSetmanal)
                         val dialogView = layoutInflater.inflate(R.layout.dialog_afegir_plat, null)
                         dialog.setView(dialogView)
                         dialog.setCancelable(false)
@@ -205,13 +204,6 @@ class Calendari_Setmanal : AppCompatActivity() {
                     }
             }
         ))
-    }
-
-
-
-    fun afegirMenu(view: View){
-        intent = Intent(this, AfegirProposta::class.java)
-        startActivity(intent)
     }
 
     fun recepta1(view: View){

@@ -1,14 +1,8 @@
 package com.example.govegan.model
 import com.example.govegan.R
-class CarteraIngredients (){
+class CarteraIngredients {
 
     var ingredients: ArrayList<Ingredient> = ArrayList()
-        get(){
-            return field
-        }
-        set(newIngredients){
-            field = newIngredients
-        }
 
     init {
         ingredients.add(Ingredient("llentia",R.drawable.llentia))
@@ -35,7 +29,7 @@ class CarteraIngredients (){
     }
 
     fun getAllIngredientsByName():ArrayList<String>{
-        var nomIngredients: ArrayList<String> = ArrayList()
+        val nomIngredients: ArrayList<String> = ArrayList()
         for (i in ingredients){
             nomIngredients.add(i.nom)
         }
@@ -43,7 +37,7 @@ class CarteraIngredients (){
     }
 
     fun getNameIngredients():ArrayList<String>{
-        var nomIngredients: ArrayList<String> = ArrayList()
+        val nomIngredients: ArrayList<String> = ArrayList()
         for (i in ingredients){
             nomIngredients.add(i.nom)
         }
@@ -51,13 +45,13 @@ class CarteraIngredients (){
     }
 
     fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
-        var nouIngredient:Ingredient = Ingredient(nomIngredient,fotoInt)
+        val nouIngredient:Ingredient = Ingredient(nomIngredient,fotoInt)
         ingredients.add(nouIngredient)
     }
 
 
     fun addNouIngredientSenseFoto(nomIngredient: String){
-        var nouIngredient:Ingredient = Ingredient(nomIngredient)
+        val nouIngredient:Ingredient = Ingredient(nomIngredient)
         ingredients.add(nouIngredient)
     }
     

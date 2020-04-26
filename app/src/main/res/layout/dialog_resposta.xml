@@ -5,20 +5,18 @@
 
 
     <TextView
-        android:id="@+id/enviarResposta"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/verdFosc"
         android:gravity="center_vertical"
         android:text="Enviar Resposta: "
         android:textAppearance="@style/TextBlancTitolSecundari"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/idDestinatari"
         android:layout_width="wrap_content"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_margin="3dp"
@@ -26,7 +24,7 @@
 
     <TextView
         android:id="@+id/preguntaVew"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:layout_width="match_parent"
         android:layout_marginBottom="10dp"
         android:layout_margin="4dp"
@@ -35,10 +33,9 @@
 
 
     <TextView
-        android:id="@+id/resposta1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_margin="10dp"
         android:text="Maria: Si, però no les conec." />
 

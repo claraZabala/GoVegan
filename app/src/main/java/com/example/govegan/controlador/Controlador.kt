@@ -91,31 +91,30 @@ object Controlador {
         return setRecepta
     }
 
-    fun getTitolRecepta(): String{
-        return titolReceptaProp
-    }
-
     //usuariActiu afegir dia, apat, setmana i titol
     //TODO: falta gestionar la categoria (Int), des de proposta ns pero de calendari seria només passar-la per paràmetre
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
-        setRecepta = false
+        if (setRecepta){
+            facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
+            setRecepta = false
+        }
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
-                          comensals:String, tipusRecepta:Int): Int {
-        if (nom.isNullOrEmpty() or pasos.isNullOrEmpty() or tempsPrep.isNullOrEmpty() or
-            tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty()){
+                          comensals:String, tipusRecepta:Int, ingredients: ArrayList<String>): Int {
+        if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
+            tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)){
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients,
+                usuariActiu?.nomUsuari!!)){
             return 0
         }
         return 2
     }
 
     fun getReceptaByName(nom: String): Proposta? {
-        var recepta = facadeCarteraReceptes.getReceptaByName(nom)
+        val recepta = facadeCarteraReceptes.getReceptaByName(nom)
         setReceptaActiva(recepta)
         return recepta
     }

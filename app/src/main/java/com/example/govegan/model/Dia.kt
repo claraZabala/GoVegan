@@ -5,7 +5,6 @@ class Dia(idSetmana: Int, nom: String) {
 
     val idSetmana: Int
     var nom: String
-        get() = nom
     var esmorzar: MutableMap<Int, String>
     var dinar: MutableMap<Int, String>
     var sopar: MutableMap<Int, String>

@@ -1,7 +1,6 @@
 package com.example.govegan.vista
 
 import android.os.Bundle
-import android.text.Editable
 import android.view.View
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemSelectedListener
@@ -13,11 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.example.govegan.model.Pregunta
-import com.example.govegan.model.Resposta
-import com.example.govegan.model.Usuari
-import kotlinx.android.synthetic.main.afegir_proposta.*
-import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
 import kotlinx.android.synthetic.main.forum.view.*
@@ -61,7 +55,7 @@ class Forum : AppCompatActivity() {
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
                 // Apply the adapter to the spinner
                 spinner.adapter = adapter
-                spinner.setAdapter(adapter)
+                spinner.adapter = adapter
                 spinner.onItemSelectedListener = object : OnItemSelectedListener {
                     override fun onItemSelected(
                         adapterView: AdapterView<*>,
@@ -80,7 +74,7 @@ class Forum : AppCompatActivity() {
 
             }
 
-            anarAResposta.setOnClickListener() {
+            anarAResposta.setOnClickListener {
                 val dialog = AlertDialog.Builder(this)
                 val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
                 dialog.setView(dialogView)
@@ -93,8 +87,8 @@ class Forum : AppCompatActivity() {
                     mAlertDialog.dismiss()
                 }
                 dialogView.sendPregunta.setOnClickListener {
-                    var tema:String = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                    var descripcio : String = preguntaVew.text.toString()
+                    val tema:String = spinner.getItemAtPosition(spinner.selectedItemPosition).toString()
+                    val descripcio : String = preguntaVew.text.toString()
                     if (tema != null){
                         afegirNovaPregunta(dialogView,descripcio, tema)
                         preguntaVew.setText(" ")
