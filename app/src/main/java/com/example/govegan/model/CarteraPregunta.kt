@@ -1,6 +1,6 @@
 package com.example.govegan.model
 
-class CarteraForum {
+class CarteraPregunta {
 
     // Tenim un array que és una llista de preguntes
     var preguntes: ArrayList<Pregunta> = ArrayList()

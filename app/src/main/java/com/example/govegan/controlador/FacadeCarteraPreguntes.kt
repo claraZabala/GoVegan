@@ -2,12 +2,12 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.*
 
-class FacadeCarteraForum(baseDades: BaseDades) {
-    var carteraPreguntes: CarteraForum
+class FacadeCarteraPreguntes(baseDades: BaseDades) {
+    var carteraPreguntes: CarteraPregunta
     var baseDades: BaseDades
 
     init {
-        carteraPreguntes = CarteraForum()
+        carteraPreguntes = CarteraPregunta()
         this.baseDades = baseDades
     }
 

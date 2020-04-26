@@ -8,7 +8,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
     private var facadeCarteraIngredients:FacadeCarteraIngredients
-    private var facadeCarteraPreguntes:FacadeCarteraForum
+    private var facadeCarteraPreguntes:FacadeCarteraPreguntes
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: Usuari?
@@ -29,7 +29,7 @@ object Controlador {
         facadeCarteraCuriositats = FacadeCarteraCuriositats(baseDades)
         facadeCarteraIngredients = FacadeCarteraIngredients(baseDades)
         facadeCarteraUsuaris = FacadeCarteraUsuaris(baseDades)
-        facadeCarteraPreguntes = FacadeCarteraForum(baseDades)
+        facadeCarteraPreguntes = FacadeCarteraPreguntes(baseDades)
         facadeCarteraReceptes = FacadeCarteraReceptes(baseDades)
         usuariActiu = null
         receptaActiva = null
