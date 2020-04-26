@@ -28,11 +28,13 @@ class Recepta : AppCompatActivity() {
         controlador = Controlador
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recepta)
         titol_recepta.text = controlador.getReceptaActiva()?.title
-        autor.text = controlador.getUsuariActiu()?.nom
+        //autor.text = controlador.getUsuariActiu()?.nom
         passos.text = controlador.getReceptaActiva()?.descripcio
         t_prep.text = controlador.getReceptaActiva()?.tempsPrep
         t_cuina.text = controlador.getReceptaActiva()?.tempsCuina

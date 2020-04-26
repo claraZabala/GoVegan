@@ -28,4 +28,8 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         return carteraReceptes.getByName(nom)
     }
 
+    fun getAllPropostes(): ArrayList<Proposta> {
+        return carteraReceptes.propostes
+    }
+
 }
