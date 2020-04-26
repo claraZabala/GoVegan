@@ -7,6 +7,7 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 
 class Calendari_Setmanal : AppCompatActivity() {
@@ -122,21 +123,33 @@ class Calendari_Setmanal : AppCompatActivity() {
     }
 
     fun recepta1(view: View){
-        controlador.getReceptaByName(esmorzar.text.toString())
-        intent = Intent(this, Recepta::class.java)
-        startActivity(intent)
+        if (controlador.getReceptaByName(esmorzar.text.toString())==null){
+            toast("La recepta no té més informació")
+        }
+        else {
+            intent = Intent(this, Recepta::class.java)
+            startActivity(intent)
+        }
     }
 
     fun recepta2(view: View){
-        controlador.getReceptaByName(dinar.text.toString())
-        intent = Intent(this, Recepta::class.java)
-        startActivity(intent)
+        if (controlador.getReceptaByName(dinar.text.toString())==null){
+            toast("La recepta no té més informació")
+        }
+        else {
+            intent = Intent(this, Recepta::class.java)
+            startActivity(intent)
+        }
     }
 
     fun recepta3(view: View){
-        controlador.getReceptaByName(sopar.text.toString())
-        intent = Intent(this, Recepta::class.java)
-        startActivity(intent)
+        if (controlador.getReceptaByName(sopar.text.toString())==null){
+            toast("La recepta no té més informació")
+        }
+        else {
+            intent = Intent(this, Recepta::class.java)
+            startActivity(intent)
+        }
     }
 
 }

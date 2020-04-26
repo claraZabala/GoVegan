@@ -107,9 +107,10 @@ object Controlador {
         return 2
     }
 
-    fun getReceptaByName(nom: String) {
+    fun getReceptaByName(nom: String): Proposta? {
         var recepta = facadeCarteraReceptes.getReceptaByName(nom)
         setReceptaActiva(recepta)
+        return recepta
     }
 
     /**
