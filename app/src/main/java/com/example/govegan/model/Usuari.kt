@@ -35,7 +35,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     * Desa un àpat provinent de recepta en el calendari personal
      */
     fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String) {
-        //recorremles setmanes per a localitzar la cercada
+        //recorrem les setmanes per a localitzar la cercada
         for (i in this.setmanes) {
             if (i.getName() == setmana) {
                 //recorrem els dies d'aquesta setmana per localitzar el dia cercat

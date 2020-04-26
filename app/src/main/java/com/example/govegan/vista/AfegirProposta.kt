@@ -41,7 +41,6 @@ class AfegirProposta : AppCompatActivity() {
             }
             dialogView.floatingNousIngredients.setOnClickListener{
                 AfegirNouIngredientLlista(dialogView)
-
             }
             dialogView.floatingLupa.setOnClickListener{
                 buscarIngredient(dialogView)
@@ -131,4 +130,5 @@ class AfegirProposta : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
 }

@@ -2,7 +2,6 @@ package com.example.govegan.controlador
 
 import android.content.Context
 import android.widget.Toast
-import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -90,10 +89,10 @@ object Controlador {
         return titolReceptaProp
     }
 
+    //usuariActiu afegir dia, apat, setmana i titol
+    //TODO: falta gestionar la categoria (Int), des de proposta ns pero de calendari seria només passar-la per paràmetre
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        if (setRecepta){
-            //usuariActiu afegir dia, apat, setmana i titolReceptaProp
-        }
+        facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
         setRecepta = false
     }
 

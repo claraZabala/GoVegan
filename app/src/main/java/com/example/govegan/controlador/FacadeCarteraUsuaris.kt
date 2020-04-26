@@ -2,7 +2,7 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
-import com.example.govegan.model.Ingredient
+import com.example.govegan.model.Usuari
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
     var carteraUsuaris: CarteraUsuaris
@@ -56,5 +56,15 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
 
     fun getLlistaUsuari(nomUsuari: String?):ArrayList<String>? {
         return carteraUsuaris.getLlistaUsuari(nomUsuari)
+    }
+
+    fun afegirInfoPlat(
+        usuariActiu: Usuari?,
+        dia: String,
+        apat: String,
+        setmana: String,
+        titol: String
+    ) {
+        usuariActiu?.setRecepta(dia, apat, setmana, titol)
     }
 }

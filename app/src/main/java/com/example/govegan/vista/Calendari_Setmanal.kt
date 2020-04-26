@@ -4,11 +4,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
+import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
 
 class Calendari_Setmanal : AppCompatActivity() {
     var controlador: Controlador
@@ -87,6 +89,32 @@ class Calendari_Setmanal : AppCompatActivity() {
             int20.setOnClickListener(clickListener)
             int21.setOnClickListener(clickListener)
         }
+
+        /*
+        * Si es fa dobleclick en ua icona, s'obre un dialog per a afegir àpat
+        * afegirPlat estableix l'escoltador del DobleClick a totes les icones
+         */
+        afegirPlat(int1)
+        afegirPlat(int2)
+        afegirPlat(int3)
+        afegirPlat(int4)
+        afegirPlat(int5)
+        afegirPlat(int6)
+        afegirPlat(int7)
+        afegirPlat(int8)
+        afegirPlat(int9)
+        afegirPlat(int10)
+        afegirPlat(int11)
+        afegirPlat(int12)
+        afegirPlat(int13)
+        afegirPlat(int14)
+        afegirPlat(int15)
+        afegirPlat(int16)
+        afegirPlat(int17)
+        afegirPlat(int18)
+        afegirPlat(int19)
+        afegirPlat(int20)
+        afegirPlat(int21)
     }
 
     private val clickListener = View.OnClickListener { view ->
@@ -115,16 +143,46 @@ class Calendari_Setmanal : AppCompatActivity() {
         }
     }
 
+    /*
+    * Estableox l'escoltador per quan es fa doble click en una icona.
+    * S'obre un AlertDialog on omplir el nom i si és vegà l'àpat i s'afegeix la informació a les
+    * dades de l'usuari, a banda de canviar la icona del calendari per la adient.
+     */
     fun afegirPlat(im: ImageView) {
         im.setOnClickListener (
             DoubleClickListener(
                 callback = object : DoubleClickListener.Callback {
                     override fun doubleClicked() {
-                        println("Hola jaja")
+                        //s'obre l'AlertDialog per a omplir les dades
+                        val dialog = AlertDialog.Builder(this@Calendari_Setmanal)
+                        val dialogView = layoutInflater.inflate(R.layout.dialog_afegir_plat, null)
+                        dialog.setView(dialogView)
+                        dialog.setCancelable(false)
+                        val mAlertDialog = dialog.show()
+                        val customDialog = dialog.create()
+
+                        dialogView.afegirPlatCalendari.setOnClickListener{
+                            val titol = dialogView.resposta.text.toString()
+                            val carnivor = dialogView.teCarn.isChecked
+                            val vegetaria = dialogView.teDerivats.isChecked
+                            var categoria: Int = 0
+                            if (carnivor) categoria = 2
+                            else if (vegetaria) categoria = 1
+
+                            //s'afegeix la info a memòria
+                            //es reutilitza la funció setReceptaFromProposta per a tenir a
+                            // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
+                            controlador.setReceptaFromProposta(titol)
+                            escollirDiaIApat(im.id)
+
+                            mAlertDialog.dismiss()
+                        }
                     }
             }
         ))
     }
+
+
 
     fun afegirMenu(view: View){
         intent = Intent(this, AfegirProposta::class.java)
@@ -158,6 +216,35 @@ class Calendari_Setmanal : AppCompatActivity() {
         else {
             intent = Intent(this, Recepta::class.java)
             startActivity(intent)
+        }
+    }
+
+    /*
+    * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
+     */
+    fun escollirDiaIApat(id: Int) {
+        when (id) {
+            R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int2 -> controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int3 -> controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString())
+            R.id.int4 -> controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString())
+            R.id.int5 -> controlador.setDiaRecepta("divendres","esmorzar",spinner2.selectedItem.toString())
+            R.id.int6 -> controlador.setDiaRecepta("dissabte","esmorzar",spinner2.selectedItem.toString())
+            R.id.int7 -> controlador.setDiaRecepta("diumenge","esmorzar",spinner2.selectedItem.toString())
+            R.id.int8 -> controlador.setDiaRecepta("dilluns","dinar",spinner2.selectedItem.toString())
+            R.id.int9 -> controlador.setDiaRecepta("dimarts","dinar",spinner2.selectedItem.toString())
+            R.id.int10 -> controlador.setDiaRecepta("dimecres","dinar",spinner2.selectedItem.toString())
+            R.id.int11 -> controlador.setDiaRecepta("dijous","dinar",spinner2.selectedItem.toString())
+            R.id.int12 -> controlador.setDiaRecepta("divendres","dinar",spinner2.selectedItem.toString())
+            R.id.int13 -> controlador.setDiaRecepta("dissabte","dinar",spinner2.selectedItem.toString())
+            R.id.int14 -> controlador.setDiaRecepta("diumenge","dinar",spinner2.selectedItem.toString())
+            R.id.int15 -> controlador.setDiaRecepta("dilluns","sopar",spinner2.selectedItem.toString())
+            R.id.int16 -> controlador.setDiaRecepta("dimarts","sopar",spinner2.selectedItem.toString())
+            R.id.int17 -> controlador.setDiaRecepta("dimecres","sopar",spinner2.selectedItem.toString())
+            R.id.int18 -> controlador.setDiaRecepta("dijous","sopar",spinner2.selectedItem.toString())
+            R.id.int19 -> controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString())
+            R.id.int20 -> controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString())
+            R.id.int21 -> controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString())
         }
     }
 

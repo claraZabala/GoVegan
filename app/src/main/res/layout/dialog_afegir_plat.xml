@@ -46,7 +46,7 @@
 
 
     <Button
-        android:id="@+id/enviarRespostaAlForumm"
+        android:id="@+id/afegirPlatCalendari"
         android:layout_width="110dp"
         android:layout_height="36dp"
         android:layout_gravity="center"
