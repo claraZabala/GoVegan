@@ -30,4 +30,5 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
     fun getContador(): Int {
         return contRespostes
     }
+
 }

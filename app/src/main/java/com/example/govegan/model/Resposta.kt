@@ -6,4 +6,8 @@ class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Bo
     var tema: String = tema
     var esCertificat:Boolean = esCertificat
     var idPregunta: String = idPregunta
+
+    fun esCertificat(): Boolean{
+        return esCertificat
+    }
 }

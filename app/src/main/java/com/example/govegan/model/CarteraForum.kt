@@ -1,6 +1,6 @@
 package com.example.govegan.model
 
-class CarteraPreguntes {
+class CarteraForum {
 
     // Tenim un array que és una llista de preguntes
     var preguntes: ArrayList<Pregunta> = ArrayList()
@@ -63,5 +63,4 @@ class CarteraPreguntes {
         }
         return cont
     }
-
 }
