@@ -13,10 +13,11 @@ object Controlador {
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: Usuari?
     private var receptaActiva: Proposta?
-    private var setRecepta: Boolean
+    private var isFromProposta: Boolean
     private var titolReceptaProp: String
     val baseDades: BaseDades
     val db: FirebaseFirestore
+
 
     /**
      * INITS *********************
@@ -33,7 +34,7 @@ object Controlador {
         facadeCarteraReceptes = FacadeCarteraReceptes(baseDades)
         usuariActiu = null
         receptaActiva = null
-        setRecepta = false
+        isFromProposta = false
         titolReceptaProp = ""
     }
 
@@ -77,27 +78,30 @@ object Controlador {
     }
 
     fun setReceptaFromProposta(titolRecepta: String) {
-        setRecepta = true
+        isFromProposta = true
         titolReceptaProp = titolRecepta
     }
 
     fun setTitolReceptaFromCalendari(titol: String) {
-        //per assegurar que pugui estar a true per algun motiu desconegut
-        setRecepta = false
         this.titolReceptaProp = titol
     }
 
-    fun getSetRecepta(): Boolean{
-        return setRecepta
+    fun getIsFromProposta(): Boolean{
+        return isFromProposta
+    }
+    fun setIsFromProposta(setRecepta:Boolean){
+        this.isFromProposta = setRecepta
     }
 
     //usuariActiu afegir dia, apat, setmana i titol
-    //TODO: falta gestionar la categoria (Int), des de proposta ns pero de calendari seria només passar-la per paràmetre
-    fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        if (setRecepta){
-            facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
-            setRecepta = false
-        }
+    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:Int?) {
+        facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
+        isFromProposta = false
+
+    }
+
+    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):Int?{
+        return usuariActiu?.getCategoriaApatDia(setmana,dia,apat)
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,

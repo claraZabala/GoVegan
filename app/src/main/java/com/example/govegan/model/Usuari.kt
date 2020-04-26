@@ -10,7 +10,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     var pwd:String
     var edat:Int
     var email:String
-    lateinit var setmanes: ArrayList<Setmana>
+    var setmanes: ArrayList<Setmana> = ArrayList()
     var llistaIngredientsCompra:ArrayList<String> = ArrayList()
 
     init {
@@ -20,6 +20,8 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         this.nomUsuari = nomUsuari
         this.pwd = pwd
         this.email = email
+        for (i in 1..24)
+        setmanes.add(Setmana(this,i))
     }
 
     /*
@@ -32,17 +34,31 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     /*
     * Desa un àpat provinent de recepta en el calendari personal
      */
-    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String) {
+    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String,categoria:Int?) {
         //recorrem les setmanes per a localitzar la cercada
         for (i in this.setmanes) {
-            if (i.getName() == setmana) {
+            if (i.getName().equals(setmana)) {
                 //recorrem els dies d'aquesta setmana per localitzar el dia cercat
                 for (j in i.dies) {
-                    if (j.nom == dia) {
-                        j.afegirApat(apat, titolRecepta)
+                    if (j.nom.equals(dia)) {
+                        j.afegirApat(apat, titolRecepta,categoria)
                     }
                 }
             }
         }
+    }
+    //Aquesta funció retorna el tipus d'apat que és, si vegà, vegetaria o amb carn
+    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):Int?{
+        for (i in setmanes){
+            if(i.getName().equals(setmana))
+                for (j in i.dies) {
+                    if (j.nom.equals(dia)) {
+                        return j.getApat(apat)
+                    }
+                }
+
+        }
+        return null
+
     }
 }

@@ -63,8 +63,9 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         dia: String,
         apat: String,
         setmana: String,
-        titol: String
+        titol: String,
+        categoria:Int?
     ) {
-        usuariActiu?.setRecepta(dia, apat, setmana, titol)
+        usuariActiu?.setRecepta(dia, apat, setmana, titol,categoria)
     }
 }

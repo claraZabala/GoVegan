@@ -51,7 +51,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
      */
     fun setUsuariActiu(nomUsuari: String): Usuari? {
         val usuari: Usuari? = getByID(nomUsuari)
-        val setmanes: ArrayList<Setmana> = baseDades.inicialitzarSetmanesUsuari(nomUsuari)
+        val setmanes: ArrayList<Setmana> = usuari?.setmanes!!
         if (usuari != null) {
             usuari.setSetmanesUsuari(setmanes)
         } else {
