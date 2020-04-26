@@ -90,31 +90,28 @@ class Forum : AppCompatActivity() {
                         var lay: LinearLayout = LinearLayout(this)
                         lay.minimumHeight = 60
                         lay.minimumWidth = 320
+
                         // Text View Usuari
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        //TODO: Seleccionar un marge si cal
                         textView.text = controlador.getUsuariActiu()?.nomUsuari
-                        textV.addView(textView)
+                        lay.addView(textView)
 
                         //Text View descripcio
                         var textViewDesc: TextView = TextView(this)
                         textViewDesc.width = 170
                         textViewDesc.height = 38
-                        //TODO: Afegir marge si cal
-                        textViewDesc.text = i
-                        textV.addView(textViewDesc)
-
-                        //Text View contador
-                        //TODO: crear mètodes set i get contador
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
 
                         //Boto inicialitzat fora per poder fer mètodes de clicar
                         var botoRespostes: Button = Button(this)
                         botoRespostes.width = 52
                         botoRespostes.height = 45
-                        //TODO: Afegir marge i color si cal
-                        textV.addView(botoRespostes)
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
                     }
                 }
                 "On compro els ingredients?" -> {
@@ -125,52 +122,242 @@ class Forum : AppCompatActivity() {
                         var lay: LinearLayout = LinearLayout(this)
                         lay.minimumHeight = 60
                         lay.minimumWidth = 320
+
                         // Text View Usuari
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        //TODO: Seleccionar un marge si cal
                         textView.text = controlador.getUsuariActiu()?.nomUsuari
-                        textV.addView(textView)
+                        lay.addView(textView)
 
                         //Text View descripcio
                         var textViewDesc: TextView = TextView(this)
                         textViewDesc.width = 170
                         textViewDesc.height = 38
-                        //TODO: Afegir marge si cal
-                        textViewDesc.text = i
-                        textV.addView(textViewDesc)
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
 
                         //Boto inicialitzat fora per poder fer mètodes de clicar
                         var botoRespostes: Button = Button(this)
                         botoRespostes.width = 52
                         botoRespostes.height = 45
-                        //TODO: Afegir marge i color si cal
-                        textV.addView(botoRespostes)
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
                     }
                 }
                 "Dietes" -> {
                     llistaPreguntesdietes = controlador.mostrarPreguntesPerTema("Dietes")!!
+                    for (i in llistaPreguntesdietes) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 "Restaurants" -> {
                     llistaPreguntesrestaurants =
                         controlador.mostrarPreguntesPerTema("Restaurants")!!
+                    for (i in llistaPreguntesrestaurants) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
+
                 }
                 "Propietats" -> {
                     llistaPreguntespropietats =
                         controlador.mostrarPreguntesPerTema("Propietats")!!
+                    for (i in llistaPreguntespropietats) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 "Moda" -> {
                     llistaPreguntesmoda = controlador.mostrarPreguntesPerTema("Moda")!!
+                    for (i in llistaPreguntesmoda) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 "Higiene" -> {
                     llistaPregunteshigiene = controlador.mostrarPreguntesPerTema("Moda")!!
+                    for (i in llistaPregunteshigiene) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 "Salut" -> {
                     llistaPreguntesSalut = controlador.mostrarPreguntesPerTema("Salut")!!
+                    for (i in llistaPreguntesSalut) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 "Altres" -> {
                     llistaPreguntesaltres = controlador.mostrarPreguntesPerTema("Altres")!!
+                    for (i in llistaPreguntesaltres) {
+                        var lay: LinearLayout = LinearLayout(this)
+                        lay.minimumHeight = 60
+                        lay.minimumWidth = 320
+
+                        // Text View Usuari
+                        var textView: TextView = TextView(this)
+                        textView.width = 65
+                        textView.height = 30
+                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        lay.addView(textView)
+
+                        //Text View descripcio
+                        var textViewDesc: TextView = TextView(this)
+                        textViewDesc.width = 170
+                        textViewDesc.height = 38
+                        textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
+                        lay.addView(textViewDesc)
+
+                        //Boto inicialitzat fora per poder fer mètodes de clicar
+                        var botoRespostes: Button = Button(this)
+                        botoRespostes.width = 52
+                        botoRespostes.height = 45
+                        lay.addView(botoRespostes)
+
+                        textV.addView(lay)
+                    }
                 }
                 //}
             }
