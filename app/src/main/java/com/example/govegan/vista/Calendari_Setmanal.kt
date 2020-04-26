@@ -144,7 +144,7 @@ class Calendari_Setmanal : AppCompatActivity() {
     }
 
     /*
-    * Estableox l'escoltador per quan es fa doble click en una icona.
+    * Estableix l'escoltador per quan es fa doble click en una icona.
     * S'obre un AlertDialog on omplir el nom i si és vegà l'àpat i s'afegeix la informació a les
     * dades de l'usuari, a banda de canviar la icona del calendari per la adient.
      */
@@ -181,13 +181,6 @@ class Calendari_Setmanal : AppCompatActivity() {
                     }
             }
         ))
-    }
-
-
-
-    fun afegirMenu(view: View){
-        intent = Intent(this, AfegirProposta::class.java)
-        startActivity(intent)
     }
 
     fun recepta1(view: View){

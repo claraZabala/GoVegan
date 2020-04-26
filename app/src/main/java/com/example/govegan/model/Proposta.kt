@@ -2,7 +2,7 @@ package com.example.govegan.model
 
 
 class Proposta (imatge: Int, title: String, tempsPrep: String, tempsCuina: String, numPersones: String,
-                icona: Int, descripcio:String, ingredients: ArrayList<Ingredient?>) {
+                icona: Int, descripcio:String, ingredients: ArrayList<String>, autor:String) {
 
     var imatge:Int = 0
     var title:String = ""
@@ -11,7 +11,8 @@ class Proposta (imatge: Int, title: String, tempsPrep: String, tempsCuina: Strin
     var numPersones:String = ""
     var icona:Int = 0
     var descripcio:String = ""
-    var ingredients: ArrayList<Ingredient?>
+    var ingredients: ArrayList<String>
+    var autor: String = ""
 
     init{
         this.imatge = imatge
@@ -22,6 +23,7 @@ class Proposta (imatge: Int, title: String, tempsPrep: String, tempsCuina: Strin
         this.icona = icona
         this.ingredients = ingredients
         this.descripcio = descripcio
+        this.autor = autor
     }
 
 }

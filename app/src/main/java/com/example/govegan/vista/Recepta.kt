@@ -34,7 +34,7 @@ class Recepta : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recepta)
         titol_recepta.text = controlador.getReceptaActiva()?.title
-        //autor.text = controlador.getUsuariActiu()?.nom
+        autor.text = controlador.getReceptaActiva()?.autor
         passos.text = controlador.getReceptaActiva()?.descripcio
         t_prep.text = controlador.getReceptaActiva()?.tempsPrep
         t_cuina.text = controlador.getReceptaActiva()?.tempsCuina
@@ -57,6 +57,7 @@ class Recepta : AppCompatActivity() {
 
     fun calendari(view: View){
         controlador.setReceptaFromProposta(titol_recepta.text.toString())
+        controlador.setReceptaActiva(controlador.getReceptaByName(titol_recepta.text.toString()))
         intent = Intent(this, Calendari_Setmanal::class.java)
         startActivity(intent)
     }

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/taronjaClar"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
@@ -33,7 +34,6 @@
         android:layout_width="match_parent"
         android:layout_height="158dp"
         android:src="@drawable/batut" />
-    <!--tools:srcCompat="@tools:sample/backgrounds/scenic"/>-->
 
     <TextView
         android:id="@+id/autor"

@@ -120,7 +120,8 @@ class AfegirProposta : AppCompatActivity() {
         if (!teDerivats.isActivated and !teCarn.isActivated){
             tipusRecepta = 0
         }
-        var result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
+        var ingredients: ArrayList<String> = llistaIngredientsCompra
+        var result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients)
         if (result==1){
             toast("Has d'omplir tots els camps")
         } else if(result==2){
