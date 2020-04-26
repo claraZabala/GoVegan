@@ -110,14 +110,14 @@ class AfegirProposta : AppCompatActivity() {
         var tempsPrep: String = temps_prep.text.toString()
         var tempsCuina: String = temps_cuina.text.toString()
         var comensals: String = comensals.text.toString()
-        var tipusRecepta: Int = 4
-        if (teCarn.isActivated){
+        var tipusRecepta = 4
+        if (teCarn.isChecked){
             tipusRecepta = 2
         }
-        if (teDerivats.isActivated){
+        if (teDerivats.isChecked){
             tipusRecepta = 1
         }
-        if (!teDerivats.isActivated and !teCarn.isActivated){
+        if (!teDerivats.isChecked and !teCarn.isChecked){
             tipusRecepta = 0
         }
         var ingredients: ArrayList<String> = llistaIngredientsCompra
