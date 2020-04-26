@@ -353,7 +353,7 @@
                             android:id="@+id/esmorzar"
                             android:layout_width="229dp"
                             android:layout_height="wrap_content"
-                            android:text="Cereals amb muesli i un suc de taronja" />
+                            android:text="Proposta 1" />
 
                         <Button
                             android:layout_width="wrap_content"
