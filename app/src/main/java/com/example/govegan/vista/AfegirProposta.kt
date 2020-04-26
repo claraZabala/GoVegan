@@ -87,7 +87,6 @@ class AfegirProposta : AppCompatActivity() {
                 }
             }
         }
-
     }
 
     fun AfegirNouIngredientLlista(dialogView: View){

@@ -40,48 +40,51 @@
         android:layout_width="346dp"
         android:layout_height="229dp"
         android:layout_gravity="center"
-        android:background="@color/verdMoltClar"
-        android:layout_margin="20dp">
+        android:layout_margin="20dp"
+        android:background="@color/verdMoltClar">
+
 
         <LinearLayout
+            android:id="@+id/layPreg1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/layPreg2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/verdClar"
                 android:layout_margin="2dp"
+                android:background="@color/verdClar"
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/layoutPreguntes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal">
+                        android:layout_width="320dp"
+                        android:layout_height="60dp">
 
                         <TextView
                             android:layout_width="65dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="30dp"
                             android:layout_margin="5dp"
-                            android:text="Usuari:"></TextView>
+                            android:text="Paquita:"></TextView>
 
                         <TextView
                             android:layout_width="170dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="38dp"
                             android:layout_margin="5dp"
-                            android:text="On puc comprar heura?          5 respostes"></TextView>
+                            android:text="Hi ha marques veganes?          1 respostes"></TextView>
 
                         <Button
                             android:id="@+id/anarAResposta"
                             android:layout_width="52dp"
-                            android:layout_height="wrap_content"
+                            android:layout_height="45dp"
                             android:layout_margin="5dp"
                             android:background="@color/verdClar"
                             android:text="respostes"></Button>
@@ -95,7 +98,6 @@
 
 
     </ScrollView>
-
 
     <EditText
         android:id="@+id/preguntaVew"
