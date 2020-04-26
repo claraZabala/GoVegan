@@ -161,6 +161,7 @@ class Calendari_Setmanal : AppCompatActivity() {
                         val mAlertDialog = dialog.show()
                         val customDialog = dialog.create()
 
+                        //quan es prem el botò es desen les informacions
                         dialogView.afegirPlatCalendari.setOnClickListener{
                             val titol = dialogView.resposta.text.toString()
                             val carnivor = dialogView.teCarn.isChecked
@@ -172,7 +173,7 @@ class Calendari_Setmanal : AppCompatActivity() {
                             //s'afegeix la info a memòria
                             //es reutilitza la funció setReceptaFromProposta per a tenir a
                             // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
-                            controlador.setReceptaFromProposta(titol)
+                            controlador.setTitolReceptaFromCalendari(titol)
                             escollirDiaIApat(im.id)
 
                             mAlertDialog.dismiss()

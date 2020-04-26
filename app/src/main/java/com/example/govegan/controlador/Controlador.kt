@@ -81,6 +81,12 @@ object Controlador {
         titolReceptaProp = titolRecepta
     }
 
+    fun setTitolReceptaFromCalendari(titol: String) {
+        //per assegurar que pugui estar a true per algun motiu desconegut
+        setRecepta = false
+        this.titolReceptaProp = titol
+    }
+
     fun getSetRecepta(): Boolean{
         return setRecepta
     }
@@ -205,4 +211,6 @@ object Controlador {
     fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
+
+
 }
