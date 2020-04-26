@@ -3,11 +3,11 @@ package com.example.govegan.controlador
 import com.example.govegan.model.*
 
 class FacadeCarteraPreguntes(baseDades: BaseDades) {
-    var carteraPreguntes: CarteraPreguntes
+    var carteraPreguntes: CarteraPregunta
     var baseDades: BaseDades
 
     init {
-        carteraPreguntes = CarteraPreguntes()
+        carteraPreguntes = CarteraPregunta()
         this.baseDades = baseDades
     }
 
@@ -25,6 +25,10 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
 
     fun mostrarRespPerIdPregF(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    }
+
+    fun getCont(usuariId: String, descripcioo: String, temaa: String): Int{
+        return carteraPreguntes.getCount(usuariId, descripcioo, temaa)
     }
 
 }
