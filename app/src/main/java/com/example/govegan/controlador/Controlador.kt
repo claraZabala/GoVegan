@@ -120,6 +120,10 @@ object Controlador {
         return recepta
     }
 
+    fun getAllPropostes(): ArrayList<Proposta> {
+        return facadeCarteraReceptes.getAllPropostes()
+    }
+
     /**
      * CURIOSITATS *********************
      *             **********************
@@ -211,6 +215,4 @@ object Controlador {
     fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
-
-
 }

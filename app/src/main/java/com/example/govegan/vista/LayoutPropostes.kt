@@ -7,8 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
 import com.example.govegan.AdapterPropostes
 import com.example.govegan.R
+import com.example.govegan.controlador.Controlador
+import kotlinx.android.synthetic.main.explicacio_proposta.*
 
 class LayoutPropostes : AppCompatActivity() {
+    var controlador: Controlador = Controlador
 
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)
@@ -25,6 +28,8 @@ class LayoutPropostes : AppCompatActivity() {
     }
 
     fun mostrar_recepta(view: View) {
+        var title = controlador.getReceptaByName(R.id.titolReceptaP.toString())
+        controlador.setReceptaActiva(title)
         intent = Intent(this, Recepta::class.java)
         startActivity(intent)
     }

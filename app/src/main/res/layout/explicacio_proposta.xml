@@ -29,7 +29,7 @@
                 android:layout_alignParentTop="true"/>
 
             <TextView
-                android:id="@+id/titolRecepta"
+                android:id="@+id/titolReceptaP"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageRecepta"
@@ -56,7 +56,7 @@
                 android:id="@+id/temps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/titolRecepta"
+                android:layout_below="@+id/titolReceptaP"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
                 android:text="Temps de preparació: "
