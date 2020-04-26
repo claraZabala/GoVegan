@@ -1,6 +1,4 @@
 package com.example.govegan.model
-import com.example.govegan.vista.Calendari_Setmanal
-
 
 
 class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
@@ -22,7 +20,6 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         this.nomUsuari = nomUsuari
         this.pwd = pwd
         this.email = email
-
     }
 
     /*
@@ -30,5 +27,22 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
      */
     fun setSetmanesUsuari(setmanes: ArrayList<Setmana>) {
         this.setmanes = setmanes
+    }
+
+    /*
+    * Desa un àpat provinent de recepta en el calendari personal
+     */
+    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String) {
+        //recorrem les setmanes per a localitzar la cercada
+        for (i in this.setmanes) {
+            if (i.getName() == setmana) {
+                //recorrem els dies d'aquesta setmana per localitzar el dia cercat
+                for (j in i.dies) {
+                    if (j.nom == dia) {
+                        j.afegirApat(apat, titolRecepta)
+                    }
+                }
+            }
+        }
     }
 }

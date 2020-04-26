@@ -28,10 +28,10 @@ class LlistaCompra : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.llista_compra)
         actualitzarLlistaCompra()
-        eliminar.setOnClickListener(){
+        eliminar.setOnClickListener {
             actualitzarLlistaCompra()
         }
-        afegir.setOnClickListener(){
+        afegir.setOnClickListener {
             val dialog = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.dialog_ingredients, null)
             dialog.setView(dialogView)
@@ -44,7 +44,7 @@ class LlistaCompra : AppCompatActivity() {
                 actualitzarLlistaCompra()
             }
             dialogView.floatingNousIngredients.setOnClickListener{
-                AfegirNouIngredientLlista(dialogView)
+                afegirNouIngredientLlista(dialogView)
 
             }
             dialogView.floatingLupa.setOnClickListener{
@@ -60,8 +60,8 @@ class LlistaCompra : AppCompatActivity() {
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             if (i !in ingredients) {
-                var btnIngredient: CheckBox = CheckBox(this)
-                btnIngredient.setText(i)
+                val btnIngredient: CheckBox = CheckBox(this)
+                btnIngredient.text = i
                 dialogView.layoutIngredientsBD.addView(btnIngredient)
                 btnIngredient.isChecked = false
                 btnIngredient.setOnClickListener {
@@ -82,45 +82,45 @@ class LlistaCompra : AppCompatActivity() {
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
         layoutLlistaCompra.removeAllViews()
         for(i in ingredients) {
-            var layoutIngredient: LinearLayout = LinearLayout(this)
+            val layoutIngredient: LinearLayout = LinearLayout(this)
             layoutIngredient.orientation = LinearLayout.HORIZONTAL
             var params = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 100
             )
 
-            layoutIngredient.setLayoutParams(params)
-            var checkIngredient: CheckBox = CheckBox(this)
+            layoutIngredient.layoutParams = params
+            val checkIngredient: CheckBox = CheckBox(this)
             params = ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             checkIngredient.setBackgroundColor(resources.getColor(R.color.verdClar))
-            checkIngredient.setLayoutParams(params)
-            checkIngredient.setOnClickListener(){
+            checkIngredient.layoutParams = params
+            checkIngredient.setOnClickListener {
                 if(checkIngredient.isChecked){
                     ingredients.remove(i)
                 }
 
             }
-            var textIngredient: TextView = TextView(this)
+            val textIngredient: TextView = TextView(this)
             params = ViewGroup.LayoutParams(
                 800,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-            textIngredient.setLayoutParams(params)
-            textIngredient.setText(i)
+            textIngredient.layoutParams = params
+            textIngredient.text = i
             textIngredient.setTextColor(resources.getColor(R.color.negre))
             textIngredient.gravity = Gravity.CENTER
 
-            var imatgeFoto: ImageView = ImageView(this)
+            val imatgeFoto: ImageView = ImageView(this)
             params = ViewGroup.LayoutParams(
                 100,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             imatgeFoto.setImageResource(controlador.getImatgeIngredient(i))
 
-                imatgeFoto.setLayoutParams(params)
+            imatgeFoto.layoutParams = params
             layoutIngredient.addView(checkIngredient)
             layoutIngredient.addView(textIngredient)
             layoutIngredient.addView(imatgeFoto)
@@ -140,8 +140,8 @@ class LlistaCompra : AppCompatActivity() {
                 if (i.equals(dialogView.textCercaIngredient.text.toString())) {
                     if(i !in ingredients) {
                         dialogView.layoutIngredientsBD.removeAllViews()
-                        var btnIngredient: CheckBox = CheckBox(this)
-                        btnIngredient.setText(i)
+                        val btnIngredient: CheckBox = CheckBox(this)
+                        btnIngredient.text = i
                         dialogView.layoutIngredientsBD.addView(btnIngredient)
                         btnIngredient.setOnClickListener {
                             if (btnIngredient.isChecked) {
@@ -160,10 +160,10 @@ class LlistaCompra : AppCompatActivity() {
     }
 
 
-    fun AfegirNouIngredientLlista(dialogView: View){
+    fun afegirNouIngredientLlista(dialogView: View){
         if (dialogView.textAfegirNousIngredients.toString().length > 1){
-            var chkBoxNouIngredient: CheckBox = CheckBox(this)
-            chkBoxNouIngredient.setText(dialogView.textAfegirNousIngredients.text.toString())
+            val chkBoxNouIngredient: CheckBox = CheckBox(this)
+            chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()
             if(dialogView.textAfegirNousIngredients.text.toString() !in llistaIngredients) {
                 dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
                 ingredients.add(chkBoxNouIngredient.text.toString())

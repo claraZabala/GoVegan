@@ -4,12 +4,6 @@ import com.example.govegan.R
 
 class CarteraCuriositats {
     var llistaCuriositats: ArrayList<Curiositat> = ArrayList()
-        get(){
-            return field
-        }
-        set(newCuriositat){
-            field = newCuriositat
-        }
 
     init {
         llistaCuriositats.add(Curiositat(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))
@@ -41,7 +35,7 @@ class CarteraCuriositats {
                 return false
             }
         }
-        var curiositat:Curiositat = Curiositat(imatge,tema,desc)
+        val curiositat:Curiositat = Curiositat(imatge,tema,desc)
         llistaCuriositats.add(curiositat)
         return true
     }

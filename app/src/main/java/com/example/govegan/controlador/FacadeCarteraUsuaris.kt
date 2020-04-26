@@ -2,7 +2,7 @@ package com.example.govegan.controlador
 
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
-import com.example.govegan.model.Ingredient
+import com.example.govegan.model.Usuari
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
     var carteraUsuaris: CarteraUsuaris
@@ -16,7 +16,7 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
     }
 
     fun login(nomUsuari: String, pwd: String): Int {
-        if (pwd.isNullOrBlank() or nomUsuari.isNullOrBlank()) {
+        if (pwd.isBlank() or nomUsuari.isBlank()) {
             return 1
         } else {
             if (carteraUsuaris.login(nomUsuari, pwd)) {
@@ -33,8 +33,8 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
                  pwd2: String, edat: String): Int {
-        if (pwd.isNullOrBlank() or pwd2.isNullOrBlank() or mail.isNullOrBlank() or nom.isNullOrBlank()
-            or edat.isNullOrBlank() or cognoms.isNullOrBlank() or nomUsuari.isNullOrBlank()) {
+        if (pwd.isBlank() or pwd2.isBlank() or mail.isBlank() or nom.isBlank()
+            or edat.isBlank() or cognoms.isBlank() or nomUsuari.isBlank()) {
             return 1
         } else if (!pwd.equals(pwd2)) {
             return 2
@@ -56,5 +56,15 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
 
     fun getLlistaUsuari(nomUsuari: String?):ArrayList<String>? {
         return carteraUsuaris.getLlistaUsuari(nomUsuari)
+    }
+
+    fun afegirInfoPlat(
+        usuariActiu: Usuari?,
+        dia: String,
+        apat: String,
+        setmana: String,
+        titol: String
+    ) {
+        usuariActiu?.setRecepta(dia, apat, setmana, titol)
     }
 }

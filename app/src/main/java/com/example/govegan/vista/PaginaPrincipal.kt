@@ -5,8 +5,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
-import com.example.govegan.controlador.Controlador
-import kotlinx.android.synthetic.main.recepta.*
 
 class PaginaPrincipal : AppCompatActivity() {
 
@@ -16,7 +14,7 @@ class PaginaPrincipal : AppCompatActivity() {
     }
 
     fun calendari(view: View) {
-        intent = Intent(this, Calendari_Setmanal::class.java)
+        intent = Intent(this, CalendariSetmanal::class.java)
         startActivity(intent)
     }
 
@@ -36,7 +34,7 @@ class PaginaPrincipal : AppCompatActivity() {
     }
 
     fun curiositats(view: View) {
-        intent = Intent(this, layoutCuriositats::class.java)
+        intent = Intent(this, LayoutCuriositats::class.java)
         startActivity(intent)
     }
 }

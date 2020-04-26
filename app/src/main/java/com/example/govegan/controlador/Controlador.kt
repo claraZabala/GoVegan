@@ -2,7 +2,6 @@ package com.example.govegan.controlador
 
 import android.content.Context
 import android.widget.Toast
-import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -82,34 +81,46 @@ object Controlador {
         titolReceptaProp = titolRecepta
     }
 
+    fun setTitolReceptaFromCalendari(titol: String) {
+        //per assegurar que pugui estar a true per algun motiu desconegut
+        setRecepta = false
+        this.titolReceptaProp = titol
+    }
+
     fun getSetRecepta(): Boolean{
         return setRecepta
     }
 
-    fun getTitolRecepta(): String{
-        return titolReceptaProp
-    }
-
+    //usuariActiu afegir dia, apat, setmana i titol
+    //TODO: falta gestionar la categoria (Int), des de proposta ns pero de calendari seria només passar-la per paràmetre
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
-        //setRecepta = false
+        if (setRecepta){
+            facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
+            setRecepta = false
+        }
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
-                          comensals:String, tipusRecepta:Int): Int {
-        if (nom.isNullOrEmpty() or pasos.isNullOrEmpty() or tempsPrep.isNullOrEmpty() or
-            tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty()){
+                          comensals:String, tipusRecepta:Int, ingredients: ArrayList<String>): Int {
+        if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
+            tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)){
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients,
+                usuariActiu?.nomUsuari!!)){
             return 0
         }
         return 2
     }
 
-    fun getReceptaByName(nom: String) {
-        var recepta = facadeCarteraReceptes.getReceptaByName(nom)
+    fun getReceptaByName(nom: String): Proposta? {
+        val recepta = facadeCarteraReceptes.getReceptaByName(nom)
         setReceptaActiva(recepta)
+        return recepta
+    }
+
+    fun getAllPropostes(): ArrayList<Proposta> {
+        return facadeCarteraReceptes.getAllPropostes()
     }
 
     /**

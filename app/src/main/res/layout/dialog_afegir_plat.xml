@@ -5,14 +5,13 @@
 
 
     <TextView
-        android:id="@+id/enviarResposta"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/verdFosc"
         android:text="Afegir Plat:"
         android:gravity="center_vertical"
         android:textAppearance="@style/TextBlancTitolSecundari"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:textStyle="bold" />
 
     <TextView
@@ -46,7 +45,7 @@
 
 
     <Button
-        android:id="@+id/enviarRespostaAlForumm"
+        android:id="@+id/afegirPlatCalendari"
         android:layout_width="110dp"
         android:layout_height="36dp"
         android:layout_gravity="center"
