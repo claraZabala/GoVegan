@@ -91,8 +91,10 @@ object Controlador {
     }
 
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
-        //setRecepta = false
+        if (setRecepta){
+            //usuariActiu afegir dia, apat, setmana i titolReceptaProp
+        }
+        setRecepta = false
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
@@ -107,9 +109,10 @@ object Controlador {
         return 2
     }
 
-    fun getReceptaByName(nom: String) {
+    fun getReceptaByName(nom: String): Proposta? {
         var recepta = facadeCarteraReceptes.getReceptaByName(nom)
         setReceptaActiva(recepta)
+        return recepta
     }
 
     /**
