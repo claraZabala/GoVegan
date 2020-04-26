@@ -101,6 +101,9 @@ class LlistaCompra : AppCompatActivity() {
                 if(checkIngredient.isChecked){
                     ingredients.remove(i)
                 }
+                if(!checkIngredient.isChecked){
+                    ingredients.add(i)
+                }
 
             }
             val textIngredient: TextView = TextView(this)

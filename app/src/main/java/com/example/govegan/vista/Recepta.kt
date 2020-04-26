@@ -3,10 +3,14 @@ package com.example.govegan.vista
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.model.Ingredient
+import kotlinx.android.synthetic.main.afegir_proposta.*
+import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.recepta.*
 
 class Recepta : AppCompatActivity() {
@@ -49,8 +53,19 @@ class Recepta : AppCompatActivity() {
     }
 
     fun llista(view: View) {
-        intent = Intent(this, LlistaCompra::class.java)
-        startActivity(intent)
+        val dialog = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_ingredients, null)
+        dialog.setView(dialogView)
+        dialog.setCancelable(false)
+        val mAlertDialog = dialog.show()
+        val customDialog = dialog.create()
+        dialogView.textAfegirNousIngredients.visibility = View.INVISIBLE
+        dialogView.floatingNousIngredients.visibility = View.INVISIBLE
+        dialogView.butAfegirIngredients.setOnClickListener {
+            mAlertDialog.dismiss()
+            intent = Intent(this, LlistaCompra::class.java)
+            startActivity(intent)
+        }
     }
 
     fun calendari(view: View){

@@ -1,14 +1,19 @@
 package com.example.govegan
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.view.get
 import androidx.viewpager.widget.PagerAdapter
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.model.Proposta
+import com.example.govegan.vista.Recepta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context
@@ -35,6 +40,7 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         val title: TextView = view.findViewById(R.id.titolReceptaP)
         val tempsP: TextView = view.findViewById(R.id.tempsPreparacio)
         val tempsC: TextView = view.findViewById(R.id.tempsCuina)
+        val layout: RelativeLayout = view.findViewById(R.id.relativeRecepta)
         val numPersones: TextView = view.findViewById(R.id.numPersones)
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
         imageView.setImageResource(propostes[position].imatge)
@@ -50,7 +56,11 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         } else if (tipus == 2){
             icona.setImageResource(R.drawable.carn)
         }
-
+            layout.setOnClickListener{
+            controlador.setReceptaActiva(propostes.get(position))
+                var intent = Intent(context,Recepta::class.java)
+                context.startActivity(intent)
+        }
         container.addView(view,0)
         return view
     }
