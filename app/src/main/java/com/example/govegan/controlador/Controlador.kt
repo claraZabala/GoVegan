@@ -214,4 +214,8 @@ object Controlador {
     fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
+
+    fun getContadorPreguntes(descripcio: String, tema: String): Int{
+        return facadeCarteraPreguntes.getCont(usuariActiu?.nomUsuari!!, descripcio, tema)
+    }
 }

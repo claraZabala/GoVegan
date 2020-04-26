@@ -27,4 +27,8 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
         return carteraPreguntes.mostrarRespPerIdPregunta(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
 
+    fun getCont(usuariId: String, descripcioo: String, temaa: String): Int{
+        return carteraPreguntes.getCount(usuariId, descripcioo, temaa)
+    }
+
 }

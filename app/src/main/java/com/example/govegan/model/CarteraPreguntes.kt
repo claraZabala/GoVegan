@@ -53,4 +53,15 @@ class CarteraPreguntes {
         return respostesPerIdPregunta
     }
 
+    fun getCount(idUsuarii:String,descripcioo: String, temaa: String): Int{
+        var cont:Int = 0
+        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+        for (i: Pregunta in preguntes) {
+            if (i.idPregunta.equals(idPreg)) {
+                cont = i.getContador()
+            }
+        }
+        return cont
+    }
+
 }

@@ -1,7 +1,7 @@
 package com.example.govegan.model
 
 class Pregunta (idUsuari: String, descripcio:String, tema:String) {
-     var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
+    var idPregunta : String = idUsuari + "-" + descripcio + "-" + tema
     var contRespostes: Int = 0
 
     // Tenim un array de respostes
@@ -25,5 +25,9 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
 
     fun mostrarRespostes():  ArrayList<Resposta>?{
         return this.respostes
+    }
+
+    fun getContador(): Int {
+        return contRespostes
     }
 }
