@@ -12,6 +12,7 @@ import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
 
+
 class Calendari_Setmanal : AppCompatActivity() {
     var controlador: Controlador
     init {
@@ -117,6 +118,10 @@ class Calendari_Setmanal : AppCompatActivity() {
         afegirPlat(int21)
     }
 
+    /*
+    * Escoltador quan es vé de Propostes i s'ha premut l'opció d'afegir a caledari
+    * Click Simple
+     */
     private val clickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString())
@@ -140,6 +145,23 @@ class Calendari_Setmanal : AppCompatActivity() {
             R.id.int19 -> controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString())
             R.id.int20 -> controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString())
             R.id.int21 -> controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString())
+        }
+        //gestió icona
+        val iconaNova: Int? = controlador.getReceptaActiva()?.icona
+        //es fa un smart cast donat que l'objecte view és de tipus View i no ImageView aquí
+        if (view is ImageView) {
+            val i = view as ImageView
+            canviIcona(i, iconaNova)
+        }
+    }
+
+    fun canviIcona(iconaVella: ImageView, iconaNova: Int?) {
+        if (iconaNova != null) {
+            when (iconaNova) {
+                0 -> iconaVella.setImageResource(R.drawable.icono)
+                1 -> iconaVella.setImageResource(R.drawable.ou)
+                2 -> iconaVella.setImageResource(R.drawable.carn)
+            }
         }
     }
 
@@ -176,6 +198,8 @@ class Calendari_Setmanal : AppCompatActivity() {
                             controlador.setTitolReceptaFromCalendari(titol)
                             escollirDiaIApat(im.id)
 
+                            //es canvia la icona del calendari
+                            canviIcona(im, categoria)
                             mAlertDialog.dismiss()
                         }
                     }
