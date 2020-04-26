@@ -56,6 +56,7 @@ class Calendari_Setmanal : AppCompatActivity() {
 
         //si vens d'una recepta és true i es creen els on click listener
         if (controlador.getSetRecepta()){
+            toast("Selecciona un dia i àpat per afegir la recepta que has escollit")
             int1.setOnClickListener(clickListener)
             int2.setOnClickListener(clickListener)
             int3.setOnClickListener(clickListener)

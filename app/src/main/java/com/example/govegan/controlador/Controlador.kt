@@ -91,8 +91,10 @@ object Controlador {
     }
 
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
-        //setRecepta = false
+        if (setRecepta){
+            //usuariActiu afegir dia, apat, setmana i titolReceptaProp
+        }
+        setRecepta = false
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
