@@ -7,7 +7,6 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.model.Setmana
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 
 class Calendari_Setmanal : AppCompatActivity() {
@@ -126,14 +125,28 @@ class Calendari_Setmanal : AppCompatActivity() {
     }
 
     fun afegirMenu(view: View){
-        intent = Intent(this, AfegirMenu::class.java)
+        intent = Intent(this, AfegirProposta::class.java)
         startActivity(intent)
     }
 
-    fun recepta(view: View){
+    fun recepta1(view: View){
+        controlador.getReceptaByName(esmorzar.text.toString())
         intent = Intent(this, Recepta::class.java)
         startActivity(intent)
     }
+
+    fun recepta2(view: View){
+        controlador.getReceptaByName(dinar.text.toString())
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
+
+    fun recepta3(view: View){
+        controlador.getReceptaByName(sopar.text.toString())
+        intent = Intent(this, Recepta::class.java)
+        startActivity(intent)
+    }
+
 }
 
 

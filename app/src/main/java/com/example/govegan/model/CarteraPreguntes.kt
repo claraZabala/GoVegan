@@ -32,11 +32,11 @@ class CarteraPreguntes() {
         var preg = Pregunta(idUsuari, descripcio, tema)
     }
 
-    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
-        var preguntesPerTema: ArrayList<Pregunta> = ArrayList()
-        for (i: Pregunta in preguntesPerTema){
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>?{
+        var preguntesPerTema: ArrayList<String> = ArrayList()
+        for (i: Pregunta in preguntes){
             if ( i.tema.equals(temaP) ){
-                preguntesPerTema.add(i);
+                preguntesPerTema.add(i.descripcio);
             }
         }
         return preguntesPerTema

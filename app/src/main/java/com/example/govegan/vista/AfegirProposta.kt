@@ -1,32 +1,28 @@
 package com.example.govegan.vista
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
-import android.text.Editable
 import android.view.View
-import android.widget.Button
 import android.widget.CheckBox
-import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
-import kotlinx.android.synthetic.main.afegir_menu.*
-import kotlinx.android.synthetic.main.afegir_menu.floatingAfegirIngredients
-import kotlinx.android.synthetic.main.dialog_ingredients.*
+import com.example.govegan.controlador.Controlador.toast
+import kotlinx.android.synthetic.main.afegir_proposta.*
+import kotlinx.android.synthetic.main.afegir_proposta.floatingAfegirIngredients
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
-import java.lang.StringBuilder
 
-class AfegirMenu : AppCompatActivity() {
+class AfegirProposta : AppCompatActivity() {
     var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador:Controlador = Controlador
     var llistaIngredientsCompra:ArrayList<String> = ArrayList()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.afegir_menu)
+        setContentView(R.layout.afegir_proposta)
         llistaIngredients = controlador.getAllIngredientsByName()
+        llistaIngredientsCompra = controlador.getLlistaIngredientsUsuari()!!
 
 
 
@@ -49,10 +45,7 @@ class AfegirMenu : AppCompatActivity() {
             }
             dialogView.floatingLupa.setOnClickListener{
                 buscarIngredient(dialogView)
-
             }
-
-
         }
 
     }
@@ -92,8 +85,6 @@ class AfegirMenu : AppCompatActivity() {
                     llistaIngredientsCompra.remove(btnIngredient.text.toString())
                     textIngredients.text = llistaIngredientsCompra.toString()
                 }
-
-
             }
         }
 
@@ -107,20 +98,37 @@ class AfegirMenu : AppCompatActivity() {
                 dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
                 llistaIngredients.add(chkBoxNouIngredient.text.toString())
                 llistaIngredientsCompra.add(chkBoxNouIngredient.text.toString())
+                controlador.addNouIngredientSenseFoto(chkBoxNouIngredient.text.toString())
                 textIngredients.text = llistaIngredientsCompra.toString()
             }
         }
         dialogView.textAfegirNousIngredients.setText("")
     }
 
-
-    fun calendari(view: View) {
-        intent = Intent(this, Calendari_Setmanal::class.java)
-        startActivity(intent)
-    }
-
     fun recepta(view: View){
-        intent = Intent(this, Recepta::class.java)
-        startActivity(intent)
+        var nom: String = resposta.text.toString()
+        var pasos: String = pasos.text.toString()
+        var tempsPrep: String = temps_prep.text.toString()
+        var tempsCuina: String = temps_cuina.text.toString()
+        var comensals: String = comensals.text.toString()
+        var tipusRecepta: Int = 4
+        if (teCarn.isActivated){
+            tipusRecepta = 2
+        }
+        if (teDerivats.isActivated){
+            tipusRecepta = 1
+        }
+        if (!teDerivats.isActivated and !teCarn.isActivated){
+            tipusRecepta = 0
+        }
+        var result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)
+        if (result==1){
+            toast("Has d'omplir tots els camps")
+        } else if(result==2){
+            toast("El nom de recepta ja existeix")
+        } else if (result==0) {
+            intent = Intent(this, Recepta::class.java)
+            startActivity(intent)
+        }
     }
 }

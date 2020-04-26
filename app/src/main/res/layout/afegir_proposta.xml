@@ -4,7 +4,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/verdClar"
-    android:layout_marginTop="15dp"
     android:id="@+id/layoutCompartirRecepta"
     >
     <TextView
@@ -13,30 +12,59 @@
         android:layout_height="52dp"
         android:background="@color/verdFosc"
         android:gravity="center"
-        android:text="Afegir Menú"
+        android:text="Afegir Proposta"
         android:textAppearance="@style/TextBlancTitolSecundari" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nom de la recepta:"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/resposta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nom"
+        android:layout_marginBottom="20dp"/>
+
+    <CheckBox
+        android:id="@+id/teCarn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté carn" />
+
+    <CheckBox
+        android:id="@+id/teDerivats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté productes d'origen animal" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PASOS A SEGUIR:"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="15dp"
-            android:layout_marginLeft="10dp">
+            android:text="PASOS A SEGUIR:">
 
         </TextView>
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"
-            android:hint="Indica pas a pas com realitzar la recepta"
-            >
-        </EditText>
+            android:id="@+id/pasos"
+            android:hint="Indica pas a pas com realitzar la recepta"></EditText>
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,6 +80,7 @@
         </TextView>
 
         <EditText
+            android:id="@+id/temps_prep"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Temps preparació"
@@ -71,6 +100,7 @@
 
         </TextView>
         <EditText
+            android:id="@+id/temps_cuina"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Temps cuina"
@@ -92,6 +122,7 @@
         </TextView>
 
         <EditText
+            android:id="@+id/comensals"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Numero comensals"
@@ -135,9 +166,10 @@
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"
             android:clickable="true"
-            android:onClick="afegirIngredient"
+            android:onClick="afegirIngredients"
             app:fabSize="mini"
-            app:srcCompat="@drawable/afegir" />
+            app:srcCompat="@drawable/afegir"
+            android:layout_marginRight="10dp"/>
 
         <TextView
             android:id="@+id/textIngredients"
@@ -170,7 +202,7 @@
         android:layout_weight="1"
         android:backgroundTint="@color/verdClar"
         android:clickable="true"
-        android:onClick="afegirIngredient"
+        android:onClick="afegirImatge"
         app:fabSize="mini"
         app:srcCompat="@drawable/afegir" />
 
@@ -180,7 +212,7 @@
         android:id="@+id/button2"
         android:layout_width="381dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/estil_botons"

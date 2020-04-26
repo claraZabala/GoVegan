@@ -2,6 +2,7 @@ package com.example.govegan.controlador
 
 import android.content.Context
 import android.widget.Toast
+import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -12,10 +13,16 @@ object Controlador {
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: Usuari?
+    private var receptaActiva: Proposta?
     private var setRecepta: Boolean
     private var titolReceptaProp: String
     val baseDades: BaseDades
     val db: FirebaseFirestore
+
+    /**
+     * INITS *********************
+     *      **********************
+     */
 
     init {
         db = FirebaseFirestore.getInstance()
@@ -26,9 +33,19 @@ object Controlador {
         facadeCarteraPreguntes = FacadeCarteraPreguntes(baseDades)
         facadeCarteraReceptes = FacadeCarteraReceptes(baseDades)
         usuariActiu = null
+        receptaActiva = null
         setRecepta = false
         titolReceptaProp = ""
     }
+
+    fun Context.toast(missatge: String){
+        Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
+    }
+
+    /**
+     * USER *********************
+     *      **********************
+     */
 
     fun getUsuariActiu(): Usuari? {
         return usuariActiu
@@ -46,6 +63,59 @@ object Controlador {
     fun login(nomUsuari: String, pwd: String): Int {
         return facadeCarteraUsuaris.login(nomUsuari, pwd)
     }
+
+    /**
+     * RECEPTA *********************
+     *         **********************
+     */
+
+    fun setReceptaActiva(recepta: Proposta?){
+        receptaActiva = recepta
+    }
+
+    fun getReceptaActiva(): Proposta? {
+        return receptaActiva
+    }
+
+    fun setReceptaFromProposta(titolRecepta: String) {
+        setRecepta = true
+        titolReceptaProp = titolRecepta
+    }
+
+    fun getSetRecepta(): Boolean{
+        return setRecepta
+    }
+
+    fun getTitolRecepta(): String{
+        return titolReceptaProp
+    }
+
+    fun setDiaRecepta(dia: String, apat: String, setmana: String) {
+        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
+        //setRecepta = false
+    }
+
+    fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
+                          comensals:String, tipusRecepta:Int): Int {
+        if (nom.isNullOrEmpty() or pasos.isNullOrEmpty() or tempsPrep.isNullOrEmpty() or
+            tempsCuina.isNullOrEmpty() or comensals.isNullOrEmpty()){
+            return 1
+        }
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta)){
+            return 0
+        }
+        return 2
+    }
+
+    fun getReceptaByName(nom: String) {
+        var recepta = facadeCarteraReceptes.getReceptaByName(nom)
+        setReceptaActiva(recepta)
+    }
+
+    /**
+     * CURIOSITATS *********************
+     *             **********************
+     */
 
     fun getLlistaCuriositats(): ArrayList<Curiositat> {
         return facadeCarteraCuriositats.getLlistaCuriositats()
@@ -67,10 +137,14 @@ object Controlador {
         return facadeCarteraCuriositats.removeCuriositat(index)
     }
 
-
     fun getIndexFromList(tema: String): Int {
         return facadeCarteraCuriositats.getIndexFromList(tema)
     }
+
+    /**
+     * INGREDIENTS *********************
+     *             **********************
+     */
 
     fun getIngredientsByName(nomIngredient: String): Ingredient?{
         return facadeCarteraIngredients.getIngredientsByName(nomIngredient)
@@ -84,15 +158,41 @@ object Controlador {
         facadeCarteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
     }
 
+    fun addNouIngredientSenseFoto(nomIngredient: String){
+        facadeCarteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+    }
+
     fun getAllIngredientsByName():ArrayList<String>{
         return facadeCarteraIngredients.getAllIngredientsByName()
     }
 
-    fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
-        facadeCarteraPreguntes.crearPreguntaF(idUsuari, descripcio, tema)
+    fun afegirIngredientLlistaCompra(ingredient: String): Boolean {
+        return facadeCarteraUsuaris.afegirIngredientLlistaCompra(getUsuariActiu()?.nomUsuari,ingredient)
     }
 
-    fun mostrarPreguntesPerTema(temaP: String): ArrayList<Pregunta>?{
+    fun treureIngredientLlistaCompra(ingredient: String):Boolean{
+        return facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu()?.nomUsuari, ingredient)
+    }
+
+
+    fun getImatgeIngredient(nomIngredient: String):Int{
+        return facadeCarteraIngredients.getImatgeIngredient(nomIngredient)
+    }
+
+    fun getLlistaIngredientsUsuari():ArrayList<String>?{
+        return facadeCarteraUsuaris.getLlistaUsuari(getUsuariActiu()?.nomUsuari)
+    }
+
+    /**
+     * FORUM *********************
+     *      **********************
+     */
+
+    fun crearPregunta(descripcio: String, tema: String){
+        facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!.nomUsuari, descripcio, tema)
+    }
+
+    fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>?{
         return facadeCarteraPreguntes.mostrarPreguntesPerTemaF(temaP)
     }
 
@@ -102,28 +202,5 @@ object Controlador {
 
     fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
-    }
-
-    fun setReceptaFromProposta(titolRecepta: String) {
-        setRecepta = true
-        titolReceptaProp = titolRecepta
-    }
-
-    fun getSetRecepta(): Boolean{
-        return setRecepta
-    }
-
-    fun getTitolRecepta(): String{
-        return titolReceptaProp
-    }
-
-    fun setDiaRecepta(dia: String, apat: String, setmana: String) {
-        //usuariActiu afegir dia, apat, setmana i titolReceptaProp
-        usuariActiu?.setRecepta(dia, apat, setmana, titolReceptaProp)
-        //setRecepta = false
-    }
-
-    fun Context.toast(missatge: String){
-        Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
     }
 }

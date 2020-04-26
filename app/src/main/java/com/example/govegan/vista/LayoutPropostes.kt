@@ -20,7 +20,7 @@ class LayoutPropostes : AppCompatActivity() {
     }
 
     fun proposta(view: View){
-        intent = Intent(this, AfegirMenu::class.java)
+        intent = Intent(this, AfegirProposta::class.java)
         startActivity(intent)
     }
 

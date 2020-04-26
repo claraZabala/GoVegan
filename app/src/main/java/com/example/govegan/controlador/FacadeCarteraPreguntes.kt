@@ -15,7 +15,7 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
         carteraPreguntes.crearPregunta(idUsuari, descripcio, tema)
     }
 
-    fun mostrarPreguntesPerTemaF(temaP: String): ArrayList<Pregunta>?{
+    fun mostrarPreguntesPerTemaF(temaP: String): ArrayList<String>?{
         return carteraPreguntes.mostrarPreguntesPerTema(temaP)
     }
 
