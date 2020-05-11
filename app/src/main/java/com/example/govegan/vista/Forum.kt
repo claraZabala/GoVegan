@@ -35,8 +35,7 @@ class Forum : AppCompatActivity() {
             super.onCreate(savedInstanceState)
             setContentView(R.layout.forum)
             llistaPreguntesReceptes = controlador.mostrarPreguntesPerTema("Receptes")!!
-            llistaPreguntesonCompro =
-                controlador.mostrarPreguntesPerTema("On compro els ingredients?")!!
+            llistaPreguntesonCompro = controlador.mostrarPreguntesPerTema("On compro els ingredients?")!!
             llistaPreguntesdietes = controlador.mostrarPreguntesPerTema("Dietes")!!
             llistaPreguntesrestaurants = controlador.mostrarPreguntesPerTema("Restaurants")!!
             llistaPreguntespropietats = controlador.mostrarPreguntesPerTema("Propietats")!!
@@ -95,7 +94,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -116,8 +115,7 @@ class Forum : AppCompatActivity() {
                 }
                 "On compro els ingredients?" -> {
                     println("He entrat a On compro els ingredients")
-                    llistaPreguntesonCompro =
-                        controlador.mostrarPreguntesPerTema("On compro els ingredients?")!!
+                    llistaPreguntesonCompro = controlador.mostrarPreguntesPerTema("On compro els ingredients?")!!
                     for (i in llistaPreguntesonCompro) {
                         var lay: LinearLayout = LinearLayout(this)
                         lay.minimumHeight = 60
@@ -127,7 +125,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -157,7 +155,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -188,7 +186,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -220,7 +218,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -250,7 +248,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -280,7 +278,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -310,7 +308,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio
@@ -340,7 +338,7 @@ class Forum : AppCompatActivity() {
                         var textView: TextView = TextView(this)
                         textView.width = 65
                         textView.height = 30
-                        textView.text = controlador.getUsuariActiu()?.nomUsuari
+                        textView.text = controlador.getUsuariActiu()
                         lay.addView(textView)
 
                         //Text View descripcio

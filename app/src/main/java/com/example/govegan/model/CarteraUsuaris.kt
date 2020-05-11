@@ -49,15 +49,12 @@ class CarteraUsuaris(baseDades: BaseDades) {
     /*
     S'inicialitza la informació de l'usuari passsat per paràmetre
      */
-    fun setUsuariActiu(nomUsuari: String): Usuari? {
+    fun setUsuariActiu(nomUsuari: String) {
         val usuari: Usuari? = getByID(nomUsuari)
         val setmanes: ArrayList<Setmana> = usuari?.setmanes!!
         if (usuari != null) {
             usuari.setSetmanesUsuari(setmanes)
-        } else {
-            return null
         }
-        return usuari
     }
 
 
@@ -91,6 +88,18 @@ class CarteraUsuaris(baseDades: BaseDades) {
         }
 
     return null
+    }
+
+    fun initUsers(allUsers: ArrayList<String>) {
+        print(allUsers.toString())
+    }
+
+    fun getCategoriaApatDia(nomUsuari: String?, setmana: String, dia: String, apat: String): Int? {
+        return getByID(nomUsuari!!)?.getCategoriaApatDia(setmana, dia, apat)
+    }
+
+    fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: Int?) {
+        getByID(usuariActiu!!)?.setRecepta(dia,setmana,apat,titol,categoria)
     }
 
 }

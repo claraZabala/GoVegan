@@ -35,6 +35,7 @@ class BaseDades(val db: FirebaseFirestore) {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                    //print("""${document.data}""")
                     exists = true
                 } else {
                     Log.d(TAG, "No such document")
@@ -53,7 +54,7 @@ class BaseDades(val db: FirebaseFirestore) {
         val returnUsers = db.collection("users").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    users.add(document.data.values.toString())
+                    users.add("DocumentSnapshot data: ${document.data}")
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
             }

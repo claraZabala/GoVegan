@@ -8,21 +8,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
-import androidx.core.content.ContextCompat.startActivity
-import androidx.core.view.get
 import androidx.viewpager.widget.PagerAdapter
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.model.Proposta
 import com.example.govegan.vista.Recepta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
     var context:Context = context
     var controlador: Controlador
-    var propostes: ArrayList<Proposta>
+    //var propostes: ArrayList<Proposta>
     init{
         this.context = context
         controlador = Controlador
-        propostes = controlador.getAllPropostes()
+        //propostes = controlador.getAllPropostes()
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -30,20 +27,24 @@ class AdapterPropostes(context: Context): PagerAdapter() {
     }
 
     override fun getCount(): Int {
-        return propostes.size
+        return controlador.getNumPropostes()
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val layoutInflater = LayoutInflater.from(context)
         val view:View = layoutInflater.inflate(R.layout.explicacio_proposta,container,false)
-        val imageView: ImageView = view.findViewById(R.id.imageRecepta)
+        val imatge: ImageView = view.findViewById(R.id.imageRecepta)
         val title: TextView = view.findViewById(R.id.titolReceptaP)
         val tempsP: TextView = view.findViewById(R.id.tempsPreparacio)
         val tempsC: TextView = view.findViewById(R.id.tempsCuina)
-        val layout: RelativeLayout = view.findViewById(R.id.relativeRecepta)
+        val recepta: RelativeLayout = view.findViewById(R.id.relativeRecepta)
         val numPersones: TextView = view.findViewById(R.id.numPersones)
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
-        imageView.setImageResource(propostes[position].imatge)
+
+        controlador.afegirPropostaLayout(position,imatge,title,tempsP,tempsC,numPersones,icona)
+
+
+        /*imatge.setImageResource(propostes[position].imatge)
         title.text = propostes[position].title
         tempsP.text = propostes[position].tempsPrep
         tempsC.text = propostes[position].tempsCuina
@@ -55,9 +56,9 @@ class AdapterPropostes(context: Context): PagerAdapter() {
             icona.setImageResource(R.drawable.ou)
         } else if (tipus == 2){
             icona.setImageResource(R.drawable.carn)
-        }
-            layout.setOnClickListener{
-            controlador.setReceptaActiva(propostes.get(position))
+        }*/
+            recepta.setOnClickListener{
+            controlador.setReceptaActiva(controlador.getReceptaByPosition(position))
                 var intent = Intent(context,Recepta::class.java)
                 context.startActivity(intent)
         }

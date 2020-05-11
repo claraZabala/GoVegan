@@ -1,5 +1,6 @@
 package com.example.govegan.controlador
 
+import android.widget.ImageView
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraReceptes
 import com.example.govegan.model.Proposta
@@ -28,8 +29,36 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         return carteraReceptes.getByName(nom)
     }
 
-    fun getAllPropostes(): ArrayList<Proposta> {
-        return carteraReceptes.propostes
+    fun getNumPropostes(): Int {
+        return carteraReceptes.propostes.size
+    }
+
+    fun getImage(position: Int): Int {
+        return carteraReceptes.getImage(position)
+    }
+
+    fun getTitle(position: Int): CharSequence? {
+        return carteraReceptes.getTitle(position)
+    }
+
+    fun getTPrep(position: Int): CharSequence? {
+        return carteraReceptes.getTPrep(position)
+    }
+
+    fun getTCuina(position: Int): CharSequence? {
+        return carteraReceptes.getTCuina(position)
+    }
+
+    fun getNPax(position: Int): CharSequence? {
+        return carteraReceptes.getNPax(position)
+    }
+
+    fun setIcona(icona: ImageView, position: Int) {
+        carteraReceptes.setIcona(icona,position)
+    }
+
+    fun getReceptaByPos(position: Int): Proposta? {
+        return carteraReceptes.propostes[position]
     }
 
 }
