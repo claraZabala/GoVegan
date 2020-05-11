@@ -7,6 +7,7 @@ import android.widget.Toast
 import com.example.govegan.R
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.recepta.*
 
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
@@ -15,7 +16,7 @@ object Controlador {
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: String?
-    private var receptaActiva: Proposta?
+    private var receptaActiva: String?
     private var isFromProposta: Boolean
     private var titolReceptaProp: String
     val baseDades: BaseDades
@@ -73,11 +74,11 @@ object Controlador {
      *         **********************
      */
 
-    fun setReceptaActiva(recepta: Proposta?){
+    fun setReceptaActiva(recepta: String?){
         receptaActiva = recepta
     }
 
-    fun getReceptaActiva(): Proposta? {
+    fun getReceptaActiva(): String? {
         return receptaActiva
     }
 
@@ -122,9 +123,7 @@ object Controlador {
     }
 
     fun getReceptaByName(nom: String): Proposta? {
-        val recepta = facadeCarteraReceptes.getReceptaByName(nom)
-        setReceptaActiva(recepta)
-        return recepta
+        return facadeCarteraReceptes.getReceptaByName(nom)
     }
 
     fun getNumPropostes(): Int {
@@ -141,8 +140,24 @@ object Controlador {
         facadeCarteraReceptes.setIcona(icona,position)
     }
 
-    fun getReceptaByPosition(position: Int): Proposta? {
-        return facadeCarteraReceptes.getReceptaByPos(position)
+    fun getReceptaByPosition(position: Int): String? {
+        return facadeCarteraReceptes.getTitle(position)
+    }
+
+    fun afegirReceptaLayout(titolRecepta: TextView, autor: TextView, passos: TextView,
+                            tPrep: TextView, tCuina: TextView, comensales: TextView, iconRecepta: ImageView) {
+        titolRecepta!!.text = receptaActiva
+        val position = facadeCarteraReceptes.getPos(receptaActiva)
+        autor.text = facadeCarteraReceptes.getAutor(position)
+        passos.text = facadeCarteraReceptes.getDesc(position)
+        tPrep.text = facadeCarteraReceptes.getTPrep(position)
+        tCuina.text = facadeCarteraReceptes.getTCuina(position)
+        comensales.text = facadeCarteraReceptes.getNPax(position)
+        facadeCarteraReceptes.setIcona(iconRecepta,position)
+    }
+
+    fun getIconaReceptaActiva(): Int? {
+        return facadeCarteraReceptes.getIcona(receptaActiva)
     }
 
     /**

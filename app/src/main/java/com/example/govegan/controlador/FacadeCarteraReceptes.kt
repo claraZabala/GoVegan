@@ -17,11 +17,9 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     }
 
     fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:Int,ingredients: ArrayList<String>, autor:String): Boolean {
-        val recepta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,ingredients)
-        if (recepta == null){
-            return false
-        }
-        controlador.setReceptaActiva(recepta)
+        carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,
+            ingredients) ?: return false
+        controlador.setReceptaActiva(nom)
         return true
     }
 
@@ -37,19 +35,19 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         return carteraReceptes.getImage(position)
     }
 
-    fun getTitle(position: Int): CharSequence? {
+    fun getTitle(position: Int): String? {
         return carteraReceptes.getTitle(position)
     }
 
-    fun getTPrep(position: Int): CharSequence? {
+    fun getTPrep(position: Int): String? {
         return carteraReceptes.getTPrep(position)
     }
 
-    fun getTCuina(position: Int): CharSequence? {
+    fun getTCuina(position: Int): String? {
         return carteraReceptes.getTCuina(position)
     }
 
-    fun getNPax(position: Int): CharSequence? {
+    fun getNPax(position: Int): String? {
         return carteraReceptes.getNPax(position)
     }
 
@@ -57,8 +55,19 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         carteraReceptes.setIcona(icona,position)
     }
 
-    fun getReceptaByPos(position: Int): Proposta? {
-        return carteraReceptes.propostes[position]
+    fun getPos(receptaActiva: String?): Int {
+        return carteraReceptes.getPos(receptaActiva)
     }
 
+    fun getAutor(position: Int): String? {
+        return carteraReceptes.getAutor(position)
+    }
+
+    fun getDesc(position: Int): CharSequence? {
+        return carteraReceptes.getDesc(position)
+    }
+
+    fun getIcona(receptaActiva: String?): Int? {
+        return carteraReceptes.getIcona(receptaActiva)
+    }
 }

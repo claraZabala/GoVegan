@@ -169,10 +169,10 @@ class CalendariSetmanal : AppCompatActivity() {
                             //s'afegeix la info a memòria
                             //es reutilitza la funció setReceptaFromProposta per a tenir a
                             // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
-                            escollirDiaIApat(im.id,controlador.getReceptaActiva()?.icona)
+                            escollirDiaIApat(im.id,controlador.getIconaReceptaActiva())
 
                             //es canvia la icona del calendari
-                            canviIcona(im, controlador.getReceptaActiva()?.icona)
+                            canviIcona(im, controlador.getIconaReceptaActiva())
 
                         }
                     }

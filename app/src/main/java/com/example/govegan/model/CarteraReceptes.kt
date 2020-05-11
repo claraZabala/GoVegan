@@ -53,6 +53,14 @@ class CarteraReceptes {
         return propostes[position].numPersones
     }
 
+    fun getAutor(position: Int): String? {
+        return propostes[position].autor
+    }
+
+    fun getDesc(position: Int): String? {
+        return propostes[position].descripcio
+    }
+
     fun setIcona(icona: ImageView, position: Int) {
         var tipus = propostes[position].icona
         if (tipus == 0){
@@ -62,5 +70,13 @@ class CarteraReceptes {
         } else if (tipus == 2){
             icona.setImageResource(R.drawable.carn)
         }
+    }
+
+    fun getPos(receptaActiva: String?): Int {
+        return propostes.indexOf(getByName(receptaActiva!!))
+    }
+
+    fun getIcona(receptaActiva: String?): Int? {
+        return getByName(receptaActiva!!)?.icona
     }
 }
