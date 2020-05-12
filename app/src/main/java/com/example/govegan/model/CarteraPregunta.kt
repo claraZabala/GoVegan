@@ -16,11 +16,12 @@ class CarteraPregunta {
         preguntes.add(Pregunta("LindaSIS", "On venen seitán?", "On compro els ingredients?"))
         preguntes.add(Pregunta("Paquita12", "De que està feta la beyound meet?", "Propietats"))
         preguntes.add(Pregunta("Carlos_00", "Sabeu algun actor que sigui vegà?", "Moda"))
-
+        preguntes.add(Pregunta("Carlos_00", "M'agradaria una recepta de truita de cigrons.", "Receptes"))
     }
 
     fun crearPregunta(idUsuari: String, descripcio: String, tema: String){
         var preg = Pregunta(idUsuari, descripcio, tema)
+        preguntes.add(preg)
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>?{
