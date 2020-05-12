@@ -113,12 +113,12 @@ class CalendariSetmanal : AppCompatActivity() {
         controlador.setIsFromProposta(false)
     }
 
-    fun canviIcona(iconaVella: ImageView, iconaNova: Int?) {
+    fun canviIcona(iconaVella: ImageView, iconaNova: String?) {
         if (iconaNova != null) {
             when (iconaNova) {
-                0 -> iconaVella.setImageResource(R.drawable.icono)
-                1 -> iconaVella.setImageResource(R.drawable.ou)
-                2 -> iconaVella.setImageResource(R.drawable.carn)
+                "0" -> iconaVella.setImageResource(R.drawable.icono)
+                "1" -> iconaVella.setImageResource(R.drawable.ou)
+                "2" -> iconaVella.setImageResource(R.drawable.carn)
             }
         }
         else{
@@ -150,9 +150,9 @@ class CalendariSetmanal : AppCompatActivity() {
                                 val titol = dialogView.resposta.text.toString()
                                 val carnivor = dialogView.teCarn.isChecked
                                 val vegetaria = dialogView.teDerivats.isChecked
-                                var categoria: Int = 0
-                                if (carnivor) categoria = 2
-                                else if (vegetaria) categoria = 1
+                                var categoria: String ="0"
+                                if (carnivor) categoria = "2"
+                                else if (vegetaria) categoria = "1"
 
                                 //s'afegeix la info a memòria
                                 //es reutilitza la funció setReceptaFromProposta per a tenir a
@@ -213,7 +213,7 @@ class CalendariSetmanal : AppCompatActivity() {
     /*
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */
-    fun escollirDiaIApat(id: Int,categoria:Int?) {
+    fun escollirDiaIApat(id: Int,categoria:String?) {
         when (id) {
             R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString(),categoria)
             R.id.int2 -> controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString(),categoria)
