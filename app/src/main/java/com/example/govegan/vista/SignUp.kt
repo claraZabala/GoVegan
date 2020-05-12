@@ -21,8 +21,8 @@ import kotlinx.android.synthetic.main.signup.*
 
 class SignUp: AppCompatActivity() {
     var controlador: Controlador
-    private var dbReference:DatabaseReference
-    private var auth:FirebaseAuth
+    private lateinit var dbReference:DatabaseReference
+    private lateinit var auth:FirebaseAuth
     init {
         controlador = Controlador
     }
