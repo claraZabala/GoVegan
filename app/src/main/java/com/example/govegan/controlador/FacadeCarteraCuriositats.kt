@@ -39,4 +39,20 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
 
     }
 
+    fun getNumCuriositats(): Int {
+        return carteraCuriositats.llistaCuriositats.size
+    }
+
+    fun getImatge(position: Int): Int {
+        return carteraCuriositats.getImage(position)
+    }
+
+    fun getTitle(position: Int): String {
+        return carteraCuriositats.getTitle(position)
+    }
+
+    fun getDescripcio(position: Int): String {
+        return carteraCuriositats.getDescripcio(position)
+    }
+
 }

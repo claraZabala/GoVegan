@@ -12,7 +12,6 @@ import kotlinx.android.synthetic.main.explicacio_proposta.*
 import kotlinx.android.synthetic.main.propostes_menus.*
 
 class LayoutPropostes : AppCompatActivity() {
-    var controlador: Controlador = Controlador
     var adapter: AdapterPropostes = AdapterPropostes(this)
     override fun onCreate(savedInstanceState: Bundle?){
         super.onCreate(savedInstanceState)

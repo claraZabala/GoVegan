@@ -1,9 +1,11 @@
 package com.example.govegan.vista
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
@@ -11,7 +13,14 @@ import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
+import java.time.LocalDate
+import java.time.LocalDateTime
+import java.time.temporal.TemporalField
+import java.time.temporal.WeekFields
+import java.util.*
 
+
+@RequiresApi(Build.VERSION_CODES.O)
 class CalendariSetmanal : AppCompatActivity() {
     var controlador: Controlador
     init {
@@ -21,7 +30,11 @@ class CalendariSetmanal : AppCompatActivity() {
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
     var setmanaActual: String
     init {
-        //TODO: gestionar la inicialització de la setmana
+        val date: LocalDate = LocalDate.now()
+        val woy: TemporalField = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear()
+        val weekNumber: Int = date.get(woy) //Aquesta variable et diu el nombre de setmana de l'any
+        //TODO: gestionar com fiquem les setmanes
+        print("Week"+weekNumber)
         setmanaActual = "Setmana 1"
     }
 
@@ -156,10 +169,10 @@ class CalendariSetmanal : AppCompatActivity() {
                             //s'afegeix la info a memòria
                             //es reutilitza la funció setReceptaFromProposta per a tenir a
                             // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
-                            escollirDiaIApat(im.id,controlador.getReceptaActiva()?.icona)
+                            escollirDiaIApat(im.id,controlador.getIconaReceptaActiva())
 
                             //es canvia la icona del calendari
-                            canviIcona(im, controlador.getReceptaActiva()?.icona)
+                            canviIcona(im, controlador.getIconaReceptaActiva())
 
                         }
                     }

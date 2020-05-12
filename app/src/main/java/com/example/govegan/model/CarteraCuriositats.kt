@@ -56,4 +56,16 @@ class CarteraCuriositats {
         return -1
 
     }
+
+    fun getImage(position: Int): Int {
+        return llistaCuriositats[position].imatge
+    }
+
+    fun getTitle(position: Int): String {
+        return llistaCuriositats[position].title
+    }
+
+    fun getDescripcio(position: Int): String {
+        return llistaCuriositats[position].desc
+    }
 }
