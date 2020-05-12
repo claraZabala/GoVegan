@@ -3,7 +3,6 @@ package com.example.govegan.vista
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -16,25 +15,21 @@ import kotlinx.android.synthetic.main.recepta.*
 
 class Recepta : AppCompatActivity() {
 
-    var nom: String = R.id.titol_recepta.toString()
+    var nom:String = R.id.titol_recepta.toString()
     var tempsPreparacio: Float = R.id.t_prep.toFloat()
     var tempsCuina: Float = R.id.t_cuina.toFloat()
-    var numPersones: Int = R.id.comensals
-    var descripcio: String = R.id.passos.toString()
-    var ingredients: ArrayList<String> = ArrayList()
-    var imatge: String = ""
-    var llistaIcones = arrayOf(
-        "camiIcona1(ex:ous)",
-        "camiIcona2(ex:carn)",
-        "camiIcona3(ex:caraHappy)",
-        "camiIcona4(ex:gluten)"
-    )
+    var numPersones : Int = R.id.comensals
+    var descripcio : String = R.id.passos.toString()
+    val ingredients = arrayOf<Ingredient>()
+    var imatge : String = ""
+    var llistaIcones = arrayOf("camiIcona1(ex:ous)", "camiIcona2(ex:carn)", "camiIcona3(ex:caraHappy)", "camiIcona4(ex:gluten)")
     var esCertificat = false
     var controlador: Controlador
 
     init {
         controlador = Controlador
     }
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,14 +41,13 @@ class Recepta : AppCompatActivity() {
         t_prep.text = controlador.getReceptaActiva()?.tempsPrep
         t_cuina.text = controlador.getReceptaActiva()?.tempsCuina
         comensales.text = controlador.getReceptaActiva()?.numPersones
-        this.ingredients = controlador.getReceptaActiva()?.ingredients!!
-        if (controlador.getReceptaActiva()?.icona.equals("0")) {
+        if (controlador.getReceptaActiva()?.icona==0){
             iconRecepta.setImageResource(R.drawable.cara)
         }
-        if (controlador.getReceptaActiva()?.equals("1")!!) {
+        if (controlador.getReceptaActiva()?.icona==1){
             iconRecepta.setImageResource(R.drawable.ou)
         }
-        if (controlador.getReceptaActiva()?.equals("2")!!) {
+        if (controlador.getReceptaActiva()?.icona==2){
             iconRecepta.setImageResource(R.drawable.carn)
         }
     }
@@ -67,41 +61,17 @@ class Recepta : AppCompatActivity() {
         val customDialog = dialog.create()
         dialogView.textAfegirNousIngredients.visibility = View.INVISIBLE
         dialogView.floatingNousIngredients.visibility = View.INVISIBLE
-        actualitzarLlistaIngredients(dialogView)
         dialogView.butAfegirIngredients.setOnClickListener {
             mAlertDialog.dismiss()
             intent = Intent(this, LlistaCompra::class.java)
             startActivity(intent)
-
-
         }
     }
 
-    fun calendari(view: View) {
+    fun calendari(view: View){
         controlador.setReceptaFromProposta(titol_recepta.text.toString())
         controlador.setReceptaActiva(controlador.getReceptaByName(titol_recepta.text.toString()))
         intent = Intent(this, CalendariSetmanal::class.java)
         startActivity(intent)
-    }
-
-
-    fun actualitzarLlistaIngredients(dialogView: View) {
-        for (i in ingredients) {
-            val btnIngredient: CheckBox = CheckBox(this)
-            btnIngredient.text = i
-            dialogView.layoutIngredientsBD.addView(btnIngredient)
-            btnIngredient.isChecked = true
-            controlador.afegirIngredientLlistaCompra(btnIngredient.text.toString())
-            btnIngredient.setOnClickListener {
-                if (btnIngredient.isChecked) {
-                    controlador.afegirIngredientLlistaCompra(btnIngredient.text.toString())
-                }
-                if (!btnIngredient.isChecked) {
-                    controlador.treureIngredientLlistaCompra(btnIngredient.text.toString())
-                }
-            }
-        }
-
-
     }
 }

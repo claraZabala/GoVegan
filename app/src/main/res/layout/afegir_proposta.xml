@@ -14,238 +14,220 @@
         android:text="Afegir Proposta"
         android:textAppearance="@style/TextBlancTitolSecundari" />
 
-    <ScrollView
+    <TextView
         android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:text="Nom de la recepta:"
+        android:layout_marginTop="20dp"/>
 
-        <LinearLayout
+    <EditText
+        android:id="@+id/resposta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Nom"
+        android:layout_marginBottom="20dp"/>
 
+    <CheckBox
+        android:id="@+id/teCarn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté carn" />
+
+    <CheckBox
+        android:id="@+id/teDerivats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Conté productes d'origen animal" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Nom de la recepta:" />
-
-            <EditText
-                android:id="@+id/resposta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"
-                android:ems="10"
-                android:hint="Nom"
-                android:inputType="textPersonName" />
-
-            <CheckBox
-                android:id="@+id/teCarn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Conté carn" />
-
-            <CheckBox
-                android:id="@+id/teDerivats"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Conté productes d'origen animal" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="PASOS A SEGUIR:">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/pasos"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:hint="Indica pas a pas com realitzar la recepta" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TEMPS PREPARACIÓ:">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/temps_prep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Temps preparació"></EditText>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="TEMPS CUINA:">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/temps_cuina"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Temps cuina"></EditText>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:text="COMENSALS: ">
-
-                </TextView>
-
-                <EditText
-                    android:id="@+id/comensals"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Numero comensals"></EditText>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="15dp"
-                android:text="Marca a continuació si la recepta conté gluten:: " />
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginLeft="20dp"
-                android:text="Gluten" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:text="INGREDIENTS: ">
-
-                </TextView>
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/floatingAfegirIngredients"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/verdClar"
-                    android:clickable="true"
-                    android:onClick="afegirIngredients"
-                    app:fabSize="mini"
-                    app:srcCompat="@drawable/afegir" />
-
-                <TextView
-                    android:id="@+id/textIngredients"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
-            </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:id="@+id/layoutNovaProposta"
-    android:orientation="vertical"
-    android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
-                    android:gravity="center"
-                    android:text="INSEREIX UNA IMATGE AQUI: " />
-
-                <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/afegirImatge"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/verdClar"
-                    android:clickable="true"
-                    android:gravity="center"
-                    android:onClick="afegirImatge"
-                    app:fabSize="mini"
-                    app:srcCompat="@drawable/afegir" />
-
-            </LinearLayout>
-            </LinearLayout>
-            <Button
-            android:layout_width="381dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"
-            android:background="@drawable/estil_botons"
-            android:onClick="recepta"
-            android:text="COMPARTIR RECEPTA" />
-        </LinearLayout>
-    </ScrollView>
+            android:layout_marginRight="15dp"
+            android:text="PASOS A SEGUIR:"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
 
+        </TextView>
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:id="@+id/pasos"
+            android:hint="Indica pas a pas com realitzar la recepta"
+            android:layout_marginEnd="10dp" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="TEMPS PREPARACIÓ:"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/temps_prep"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Temps preparació"
+            >
+        </EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TEMPS CUINA:"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
+
+        </TextView>
+        <EditText
+            android:id="@+id/temps_cuina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Temps cuina"
+            >
+        </EditText>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="COMENSALS: "
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
+
+        </TextView>
+
+        <EditText
+            android:id="@+id/comensals"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Numero comensals"
+            >
+        </EditText>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Marca a continuació si la recepta conté gluten:: "
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="10dp" />
+    <CheckBox
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Gluten"
+        android:layout_marginStart="20dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginRight="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="INGREDIENTS: "
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="15dp">
+
+        </TextView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingAfegirIngredients"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="@color/verdClar"
+            android:clickable="true"
+            android:onClick="afegirIngredients"
+            app:fabSize="mini"
+            app:srcCompat="@drawable/afegir"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:id="@+id/textIngredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+        </TextView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="15dp"
+        android:text="INSEREIX UNA IMATGE AQUI: "
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="15dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:backgroundTint="@color/verdClar"
+        android:clickable="true"
+        android:onClick="afegirImatge"
+        app:fabSize="mini"
+        app:srcCompat="@drawable/afegir" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="381dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/estil_botons"
+        android:onClick="recepta"
+        android:text="COMPARTIR RECEPTA" />
 
 </LinearLayout>

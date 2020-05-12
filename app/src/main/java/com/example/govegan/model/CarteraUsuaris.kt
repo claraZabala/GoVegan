@@ -1,42 +1,30 @@
 package com.example.govegan.model
 
-import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
-
 class CarteraUsuaris(baseDades: BaseDades) {
     val llistaUsuaris: ArrayList<Usuari> = ArrayList()
-    lateinit var db:FirebaseFirestore
+    var baseDades: BaseDades
 
     init {
-
-        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22,ArrayList(),
-            ArrayList()
-        ))
-        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList()))
-        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20,ArrayList(),ArrayList()))
-
-
+        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22))
+        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20))
+        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20))
+        this.baseDades = baseDades
+        this.baseDades.addUser("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22)
+        this.baseDades.addUser("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20)
     }
-    fun carregarUsuari(usuari: Usuari?){
-        if(usuari != null && usuari !in llistaUsuaris){
-            llistaUsuaris.add(usuari)
-        }
-    }
+
     fun registre(nom: String, cognoms: String, nomUsuari: String, pwd: String, mail: String,
-                 edat: String): Usuari? {
+                 edat: String): Boolean {
         if (getByID(nomUsuari) != null){
-            return null
+            return false
         }
-
-        val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt(),ArrayList(),
-            ArrayList()
-        )
-
+        if (pwd.length < 4){
+        return false
+        }
+        baseDades.addUser(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
+        val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
         llistaUsuaris.add(usuariNou)
-        return usuariNou
-
-
+        return true
     }
 
     fun login(nomUsuari: String, pwd: String): Boolean {

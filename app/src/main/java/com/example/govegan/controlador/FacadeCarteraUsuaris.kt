@@ -3,7 +3,6 @@ package com.example.govegan.controlador
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Usuari
-import com.google.firebase.firestore.FirebaseFirestore
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
     var carteraUsuaris: CarteraUsuaris
@@ -15,39 +14,32 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         controlador = Controlador
         this.baseDades = baseDades
     }
-    fun carregarUsuari(usuari: Usuari?){
-        carteraUsuaris.carregarUsuari(usuari)
+
+    fun login(nomUsuari: String, pwd: String): Int {
+        if (pwd.isBlank() or nomUsuari.isBlank()) {
+            return 1
+        } else {
+            if (carteraUsuaris.login(nomUsuari, pwd)) {
+                //es porta a memòria la info de l'usuari (les seves setmanes)
+                controlador.setUsuariActiu(carteraUsuaris.setUsuariActiu(nomUsuari))
+                if (controlador.getUsuariActiu() == null) println("Usuari null")
+                return 0
+            }
+            else{
+                return 2
+            }
+        }
     }
 
-    fun login(ID:String){
-
-        baseDades.getUsuariActiu(ID)
-
-    }
-
-    fun registre(userID:String?,nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
+    fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
                  pwd2: String, edat: String): Int {
         if (pwd.isBlank() or pwd2.isBlank() or mail.isBlank() or nom.isBlank()
             or edat.isBlank() or cognoms.isBlank() or nomUsuari.isBlank()) {
             return 1
         } else if (!pwd.equals(pwd2)) {
             return 2
-        }
-        else if (userID == null){
-            return 4
-        }
-        else if(pwd.length < 6){
-            return 5
-
-        }
-
-        else {
-            var usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat)
-            if (usuariNou != null) {
-                if(userID != null) {
-                    baseDades.addUser(usuariNou,userID)
-
-                }
+        } else {
+            if (carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat)) {
                 return 0
             } else {
                 return 3
@@ -72,7 +64,7 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         apat: String,
         setmana: String,
         titol: String,
-        categoria:String?
+        categoria:Int?
     ) {
         usuariActiu?.setRecepta(dia, apat, setmana, titol,categoria)
     }
