@@ -300,6 +300,7 @@
         android:layout_height="wrap_content">
 
         <Switch
+            android:id="@+id/mostrarMenus"
             android:layout_width="152dp"
             android:layout_height="42dp"
             android:layout_marginLeft="20dp"
@@ -307,7 +308,8 @@
             android:text="Mostrar menús"
             tools:layout_editor_absoluteX="49dp"
             tools:layout_editor_absoluteY="393dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginStart="20dp"
+            android:onClick="mostrarMenus"/>
 
     </LinearLayout>
 

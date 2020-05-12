@@ -35,4 +35,25 @@ class Dia(idSetmana: Int, nom: String) {
 
     }
 
+    fun recorrerApats(): ArrayList<String>{
+        val llistatApats: ArrayList<String> = ArrayList()
+
+        //es recorre esmorzar
+        for (i in esmorzar) {
+            llistatApats.add(i.value)
+        }
+        llistatApats.add("-1")
+        //Es recorre dinar
+        for (i in dinar) {
+            llistatApats.add(i.value)
+        }
+        llistatApats.add("-1")
+        //es recorre sopar
+        for (i in sopar) {
+            llistatApats.add(i.value)
+        }
+
+        return llistatApats
+    }
+
 }

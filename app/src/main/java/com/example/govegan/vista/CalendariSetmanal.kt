@@ -115,10 +115,12 @@ class CalendariSetmanal : AppCompatActivity() {
         afegirPlat(int19)
         afegirPlat(int20)
         afegirPlat(int21)
+
     }
 
+
     /*
-    * Escoltador quan es vé de Propostes i s'ha premut l'opció d'afegir a caledari
+    * Escoltador quan es vé de Propostes i s'ha premut l'opció d'afegir a calendari
     * Click Simple
      */
     private val clickListener = View.OnClickListener { view ->
@@ -263,6 +265,15 @@ class CalendariSetmanal : AppCompatActivity() {
             R.id.int20 -> controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString())
             R.id.int21 -> controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString())
         }
+    }
+
+    /*
+    * Quan es prem mostrar menús, es fa un recorregut pels dies de la setmana activa de l'usuari actiu
+    * i s'imprimeixen els menús en TextViews a sota en un scrollView
+     */
+    fun mostrarMenus(view: View) {
+        val llistaMenus = controlador.recorrerMenus(setmanaActual)
+
     }
 
 }

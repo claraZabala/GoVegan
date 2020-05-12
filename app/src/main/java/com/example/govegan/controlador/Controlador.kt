@@ -68,6 +68,10 @@ object Controlador {
      *         **********************
      */
 
+    fun recorrerMenus(setmanaActual: String): ArrayList<String>? {
+        return usuariActiu?.recorrerMenus(setmanaActual)
+    }
+
     fun setReceptaActiva(recepta: Proposta?){
         receptaActiva = recepta
     }
@@ -92,7 +96,6 @@ object Controlador {
     }
 
     //usuariActiu afegir dia, apat, setmana i titol
-    //TODO: falta gestionar la categoria (Int), des de proposta ns pero de calendari seria només passar-la per paràmetre
     fun setDiaRecepta(dia: String, apat: String, setmana: String) {
         if (setRecepta){
             facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp)
@@ -214,4 +217,6 @@ object Controlador {
     fun mostrarRespPerIdPreg(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
         return facadeCarteraPreguntes.mostrarRespPerIdPregF(tema, descripcio, esCertificat, idUsuari, idDestinatari)
     }
+
+
 }

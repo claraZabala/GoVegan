@@ -22,4 +22,13 @@ class Setmana (usuari: Usuari, id: Int){
         return """Setmana ${this.id}"""
     }
 
+    fun recorrerDies(): ArrayList<String> {
+        val llistaApats: ArrayList<String> = ArrayList()
+        for (i in dies) {
+            llistaApats.addAll(i.recorrerApats())
+            llistaApats.add("-2")
+        }
+        return llistaApats
+    }
+
 }

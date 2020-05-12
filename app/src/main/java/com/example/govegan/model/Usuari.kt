@@ -45,4 +45,14 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
             }
         }
     }
+
+    fun recorrerMenus(setmanaActual: String): ArrayList<String> {
+        var llistaMenus: ArrayList<String> = ArrayList()
+        for (i in setmanes) {
+            if (i.getName().equals(setmanaActual)) {
+                llistaMenus = i.recorrerDies()
+            }
+        }
+        return llistaMenus
+    }
 }
