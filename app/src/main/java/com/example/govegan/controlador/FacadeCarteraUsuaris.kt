@@ -77,4 +77,8 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
     fun getCategoriaApatDia(usuariActiu: String?, setmana: String, dia: String, apat: String): Int? {
         return carteraUsuaris.getCategoriaApatDia(usuariActiu,setmana,dia,apat)
     }
+
+    fun getUsuariByName(name: String): Usuari? {
+        return carteraUsuaris.getByID(name)
+    }
 }

@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -268,9 +269,111 @@ class CalendariSetmanal : AppCompatActivity() {
     * i s'imprimeixen els menús en TextViews a sota en un scrollView
      */
     fun mostrarMenus(view: View) {
+        //netegem el que hi havia
+        layoutMostrarMenus.removeAllViews()
+
+        /*
+        * Creem els LinearLayout per a cada dia de la setmana amb les característiques desitjades
+         */
+        var layoutDia1: LinearLayout = LinearLayout(this)
+        var layoutDia2: LinearLayout = LinearLayout(this)
+        var layoutDia3: LinearLayout = LinearLayout(this)
+        var layoutDia4: LinearLayout = LinearLayout(this)
+        var layoutDia5: LinearLayout = LinearLayout(this)
+        var layoutDia6: LinearLayout = LinearLayout(this)
+        var layoutDia7: LinearLayout = LinearLayout(this)
+        layoutDia1.orientation = LinearLayout.VERTICAL
+        layoutDia2.orientation = LinearLayout.VERTICAL
+        layoutDia3.orientation = LinearLayout.VERTICAL
+        layoutDia4.orientation = LinearLayout.VERTICAL
+        layoutDia5.orientation = LinearLayout.VERTICAL
+        layoutDia6.orientation = LinearLayout.VERTICAL
+        layoutDia7.orientation = LinearLayout.VERTICAL
+        var params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        layoutDia1.layoutParams = params
+        layoutDia2.layoutParams = params
+        layoutDia3.layoutParams = params
+        layoutDia4.layoutParams = params
+        layoutDia5.layoutParams = params
+        layoutDia6.layoutParams = params
+        layoutDia7.layoutParams = params
+
+        /*
+        * Afegim a cada layout de cada dia el titol MENÚ DIA X
+         */
+        val titol1: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol1.layoutParams = params
+        titol1.text = "MENÚ DIA 1"
+        layoutDia1.addView(titol1)
+
+        val titol2: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol2.layoutParams = params
+        titol2.text = "MENÚ DIA 2"
+        layoutDia2.addView(titol2)
+
+        val titol3: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol1.layoutParams = params
+        titol1.text = "MENÚ DIA 3"
+        layoutDia3.addView(titol3)
+
+        val titol4: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol4.layoutParams = params
+        titol4.text = "MENÚ DIA 4"
+        layoutDia4.addView(titol4)
+
+        val titol5: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol5.layoutParams = params
+        titol5.text = "MENÚ DIA 5"
+        layoutDia5.addView(titol5)
+
+        val titol6: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol6.layoutParams = params
+        titol6.text = "MENÚ DIA 6"
+        layoutDia6.addView(titol6)
+
+        val titol7: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        titol7.layoutParams = params
+        titol7.text = "MENÚ DIA 7"
+        layoutDia7.addView(titol7)
+
         val llistaMenus = controlador.recorrerMenus(setmanaActual)
         //es creen els textViews
+        if (llistaMenus != null) {
+            for (i in llistaMenus) {
 
+            }
+        }
     }
 
 }

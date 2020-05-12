@@ -9,8 +9,8 @@ class CarteraUsuaris(baseDades: BaseDades) {
         llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20))
         llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20))
         this.baseDades = baseDades
-        this.baseDades.addUser("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22)
-        this.baseDades.addUser("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20)
+        //this.baseDades.addUser("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22)
+        //this.baseDades.addUser("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20)
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, pwd: String, mail: String,
@@ -21,7 +21,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
         if (pwd.length < 4){
         return false
         }
-        baseDades.addUser(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
+        //baseDades.addUser(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
         val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
         llistaUsuaris.add(usuariNou)
         return true

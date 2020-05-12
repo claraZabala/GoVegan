@@ -69,16 +69,21 @@ object Controlador {
         return facadeCarteraUsuaris.login(nomUsuari, pwd)
     }
 
+    fun getUsuariByName (name: String): Usuari? {
+        val usuari: Usuari? = facadeCarteraUsuaris.getUsuariByName(name)
+        return usuari
+    }
+
     /**
      * RECEPTA *********************
      *         **********************
      */
 
     fun recorrerMenus(setmanaActual: String): ArrayList<String>? {
-        // val usuari: Usuari
-        //TODO: getUsuari a partir de nom
-        //return usuari.recorrerMenus(setmanaActual)
-        return null
+        val usuari: Usuari? = usuariActiu?.let { getUsuariByName(it) }
+        if (usuari != null) {
+            return usuari.recorrerMenus(setmanaActual)
+        } else return null
     }
 
     fun setReceptaActiva(recepta: String?) {
