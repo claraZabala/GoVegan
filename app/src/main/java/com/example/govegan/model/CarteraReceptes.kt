@@ -1,5 +1,6 @@
 package com.example.govegan.model
 
+import android.widget.ImageView
 import com.example.govegan.R
 
 class CarteraReceptes {
@@ -30,5 +31,52 @@ class CarteraReceptes {
             }
         }
         return recepta
+    }
+
+    fun getImage(position: Int): Int {
+        return propostes[position].imatge
+    }
+
+    fun getTitle(position: Int): String? {
+        return propostes[position].title
+    }
+
+    fun getTPrep(position: Int): String? {
+        return propostes[position].tempsPrep
+    }
+
+    fun getTCuina(position: Int): String? {
+        return propostes[position].tempsCuina
+    }
+
+    fun getNPax(position: Int): String? {
+        return propostes[position].numPersones
+    }
+
+    fun getAutor(position: Int): String? {
+        return propostes[position].autor
+    }
+
+    fun getDesc(position: Int): String? {
+        return propostes[position].descripcio
+    }
+
+    fun setIcona(icona: ImageView, position: Int) {
+        var tipus = propostes[position].icona
+        if (tipus == 0){
+            icona.setImageResource(R.drawable.cara)
+        } else if (tipus == 1){
+            icona.setImageResource(R.drawable.ou)
+        } else if (tipus == 2){
+            icona.setImageResource(R.drawable.carn)
+        }
+    }
+
+    fun getPos(receptaActiva: String?): Int {
+        return propostes.indexOf(getByName(receptaActiva!!))
+    }
+
+    fun getIcona(receptaActiva: String?): Int? {
+        return getByName(receptaActiva!!)?.icona
     }
 }

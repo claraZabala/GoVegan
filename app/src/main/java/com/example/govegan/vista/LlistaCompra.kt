@@ -71,11 +71,8 @@ class LlistaCompra : AppCompatActivity() {
                     if (!btnIngredient.isChecked) {
                         controlador.treureIngredientLlistaCompra(btnIngredient.text.toString())
                     }
-
-
                 }
             }
-
         }
     }
     fun actualitzarLlistaCompra(){
@@ -100,6 +97,9 @@ class LlistaCompra : AppCompatActivity() {
             checkIngredient.setOnClickListener {
                 if(checkIngredient.isChecked){
                     ingredients.remove(i)
+                }
+                if(!checkIngredient.isChecked){
+                    ingredients.add(i)
                 }
 
             }
@@ -151,8 +151,7 @@ class LlistaCompra : AppCompatActivity() {
                                 controlador.treureIngredientLlistaCompra(btnIngredient.text.toString())
                             }
                         }
-
-                        }
+                    }
                 }
             }
         }
@@ -171,8 +170,7 @@ class LlistaCompra : AppCompatActivity() {
         }
         dialogView.textAfegirNousIngredients.setText("")
     }
-
-    }
+}
 
 
 

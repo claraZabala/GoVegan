@@ -1,31 +1,38 @@
 package com.example.govegan.model
 
 import android.util.Log
+import com.example.govegan.controlador.Controlador
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
 class BaseDades(val db: FirebaseFirestore) {
+    var controlador:Controlador = Controlador
+    var userID:String = ""
     companion object {
-
         private val TAG = "DocSnippets"
 
     }
-
-    fun addUser(nom: String, cognom: String, nomUsuari:String, pwd:String, email:String, edat: Int) {
-        val users = db.collection("users")
-        if (!userExists(nomUsuari)){
-            val user = hashMapOf(
-                "nom" to nom,
-                "cognom" to cognom,
-                "nomUsuari" to nomUsuari,
-                "pwd" to pwd,
-                "email" to email,
-                "edat" to edat
-            )
-            users.document(nomUsuari).set(user)
+    fun actualitzarUsuariActiu(){
+        //TODO: Arreglar això ja que ara usuariActiu es String
+        var usuari:String? = controlador.getUsuariActiu()
+        if(usuari != null) {
+            db.collection("users").document(userID).set(usuari)
         }
+    }
+    fun getUsuariActiu(ID:String){
+        var usuari:Usuari?
+        val docRef = db.collection("users").document(ID)
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            usuari = documentSnapshot.toObject(Usuari::class.java)
+            controlador.setUsuariActiu(usuari?.nomUsuari)
+        }
+        userID = ID
+    }
+
+    fun addUser(usuari:Usuari,userID:String) {
+        db.collection("users").document(userID).set(usuari)
     }
 
     fun userExists(nomUsuari: String): Boolean {
@@ -35,6 +42,7 @@ class BaseDades(val db: FirebaseFirestore) {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                    //print("""${document.data}""")
                     exists = true
                 } else {
                     Log.d(TAG, "No such document")
@@ -53,7 +61,7 @@ class BaseDades(val db: FirebaseFirestore) {
         val returnUsers = db.collection("users").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    users.add(document.data.values.toString())
+                    users.add("DocumentSnapshot data: ${document.data}")
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
             }
@@ -76,6 +84,4 @@ class BaseDades(val db: FirebaseFirestore) {
          */
         return setmanesUsuari
     }
-
-
 }

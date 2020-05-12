@@ -21,7 +21,8 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         } else {
             if (carteraUsuaris.login(nomUsuari, pwd)) {
                 //es porta a memòria la info de l'usuari (les seves setmanes)
-                controlador.setUsuariActiu(carteraUsuaris.setUsuariActiu(nomUsuari))
+                controlador.setUsuariActiu(nomUsuari)
+                carteraUsuaris.setUsuariActiu(nomUsuari)
                 if (controlador.getUsuariActiu() == null) println("Usuari null")
                 return 0
             }
@@ -59,12 +60,21 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
     }
 
     fun afegirInfoPlat(
-        usuariActiu: Usuari?,
+        usuariActiu: String?,
         dia: String,
         apat: String,
         setmana: String,
-        titol: String
+        titol: String,
+        categoria:Int?
     ) {
-        usuariActiu?.setRecepta(dia, apat, setmana, titol)
+        carteraUsuaris.setRecepta(usuariActiu,dia, apat, setmana, titol,categoria)
+    }
+
+    fun initUsers(allUsers: ArrayList<String>) {
+        carteraUsuaris.initUsers(allUsers)
+    }
+
+    fun getCategoriaApatDia(usuariActiu: String?, setmana: String, dia: String, apat: String): Int? {
+        return carteraUsuaris.getCategoriaApatDia(usuariActiu,setmana,dia,apat)
     }
 }
