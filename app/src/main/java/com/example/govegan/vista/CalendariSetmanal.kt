@@ -269,6 +269,7 @@ class CalendariSetmanal : AppCompatActivity() {
      */
     fun mostrarMenus(view: View) {
         val llistaMenus = controlador.recorrerMenus(setmanaActual)
+        //es creen els textViews
 
     }
 
