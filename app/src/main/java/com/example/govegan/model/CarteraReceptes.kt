@@ -63,11 +63,11 @@ class CarteraReceptes {
 
     fun setIcona(icona: ImageView, position: Int) {
         var tipus = propostes[position].icona
-        if (tipus.equals("0")){
+        if (tipus == 0){
             icona.setImageResource(R.drawable.cara)
-        } else if (tipus.equals("1")){
+        } else if (tipus == 1){
             icona.setImageResource(R.drawable.ou)
-        } else if (tipus.equals("2")){
+        } else if (tipus == 2){
             icona.setImageResource(R.drawable.carn)
         }
     }
@@ -76,7 +76,7 @@ class CarteraReceptes {
         return propostes.indexOf(getByName(receptaActiva!!))
     }
 
-    fun getIcona(receptaActiva: String?): String? {
+    fun getIcona(receptaActiva: String?): Int? {
         return getByName(receptaActiva!!)?.icona
     }
 }
