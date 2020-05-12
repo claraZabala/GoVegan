@@ -37,6 +37,10 @@ object Controlador {
         isFromProposta = false
         titolReceptaProp = ""
     }
+    fun actualizarUsuariActiu(){
+        baseDades.actualitzarUsuariActiu()
+
+    }
 
     fun Context.toast(missatge: String){
         Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
@@ -53,15 +57,16 @@ object Controlador {
 
     fun setUsuariActiu(usuari: Usuari?) {
         usuariActiu = usuari
+        facadeCarteraUsuaris.carregarUsuari(usuariActiu)
     }
 
-    fun registre(nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
+    fun registre(userID:String?, nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
         pwd2: String, edat: String): Int {
-        return facadeCarteraUsuaris.registre(nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
+        return facadeCarteraUsuaris.registre(userID,nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
     }
 
-    fun login(nomUsuari: String, pwd: String): Int {
-        return facadeCarteraUsuaris.login(nomUsuari, pwd)
+    fun login(ID:String) {
+        return facadeCarteraUsuaris.login(ID)
     }
 
     /**
@@ -94,24 +99,24 @@ object Controlador {
     }
 
     //usuariActiu afegir dia, apat, setmana i titol
-    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:Int?) {
+    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:String?) {
         facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
         isFromProposta = false
+        actualizarUsuariActiu()
 
     }
 
-    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):Int?{
+    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
         return usuariActiu?.getCategoriaApatDia(setmana,dia,apat)
     }
 
     fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
-                          comensals:String, tipusRecepta:Int, ingredients: ArrayList<String>): Int {
+                          comensals:String, tipusRecepta:String, ingredients: ArrayList<String>): Int {
         if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients,
-                usuariActiu?.nomUsuari!!)){
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu?.nomUsuari!!)){
             return 0
         }
         return 2
@@ -182,11 +187,19 @@ object Controlador {
     }
 
     fun afegirIngredientLlistaCompra(ingredient: String): Boolean {
-        return facadeCarteraUsuaris.afegirIngredientLlistaCompra(getUsuariActiu()?.nomUsuari,ingredient)
+        if(facadeCarteraUsuaris.afegirIngredientLlistaCompra(getUsuariActiu()?.nomUsuari,ingredient)) {
+            actualizarUsuariActiu()
+            return true
+        }
+        return false
     }
 
     fun treureIngredientLlistaCompra(ingredient: String):Boolean{
-        return facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu()?.nomUsuari, ingredient)
+        if(facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu()?.nomUsuari, ingredient)){
+            actualizarUsuariActiu()
+            return true
+        }
+        return false
     }
 
 

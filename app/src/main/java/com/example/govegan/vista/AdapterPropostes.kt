@@ -49,11 +49,11 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         tempsC.text = propostes[position].tempsCuina
         numPersones.text = propostes[position].numPersones
         val tipus = propostes[position].icona
-        if (tipus == 0){
+        if (tipus.equals("0")){
             icona.setImageResource(R.drawable.cara)
-        } else if (tipus == 1){
+        } else if (tipus.equals("1")){
             icona.setImageResource(R.drawable.ou)
-        } else if (tipus == 2){
+        } else if (tipus.equals("2")){
             icona.setImageResource(R.drawable.carn)
         }
             layout.setOnClickListener{

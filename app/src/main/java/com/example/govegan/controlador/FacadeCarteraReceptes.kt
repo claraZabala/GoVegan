@@ -15,7 +15,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         controlador = Controlador
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:Int,ingredients: ArrayList<String>, autor:String): Boolean {
+    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Boolean {
         val recepta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,ingredients)
         if (recepta == null){
             return false
