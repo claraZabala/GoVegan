@@ -90,7 +90,7 @@ object Controlador {
     fun getSetmanaActual(): String {
         val setInicial = facadeCarteraUsuaris.getSetmanaUser(usuariActiu)
         val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
-        return "Setmana "+(weekNumber%setInicial) + 1
+        return "Setmana " + ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
 
     /**
