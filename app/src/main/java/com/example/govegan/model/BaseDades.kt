@@ -14,12 +14,11 @@ class BaseDades(val db: FirebaseFirestore) {
 
     companion object {
         private val TAG = "DocSnippets"
-
     }
-    fun actualitzarUsuariActiu(){
-        //TODO: Arreglar això ja que ara usuariActiu es String
-        var usuari:Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
-        if(usuari != null) {
+
+    fun actualitzarUsuariActiu() {
+        var usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
+        if (usuari != null) {
             db.collection("users").document(userID).set(usuari)
         }
     }
@@ -27,7 +26,7 @@ class BaseDades(val db: FirebaseFirestore) {
         var ingredients:ArrayList<Ingredient> = ArrayList()
         db.collection("ingredients").get().addOnSuccessListener {
             resultat->
-            for(ingredient:QueryDocumentSnapshot in resultat){
+            for(ingredient: QueryDocumentSnapshot in resultat){
                 ingredients.add(ingredient.toObject(Ingredient::class.java))
             }
         }
@@ -61,7 +60,6 @@ class BaseDades(val db: FirebaseFirestore) {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    //print("""${document.data}""")
                     exists = true
                 } else {
                     Log.d(TAG, "No such document")
@@ -80,7 +78,7 @@ class BaseDades(val db: FirebaseFirestore) {
         val returnUsers = db.collection("users").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    users.add("DocumentSnapshot data: ${document.data}")
+                    users.add(document.data.values.toString())
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
             }

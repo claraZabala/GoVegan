@@ -1,11 +1,18 @@
 package com.example.govegan.controlador
 
 import android.content.Context
+import android.os.Build
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
+import java.time.LocalDate
+import java.time.temporal.TemporalField
+import java.time.temporal.WeekFields
+import java.util.*
+import kotlin.collections.ArrayList
 
 object Controlador {
     private var facadeCarteraCuriositats: FacadeCarteraCuriositats
@@ -68,15 +75,23 @@ object Controlador {
 
 
     fun registre(userID:String?, nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
-        pwd2: String, edat: String): Int {
-        return facadeCarteraUsuaris.registre(userID,nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
+        pwd2: String, edat: String, weekNumber: Int): Int {
+        return facadeCarteraUsuaris.registre(userID,nom, cognoms, nomUsuari, mail, pwd, pwd2, edat, weekNumber)
     }
+
     fun getUsuariByName (name: String): Usuari? {
-        val usuari: Usuari? = facadeCarteraUsuaris.getUsuariByName(name)
-        return usuari
+        return facadeCarteraUsuaris.getUsuariByName(name)
     }
+
     fun login(ID:String) {
         return facadeCarteraUsuaris.login(ID)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getSetmanaActual(): String {
+        val setInicial = facadeCarteraUsuaris.getSetmanaUser(usuariActiu)
+        val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
+        return "Setmana " + ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
 
     /**

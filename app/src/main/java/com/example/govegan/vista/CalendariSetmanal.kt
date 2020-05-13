@@ -31,12 +31,7 @@ class CalendariSetmanal : AppCompatActivity() {
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
     var setmanaActual: String
     init {
-        val date: LocalDate = LocalDate.now()
-        val woy: TemporalField = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear()
-        val weekNumber: Int = date.get(woy) //Aquesta variable et diu el nombre de setmana de l'any
-        //TODO: gestionar com fiquem les setmanes
-        print("Week"+weekNumber)
-        setmanaActual = "Setmana 1"
+        setmanaActual = controlador.getSetmanaActual()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

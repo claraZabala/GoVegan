@@ -27,7 +27,7 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
 
 
     fun registre(userID:String?,nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
-                 pwd2: String, edat: String): Int {
+                 pwd2: String, edat: String, weekNumber: Int): Int {
         if (pwd.isBlank() or pwd2.isBlank() or mail.isBlank() or nom.isBlank()
             or edat.isBlank() or cognoms.isBlank() or nomUsuari.isBlank()) {
             return 1
@@ -39,15 +39,13 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         }
         else if(pwd.length < 6){
             return 5
-
         }
 
         else {
-            var usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat)
+            var usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat, weekNumber)
             if (usuariNou != null) {
                 if(userID != null) {
                     baseDades.addUser(usuariNou,userID)
-
                 }
                 return 0
             } else {
@@ -87,6 +85,10 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
 
     fun getUsuariByName(name: String): Usuari? {
         return carteraUsuaris.getByID(name)
+    }
+
+    fun getSetmanaUser(usuariActiu: String?): Int {
+        return carteraUsuaris.getSetmanaUser(usuariActiu)
     }
 
 

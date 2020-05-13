@@ -1,12 +1,14 @@
 package com.example.govegan.vista
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
@@ -18,6 +20,10 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.signup.*
+import java.time.LocalDate
+import java.time.temporal.TemporalField
+import java.time.temporal.WeekFields
+import java.util.*
 
 class SignUp: AppCompatActivity() {
     var controlador: Controlador
@@ -57,13 +63,13 @@ class SignUp: AppCompatActivity() {
                         adapterView.getItemAtPosition(pos) as String, Toast.LENGTH_SHORT
                     ).show()
                 }
-
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
 
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun paginaPrincipal(view: View) {
         auth= FirebaseAuth.getInstance()
         auth.createUserWithEmailAndPassword(mail.text.toString(),pwd.text.toString())
@@ -71,6 +77,9 @@ class SignUp: AppCompatActivity() {
 
                 if (task.isSuccessful ) {
                     val userID = auth.currentUser?.uid
+                    val date: LocalDate = LocalDate.now()
+                    val woy: TemporalField = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear()
+                    val weekNumber: Int = date.get(woy) //Aquesta variable et diu el nombre de setmana de l'any
                     val registre = controlador.registre(userID,
                         nom.text.toString(),
                         cognoms.text.toString(),
@@ -78,7 +87,8 @@ class SignUp: AppCompatActivity() {
                         mail.text.toString(),
                         pwd.text.toString(),
                         pwd2.text.toString(),
-                        edat.selectedItem.toString()
+                        edat.selectedItem.toString(),
+                        weekNumber
                     )
                     if(registre.equals(0)) {
                         intent = Intent(this, MainActivity::class.java)
@@ -97,12 +107,13 @@ class SignUp: AppCompatActivity() {
                         toast("El nom d'usuari ja existeix")
                         auth.currentUser?.delete()
                     }
-                    else if (registre.equals(3)){
+                    else if (registre.equals(5)){
                         toast("Contrasenya molt curta")
                         auth.currentUser?.delete()
                     }
                 }
                 else{
+                    //TODO: aixo ja s'ha comprovat abans, no?
                     if(pwd.toString().length < 6){
                         toast("Contrasenya molt curta")
                     }

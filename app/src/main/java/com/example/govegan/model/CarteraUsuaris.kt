@@ -8,12 +8,13 @@ class CarteraUsuaris(baseDades: BaseDades) {
     lateinit var db:FirebaseFirestore
 
     init {
-
-        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22,ArrayList(),
-            ArrayList()
-        ))
-        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList()))
-        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20,ArrayList(),ArrayList()))
+        //TODO: això s'ha de borrar?
+        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal",
+            "dtom97 ","dtomacal@gmail.com", 22, ArrayList(), ArrayList(),0))
+        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba",
+            "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList(),0))
+        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis",
+            "lluis@gmail.com", 20,ArrayList(),ArrayList(),0))
 
 
     }
@@ -24,14 +25,13 @@ class CarteraUsuaris(baseDades: BaseDades) {
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, pwd: String, mail: String,
-                 edat: String): Usuari? {
+                 edat: String, weekNumber:Int): Usuari? {
         if (getByID(nomUsuari) != null){
             return null
         }
 
         val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt(),ArrayList(),
-            ArrayList()
-        )
+            ArrayList(), weekNumber)
 
         llistaUsuaris.add(usuariNou)
         return usuariNou
@@ -113,6 +113,10 @@ class CarteraUsuaris(baseDades: BaseDades) {
 
     fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: String?) {
         getByID(usuariActiu!!)?.setRecepta(dia,setmana,apat,titol,categoria)
+    }
+
+    fun getSetmanaUser(usuariActiu: String?): Int {
+        return getByID(usuariActiu!!)!!.weekNumber
     }
 
 }
