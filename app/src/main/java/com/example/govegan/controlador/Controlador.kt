@@ -71,9 +71,9 @@ object Controlador {
         return facadeCarteraUsuaris.registre(userID,nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
     }
     fun getUsuariByName (name: String): Usuari? {
-        val usuari: Usuari? = facadeCarteraUsuaris.getUsuariByName(name)
-        return usuari
+        return facadeCarteraUsuaris.getUsuariByName(name)
     }
+
     fun login(ID:String) {
         return facadeCarteraUsuaris.login(ID)
     }

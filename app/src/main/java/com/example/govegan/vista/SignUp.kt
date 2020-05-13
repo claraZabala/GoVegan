@@ -97,12 +97,13 @@ class SignUp: AppCompatActivity() {
                         toast("El nom d'usuari ja existeix")
                         auth.currentUser?.delete()
                     }
-                    else if (registre.equals(3)){
+                    else if (registre.equals(5)){
                         toast("Contrasenya molt curta")
                         auth.currentUser?.delete()
                     }
                 }
                 else{
+                    //TODO: aixo ja s'ha comprovat abans, no?
                     if(pwd.toString().length < 6){
                         toast("Contrasenya molt curta")
                     }

@@ -39,7 +39,6 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         }
         else if(pwd.length < 6){
             return 5
-
         }
 
         else {
@@ -47,7 +46,6 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
             if (usuariNou != null) {
                 if(userID != null) {
                     baseDades.addUser(usuariNou,userID)
-
                 }
                 return 0
             } else {
