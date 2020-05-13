@@ -14,6 +14,16 @@ class FacadeCarteraIngredients(baseDades: BaseDades) {
         this.baseDades = baseDades
     }
 
+    fun getLlistaBaseDades(){
+        carteraIngredients.ingredients = baseDades.getAllIngredients()
+    }
+    fun guardarTotsIngredients(){
+        for (i in carteraIngredients.ingredients){
+            baseDades.addIngredients(i)
+        }
+    }
+
+
     fun getIngredientsByName(nomIngredient: String): Ingredient?{
         return carteraIngredients.getIngredientsByName(nomIngredient)
     }
@@ -23,11 +33,11 @@ class FacadeCarteraIngredients(baseDades: BaseDades) {
     }
 
     fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
-        carteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt)
+        baseDades.addIngredients(carteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt))
     }
 
     fun addNouIngredientSenseFoto(nomIngredient: String){
-        carteraIngredients.addNouIngredientSenseFoto(nomIngredient)
+        baseDades.addIngredients(carteraIngredients.addNouIngredientSenseFoto(nomIngredient))
     }
 
 

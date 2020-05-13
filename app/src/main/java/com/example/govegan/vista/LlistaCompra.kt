@@ -12,6 +12,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.model.Ingredient
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.llista_compra.*
 
@@ -19,6 +20,7 @@ class LlistaCompra : AppCompatActivity() {
     var ingredients:ArrayList<String> = ArrayList()
     var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
+    var removeIngredient:ArrayList<String> = ArrayList()
 
     init{
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
@@ -29,6 +31,7 @@ class LlistaCompra : AppCompatActivity() {
         setContentView(R.layout.llista_compra)
         actualitzarLlistaCompra()
         eliminar.setOnClickListener {
+            removeIngredients()
             actualitzarLlistaCompra()
         }
         afegir.setOnClickListener {
@@ -75,6 +78,12 @@ class LlistaCompra : AppCompatActivity() {
             }
         }
     }
+    fun removeIngredients(){
+        for(i in removeIngredient){
+            ingredients.remove(i)
+        }
+        removeIngredient.clear()
+    }
     fun actualitzarLlistaCompra(){
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
         layoutLlistaCompra.removeAllViews()
@@ -96,7 +105,7 @@ class LlistaCompra : AppCompatActivity() {
             checkIngredient.layoutParams = params
             checkIngredient.setOnClickListener {
                 if(checkIngredient.isChecked){
-                    ingredients.remove(i)
+                    removeIngredient.add(i)
                 }
                 if(!checkIngredient.isChecked){
                     ingredients.add(i)

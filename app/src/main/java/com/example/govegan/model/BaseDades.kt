@@ -3,6 +3,7 @@ package com.example.govegan.model
 import android.util.Log
 import com.example.govegan.controlador.Controlador
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.QueryDocumentSnapshot
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
@@ -22,20 +23,22 @@ class BaseDades(val db: FirebaseFirestore) {
             db.collection("users").document(userID).set(usuari)
         }
     }
-    fun addUser(nom: String, cognom: String, nomUsuari:String, pwd:String, email:String, edat: Int) {
-        val users = db.collection("users")
-        if (!userExists(nomUsuari)){
-            val user = hashMapOf(
-                "nom" to nom,
-                "cognom" to cognom,
-                "nomUsuari" to nomUsuari,
-                "pwd" to pwd,
-                "email" to email,
-                "edat" to edat
-            )
-            users.document(nomUsuari).set(user)
+    fun getAllIngredients():ArrayList<Ingredient>{
+        var ingredients:ArrayList<Ingredient> = ArrayList()
+        db.collection("ingredients").get().addOnSuccessListener {
+            resultat->
+            for(ingredient:QueryDocumentSnapshot in resultat){
+                ingredients.add(ingredient.toObject(Ingredient::class.java))
+            }
         }
+        return ingredients
+
     }
+    fun addIngredients(ingredient: Ingredient){
+        db.collection("ingredients").document(ingredient.nom).set(ingredient)
+    }
+
+
 
     fun getUsuariActiu(ID:String){
         var usuari:Usuari?

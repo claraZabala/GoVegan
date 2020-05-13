@@ -38,6 +38,7 @@ object Controlador {
         receptaActiva = null
         isFromProposta = false
         titolReceptaProp = ""
+        facadeCarteraIngredients.getLlistaBaseDades()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
 

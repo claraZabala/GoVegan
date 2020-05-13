@@ -5,6 +5,7 @@ class CarteraIngredients {
     var ingredients: ArrayList<Ingredient> = ArrayList()
 
     init {
+        /*
         ingredients.add(Ingredient("llentia",R.drawable.llentia))
         ingredients.add(Ingredient("maduixa",R.drawable.maduixa))
         ingredients.add(Ingredient("brocoli",R.drawable.brocoli))
@@ -17,6 +18,8 @@ class CarteraIngredients {
         ingredients.add(Ingredient("pebrot",R.drawable.pebrot))
         ingredients.add(Ingredient("tomaquet",R.drawable.tomaquet))
         ingredients.add(Ingredient("ceba",R.drawable.ceba))
+        */
+
 
     }
 
@@ -44,15 +47,17 @@ class CarteraIngredients {
         return nomIngredients
     }
 
-    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
+    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int):Ingredient{
         val nouIngredient:Ingredient = Ingredient(nomIngredient,fotoInt)
         ingredients.add(nouIngredient)
+        return nouIngredient
     }
 
 
-    fun addNouIngredientSenseFoto(nomIngredient: String){
+    fun addNouIngredientSenseFoto(nomIngredient: String):Ingredient{
         val nouIngredient:Ingredient = Ingredient(nomIngredient)
         ingredients.add(nouIngredient)
+        return nouIngredient
     }
     
     fun getImatgeIngredient(nomIngredient: String):Int{
