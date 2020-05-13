@@ -61,43 +61,52 @@ class Forum : AppCompatActivity() {
         //Inicialitzem el tema per defecte perque no calgui escollir inicialment
         tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
         var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
-
+        var params:ViewGroup.LayoutParams
         llistaPreguntes = controlador.mostrarPreguntesPerTema(tema)!!
         for (i in llistaPreguntes) {
 
             var lay: LinearLayout = LinearLayout(this)
             lay.orientation = LinearLayout.HORIZONTAL
-            var params = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                3004
-            )
-            lay.layoutParams = params
-
             // Text View Usuari
+
             var textView: TextView = TextView(this)
-            textView.width = 65
-            textView.height = 30
-            textView.textSize = 50F
+            params = ViewGroup.LayoutParams(
+                250,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            textView.layoutParams = params
             textView.text = controlador.getUsuariActiu()
             textView.gravity = Gravity.LEFT
-            layoutpreg.addView(textView)
+            lay.addView(textView)
 
             //Text View descripcio
             var textViewDesc: TextView = TextView(this)
-            textViewDesc.width = 170
-            textViewDesc.height = 38
             textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
-            lay.addView(textViewDesc)
             textViewDesc.gravity = Gravity.CENTER
+            params = ViewGroup.LayoutParams(
+                670,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            textViewDesc.layoutParams = params
+            lay.addView(textViewDesc)
 
             //Boto inicialitzat fora per poder fer mètodes de clicar
             var botoRespostes: Button = Button(this)
-            //botoRespostes.width = 52
-            //botoRespostes.height = 45
+            params = ViewGroup.LayoutParams(
+                180,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            botoRespostes.layoutParams = params
             botoRespostes.text = "respostes"
             botoRespostes.setBackgroundColor(getResources().getColor(R.color.verdClar))
-            botoRespostes.gravity = Gravity.RIGHT
-            lay.addView(botoRespostes, 80, 80 )
+            botoRespostes.gravity = Gravity.CENTER
+            lay.addView(botoRespostes)
+            params = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            lay.layoutParams = params
+
 
             layoutpreg.addView(lay)
         }
