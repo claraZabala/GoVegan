@@ -31,4 +31,8 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
         return carteraPreguntes.getCount(usuariId, descripcioo, temaa)
     }
 
+    fun getUsari(descripcioo: String): String{
+        return carteraPreguntes.getUsari(descripcioo)
+    }
+
 }

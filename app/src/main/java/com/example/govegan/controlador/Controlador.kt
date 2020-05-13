@@ -346,4 +346,8 @@ object Controlador {
         return facadeCarteraPreguntes.getCont(usuariActiu!!, descripcio, tema)
     }
 
+    fun getUsuari(descripcio: String): String {
+        return facadeCarteraPreguntes.getUsari(descripcio)
+    }
+
 }
