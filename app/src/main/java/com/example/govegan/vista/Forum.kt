@@ -1,29 +1,27 @@
 package com.example.govegan.vista
 
+import android.os.Build
 import android.os.Bundle
-import android.text.Editable
+import android.view.Gravity
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
-import androidx.appcompat.app.AlertDialog
+import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.example.govegan.model.Pregunta
-import com.example.govegan.model.Resposta
-import com.example.govegan.model.Usuari
-import kotlinx.android.synthetic.main.afegir_proposta.*
-import kotlinx.android.synthetic.main.dialog_ingredients.view.*
-import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
-import kotlinx.android.synthetic.main.forum.view.*
+
 
 class Forum : AppCompatActivity() {
     var llistaPreguntes: ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
     var tema: String = ""
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.forum)
@@ -62,21 +60,27 @@ class Forum : AppCompatActivity() {
 
         //Inicialitzem el tema per defecte perque no calgui escollir inicialment
         tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+        var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
 
-        /*/????????????????????????
-        //var textV: ScrollView = findViewById(R.id.pregiresp)
         llistaPreguntes = controlador.mostrarPreguntesPerTema(tema)!!
         for (i in llistaPreguntes) {
+
             var lay: LinearLayout = LinearLayout(this)
-            lay.minimumHeight = 60
-            lay.minimumWidth = 320
+            lay.orientation = LinearLayout.HORIZONTAL
+            var params = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                3004
+            )
+            lay.layoutParams = params
 
             // Text View Usuari
             var textView: TextView = TextView(this)
             textView.width = 65
             textView.height = 30
+            textView.textSize = 50F
             textView.text = controlador.getUsuariActiu()
-            lay.addView(textView)
+            textView.gravity = Gravity.LEFT
+            layoutpreg.addView(textView)
 
             //Text View descripcio
             var textViewDesc: TextView = TextView(this)
@@ -84,16 +88,32 @@ class Forum : AppCompatActivity() {
             textViewDesc.height = 38
             textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
             lay.addView(textViewDesc)
+            textViewDesc.gravity = Gravity.CENTER
 
             //Boto inicialitzat fora per poder fer mètodes de clicar
             var botoRespostes: Button = Button(this)
-            botoRespostes.width = 52
-            botoRespostes.height = 45
-            lay.addView(botoRespostes)
+            //botoRespostes.width = 52
+            //botoRespostes.height = 45
+            botoRespostes.text = "respostes"
+            botoRespostes.setBackgroundColor(getResources().getColor(R.color.verdClar))
+            botoRespostes.gravity = Gravity.RIGHT
+            lay.addView(botoRespostes, 80, 80 )
 
-            textV.addView(lay)
+            layoutpreg.addView(lay)
         }
+
+        /*
+        <Button
+        android:id="@+id/anarAResposta"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/verdClar"
+        android:text="respostes"></Button>
+
         */
+
+
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -110,68 +130,68 @@ class Forum : AppCompatActivity() {
                 tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 println("tema = " + tema)
                 // Mostrem les preguntes inicialment segons el tema seleccionat
-                        llistaPreguntes =
-                            controlador.mostrarPreguntesPerTema(tema)!!
-                        for (i in llistaPreguntes) {
-                            //TODO: Afegit la pregunta a la text view però abans comprovar lo anterior
-                        }
+                llistaPreguntes =
+                    controlador.mostrarPreguntesPerTema(tema)!!
+                for (i in llistaPreguntes) {
+                    //TODO: Afegit la pregunta a la text view però abans comprovar lo anterior
+                }
 
                 // Que passa quan cliquem al botó crear pregunta
                 sendPregunta.setOnClickListener {
                     var descripcio: String = preguntaVew.text.toString()
                     controlador.crearPregunta(descripcio, tema)
                     preguntaVew.setText(" ")
-                            //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
-                            llistaPreguntes =
-                                controlador.mostrarPreguntesPerTema(tema)!!
-                            // TODO: fer que la pregunta s'afegeixi també a la text view
+                    //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
+                    llistaPreguntes =
+                        controlador.mostrarPreguntesPerTema(tema)!!
+                    // TODO: fer que la pregunta s'afegeixi també a la text view
 
+                }
+
+
+                /* Mirrar perque igual aquests mètodes han d'anar fora del override però dins de la classe
+                    // Que passa quan cliquem als botons creapts per cada pregunta:
+                    anarAResposta.setOnClickListener() {
+                        val dialog = AlertDialog.Builder(this)
+                        val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
+                        // TODO: Fer bé l'intent
+                        dialog.setView(dialogView)
+                        dialog.setCancelable(false)
+                        val mAlertDialog = dialog.show()
+                        val customDialog = dialog.create()
+                        var tema:String = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
+                        //actualitzarLlistaRespostes(dialogView, tema)
+
+                        dialogView.enviarRespostaAlForumm.setOnClickListener {
+                            mAlertDialog.dismiss()
                         }
+                    }
+                }
 
 
-                        /* Mirrar perque igual aquests mètodes han d'anar fora del override però dins de la classe
-                            // Que passa quan cliquem als botons creapts per cada pregunta:
-                            anarAResposta.setOnClickListener() {
-                                val dialog = AlertDialog.Builder(this)
-                                val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
-                                // TODO: Fer bé l'intent
-                                dialog.setView(dialogView)
-                                dialog.setCancelable(false)
-                                val mAlertDialog = dialog.show()
-                                val customDialog = dialog.create()
-                                var tema:String = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                                //actualitzarLlistaRespostes(dialogView, tema)
-
-                                dialogView.enviarRespostaAlForumm.setOnClickListener {
-                                    mAlertDialog.dismiss()
-                                }
+                fun actualitzarLlistaRespostes(dialogView: View, tema: String){
+                    dialogView.layoutIngredientsBD.removeAllViews()
+                    for (i in llistaIngredients) {
+                        var btnIngredient: CheckBox = CheckBox(this)
+                        btnIngredient.setText(i)
+                        dialogView.layoutIngredientsBD.addView(btnIngredient)
+                        if (i in llistaIngredientsCompra)
+                            btnIngredient.isChecked = true
+                        btnIngredient.setOnClickListener {
+                            if (btnIngredient.isChecked) {
+                                llistaIngredientsCompra.add(btnIngredient.text.toString())
+                                textIngredients.text = llistaIngredientsCompra.toString()
+                            }
+                            if (!btnIngredient.isChecked) {
+                                llistaIngredientsCompra.remove(btnIngredient.text.toString())
+                                textIngredients.text = llistaIngredientsCompra.toString()
                             }
                         }
-
-
-                        fun actualitzarLlistaRespostes(dialogView: View, tema: String){
-                            dialogView.layoutIngredientsBD.removeAllViews()
-                            for (i in llistaIngredients) {
-                                var btnIngredient: CheckBox = CheckBox(this)
-                                btnIngredient.setText(i)
-                                dialogView.layoutIngredientsBD.addView(btnIngredient)
-                                if (i in llistaIngredientsCompra)
-                                    btnIngredient.isChecked = true
-                                btnIngredient.setOnClickListener {
-                                    if (btnIngredient.isChecked) {
-                                        llistaIngredientsCompra.add(btnIngredient.text.toString())
-                                        textIngredients.text = llistaIngredientsCompra.toString()
-                                    }
-                                    if (!btnIngredient.isChecked) {
-                                        llistaIngredientsCompra.remove(btnIngredient.text.toString())
-                                        textIngredients.text = llistaIngredientsCompra.toString()
-                                    }
-                                }
-                            }*/
-                }
+                    }*/
             }
         }
     }
+}
 
 
 
