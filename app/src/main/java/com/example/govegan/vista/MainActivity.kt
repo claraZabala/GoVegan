@@ -35,7 +35,6 @@ class MainActivity: AppCompatActivity() {
     }
 
     fun login(view: View) {
-
         var correu = nomUsuari.text.toString()
         var password = pwd.text.toString()
         if(!TextUtils.isEmpty(correu) && !TextUtils.isEmpty(password)){
@@ -54,7 +53,6 @@ class MainActivity: AppCompatActivity() {
                         toast("Correu o contrasenya incorrectes")
                     }
                 }
-
         }
         else{
             toast("Correu o contrasenya sense omplir")

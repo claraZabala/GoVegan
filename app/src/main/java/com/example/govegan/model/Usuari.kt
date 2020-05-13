@@ -1,7 +1,8 @@
 package com.example.govegan.model
 
 
-class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int,setmanes: ArrayList<Setmana>,llistaIngredientsCompra:ArrayList<String>) {
+class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int,
+             setmanes: ArrayList<Setmana>,llistaIngredientsCompra:ArrayList<String>, weekNumber: Int) {
 
 
 
@@ -13,6 +14,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     var email:String
     var setmanes: ArrayList<Setmana>
     var llistaIngredientsCompra:ArrayList<String>
+    var weekNumber: Int
 
 
     init {
@@ -24,13 +26,14 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         this.email = email
         this.setmanes = setmanes
         this.llistaIngredientsCompra = llistaIngredientsCompra
+        this.weekNumber = weekNumber
         iniSetmanes()
     }
 
     /*
     * Inicialitza l'atribut llistat de setmanes que conté tota la info de l'usuari
      */
-    constructor():this("","","","","",0, ArrayList(),ArrayList()){
+    constructor():this("","","","","",0, ArrayList(),ArrayList(),0){
 
     }
     fun iniSetmanes(){
