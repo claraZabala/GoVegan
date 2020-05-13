@@ -118,7 +118,7 @@ class LlistaCompra : AppCompatActivity() {
                 100,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-            imatgeFoto.setImageResource(controlador.getImatgeIngredient(i))
+            imatgeFoto.setImageResource(controlador.getImatgeIngredient(i)!!)
 
             imatgeFoto.layoutParams = params
             layoutIngredient.addView(checkIngredient)

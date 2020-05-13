@@ -1,7 +1,9 @@
 package com.example.govegan.model
 
 
-class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int) {
+class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:String, edat:Int,
+             setmanes: ArrayList<Setmana>,llistaIngredientsCompra:ArrayList<String>, weekNumber: Int) {
+
 
 
     var nom:String
@@ -10,8 +12,10 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     var pwd:String
     var edat:Int
     var email:String
-    var setmanes: ArrayList<Setmana> = ArrayList()
-    var llistaIngredientsCompra:ArrayList<String> = ArrayList()
+    var setmanes: ArrayList<Setmana>
+    var llistaIngredientsCompra:ArrayList<String>
+    var weekNumber: Int
+
 
     init {
         this.nom = nom
@@ -20,13 +24,23 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         this.nomUsuari = nomUsuari
         this.pwd = pwd
         this.email = email
-        for (i in 1..24)
-        setmanes.add(Setmana(this,i))
+        this.setmanes = setmanes
+        this.llistaIngredientsCompra = llistaIngredientsCompra
+        this.weekNumber = weekNumber
+        iniSetmanes()
     }
 
     /*
     * Inicialitza l'atribut llistat de setmanes que conté tota la info de l'usuari
      */
+    constructor():this("","","","","",0, ArrayList(),ArrayList(),0){
+
+    }
+    fun iniSetmanes(){
+        for (i in 1..24) {
+            setmanes.add(Setmana(nomUsuari, i))
+        }
+    }
     fun setSetmanesUsuari(setmanes: ArrayList<Setmana>) {
         this.setmanes = setmanes
     }
@@ -34,7 +48,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     /*
     * Desa un àpat provinent de recepta en el calendari personal
      */
-    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String,categoria:Int?) {
+    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String,categoria:String?) {
         //recorrem les setmanes per a localitzar la cercada
         for (i in this.setmanes) {
             if (i.getName().equals(setmana)) {
@@ -47,8 +61,18 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
             }
         }
     }
+
+    fun recorrerMenus(setmanaActual: String): ArrayList<String> {
+        var llistaMenus: ArrayList<String> = ArrayList()
+        for (i in setmanes) {
+            if (i.getName().equals(setmanaActual)) {
+                llistaMenus = i.recorrerDies()
+            }
+        }
+        return llistaMenus
+    }
     //Aquesta funció retorna el tipus d'apat que és, si vegà, vegetaria o amb carn
-    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):Int?{
+    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
         for (i in setmanes){
             if(i.getName().equals(setmana))
                 for (j in i.dies) {

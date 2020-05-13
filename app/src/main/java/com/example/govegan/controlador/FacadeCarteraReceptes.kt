@@ -16,7 +16,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         controlador = Controlador
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:Int,ingredients: ArrayList<String>, autor:String): Boolean {
+    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Boolean {
         carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,
             ingredients) ?: return false
         controlador.setReceptaActiva(nom)
@@ -67,7 +67,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         return carteraReceptes.getDesc(position)
     }
 
-    fun getIcona(receptaActiva: String?): Int? {
+    fun getIcona(receptaActiva: String?): String? {
         return carteraReceptes.getIcona(receptaActiva)
     }
 }

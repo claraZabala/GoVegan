@@ -1,16 +1,25 @@
 package com.example.govegan.model
 
 import android.util.Log
+import com.example.govegan.controlador.Controlador
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.concurrent.LinkedBlockingQueue
 import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 
 class BaseDades(val db: FirebaseFirestore) {
+    var controlador:Controlador = Controlador
+    var userID:String = ""
+
     companion object {
-
         private val TAG = "DocSnippets"
+    }
 
+    fun actualitzarUsuariActiu() {
+        var usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
+        if (usuari != null) {
+            db.collection("users").document(userID).set(usuari)
+        }
     }
 
     fun addUser(nom: String, cognom: String, nomUsuari:String, pwd:String, email:String, edat: Int) {
@@ -28,6 +37,20 @@ class BaseDades(val db: FirebaseFirestore) {
         }
     }
 
+    fun getUsuariActiu(ID:String){
+        var usuari:Usuari?
+        val docRef = db.collection("users").document(ID)
+        docRef.get().addOnSuccessListener { documentSnapshot ->
+            usuari = documentSnapshot.toObject(Usuari::class.java)
+            controlador.setUsuariActiu(usuari)
+        }
+        userID = ID
+    }
+
+    fun addUser(usuari:Usuari,userID:String) {
+        db.collection("users").document(userID).set(usuari)
+    }
+
     fun userExists(nomUsuari: String): Boolean {
         var exists = true
         val docRef = db.collection("users").document(nomUsuari)
@@ -35,7 +58,6 @@ class BaseDades(val db: FirebaseFirestore) {
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    //print("""${document.data}""")
                     exists = true
                 } else {
                     Log.d(TAG, "No such document")
@@ -54,7 +76,7 @@ class BaseDades(val db: FirebaseFirestore) {
         val returnUsers = db.collection("users").get()
             .addOnSuccessListener { result ->
                 for (document in result) {
-                    users.add("DocumentSnapshot data: ${document.data}")
+                    users.add(document.data.values.toString())
                     Log.d(TAG, "${document.id} => ${document.data}")
                 }
             }
@@ -77,6 +99,4 @@ class BaseDades(val db: FirebaseFirestore) {
          */
         return setmanesUsuari
     }
-
-
 }
