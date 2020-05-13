@@ -11,10 +11,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
+import com.example.govegan.model.Usuari
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.signup.*
 
 class SignUp: AppCompatActivity() {
@@ -23,8 +25,6 @@ class SignUp: AppCompatActivity() {
     private lateinit var auth:FirebaseAuth
     init {
         controlador = Controlador
-        dbReference = FirebaseDatabase.getInstance().reference.child("USER")
-        auth=FirebaseAuth.getInstance()
     }
 
 
@@ -65,25 +65,51 @@ class SignUp: AppCompatActivity() {
     }
 
     fun paginaPrincipal(view: View) {
-        val registre = controlador.registre(nom.text.toString(), cognoms.text.toString(), nomUsuari.text.toString(), mail.text.toString(),
-            pwd.text.toString(), pwd2.text.toString(), edat.selectedItem.toString())
-        if (registre.equals(0)){
-            auth.createUserWithEmailAndPassword(mail.text.toString(),pwd.text.toString())
-                .addOnCompleteListener(this){
-                        val user: FirebaseUser? = auth.currentUser
-                        val userBD = dbReference.child(nomUsuari.text.toString())
+        auth= FirebaseAuth.getInstance()
+        auth.createUserWithEmailAndPassword(mail.text.toString(),pwd.text.toString())
+            .addOnCompleteListener(this) {task ->
 
-                        userBD.child("Name").setValue(nom.text.toString())
-                        userBD.child("Cognoms").setValue(cognoms.text.toString())
+                if (task.isSuccessful ) {
+                    val userID = auth.currentUser?.uid
+                    val registre = controlador.registre(userID,
+                        nom.text.toString(),
+                        cognoms.text.toString(),
+                        nomUsuari.text.toString(),
+                        mail.text.toString(),
+                        pwd.text.toString(),
+                        pwd2.text.toString(),
+                        edat.selectedItem.toString()
+                    )
+                    if(registre.equals(0)) {
+                        intent = Intent(this, MainActivity::class.java)
+                        startActivity(intent)
                     }
-            intent = Intent(this, PaginaPrincipal::class.java)
-            startActivity(intent)
-        } else if (registre.equals(1)){
-            toast("Has d'omplir tots els camps")
-        } else if (registre.equals(2)){
-            toast("Les contrasenyes han de coincidir")
-        } else {
-            toast("El nom d'usuari ja existeix")
-        }
+                    else if (registre.equals(1)){
+                        toast("Has d'omplir tots els camps")
+                        auth.currentUser?.delete()
+                    } else if (registre.equals(2)){
+                        toast("Les contrasenyes han de coincidir")
+                        auth.currentUser?.delete()
+                    } else if (registre.equals(4)){
+                        toast("Correu no valid")
+                        auth.currentUser?.delete()
+                    }else if (registre.equals(3)){
+                        toast("El nom d'usuari ja existeix")
+                        auth.currentUser?.delete()
+                    }
+                    else if (registre.equals(3)){
+                        toast("Contrasenya molt curta")
+                        auth.currentUser?.delete()
+                    }
+                }
+                else{
+                    if(pwd.toString().length < 6){
+                        toast("Contrasenya molt curta")
+                    }
+                    else {
+                        toast("Correu repetit")
+                    }
+                }
+            }
     }
 }

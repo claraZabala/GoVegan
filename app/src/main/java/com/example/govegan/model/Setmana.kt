@@ -1,9 +1,9 @@
 package com.example.govegan.model
 
-class Setmana (usuari: Usuari, id: Int){
+class Setmana (usuari: String, id: Int){
 
     var id: Int = 0
-    var usuari: Usuari
+    var usuari: String
     var dies: ArrayList<Dia> = ArrayList(7)
 
     init {
@@ -16,6 +16,9 @@ class Setmana (usuari: Usuari, id: Int){
         dies.add(Dia(id,"divendres"))
         dies.add(Dia(id,"dissabte"))
         dies.add(Dia(id,"diumenge"))
+    }
+    constructor():this("",0){
+
     }
 
     fun getName(): String {

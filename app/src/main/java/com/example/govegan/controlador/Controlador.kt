@@ -41,6 +41,12 @@ object Controlador {
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
 
+
+    fun actualizarUsuariActiu(){
+        baseDades.actualitzarUsuariActiu()
+
+    }
+
     fun Context.toast(missatge: String) {
         Toast.makeText(this, missatge, Toast.LENGTH_LONG).show()
     }
@@ -54,24 +60,22 @@ object Controlador {
         return usuariActiu
     }
 
-    fun setUsuariActiu(usuari: String?) {
-        usuariActiu = usuari
-    }
+    fun setUsuariActiu(usuari: Usuari?) {
+            usuariActiu = usuari?.nomUsuari
+            facadeCarteraUsuaris.carregarUsuari(usuari)
+        }
 
-    fun registre(
-        nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
-        pwd2: String, edat: String
-    ): Int {
-        return facadeCarteraUsuaris.registre(nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
-    }
 
-    fun login(nomUsuari: String, pwd: String): Int {
-        return facadeCarteraUsuaris.login(nomUsuari, pwd)
+    fun registre(userID:String?, nom: String, cognoms: String, nomUsuari: String, mail: String, pwd: String,
+        pwd2: String, edat: String): Int {
+        return facadeCarteraUsuaris.registre(userID,nom, cognoms, nomUsuari, mail, pwd, pwd2, edat)
     }
-
     fun getUsuariByName (name: String): Usuari? {
         val usuari: Usuari? = facadeCarteraUsuaris.getUsuariByName(name)
         return usuari
+    }
+    fun login(ID:String) {
+        return facadeCarteraUsuaris.login(ID)
     }
 
     /**
@@ -112,37 +116,29 @@ object Controlador {
     }
 
     //usuariActiu afegir dia, apat, setmana i titol
-    fun setDiaRecepta(dia: String, apat: String, setmana: String, categoria: Int?) {
-        facadeCarteraUsuaris.afegirInfoPlat(
-            usuariActiu,
-            dia,
-            apat,
-            setmana,
-            titolReceptaProp,
-            categoria
-        )
+    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:String?) {
+        facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
         isFromProposta = false
+        actualizarUsuariActiu()
 
     }
 
-    fun getCategoriaApatDia(setmana: String, dia: String, apat: String): Int? {
-        return facadeCarteraUsuaris.getCategoriaApatDia(usuariActiu, setmana, dia, apat)
+    fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
+        if(usuariActiu != null) {
+
+            return facadeCarteraUsuaris.getUsuariByName(usuariActiu!!)
+                ?.getCategoriaApatDia(setmana, dia, apat)
+        }
+        return null
     }
 
-    fun afegirReceptaNova(
-        nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
-        comensals: String, tipusRecepta: Int, ingredients: ArrayList<String>
-    ): Int {
+    fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
+                          comensals:String, tipusRecepta:String, ingredients: ArrayList<String>): Int {
         if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
-            tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()
-        ) {
+            tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(
-                nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,
-                ingredients, usuariActiu!!
-            )
-        ) {
+        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)){
             return 0
         }
         return 2
@@ -176,7 +172,7 @@ object Controlador {
         titolRecepta: TextView, autor: TextView, passos: TextView,
         tPrep: TextView, tCuina: TextView, comensales: TextView, iconRecepta: ImageView
     ) {
-        titolRecepta!!.text = receptaActiva
+        titolRecepta.text = receptaActiva
         val position = facadeCarteraReceptes.getPos(receptaActiva)
         autor.text = facadeCarteraReceptes.getAutor(position)
         passos.text = facadeCarteraReceptes.getDesc(position)
@@ -186,7 +182,7 @@ object Controlador {
         facadeCarteraReceptes.setIcona(iconRecepta, position)
     }
 
-    fun getIconaReceptaActiva(): Int? {
+    fun getIconaReceptaActiva(): String? {
         return facadeCarteraReceptes.getIcona(receptaActiva)
     }
 
@@ -260,15 +256,24 @@ object Controlador {
     }
 
     fun afegirIngredientLlistaCompra(ingredient: String): Boolean {
-        return facadeCarteraUsuaris.afegirIngredientLlistaCompra(getUsuariActiu(), ingredient)
+        if(facadeCarteraUsuaris.afegirIngredientLlistaCompra(usuariActiu,ingredient)) {
+            actualizarUsuariActiu()
+            return true
+        }
+        return false
     }
 
-    fun treureIngredientLlistaCompra(ingredient: String): Boolean {
-        return facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu(), ingredient)
+    fun treureIngredientLlistaCompra(ingredient: String):Boolean{
+        if(facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu(), ingredient)){
+            actualizarUsuariActiu()
+            return true
+        }
+        return false
     }
 
 
-    fun getImatgeIngredient(nomIngredient: String): Int {
+
+    fun getImatgeIngredient(nomIngredient: String): Int? {
         return facadeCarteraIngredients.getImatgeIngredient(nomIngredient)
     }
 

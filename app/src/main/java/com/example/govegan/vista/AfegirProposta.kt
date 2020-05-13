@@ -1,9 +1,13 @@
 package com.example.govegan.vista
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.View
+import android.view.ViewGroup
 import android.widget.CheckBox
+import android.widget.ImageView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
@@ -12,6 +16,8 @@ import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.afegir_proposta.*
 import kotlinx.android.synthetic.main.afegir_proposta.floatingAfegirIngredients
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
+import java.net.URI
+
 
 class AfegirProposta : AppCompatActivity() {
     var llistaIngredients:ArrayList<String> = ArrayList()
@@ -22,8 +28,7 @@ class AfegirProposta : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.afegir_proposta)
         llistaIngredients = controlador.getAllIngredientsByName()
-        llistaIngredientsCompra = controlador.getLlistaIngredientsUsuari()!!
-
+        llistaIngredientsCompra = ArrayList()
 
 
         floatingAfegirIngredients.setOnClickListener {
@@ -109,15 +114,15 @@ class AfegirProposta : AppCompatActivity() {
         val tempsPrep: String = temps_prep.text.toString()
         val tempsCuina: String = temps_cuina.text.toString()
         val comensals: String = comensals.text.toString()
-        var tipusRecepta = 4
+        var tipusRecepta = "4"
         if (teCarn.isChecked){
-            tipusRecepta = 2
+            tipusRecepta = "2"
         }
         if (teDerivats.isChecked){
-            tipusRecepta = 1
+            tipusRecepta = "1"
         }
         if (!teDerivats.isChecked and !teCarn.isChecked){
-            tipusRecepta = 0
+            tipusRecepta = "0"
         }
         val ingredients: ArrayList<String> = llistaIngredientsCompra
         val result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients)
@@ -126,8 +131,48 @@ class AfegirProposta : AppCompatActivity() {
         } else if(result==2){
             toast("El nom de recepta ja existeix")
         } else if (result==0) {
-            intent = Intent(this, Recepta::class.java)
+            intent = Intent(this, PaginaPrincipal::class.java)
             startActivity(intent)
+        }
+    }
+
+    fun afegirImatge(view: View) {
+        selectImageInAlbum()
+
+    }
+
+    fun selectImageInAlbum() {
+        val intent = Intent(Intent.ACTION_GET_CONTENT)
+        intent.type = "image/*"
+        if (intent.resolveActivity(packageManager) != null) {
+            startActivityForResult(intent, REQUEST_SELECT_IMAGE_IN_ALBUM)
+        }
+    }
+    fun takePhoto() {
+        val intent1 = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        if (intent1.resolveActivity(packageManager) != null) {
+            startActivityForResult(intent1, REQUEST_TAKE_PHOTO)
+        }
+    }
+    companion object {
+        private val REQUEST_TAKE_PHOTO = 0
+        private val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        var imatge: ImageView = ImageView(this)
+        var params = ViewGroup.LayoutParams(
+            300,
+            300
+        )
+        imatge.layoutParams = params
+        if(resultCode == Activity.RESULT_OK){
+            if (data != null) {
+                imatge.setImageURI(data.data)
+                layoutNovaProposta.addView(imatge)
+            }
+
         }
     }
 

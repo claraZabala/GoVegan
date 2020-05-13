@@ -10,23 +10,39 @@ import java.util.concurrent.TimeUnit
 class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
     var userID:String = ""
+
     companion object {
         private val TAG = "DocSnippets"
 
     }
     fun actualitzarUsuariActiu(){
         //TODO: Arreglar això ja que ara usuariActiu es String
-        var usuari:String? = controlador.getUsuariActiu()
+        var usuari:Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
         if(usuari != null) {
             db.collection("users").document(userID).set(usuari)
         }
     }
+    fun addUser(nom: String, cognom: String, nomUsuari:String, pwd:String, email:String, edat: Int) {
+        val users = db.collection("users")
+        if (!userExists(nomUsuari)){
+            val user = hashMapOf(
+                "nom" to nom,
+                "cognom" to cognom,
+                "nomUsuari" to nomUsuari,
+                "pwd" to pwd,
+                "email" to email,
+                "edat" to edat
+            )
+            users.document(nomUsuari).set(user)
+        }
+    }
+
     fun getUsuariActiu(ID:String){
         var usuari:Usuari?
         val docRef = db.collection("users").document(ID)
         docRef.get().addOnSuccessListener { documentSnapshot ->
             usuari = documentSnapshot.toObject(Usuari::class.java)
-            controlador.setUsuariActiu(usuari?.nomUsuari)
+            controlador.setUsuariActiu(usuari)
         }
         userID = ID
     }

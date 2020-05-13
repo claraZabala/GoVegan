@@ -1,30 +1,42 @@
 package com.example.govegan.model
+import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 
 class CarteraUsuaris(baseDades: BaseDades) {
     val llistaUsuaris: ArrayList<Usuari> = ArrayList()
-    var baseDades: BaseDades
+    lateinit var db:FirebaseFirestore
 
     init {
-        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22))
-        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20))
-        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20))
-        this.baseDades = baseDades
-        //this.baseDades.addUser("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22)
-        //this.baseDades.addUser("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20)
+
+        llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal", "dtom97 ","dtomacal@gmail.com", 22,ArrayList(),
+            ArrayList()
+        ))
+        llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba", "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList()))
+        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis", "lluis@gmail.com", 20,ArrayList(),ArrayList()))
+
+
+    }
+    fun carregarUsuari(usuari: Usuari?){
+        if(usuari != null && usuari !in llistaUsuaris){
+            llistaUsuaris.add(usuari)
+        }
     }
 
     fun registre(nom: String, cognoms: String, nomUsuari: String, pwd: String, mail: String,
-                 edat: String): Boolean {
+                 edat: String): Usuari? {
         if (getByID(nomUsuari) != null){
-            return false
+            return null
         }
-        if (pwd.length < 4){
-        return false
-        }
-        //baseDades.addUser(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
-        val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt())
+
+        val usuariNou = Usuari(nom, cognoms, nomUsuari, pwd, mail, edat.toInt(),ArrayList(),
+            ArrayList()
+        )
+
         llistaUsuaris.add(usuariNou)
-        return true
+        return usuariNou
+
+
     }
 
     fun login(nomUsuari: String, pwd: String): Boolean {
@@ -90,15 +102,16 @@ class CarteraUsuaris(baseDades: BaseDades) {
     return null
     }
 
+
     fun initUsers(allUsers: ArrayList<String>) {
         print(allUsers.toString())
     }
 
-    fun getCategoriaApatDia(nomUsuari: String?, setmana: String, dia: String, apat: String): Int? {
+    fun getCategoriaApatDia(nomUsuari: String?, setmana: String, dia: String, apat: String):String? {
         return getByID(nomUsuari!!)?.getCategoriaApatDia(setmana, dia, apat)
     }
 
-    fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: Int?) {
+    fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: String?) {
         getByID(usuariActiu!!)?.setRecepta(dia,setmana,apat,titol,categoria)
     }
 
