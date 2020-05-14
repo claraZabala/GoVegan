@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.controlador.Controlador.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
@@ -34,8 +33,23 @@ class BaseDades(val db: FirebaseFirestore) {
         return ingredients
 
     }
+
+    fun getAllPropostes():ArrayList<Proposta>{
+        var propostes:ArrayList<Proposta> = ArrayList()
+        db.collection("propostes").get().addOnSuccessListener {
+                resultat->
+            for(ingredient: QueryDocumentSnapshot in resultat){
+                propostes.add(ingredient.toObject(Proposta::class.java))
+            }
+        }
+        return propostes
+    }
     fun addIngredients(ingredient: Ingredient){
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
+    }
+
+    fun addProposta(ingredient: Ingredient){
+        db.collection("propostes").document(ingredient.nom).set(ingredient)
     }
 
 
@@ -109,7 +123,7 @@ class BaseDades(val db: FirebaseFirestore) {
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
                 success = true
-                Log.d(TAG,"CORRECTE")}
+                    Toast.makeText(context,"CORREU ENVIAT", Toast.LENGTH_LONG).show()}
                 else{
                     Toast.makeText(context,"CORREU ERRONI", Toast.LENGTH_LONG).show()}
 
