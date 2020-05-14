@@ -47,13 +47,14 @@ object Controlador {
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
-        //initPropostesBD()
+        facadeCarteraCuriositats.getLlistaBaseDades()
+        //initCuriositatsBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
 
-    /*private fun initPropostesBD() {
-        for (proposta in facadeCarteraReceptes.getAllReceptes()) {
-            baseDades.addProposta(proposta)
+    /*private fun initCuriositatsBD() {
+        for (curiositat in facadeCarteraCuriositats.getLlistaCuriositats()) {
+            baseDades.addCuriositat(curiositat)
         }
     }*/
 
@@ -229,7 +230,12 @@ object Controlador {
     }
 
     fun addCuriositat(tema: String, desc: String, imatge: Int): Boolean {
-        return facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        val curiositat = facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        if (curiositat!=null){
+            baseDades.addCuriositat(curiositat)
+            return true
+        }
+        return false
     }
 
     fun removeCuriositat(index: Int) {

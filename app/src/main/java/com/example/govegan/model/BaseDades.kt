@@ -38,12 +38,24 @@ class BaseDades(val db: FirebaseFirestore) {
         var propostes:ArrayList<Proposta> = ArrayList()
         db.collection("propostes").get().addOnSuccessListener {
                 resultat->
-            for(ingredient: QueryDocumentSnapshot in resultat){
-                propostes.add(ingredient.toObject(Proposta::class.java))
+            for(proposta: QueryDocumentSnapshot in resultat){
+                propostes.add(proposta.toObject(Proposta::class.java))
             }
         }
         return propostes
     }
+
+    fun getAllCuriositats():ArrayList<Curiositat>{
+        var curiositats:ArrayList<Curiositat> = ArrayList()
+        db.collection("curiositats").get().addOnSuccessListener {
+                resultat->
+            for(curiositat: QueryDocumentSnapshot in resultat){
+                curiositats.add(curiositat.toObject(Curiositat::class.java))
+            }
+        }
+        return curiositats
+    }
+
     fun addIngredients(ingredient: Ingredient){
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
     }
@@ -52,7 +64,9 @@ class BaseDades(val db: FirebaseFirestore) {
         db.collection("propostes").document(proposta.title).set(proposta)
     }
 
-
+    fun addCuriositat(curiositat: Curiositat){
+        db.collection("curiositats").document(curiositat.title).set(curiositat)
+    }
 
     fun getUsuariActiu(ID:String){
         var usuari:Usuari?
