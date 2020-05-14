@@ -88,10 +88,10 @@ object Controlador {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getSetmanaActual(): String {
+    fun getSetmanaActual(): Int {
         val setInicial = facadeCarteraUsuaris.getSetmanaUser(usuariActiu)
         val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
-        return "Setmana " + ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
+        return ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
 
     /**
@@ -99,7 +99,7 @@ object Controlador {
      *         **********************
      */
 
-    fun recorrerMenus(setmanaActual: String): ArrayList<String>? {
+    fun recorrerMenus(setmanaActual: Int): ArrayList<String>? {
         val usuari: Usuari? = usuariActiu?.let { getUsuariByName(it) }
         if (usuari != null) {
             return usuari.recorrerMenus(setmanaActual)

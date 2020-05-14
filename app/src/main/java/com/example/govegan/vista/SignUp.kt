@@ -13,12 +13,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.example.govegan.model.Usuari
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.signup.*
 import java.time.LocalDate
 import java.time.temporal.TemporalField
@@ -83,7 +79,7 @@ class SignUp: AppCompatActivity() {
                     val registre = controlador.registre(userID,
                         nom.text.toString(),
                         cognoms.text.toString(),
-                        nomUsuari.text.toString(),
+                        correu.text.toString(),
                         mail.text.toString(),
                         pwd.text.toString(),
                         pwd2.text.toString(),

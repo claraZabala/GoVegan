@@ -8,8 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.login.*
 
@@ -35,7 +33,7 @@ class MainActivity: AppCompatActivity() {
     }
 
     fun login(view: View) {
-        var correu = nomUsuari.text.toString()
+        var correu = correu.text.toString()
         var password = pwd.text.toString()
         if(!TextUtils.isEmpty(correu) && !TextUtils.isEmpty(password)){
             auth.signInWithEmailAndPassword(correu,password)
