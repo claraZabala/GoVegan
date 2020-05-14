@@ -112,7 +112,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
     }
 
     fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: String?) {
-        getByID(usuariActiu!!)?.setRecepta(dia,setmana,apat,titol,categoria)
+        getByID(usuariActiu!!)?.setRecepta(dia,apat,setmana,titol,categoria)
     }
 
     fun getSetmanaUser(usuariActiu: String?): Int {
