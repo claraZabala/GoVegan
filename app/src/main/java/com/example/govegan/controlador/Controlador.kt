@@ -349,11 +349,8 @@ object Controlador {
         return facadeCarteraPreguntes.getUsari(descripcio)
     }
 
-    fun recuperarContra(correu: String): Int {
-        if (correu.equals("")){
-            return 1
-        }
-        return baseDades.recuperarContra(correu)
+    fun recuperarContra(correu: String,context: Context) {
+       baseDades.recuperarContra(correu,context)
     }
 
 }

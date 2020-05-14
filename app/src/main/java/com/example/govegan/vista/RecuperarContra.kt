@@ -16,13 +16,7 @@ class RecuperarContra: AppCompatActivity() {
     }
 
     fun recuperarContra(view: View){
-        val result = controlador.recuperarContra(correu.text.toString())
-        if (result==0){
-            toast("S'ha enviat un correu electrònic a l'adreça proporcionada")
-        } else if (result==1){
-            toast("Has d'omplir el correu electrònic")
-        } else {
-            toast("No hi ha cap usuari amb aquest correu electrònic")
-        }
+        val result = controlador.recuperarContra(correu.text.toString(),this)
+
     }
 }

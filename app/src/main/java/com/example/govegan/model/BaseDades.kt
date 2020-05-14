@@ -1,7 +1,10 @@
 package com.example.govegan.model
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.controlador.Controlador.toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
@@ -100,14 +103,17 @@ class BaseDades(val db: FirebaseFirestore) {
         return setmanesUsuari
     }
 
-    fun recuperarContra(correu: String): Int {
+    fun recuperarContra(correu: String,context: Context){
         var success = false
         FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
             .addOnCompleteListener { task ->
+                if(task.isSuccessful){
                 success = true
-                Log.d(TAG,"Finish")
+                Log.d(TAG,"CORRECTE")}
+                else{
+                    Toast.makeText(context,"CORREU ERRONI", Toast.LENGTH_LONG).show()}
+
             }
-        if (success) return 0
-        else return 2
+
     }
 }
