@@ -16,8 +16,8 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         controlador = Controlador
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Proposta? {
-        val proposta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals,
+    fun addRecepta(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Proposta? {
+        val proposta = carteraReceptes.addRecepta(lastpath,nom, pasos, tempsPrep, tempsCuina, comensals,
             tipusRecepta, autor, ingredients)
             ?: return null
         controlador.setReceptaActiva(nom)
@@ -35,7 +35,9 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     fun getImage(position: Int): Int {
         return carteraReceptes.getImage(position)
     }
-
+    fun getPath(position: Int): String? {
+        return carteraReceptes.getPath(position)
+    }
     fun getTitle(position: Int): String? {
         return carteraReceptes.getTitle(position)
     }
@@ -55,6 +57,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     fun setIcona(icona: ImageView, position: Int) {
         carteraReceptes.setIcona(icona,position)
     }
+
 
     fun getPos(receptaActiva: String?): Int {
         return carteraReceptes.getPos(receptaActiva)

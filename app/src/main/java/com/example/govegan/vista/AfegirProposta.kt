@@ -2,6 +2,7 @@ package com.example.govegan.vista
 
 import android.app.Activity
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.afegir_proposta.*
 import kotlinx.android.synthetic.main.afegir_proposta.floatingAfegirIngredients
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
@@ -23,6 +25,8 @@ class AfegirProposta : AppCompatActivity() {
     var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador:Controlador = Controlador
     var llistaIngredientsCompra:ArrayList<String> = ArrayList()
+    var lastpath:String? = null
+    var imatgeUri:Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,6 +113,7 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun recepta(view: View){
+        var mStorage = FirebaseStorage.getInstance().getReference()
         val nom: String = resposta.text.toString()
         val pasos: String = pasos.text.toString()
         val tempsPrep: String = temps_prep.text.toString()
@@ -125,15 +130,39 @@ class AfegirProposta : AppCompatActivity() {
             tipusRecepta = "0"
         }
         val ingredients: ArrayList<String> = llistaIngredientsCompra
-        val result = controlador.afegirReceptaNova(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients)
-        if (result==1){
-            toast("Has d'omplir tots els camps")
-        } else if(result==2){
-            toast("El nom de recepta ja existeix")
-        } else if (result==0) {
-            intent = Intent(this, PaginaPrincipal::class.java)
-            startActivity(intent)
-        }
+
+            if( lastpath != null) {
+                var filepath = mStorage.child("fotosRecepta").child(lastpath!!)
+                filepath.putFile(imatgeUri!!).addOnCompleteListener(this) {task->
+                    if(task.isSuccessful) {
+                        val result = controlador.afegirReceptaNova(lastpath,
+                            nom,
+                            pasos,
+                            tempsPrep,
+                            tempsCuina,
+                            comensals,
+                            tipusRecepta,
+                            ingredients
+                        )
+                        if (result == 1) {
+                            toast("Has d'omplir tots els camps")
+                        } else if (result == 2) {
+                            toast("El nom de recepta ja existeix")
+                        } else if (result == 0) {
+                            toast("RECEPTA AFEGIDA CORRECTAMENT")
+                            intent = Intent(this, PaginaPrincipal::class.java)
+                            startActivity(intent)
+                        }
+                    }
+                    else{
+                        toast("PROBLEMA AMB L'IMATGE")
+                    }
+
+                }
+
+            }
+
+
     }
 
     fun afegirImatge(view: View) {
@@ -171,6 +200,8 @@ class AfegirProposta : AppCompatActivity() {
             if (data != null) {
                 imatge.setImageURI(data.data)
                 layoutNovaProposta.addView(imatge)
+                imatgeUri =data.data
+                lastpath= data.data?.lastPathSegment
             }
 
         }

@@ -155,13 +155,13 @@ object Controlador {
         return null
     }
 
-    fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
+    fun afegirReceptaNova(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
                           comensals:String, tipusRecepta:String, ingredients: ArrayList<String>): Int {
         if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        val proposta = facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
+        val proposta = facadeCarteraReceptes.addRecepta(lastpath,nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
         if (proposta!=null){
             baseDades.addProposta(proposta)
             return 0
@@ -177,11 +177,11 @@ object Controlador {
         return facadeCarteraReceptes.getNumPropostes()
     }
 
-    fun afegirPropostaLayout(
+    fun afegirPropostaLayout(context: Context,
         position: Int, imatge: ImageView, title: TextView, tempsP: TextView,
         tempsC: TextView, numPersones: TextView, icona: ImageView
     ) {
-        imatge.setImageResource(facadeCarteraReceptes.getImage(position))
+        baseDades.carregarImatge(context,imatge,facadeCarteraReceptes.getPath(position))
         title.text = facadeCarteraReceptes.getTitle(position)
         tempsP.text = facadeCarteraReceptes.getTPrep(position)
         tempsC.text = facadeCarteraReceptes.getTCuina(position)
@@ -193,7 +193,7 @@ object Controlador {
         return facadeCarteraReceptes.getTitle(position)
     }
 
-    fun afegirReceptaLayout(
+    fun afegirReceptaLayout(context: Context,
         titolRecepta: TextView, autor: TextView, passos: TextView,
         tPrep: TextView, tCuina: TextView, comensales: TextView, iconRecepta: ImageView
     ) {
@@ -204,7 +204,7 @@ object Controlador {
         tPrep.text = facadeCarteraReceptes.getTPrep(position)
         tCuina.text = facadeCarteraReceptes.getTCuina(position)
         comensales.text = facadeCarteraReceptes.getNPax(position)
-        facadeCarteraReceptes.setIcona(iconRecepta, position)
+        baseDades.carregarImatge(context,iconRecepta,facadeCarteraReceptes.getPath(position))
     }
 
     fun getIconaReceptaActiva(): String? {

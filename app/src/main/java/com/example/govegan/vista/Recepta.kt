@@ -35,7 +35,7 @@ class Recepta : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recepta)
-        controlador.afegirReceptaLayout(titol_recepta,autor,passos,t_prep,t_cuina,comensales,iconRecepta)
+        controlador.afegirReceptaLayout(this,titol_recepta,autor,passos,t_prep,t_cuina,comensales,iconRecepta)
         ingredients = controlador.getIngredientsProp()
     }
 

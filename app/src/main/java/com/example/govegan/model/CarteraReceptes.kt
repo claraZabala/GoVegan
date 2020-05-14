@@ -10,8 +10,8 @@ class CarteraReceptes {
         propostes = ArrayList()
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,autor:String,ingredients:ArrayList<String>): Proposta? {
-        val recepta = Proposta(0, nom, tempsPrep, tempsCuina, comensals,tipusRecepta, pasos, ingredients,autor)
+    fun addRecepta(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,autor:String,ingredients:ArrayList<String>): Proposta? {
+        val recepta = Proposta(lastpath, nom, tempsPrep, tempsCuina, comensals,tipusRecepta, pasos, ingredients,autor)
         if (getByName(nom) == null) {
             propostes.add(recepta)
             return recepta
@@ -70,6 +70,9 @@ class CarteraReceptes {
 
     fun getPos(receptaActiva: String?): Int {
         return propostes.indexOf(getByName(receptaActiva!!))
+    }
+    fun getPath(receptaActiva: Int): String? {
+        return return propostes[receptaActiva].lastPath
     }
 
     fun getIcona(receptaActiva: String?): String? {

@@ -94,7 +94,6 @@ class LlistaCompra : AppCompatActivity() {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 100
             )
-
             layoutIngredient.layoutParams = params
             val checkIngredient: CheckBox = CheckBox(this)
             params = ViewGroup.LayoutParams(
@@ -114,7 +113,7 @@ class LlistaCompra : AppCompatActivity() {
             }
             val textIngredient: TextView = TextView(this)
             params = ViewGroup.LayoutParams(
-                800,
+                1200,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             textIngredient.layoutParams = params

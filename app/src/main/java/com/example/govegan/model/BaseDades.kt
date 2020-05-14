@@ -1,21 +1,42 @@
 package com.example.govegan.model
 
 import android.content.Context
+import android.net.Uri
 import android.util.Log
+import android.widget.ImageView
 import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.govegan.controlador.Controlador
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.google.firebase.storage.FirebaseStorage
 
 class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
     var userID:String = ""
+    var mStorage = FirebaseStorage.getInstance().getReference()
 
     companion object {
         private val TAG = "DocSnippets"
     }
-
+    fun carregarImatge(context: Context,imatge:ImageView,lastPath:String?){
+        if(lastPath != null) {
+            var storageRef =
+            FirebaseStorage.getInstance().getReference();
+            storageRef.child("fotosRecepta").child(lastPath).getDownloadUrl()
+                .addOnSuccessListener {
+                    if(it != null){
+                        Glide.with(context)
+                            .load(it)
+                            .fitCenter()
+                            .centerCrop()
+                            .into(imatge)
+                    }
+                    }
+        }
+    }
     fun actualitzarUsuariActiu() {
         var usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
         if (usuari != null) {
