@@ -64,4 +64,14 @@ class CarteraPregunta {
         }
         return cont
     }
+
+    fun getUsari(descripcioo: String): String{
+        var id: String = ""
+        for (i: Pregunta in preguntes) {
+            if (i.descripcio.equals(descripcioo)) {
+                id = i.idUsuari
+            }
+        }
+        return id
+    }
 }

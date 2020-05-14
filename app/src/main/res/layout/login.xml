@@ -14,13 +14,13 @@
         app:srcCompat="@drawable/icono" />
 
     <EditText
-        android:id="@+id/nomUsuari"
+        android:id="@+id/correu"
         android:layout_width="304dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:ems="10"
-        android:hint="Nom d'usuari"
-        android:inputType="textPersonName"
+        android:hint="Correu electrònic"
+        android:inputType="textEmailAddress"
         android:textColor="@color/blanc"
         android:textColorHint="@color/blanc" />
 

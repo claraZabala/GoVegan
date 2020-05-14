@@ -29,7 +29,7 @@ class CalendariSetmanal : AppCompatActivity() {
     }
 
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
-    var setmanaActual: String
+    var setmanaActual: Int
     init {
         setmanaActual = controlador.getSetmanaActual()
     }
@@ -41,7 +41,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //El método createFromResource() permet crear un ArrayAdapter a partir de la matriu de strings a la carpeta res.
         //El tercer paràmetre és un recurs de diseny predeterminat que defineix la manera en que es mostra l'opción seleccionada.
-        val spinner: Spinner = spinner2
+        //val spinner: Spinner = spinner2
         // Create an ArrayAdapter using the string array and a default spinner layout
 
         ArrayAdapter.createFromResource(
@@ -52,15 +52,17 @@ class CalendariSetmanal : AppCompatActivity() {
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
-            spinner.adapter = adapter
-            spinner.adapter = adapter
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinner2.adapter = adapter
+            spinner2.adapter = adapter
+            spinner2.setSelection(setmanaActual-1)
+            spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
                     view: View?,
                     pos: Int,
                     id: Long
                 ) {
+                    inicialitzarIconesCalendari()
                     Toast.makeText(
                         adapterView.context,
                         adapterView.getItemAtPosition(pos) as String, Toast.LENGTH_SHORT
@@ -69,15 +71,10 @@ class CalendariSetmanal : AppCompatActivity() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
-
-
         }
-        inicialitzarIconesCalendari()
-
-
 
         /*
-        * Si es fa dobleclick en ua icona, s'obre un dialog per a afegir àpat
+        * Si es fa dobleclick en una icona, s'obre un dialog per a afegir àpat
         * afegirPlat estableix l'escoltador del DobleClick a totes les icones
          */
         afegirPlat(int1)

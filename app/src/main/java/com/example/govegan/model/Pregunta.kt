@@ -31,4 +31,8 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         return contRespostes
     }
 
+    fun getUsari(): String {
+        return idUsuari
+    }
+
 }

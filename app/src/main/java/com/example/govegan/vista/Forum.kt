@@ -9,11 +9,15 @@ import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import android.widget.LinearLayout
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
+import com.example.govegan.model.Pregunta
+import kotlinx.android.synthetic.main.dialog_resposta.*
 import kotlinx.android.synthetic.main.forum.*
+import kotlinx.android.synthetic.main.forum.preguntaVew
 
 
 class Forum : AppCompatActivity() {
@@ -58,71 +62,6 @@ class Forum : AppCompatActivity() {
 
         }
 
-        //Inicialitzem el tema per defecte perque no calgui escollir inicialment
-        tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-        var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
-        var params:ViewGroup.LayoutParams
-        llistaPreguntes = controlador.mostrarPreguntesPerTema(tema)!!
-        for (i in llistaPreguntes) {
-
-            var lay: LinearLayout = LinearLayout(this)
-            lay.orientation = LinearLayout.HORIZONTAL
-            // Text View Usuari
-
-            var textView: TextView = TextView(this)
-            params = ViewGroup.LayoutParams(
-                250,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            textView.layoutParams = params
-            textView.text = controlador.getUsuariActiu()
-            textView.gravity = Gravity.LEFT
-            lay.addView(textView)
-
-            //Text View descripcio
-            var textViewDesc: TextView = TextView(this)
-            textViewDesc.text = i + controlador.getContadorPreguntes(i, tema)
-            textViewDesc.gravity = Gravity.CENTER
-            params = ViewGroup.LayoutParams(
-                670,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            textViewDesc.layoutParams = params
-            lay.addView(textViewDesc)
-
-            //Boto inicialitzat fora per poder fer mètodes de clicar
-            var botoRespostes: Button = Button(this)
-            params = ViewGroup.LayoutParams(
-                180,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            botoRespostes.layoutParams = params
-            botoRespostes.text = "respostes"
-            botoRespostes.setBackgroundColor(getResources().getColor(R.color.verdClar))
-            botoRespostes.gravity = Gravity.CENTER
-            lay.addView(botoRespostes)
-            params = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            lay.layoutParams = params
-
-
-            layoutpreg.addView(lay)
-        }
-
-        /*
-        <Button
-        android:id="@+id/anarAResposta"
-        android:layout_width="52dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@color/verdClar"
-        android:text="respostes"></Button>
-
-        */
-
-
 
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
 
@@ -136,13 +75,16 @@ class Forum : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
+
+                var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
+                layoutpreg.removeAllViews()
                 tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
                 println("tema = " + tema)
                 // Mostrem les preguntes inicialment segons el tema seleccionat
                 llistaPreguntes =
                     controlador.mostrarPreguntesPerTema(tema)!!
                 for (i in llistaPreguntes) {
-                    //TODO: Afegit la pregunta a la text view però abans comprovar lo anterior
+                    mostrarPrgeunta(i, layoutpreg)
                 }
 
                 // Que passa quan cliquem al botó crear pregunta
@@ -151,30 +93,13 @@ class Forum : AppCompatActivity() {
                     controlador.crearPregunta(descripcio, tema)
                     preguntaVew.setText(" ")
                     //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
-                    llistaPreguntes =
-                        controlador.mostrarPreguntesPerTema(tema)!!
-                    // TODO: fer que la pregunta s'afegeixi també a la text view
-
+                        mostrarPrgeunta(descripcio, layoutpreg)
                 }
 
 
-                /* Mirrar perque igual aquests mètodes han d'anar fora del override però dins de la classe
+                /*
                     // Que passa quan cliquem als botons creapts per cada pregunta:
-                    anarAResposta.setOnClickListener() {
-                        val dialog = AlertDialog.Builder(this)
-                        val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
-                        // TODO: Fer bé l'intent
-                        dialog.setView(dialogView)
-                        dialog.setCancelable(false)
-                        val mAlertDialog = dialog.show()
-                        val customDialog = dialog.create()
-                        var tema:String = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                        //actualitzarLlistaRespostes(dialogView, tema)
 
-                        dialogView.enviarRespostaAlForumm.setOnClickListener {
-                            mAlertDialog.dismiss()
-                        }
-                    }
                 }
 
 
@@ -199,6 +124,71 @@ class Forum : AppCompatActivity() {
                     }*/
             }
         }
+    }
+
+    fun mostrarPrgeunta(i : String, layoutpreg : LinearLayout){
+        var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
+        var params:ViewGroup.LayoutParams
+        var lay: LinearLayout = LinearLayout(this)
+        lay.orientation = LinearLayout.HORIZONTAL
+
+        // Text View Usuari
+        var textView: TextView = TextView(this)
+        params = ViewGroup.LayoutParams(
+            250,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        textView.layoutParams = params
+        textView.text = controlador.getUsuari(i)
+        textView.gravity = Gravity.LEFT
+        lay.addView(textView)
+
+        //Text View descripcio
+        var textViewDesc: TextView = TextView(this)
+        textViewDesc.text = i +  " Respostes: " + controlador.getContadorPreguntes(i, tema)
+        textViewDesc.gravity = Gravity.CENTER
+        params = ViewGroup.LayoutParams(
+            670,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        textViewDesc.layoutParams = params
+        lay.addView(textViewDesc)
+
+        //Boto inicialitzat fora per poder fer mètodes de clicar
+        var botoRespostes: Button = Button(this)
+        params = ViewGroup.LayoutParams(
+            180,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        botoRespostes.layoutParams = params
+        botoRespostes.text = "respostes"
+        botoRespostes.setBackgroundColor(getResources().getColor(R.color.verdClar))
+        botoRespostes.gravity = Gravity.CENTER
+        lay.addView(botoRespostes)
+        params = ViewGroup.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        lay.layoutParams = params
+
+
+        layoutpreg.addView(lay)
+
+        botoRespostes.setOnClickListener() {
+            val dialog = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
+            dialog.setView(dialogView)
+            dialog.setCancelable(false)
+            val mAlertDialog = dialog.show()
+            val customDialog = dialog.create()
+            var botoEnviar : Button = findViewById(R.id.enviarRespostaAlForumm)
+
+            //TODO: Arreglar aquesta part i/o possar un altre botó per tancar
+            botoEnviar.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
+        }
+
     }
 }
 
