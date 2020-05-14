@@ -10,16 +10,16 @@ class CarteraUsuaris(baseDades: BaseDades) {
     init {
         //TODO: això s'ha de borrar?
         llistaUsuaris.add(Usuari("Dolores", "Tomacal", "dtomacal",
-            "dtom97 ","dtomacal@gmail.com", 22, ArrayList(), ArrayList(),0))
+            "dtom97 ","dtomacal@gmail.com", 22, ArrayList(), ArrayList(),20))
         llistaUsuaris.add(Usuari("Clara", "Zabala", "czaba",
-            "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList(),0))
-        llistaUsuaris.add(Usuari("LLuis", "Roca", "lluis", "lluis",
-            "lluis@gmail.com", 20,ArrayList(),ArrayList(),0))
+            "kkdlvkflk25", "claris99@gmail.com", 20,ArrayList(),ArrayList(),16))
+        llistaUsuaris.add(Usuari("Lluis", "Roca", "lluis", "lluis",
+            "lluis@gmail.com", 20,ArrayList(),ArrayList(),19))
 
 
     }
     fun carregarUsuari(usuari: Usuari?){
-        if(usuari != null && usuari !in llistaUsuaris){
+        if(usuari != null && getByID(usuari.nomUsuari) == null){
             llistaUsuaris.add(usuari)
         }
     }

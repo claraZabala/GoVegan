@@ -141,7 +141,6 @@ object Controlador {
 
     fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
         if(usuariActiu != null) {
-
             return facadeCarteraUsuaris.getUsuariByName(usuariActiu!!)
                 ?.getCategoriaApatDia(setmana, dia, apat)
         }
@@ -348,6 +347,13 @@ object Controlador {
 
     fun getUsuari(descripcio: String): String {
         return facadeCarteraPreguntes.getUsari(descripcio)
+    }
+
+    fun recuperarContra(correu: String): Int {
+        if (correu.equals("")){
+            return 1
+        }
+        return baseDades.recuperarContra(correu)
     }
 
 }

@@ -16,6 +16,7 @@
         android:textSize="25sp"/>
 
     <EditText
+        android:id="@+id/correu"
         android:hint="Correu electrònic"
         android:textColorHint="@android:color/darker_gray"
         android:layout_width="match_parent"
@@ -33,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Acceptar"
         android:layout_marginTop="25dp"
-        android:background="@drawable/estil_botons"/>
+        android:background="@drawable/estil_botons"
+        android:onClick="recuperarContra"/>
 
 </LinearLayout>

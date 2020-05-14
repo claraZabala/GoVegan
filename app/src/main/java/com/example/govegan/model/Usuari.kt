@@ -80,9 +80,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
                         return j.getApat(apat)
                     }
                 }
-
         }
         return null
-
     }
 }

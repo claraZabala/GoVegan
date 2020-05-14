@@ -2,11 +2,9 @@ package com.example.govegan.model
 
 import android.util.Log
 import com.example.govegan.controlador.Controlador
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
 
 class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
@@ -100,5 +98,16 @@ class BaseDades(val db: FirebaseFirestore) {
         si coincideix --> setmanes_usuari.add(i)
          */
         return setmanesUsuari
+    }
+
+    fun recuperarContra(correu: String): Int {
+        var success = false
+        FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
+            .addOnCompleteListener { task ->
+                success = true
+                Log.d(TAG,"Finish")
+            }
+        if (success) return 0
+        else return 2
     }
 }
