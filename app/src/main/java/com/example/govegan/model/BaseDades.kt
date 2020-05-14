@@ -48,8 +48,8 @@ class BaseDades(val db: FirebaseFirestore) {
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
     }
 
-    fun addProposta(ingredient: Ingredient){
-        db.collection("propostes").document(ingredient.nom).set(ingredient)
+    fun addProposta(proposta: Proposta){
+        db.collection("propostes").document(proposta.title).set(proposta)
     }
 
 
@@ -118,15 +118,12 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun recuperarContra(correu: String,context: Context){
-        var success = false
         FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                success = true
                     Toast.makeText(context,"CORREU ENVIAT", Toast.LENGTH_LONG).show()}
                 else{
-                    Toast.makeText(context,"CORREU ERRONI", Toast.LENGTH_LONG).show()}
-
+                    Toast.makeText(context,"CORREU ERRONI o s'acaba d'enviar", Toast.LENGTH_LONG).show()}
             }
 
     }

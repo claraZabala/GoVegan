@@ -16,11 +16,12 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         controlador = Controlador
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Boolean {
-        carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,
-            ingredients) ?: return false
+    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Proposta? {
+        val proposta = carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals,
+            tipusRecepta, autor, ingredients)
+            ?: return null
         controlador.setReceptaActiva(nom)
-        return true
+        return proposta
     }
 
     fun getReceptaByName(nom: String): Proposta? {
@@ -69,5 +70,13 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
 
     fun getIcona(receptaActiva: String?): String? {
         return carteraReceptes.getIcona(receptaActiva)
+    }
+
+    fun getAllReceptes(): ArrayList<Proposta> {
+        return carteraReceptes.getReceptes()
+    }
+
+    fun getIngredients(receptaActiva: String?): ArrayList<String> {
+        return carteraReceptes.getIngredients(receptaActiva)
     }
 }
