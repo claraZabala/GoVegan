@@ -24,5 +24,8 @@ class Proposta (imatge: Int, title: String, tempsPrep: String, tempsCuina: Strin
         this.descripcio = descripcio
         this.autor = autor
     }
+    constructor():this(0,"","","","", "0", "", ArrayList<String>(), ""){
+
+    }
 
 }

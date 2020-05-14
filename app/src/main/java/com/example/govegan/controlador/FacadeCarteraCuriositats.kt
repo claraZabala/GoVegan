@@ -25,7 +25,7 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
         return carteraCuriositats.changeDescCuriositat(tema, descNova)
     }
 
-    fun addCuriositat(tema: String, desc: String, imatge: Int): Boolean {
+    fun addCuriositat(tema: String, desc: String, imatge: Int): Curiositat? {
         return carteraCuriositats.addCuriositat(tema, desc, imatge)
     }
 
@@ -53,6 +53,10 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
 
     fun getDescripcio(position: Int): String {
         return carteraCuriositats.getDescripcio(position)
+    }
+
+    fun getLlistaBaseDades() {
+        carteraCuriositats.llistaCuriositats = baseDades.getAllCuriositats()
     }
 
 }

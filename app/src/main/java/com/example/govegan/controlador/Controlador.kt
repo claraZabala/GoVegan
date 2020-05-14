@@ -46,8 +46,17 @@ object Controlador {
         isFromProposta = false
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
+        facadeCarteraReceptes.getLlistaBaseDades()
+        facadeCarteraCuriositats.getLlistaBaseDades()
+        //initCuriositatsBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
+
+    /*private fun initCuriositatsBD() {
+        for (curiositat in facadeCarteraCuriositats.getLlistaCuriositats()) {
+            baseDades.addCuriositat(curiositat)
+        }
+    }*/
 
 
     fun actualizarUsuariActiu(){
@@ -153,7 +162,9 @@ object Controlador {
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)){
+        val proposta = facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
+        if (proposta!=null){
+            baseDades.addProposta(proposta)
             return 0
         }
         return 2
@@ -219,7 +230,12 @@ object Controlador {
     }
 
     fun addCuriositat(tema: String, desc: String, imatge: Int): Boolean {
-        return facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        val curiositat = facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        if (curiositat!=null){
+            baseDades.addCuriositat(curiositat)
+            return true
+        }
+        return false
     }
 
     fun removeCuriositat(index: Int) {
@@ -350,7 +366,14 @@ object Controlador {
     }
 
     fun recuperarContra(correu: String,context: Context) {
+        /*
        baseDades.recuperarContra(correu,context)
+       */
+
+    }
+
+    fun getIngredientsProp(): ArrayList<String> {
+        return facadeCarteraReceptes.getIngredients(receptaActiva)
     }
 
 }

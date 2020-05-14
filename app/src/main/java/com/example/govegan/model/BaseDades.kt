@@ -38,21 +38,35 @@ class BaseDades(val db: FirebaseFirestore) {
         var propostes:ArrayList<Proposta> = ArrayList()
         db.collection("propostes").get().addOnSuccessListener {
                 resultat->
-            for(ingredient: QueryDocumentSnapshot in resultat){
-                propostes.add(ingredient.toObject(Proposta::class.java))
+            for(proposta: QueryDocumentSnapshot in resultat){
+                propostes.add(proposta.toObject(Proposta::class.java))
             }
         }
         return propostes
     }
+
+    fun getAllCuriositats():ArrayList<Curiositat>{
+        var curiositats:ArrayList<Curiositat> = ArrayList()
+        db.collection("curiositats").get().addOnSuccessListener {
+                resultat->
+            for(curiositat: QueryDocumentSnapshot in resultat){
+                curiositats.add(curiositat.toObject(Curiositat::class.java))
+            }
+        }
+        return curiositats
+    }
+
     fun addIngredients(ingredient: Ingredient){
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
     }
 
-    fun addProposta(ingredient: Ingredient){
-        db.collection("propostes").document(ingredient.nom).set(ingredient)
+    fun addProposta(proposta: Proposta){
+        db.collection("propostes").document(proposta.title).set(proposta)
     }
 
-
+    fun addCuriositat(curiositat: Curiositat){
+        db.collection("curiositats").document(curiositat.title).set(curiositat)
+    }
 
     fun getUsuariActiu(ID:String){
         var usuari:Usuari?
@@ -118,15 +132,12 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun recuperarContra(correu: String,context: Context){
-        var success = false
         FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
             .addOnCompleteListener { task ->
                 if(task.isSuccessful){
-                success = true
                     Toast.makeText(context,"CORREU ENVIAT", Toast.LENGTH_LONG).show()}
                 else{
-                    Toast.makeText(context,"CORREU ERRONI", Toast.LENGTH_LONG).show()}
-
+                    Toast.makeText(context,"CORREU ERRONI o s'acaba d'enviar", Toast.LENGTH_LONG).show()}
             }
 
     }
