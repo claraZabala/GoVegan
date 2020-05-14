@@ -46,8 +46,16 @@ object Controlador {
         isFromProposta = false
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
+        facadeCarteraReceptes.getLlistaBaseDades()
+        //initPropostesBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
+
+    /*private fun initPropostesBD() {
+        for (proposta in facadeCarteraReceptes.getAllReceptes()) {
+            baseDades.addProposta(proposta)
+        }
+    }*/
 
 
     fun actualizarUsuariActiu(){
@@ -153,7 +161,9 @@ object Controlador {
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)){
+        val proposta = facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
+        if (proposta!=null){
+            baseDades.addProposta(proposta)
             return 0
         }
         return 2
@@ -354,6 +364,10 @@ object Controlador {
        baseDades.recuperarContra(correu,context)
        */
 
+    }
+
+    fun getIngredientsProp(): ArrayList<String> {
+        return facadeCarteraReceptes.getIngredients(receptaActiva)
     }
 
 }

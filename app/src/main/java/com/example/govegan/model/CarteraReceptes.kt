@@ -79,4 +79,12 @@ class CarteraReceptes {
     fun getIcona(receptaActiva: String?): String? {
         return getByName(receptaActiva!!)?.icona
     }
+
+    fun getReceptes(): ArrayList<Proposta> {
+        return propostes
+    }
+
+    fun getIngredients(receptaActiva: String?): ArrayList<String> {
+        return getByName(receptaActiva!!)!!.ingredients
+    }
 }
