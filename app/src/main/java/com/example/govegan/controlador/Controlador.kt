@@ -350,7 +350,10 @@ object Controlador {
     }
 
     fun recuperarContra(correu: String,context: Context) {
+        /*
        baseDades.recuperarContra(correu,context)
+       */
+
     }
 
 }

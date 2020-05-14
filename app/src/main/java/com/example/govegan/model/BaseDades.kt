@@ -118,16 +118,6 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun recuperarContra(correu: String,context: Context){
-        var success = false
-        FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                success = true
-                    Toast.makeText(context,"CORREU ENVIAT", Toast.LENGTH_LONG).show()}
-                else{
-                    Toast.makeText(context,"CORREU ERRONI", Toast.LENGTH_LONG).show()}
-
-            }
 
     }
 }
