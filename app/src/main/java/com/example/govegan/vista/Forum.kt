@@ -16,6 +16,7 @@ import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import com.example.govegan.model.Pregunta
 import kotlinx.android.synthetic.main.dialog_resposta.*
+import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
 import kotlinx.android.synthetic.main.forum.preguntaVew
 
@@ -181,10 +182,11 @@ class Forum : AppCompatActivity() {
             dialog.setCancelable(false)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
-            var botoEnviar : Button = findViewById(R.id.enviarRespostaAlForumm)
+            dialogView.enviarRespostaAlForumm.setOnClickListener {
 
-            //TODO: Arreglar aquesta part i/o possar un altre botó per tancar
-            botoEnviar.setOnClickListener {
+            }
+
+            dialogView.buttonEnrere.setOnClickListener {
                 mAlertDialog.dismiss()
             }
         }

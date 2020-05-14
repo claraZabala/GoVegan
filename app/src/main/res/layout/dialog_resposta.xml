@@ -15,6 +15,7 @@
         android:textStyle="bold" />
 
     <TextView
+        android:id="@+id/userView"
         android:layout_width="wrap_content"
         android:textSize="15sp"
         android:layout_height="wrap_content"
@@ -33,6 +34,7 @@
 
 
     <TextView
+        android:id="@+id/respostaView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="15sp"
@@ -54,5 +56,11 @@
         android:layout_height="36dp"
         android:layout_gravity="center"
         android:background="@drawable/estil_botons"
-        android:text="Enviar i/o tornar enrere" />
+        android:text="Enviar" />
+
+    <Button
+        android:id="@+id/buttonEnrere"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENRERE" />
 </LinearLayout>
