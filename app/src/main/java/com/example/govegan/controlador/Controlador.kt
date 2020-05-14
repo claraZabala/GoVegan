@@ -46,6 +46,7 @@ object Controlador {
         isFromProposta = false
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
+        facadeCarteraReceptes.getLlistaBaseDades()
         //initPropostesBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }

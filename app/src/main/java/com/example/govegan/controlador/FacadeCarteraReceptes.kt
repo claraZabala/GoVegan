@@ -79,4 +79,8 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     fun getIngredients(receptaActiva: String?): ArrayList<String> {
         return carteraReceptes.getIngredients(receptaActiva)
     }
+
+    fun getLlistaBaseDades() {
+        carteraReceptes.propostes = baseDades.getAllPropostes()
+    }
 }
