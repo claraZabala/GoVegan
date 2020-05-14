@@ -18,7 +18,7 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="288dp"
+        android:layout_height="201dp"
         android:background="@color/gris">
 
         <LinearLayout
@@ -30,7 +30,7 @@
     </androidx.core.widget.NestedScrollView>
 
     <EditText
-        android:id="@+id/resposta"
+        android:id="@+id/respostaText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

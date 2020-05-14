@@ -34,11 +34,11 @@ class CarteraPregunta {
         return preguntesPerTema
     }
 
-    fun crearResp( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String ) {
-        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+    fun crearResp( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String , descPreg : String) {
+        val idPreg = idDestinatari + "-" + descPreg + "-" + temaa
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {
-                i.crearResposta(temaa, descripcioo, esCertificat, idUsuarii, idDestinatari)
+                i.crearResposta(temaa, descripcioo, esCertificat, idUsuarii, idDestinatari, descPreg)
             }
         }
     }

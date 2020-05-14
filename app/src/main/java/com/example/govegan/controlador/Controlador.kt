@@ -315,14 +315,16 @@ object Controlador {
         descripcio: String,
         esCertificat: Boolean,
         idUsuari: String,
-        idDestinatari: String
+        idDestinatari: String,
+        descPreg : String
     ) {
         facadeCarteraPreguntes.crearRespostaF(
             tema,
             descripcio,
             esCertificat,
             idUsuari,
-            idDestinatari
+            idDestinatari,
+            descPreg
         )
     }
 
@@ -351,7 +353,6 @@ object Controlador {
     }
 
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
-        println("Hola")
         return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
     }
 

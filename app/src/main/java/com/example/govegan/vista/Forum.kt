@@ -121,7 +121,7 @@ class Forum : AppCompatActivity() {
 
         //Text View descripcio
         var textViewDesc: TextView = TextView(this)
-        textViewDesc.text = i +  " Respostes: " + controlador.getContadorPreguntes(i, tema)
+        textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
         params = ViewGroup.LayoutParams(
             700,
@@ -147,7 +147,6 @@ class Forum : AppCompatActivity() {
         )
         lay.layoutParams = params
 
-
         layoutpreg.addView(lay)
 
         botoRespostes.setOnClickListener() {
@@ -157,43 +156,19 @@ class Forum : AppCompatActivity() {
             dialog.setCancelable(false)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
+            mostrarResposta(i, dialogView)
 
-            dialogView.layoutRespostes.removeAllViews()
-
-
-            var textViewUsuari: TextView = TextView(this)
-            params = ViewGroup.LayoutParams(
-                1280,
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
-            textViewUsuari.layoutParams = params
-            textViewUsuari.text = controlador.getUsuari(i) + " pregunta: " + i  +"\nRespostes: "
-            textViewUsuari.textSize = 20F
-            textViewUsuari.gravity = Gravity.LEFT
-            textViewUsuari.setBackgroundColor(resources.getColor(R.color.gris))
-
-
-            dialogView.layoutRespostes.addView(textViewUsuari)
-
-            llistaRespostesPerDesc =
-               controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
-            for (j in llistaRespostesPerDesc) {
-                // Crrem un text View per cada resposta
-                var textViewResp: TextView = TextView(this)
-                textViewResp.text = j
-                textViewResp.gravity = Gravity.LEFT
-                params = ViewGroup.LayoutParams(
-                    1280,
-                    300
-                )
-                textViewResp.layoutParams = params
-                textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
-
-                dialogView.layoutRespostes.addView(textViewResp)
-            }
-
-            dialogView.enviarRespostaAlForumm.setOnClickListener {
-                        //TODO: Afegir la resposta i mostrarla
+            dialogView.enviarRespostaAlForumm.setOnClickListener() {
+                var descripcioResp: String = dialogView.respostaText.text.toString()
+                if (descripcioResp == null){
+                    toast("Has d'omplir tots els camps")
+                }else{
+                    controlador.crearResposta(tema, descripcioResp, false,
+                    controlador.getUsuariActiu()!!, controlador.getUsuari(i), i)
+                    dialogView.respostaText.setText("")
+                    llistaRespostesPerDesc = controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
+                    mostrarResposta(i, dialogView)
+                }
             }
 
             dialogView.buttonEnrere.setOnClickListener {
@@ -202,7 +177,49 @@ class Forum : AppCompatActivity() {
         }
 
     }
-}
+
+    fun mostrarResposta (i: String , dialogView: View) {
+
+        dialogView.layoutRespostes.removeAllViews()
+
+        var textViewUsuari: TextView = TextView(this)
+        var params = ViewGroup.LayoutParams(
+            1280,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        textViewUsuari.layoutParams = params
+        textViewUsuari.text = controlador.getUsuari(i) + " pregunta: " + i + "\nRespostes: "
+        textViewUsuari.textSize = 20F
+        textViewUsuari.gravity = Gravity.LEFT
+        textViewUsuari.setBackgroundColor(resources.getColor(R.color.gris))
+
+
+        dialogView.layoutRespostes.addView(textViewUsuari)
+
+        llistaRespostesPerDesc =
+            controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
+        for (j in llistaRespostesPerDesc) {
+            mostrarRespConcreta(j, dialogView)
+        }
+    }
+
+        fun mostrarRespConcreta(j: String, dialogView: View){
+            // Creem un text View per cada resposta
+            var textViewResp: TextView = TextView(this)
+            textViewResp.text = j
+            textViewResp.gravity = Gravity.LEFT
+            var params = ViewGroup.LayoutParams(
+                1280,
+                150
+            )
+            textViewResp.layoutParams = params
+            textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
+
+            dialogView.layoutRespostes.addView(textViewResp)
+        }
+
+    }
+
 
 
 
