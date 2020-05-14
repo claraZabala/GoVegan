@@ -74,4 +74,17 @@ class CarteraPregunta {
         }
         return id
     }
+
+    fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
+        val idPreg = idUsuari + "-" + desc + "-" + tema
+        var respostesDesc: ArrayList<String>? = ArrayList()
+        for (i: Pregunta in preguntes) {
+            if (i.idPregunta.equals(idPreg)) {
+                respostesDesc =  i.mostrarRespostesPerDesc( idUsuari, desc , tema)
+            }
+        }
+        return respostesDesc
+    }
+
+
 }

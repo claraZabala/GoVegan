@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gris"
+    android:orientation="vertical">
 
 
     <TextView
@@ -14,32 +16,18 @@
         android:textSize="23sp"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/userView"
-        android:layout_width="wrap_content"
-        android:textSize="15sp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_margin="3dp"
-        android:text="Paquita pregunta:" />
-
-    <TextView
-        android:id="@+id/preguntaVew"
-        android:textSize="25sp"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_marginBottom="10dp"
-        android:layout_margin="4dp"
-        android:layout_height="32dp"
-        android:text="Hi ha marques veganes? " />
+        android:layout_height="288dp"
+        android:background="@color/gris">
 
-
-    <TextView
-        android:id="@+id/respostaView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="15sp"
-        android:layout_margin="10dp"
-        android:text="Maria: Si, però no les conec." />
+        <LinearLayout
+            android:id="@+id/layoutRespostes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="vertical"></LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
     <EditText
         android:id="@+id/resposta"

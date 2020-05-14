@@ -350,4 +350,10 @@ object Controlador {
         return facadeCarteraPreguntes.getUsari(descripcio)
     }
 
+    fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
+        println("Hola")
+        return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
+    }
+
+
 }

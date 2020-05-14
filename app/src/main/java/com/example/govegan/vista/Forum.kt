@@ -19,10 +19,12 @@ import kotlinx.android.synthetic.main.dialog_resposta.*
 import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
 import kotlinx.android.synthetic.main.forum.preguntaVew
+import kotlinx.android.synthetic.main.llista_compra.*
 
 
 class Forum : AppCompatActivity() {
     var llistaPreguntes: ArrayList<String> = ArrayList()
+    var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
     var tema: String = ""
 
@@ -96,33 +98,6 @@ class Forum : AppCompatActivity() {
                     //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
                         mostrarPrgeunta(descripcio, layoutpreg)
                 }
-
-
-                /*
-                    // Que passa quan cliquem als botons creapts per cada pregunta:
-
-                }
-
-
-                fun actualitzarLlistaRespostes(dialogView: View, tema: String){
-                    dialogView.layoutIngredientsBD.removeAllViews()
-                    for (i in llistaIngredients) {
-                        var btnIngredient: CheckBox = CheckBox(this)
-                        btnIngredient.setText(i)
-                        dialogView.layoutIngredientsBD.addView(btnIngredient)
-                        if (i in llistaIngredientsCompra)
-                            btnIngredient.isChecked = true
-                        btnIngredient.setOnClickListener {
-                            if (btnIngredient.isChecked) {
-                                llistaIngredientsCompra.add(btnIngredient.text.toString())
-                                textIngredients.text = llistaIngredientsCompra.toString()
-                            }
-                            if (!btnIngredient.isChecked) {
-                                llistaIngredientsCompra.remove(btnIngredient.text.toString())
-                                textIngredients.text = llistaIngredientsCompra.toString()
-                            }
-                        }
-                    }*/
             }
         }
     }
@@ -149,7 +124,7 @@ class Forum : AppCompatActivity() {
         textViewDesc.text = i +  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
         params = ViewGroup.LayoutParams(
-            670,
+            700,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         textViewDesc.layoutParams = params
@@ -182,8 +157,43 @@ class Forum : AppCompatActivity() {
             dialog.setCancelable(false)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
-            dialogView.enviarRespostaAlForumm.setOnClickListener {
 
+            dialogView.layoutRespostes.removeAllViews()
+
+
+            var textViewUsuari: TextView = TextView(this)
+            params = ViewGroup.LayoutParams(
+                1280,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            textViewUsuari.layoutParams = params
+            textViewUsuari.text = controlador.getUsuari(i) + " pregunta: " + i  +"\nRespostes: "
+            textViewUsuari.textSize = 20F
+            textViewUsuari.gravity = Gravity.LEFT
+            textViewUsuari.setBackgroundColor(resources.getColor(R.color.gris))
+
+
+            dialogView.layoutRespostes.addView(textViewUsuari)
+
+            llistaRespostesPerDesc =
+               controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
+            for (j in llistaRespostesPerDesc) {
+                // Crrem un text View per cada resposta
+                var textViewResp: TextView = TextView(this)
+                textViewResp.text = j
+                textViewResp.gravity = Gravity.LEFT
+                params = ViewGroup.LayoutParams(
+                    1280,
+                    300
+                )
+                textViewResp.layoutParams = params
+                textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
+
+                dialogView.layoutRespostes.addView(textViewResp)
+            }
+
+            dialogView.enviarRespostaAlForumm.setOnClickListener {
+                        //TODO: Afegir la resposta i mostrarla
             }
 
             dialogView.buttonEnrere.setOnClickListener {

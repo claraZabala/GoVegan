@@ -35,4 +35,8 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
         return carteraPreguntes.getUsari(descripcioo)
     }
 
+    fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
+        return carteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
+    }
+
 }
