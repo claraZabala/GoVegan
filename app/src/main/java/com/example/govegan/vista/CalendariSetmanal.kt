@@ -361,6 +361,8 @@ class CalendariSetmanal : AppCompatActivity() {
         titol7.text = "MENÚ DIA 7"
         layoutDia7.addView(titol7)
 
+        //DIA 1
+
         val layoutI11: LinearLayout = LinearLayout(this)
         val layoutI12: LinearLayout = LinearLayout(this)
         val layoutI13: LinearLayout = LinearLayout(this)
@@ -419,6 +421,7 @@ class CalendariSetmanal : AppCompatActivity() {
         mesInfo2.text = "+INFO"
         mesInfo3.layoutParams = params
         mesInfo3.text = "+INFO"
+
 
         //DIA 2
         val layoutI21: LinearLayout = LinearLayout(this)
@@ -481,7 +484,416 @@ class CalendariSetmanal : AppCompatActivity() {
         mesInfo23.text = "+INFO"
 
 
+        //DIA 3
+        val layoutI31: LinearLayout = LinearLayout(this)
+        val layoutI32: LinearLayout = LinearLayout(this)
+        val layoutI33: LinearLayout = LinearLayout(this)
 
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI31.layoutParams = params
+        layoutI32.layoutParams = params
+        layoutI33.layoutParams = params
+        layoutI31.orientation = LinearLayout.HORIZONTAL
+        layoutI32.orientation = LinearLayout.HORIZONTAL
+        layoutI33.orientation = LinearLayout.HORIZONTAL
+
+        var apat31: TextView = TextView(this)
+        var apat32: TextView = TextView(this)
+        var apat33: TextView = TextView(this)
+        var nom31: TextView = TextView(this)
+        var nom32: TextView = TextView(this)
+        var nom33: TextView = TextView(this)
+        var mesInfo31: Button = Button(this)
+        var mesInfo32: Button = Button(this)
+        var mesInfo33: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat31.layoutParams = params
+        apat32.layoutParams = params
+        apat33.layoutParams = params
+        apat31.text = "Esmorzar: "
+        apat32.text = "Dinar: "
+        apat33.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom31.layoutParams = params
+        nom32.layoutParams = params
+        nom33.layoutParams = params
+        nom31.text = "Proposta 1"
+        nom32.text = "Proposta 2"
+        nom33.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo31.layoutParams = params
+        mesInfo31.text = "+INFO"
+        mesInfo32.layoutParams = params
+        mesInfo32.text = "+INFO"
+        mesInfo33.layoutParams = params
+        mesInfo33.text = "+INFO"
+
+        //DIA 4
+        val layoutI41: LinearLayout = LinearLayout(this)
+        val layoutI42: LinearLayout = LinearLayout(this)
+        val layoutI43: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI41.layoutParams = params
+        layoutI42.layoutParams = params
+        layoutI43.layoutParams = params
+        layoutI41.orientation = LinearLayout.HORIZONTAL
+        layoutI42.orientation = LinearLayout.HORIZONTAL
+        layoutI43.orientation = LinearLayout.HORIZONTAL
+
+        var apat41: TextView = TextView(this)
+        var apat42: TextView = TextView(this)
+        var apat43: TextView = TextView(this)
+        var nom41: TextView = TextView(this)
+        var nom42: TextView = TextView(this)
+        var nom43: TextView = TextView(this)
+        var mesInfo41: Button = Button(this)
+        var mesInfo42: Button = Button(this)
+        var mesInfo43: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat41.layoutParams = params
+        apat42.layoutParams = params
+        apat43.layoutParams = params
+        apat41.text = "Esmorzar: "
+        apat42.text = "Dinar: "
+        apat43.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom41.layoutParams = params
+        nom42.layoutParams = params
+        nom43.layoutParams = params
+        nom41.text = "Proposta 1"
+        nom42.text = "Proposta 2"
+        nom43.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo41.layoutParams = params
+        mesInfo41.text = "+INFO"
+        mesInfo42.layoutParams = params
+        mesInfo42.text = "+INFO"
+        mesInfo43.layoutParams = params
+        mesInfo43.text = "+INFO"
+
+        //DIA 5
+        val layoutI51: LinearLayout = LinearLayout(this)
+        val layoutI52: LinearLayout = LinearLayout(this)
+        val layoutI53: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI51.layoutParams = params
+        layoutI52.layoutParams = params
+        layoutI53.layoutParams = params
+        layoutI51.orientation = LinearLayout.HORIZONTAL
+        layoutI52.orientation = LinearLayout.HORIZONTAL
+        layoutI53.orientation = LinearLayout.HORIZONTAL
+
+        var apat51: TextView = TextView(this)
+        var apat52: TextView = TextView(this)
+        var apat53: TextView = TextView(this)
+        var nom51: TextView = TextView(this)
+        var nom52: TextView = TextView(this)
+        var nom53: TextView = TextView(this)
+        var mesInfo51: Button = Button(this)
+        var mesInfo52: Button = Button(this)
+        var mesInfo53: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat51.layoutParams = params
+        apat52.layoutParams = params
+        apat53.layoutParams = params
+        apat51.text = "Esmorzar: "
+        apat52.text = "Dinar: "
+        apat53.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom51.layoutParams = params
+        nom52.layoutParams = params
+        nom53.layoutParams = params
+        nom51.text = "Proposta 1"
+        nom52.text = "Proposta 2"
+        nom53.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo51.layoutParams = params
+        mesInfo51.text = "+INFO"
+        mesInfo52.layoutParams = params
+        mesInfo52.text = "+INFO"
+        mesInfo53.layoutParams = params
+        mesInfo53.text = "+INFO"
+
+        //DIA 6
+        val layoutI61: LinearLayout = LinearLayout(this)
+        val layoutI62: LinearLayout = LinearLayout(this)
+        val layoutI63: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI61.layoutParams = params
+        layoutI62.layoutParams = params
+        layoutI63.layoutParams = params
+        layoutI61.orientation = LinearLayout.HORIZONTAL
+        layoutI62.orientation = LinearLayout.HORIZONTAL
+        layoutI63.orientation = LinearLayout.HORIZONTAL
+
+        var apat61: TextView = TextView(this)
+        var apat62: TextView = TextView(this)
+        var apat63: TextView = TextView(this)
+        var nom61: TextView = TextView(this)
+        var nom62: TextView = TextView(this)
+        var nom63: TextView = TextView(this)
+        var mesInfo61: Button = Button(this)
+        var mesInfo62: Button = Button(this)
+        var mesInfo63: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat61.layoutParams = params
+        apat62.layoutParams = params
+        apat63.layoutParams = params
+        apat61.text = "Esmorzar: "
+        apat62.text = "Dinar: "
+        apat63.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom61.layoutParams = params
+        nom62.layoutParams = params
+        nom63.layoutParams = params
+        nom61.text = "Proposta 1"
+        nom62.text = "Proposta 2"
+        nom63.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo61.layoutParams = params
+        mesInfo61.text = "+INFO"
+        mesInfo62.layoutParams = params
+        mesInfo62.text = "+INFO"
+        mesInfo63.layoutParams = params
+        mesInfo63.text = "+INFO"
+
+        //DIA 7
+        val layoutI71: LinearLayout = LinearLayout(this)
+        val layoutI72: LinearLayout = LinearLayout(this)
+        val layoutI73: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI71.layoutParams = params
+        layoutI72.layoutParams = params
+        layoutI73.layoutParams = params
+        layoutI71.orientation = LinearLayout.HORIZONTAL
+        layoutI72.orientation = LinearLayout.HORIZONTAL
+        layoutI73.orientation = LinearLayout.HORIZONTAL
+
+        var apat71: TextView = TextView(this)
+        var apat72: TextView = TextView(this)
+        var apat73: TextView = TextView(this)
+        var nom71: TextView = TextView(this)
+        var nom72: TextView = TextView(this)
+        var nom73: TextView = TextView(this)
+        var mesInfo71: Button = Button(this)
+        var mesInfo72: Button = Button(this)
+        var mesInfo73: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat71.layoutParams = params
+        apat72.layoutParams = params
+        apat73.layoutParams = params
+        apat71.text = "Esmorzar: "
+        apat72.text = "Dinar: "
+        apat73.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom71.layoutParams = params
+        nom72.layoutParams = params
+        nom73.layoutParams = params
+        nom71.text = "Proposta 1"
+        nom72.text = "Proposta 2"
+        nom73.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo71.layoutParams = params
+        mesInfo71.text = "+INFO"
+        mesInfo72.layoutParams = params
+        mesInfo72.text = "+INFO"
+        mesInfo73.layoutParams = params
+        mesInfo73.text = "+INFO"
+
+        //s'omplen els textViews amb els menús de l'usuari actual
+        val noms: List<TextView> = listOf<TextView>(nom1, nom2, nom3, nom21, nom22, nom23, nom31,
+            nom32, nom33, nom41, nom42, nom43, nom51, nom52, nom53, nom61, nom62, nom63, nom71,
+            nom72, nom73)
+        for (i in noms) println(i)
+        recorregutMenus(noms)
+
+        layoutI11.addView(apat1)
+        layoutI11.addView(nom1)
+        layoutI11.addView(mesInfo1)
+        layoutI21.addView(apat21)
+        layoutI21.addView(nom21)
+        layoutI21.addView(mesInfo21)
+        layoutI31.addView(apat31)
+        layoutI31.addView(nom31)
+        layoutI31.addView(mesInfo31)
+        layoutI41.addView(apat41)
+        layoutI41.addView(nom41)
+        layoutI41.addView(mesInfo41)
+        layoutI51.addView(apat51)
+        layoutI51.addView(nom51)
+        layoutI51.addView(mesInfo51)
+        layoutI61.addView(apat61)
+        layoutI61.addView(nom61)
+        layoutI61.addView(mesInfo61)
+        layoutI71.addView(apat71)
+        layoutI71.addView(nom71)
+        layoutI71.addView(mesInfo71)
+
+        layoutI12.addView(apat2)
+        layoutI12.addView(nom2)
+        layoutI12.addView(mesInfo2)
+        layoutI22.addView(apat22)
+        layoutI22.addView(nom22)
+        layoutI22.addView(mesInfo22)
+        layoutI32.addView(apat32)
+        layoutI32.addView(nom32)
+        layoutI32.addView(mesInfo32)
+        layoutI42.addView(apat42)
+        layoutI42.addView(nom42)
+        layoutI42.addView(mesInfo42)
+        layoutI52.addView(apat52)
+        layoutI52.addView(nom52)
+        layoutI52.addView(mesInfo52)
+        layoutI62.addView(apat62)
+        layoutI62.addView(nom62)
+        layoutI62.addView(mesInfo62)
+        layoutI72.addView(apat72)
+        layoutI72.addView(nom72)
+        layoutI72.addView(mesInfo72)
+
+        layoutI13.addView(apat3)
+        layoutI13.addView(nom3)
+        layoutI13.addView(mesInfo3)
+        layoutI23.addView(apat23)
+        layoutI23.addView(nom23)
+        layoutI23.addView(mesInfo23)
+        layoutI33.addView(apat33)
+        layoutI33.addView(nom33)
+        layoutI33.addView(mesInfo33)
+        layoutI43.addView(apat43)
+        layoutI43.addView(nom43)
+        layoutI43.addView(mesInfo43)
+        layoutI53.addView(apat53)
+        layoutI53.addView(nom53)
+        layoutI53.addView(mesInfo53)
+        layoutI63.addView(apat63)
+        layoutI63.addView(nom63)
+        layoutI63.addView(mesInfo63)
+        layoutI73.addView(apat73)
+        layoutI73.addView(nom73)
+        layoutI73.addView(mesInfo73)
+
+        layoutDia1.addView(layoutI11)
+        layoutDia1.addView(layoutI12)
+        layoutDia1.addView(layoutI13)
+        layoutDia2.addView(layoutI21)
+        layoutDia2.addView(layoutI22)
+        layoutDia2.addView(layoutI23)
+        layoutDia3.addView(layoutI31)
+        layoutDia3.addView(layoutI32)
+        layoutDia3.addView(layoutI33)
+        layoutDia4.addView(layoutI41)
+        layoutDia4.addView(layoutI42)
+        layoutDia4.addView(layoutI43)
+        layoutDia5.addView(layoutI51)
+        layoutDia5.addView(layoutI52)
+        layoutDia5.addView(layoutI53)
+        layoutDia6.addView(layoutI61)
+        layoutDia6.addView(layoutI62)
+        layoutDia6.addView(layoutI63)
+        layoutDia7.addView(layoutI71)
+        layoutDia7.addView(layoutI72)
+        layoutDia7.addView(layoutI73)
+
+        //enganxa els layouts de cada dia al contenidor
+        layoutMostrarMenus.addView(layoutDia1)
+        layoutMostrarMenus.addView(layoutDia2)
+        layoutMostrarMenus.addView(layoutDia3)
+        layoutMostrarMenus.addView(layoutDia4)
+        layoutMostrarMenus.addView(layoutDia5)
+        layoutMostrarMenus.addView(layoutDia6)
+        layoutMostrarMenus.addView(layoutDia7)
+    }
+
+
+    /*
+    * Actualitza els noms dels menús de la setmana actual en l'ScrollView
+     */
+    fun recorregutMenus(noms: List<TextView>) {
         val llistaMenus = controlador.recorrerMenus(setmanaActual)
         //es recorre l'array de menús trobats i s'escriuen en els textViews
         var apats: Int = 1
@@ -498,88 +910,60 @@ class CalendariSetmanal : AppCompatActivity() {
                     when (dies) {
                         1 -> {
                             when (apats) {
-                                1 -> nom1.text = i
-                                2 -> nom2.text = i
-                                3 -> nom3.text = i
+                                1 -> noms[0].text = i
+                                2 -> noms[1].text = i
+                                3 -> noms[2].text = i
                             }
                         }
                         2 -> {
                             when (apats) {
-                                1 -> nom21.text = i
-                                2 -> nom22.text = i
-                                3 -> nom23.text = i
+                                1 -> noms[3].text = i
+                                2 -> noms[4].text = i
+                                3 -> noms[5].text = i
+                            }
+                        }
+                        3 -> {
+                            when (apats) {
+                                1 -> noms[6].text = i
+                                2 -> noms[7].text = i
+                                3 -> noms[8].text = i
+                            }
+                        }
+                        4 -> {
+                            when (apats) {
+                                1 -> noms[9].text = i
+                                2 -> noms[10].text = i
+                                3 -> noms[11].text = i
+                            }
+                        }
+                        5 -> {
+                            when (apats) {
+                                1 -> noms[12].text = i
+                                2 -> noms[14].text = i
+                                3 -> noms[14].text = i
+                            }
+                        }
+                        6 -> {
+                            when (apats) {
+                                1 -> noms[15].text = i
+                                2 -> noms[16].text = i
+                                3 -> noms[17].text = i
+                            }
+                        }
+                        7 -> {
+                            when (apats) {
+                                1 -> noms[18].text = i
+                                2 -> noms[19].text = i
+                                3 -> noms[20].text = i
                             }
                         }
 
                     }
-                    println(i)
+
                 }
 
             }
         }
-
-        layoutI11.addView(apat1)
-        layoutI11.addView(nom1)
-        layoutI11.addView(mesInfo1)
-        layoutI21.addView(apat21)
-        layoutI21.addView(nom21)
-        layoutI21.addView(mesInfo21)
-
-        layoutI12.addView(apat2)
-        layoutI12.addView(nom2)
-        layoutI12.addView(mesInfo2)
-        layoutI22.addView(apat22)
-        layoutI22.addView(nom22)
-        layoutI22.addView(mesInfo22)
-
-        layoutI13.addView(apat3)
-        layoutI13.addView(nom3)
-        layoutI13.addView(mesInfo3)
-        layoutI23.addView(apat23)
-        layoutI23.addView(nom23)
-        layoutI23.addView(mesInfo23)
-
-        layoutDia1.addView(layoutI11)
-        layoutDia1.addView(layoutI12)
-        layoutDia1.addView(layoutI13)
-        layoutDia2.addView(layoutI21)
-        layoutDia2.addView(layoutI22)
-        layoutDia2.addView(layoutI23)
-        /* var arrayLayouts: ArrayList<LinearLayout> = ArrayList()
-         arrayLayouts.addAll(listOf(layoutI1, layoutI2, layoutI3, layoutI4, layoutI5, layoutI6, layoutI7))
-         for (i in arrayLayouts) {
-             var apat1: TextView = TextView(this)
-             var apat2: TextView = TextView(this)
-             var apat3: TextView = TextView(this)
-             var nom: TextView = TextView(this)
-             var mesInfo: Button = Button(this)
-             params = LinearLayout.LayoutParams(
-                 70,
-                 ViewGroup.LayoutParams.WRAP_CONTENT
-             )
-             apat1.layoutParams = params
-             apat2.layoutParams = params
-             apat3.layoutParams = params
-
-             apat1.text = "Esmorzar"
-             apat2.text = "Dinar"
-             apat3.text = "Sopar"
-             i.addView(apat1)
-             i.addView(apat2)
-             i.addView(apat3)
-         }*/
-
-
-        //enganxa els layouts de cada dia al contenidor
-        layoutMostrarMenus.addView(layoutDia1)
-        layoutMostrarMenus.addView(layoutDia2)
-        layoutMostrarMenus.addView(layoutDia3)
-        layoutMostrarMenus.addView(layoutDia4)
-        layoutMostrarMenus.addView(layoutDia5)
-        layoutMostrarMenus.addView(layoutDia6)
-        layoutMostrarMenus.addView(layoutDia7)
-
-
     }
 
 }
