@@ -19,16 +19,12 @@ class RecuperarContra: AppCompatActivity() {
 
     fun recuperarContra(view: View){
         var success = false
-        FirebaseAuth.getInstance().sendPasswordResetEmail(correu.toString())
-            .addOnCompleteListener { task ->
-                if(task.isSuccessful){
-                    success = true
-                    toast("CORREU ENVIAT")}
-                else{
-                    toast("CORREU ERRONI")}
-
-            }
-
-
+        FirebaseAuth.getInstance().sendPasswordResetEmail(correu.text.toString()).addOnCompleteListener{ task ->
+            if(task.isSuccessful){
+                success = true
+                toast("CORREU ENVIAT")}
+            else{
+                toast("CORREU ERRONI")}
+        }
     }
 }

@@ -375,7 +375,6 @@ object Controlador {
         /*
        baseDades.recuperarContra(correu,context)
        */
-
     }
 
     fun getIngredientsProp(): ArrayList<String> {
