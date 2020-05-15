@@ -19,6 +19,7 @@ import java.time.LocalDateTime
 import java.time.temporal.TemporalField
 import java.time.temporal.WeekFields
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 @RequiresApi(Build.VERSION_CODES.O)
@@ -29,7 +30,7 @@ class CalendariSetmanal : AppCompatActivity() {
     }
 
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
-    var setmanaActual: String
+    var setmanaActual: Int
     init {
         setmanaActual = controlador.getSetmanaActual()
     }
@@ -41,7 +42,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //El método createFromResource() permet crear un ArrayAdapter a partir de la matriu de strings a la carpeta res.
         //El tercer paràmetre és un recurs de diseny predeterminat que defineix la manera en que es mostra l'opción seleccionada.
-        val spinner: Spinner = spinner2
+        //val spinner: Spinner = spinner2
         // Create an ArrayAdapter using the string array and a default spinner layout
 
         ArrayAdapter.createFromResource(
@@ -52,15 +53,17 @@ class CalendariSetmanal : AppCompatActivity() {
             // Specify the layout to use when the list of choices appears
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
-            spinner.adapter = adapter
-            spinner.adapter = adapter
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            spinner2.adapter = adapter
+            spinner2.adapter = adapter
+            spinner2.setSelection(setmanaActual-1)
+            spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
                     view: View?,
                     pos: Int,
                     id: Long
                 ) {
+                    inicialitzarIconesCalendari()
                     Toast.makeText(
                         adapterView.context,
                         adapterView.getItemAtPosition(pos) as String, Toast.LENGTH_SHORT
@@ -69,15 +72,10 @@ class CalendariSetmanal : AppCompatActivity() {
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
             }
-
-
         }
-        inicialitzarIconesCalendari()
-
-
 
         /*
-        * Si es fa dobleclick en ua icona, s'obre un dialog per a afegir àpat
+        * Si es fa dobleclick en una icona, s'obre un dialog per a afegir àpat
         * afegirPlat estableix l'escoltador del DobleClick a totes les icones
          */
         afegirPlat(int1)
@@ -165,7 +163,7 @@ class CalendariSetmanal : AppCompatActivity() {
                         else{
                             //s'afegeix la info a memòria
                             //es reutilitza la funció setReceptaFromProposta per a tenir a
-                            // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
+                            // Controlador el titol de la recepta, tot i que o provingui d'una proposta
                             escollirDiaIApat(im.id,controlador.getIconaReceptaActiva())
 
                             //es canvia la icona del calendari
@@ -285,9 +283,9 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia5.orientation = LinearLayout.VERTICAL
         layoutDia6.orientation = LinearLayout.VERTICAL
         layoutDia7.orientation = LinearLayout.VERTICAL
-        var params = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.MATCH_PARENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        var params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutDia1.layoutParams = params
         layoutDia2.layoutParams = params
@@ -301,7 +299,7 @@ class CalendariSetmanal : AppCompatActivity() {
         * Afegim a cada layout de cada dia el titol MENÚ DIA X
          */
         val titol1: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -310,7 +308,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia1.addView(titol1)
 
         val titol2: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -319,16 +317,16 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia2.addView(titol2)
 
         val titol3: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
-        titol1.layoutParams = params
-        titol1.text = "MENÚ DIA 3"
+        titol3.layoutParams = params
+        titol3.text = "MENÚ DIA 3"
         layoutDia3.addView(titol3)
 
         val titol4: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -337,7 +335,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia4.addView(titol4)
 
         val titol5: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -346,7 +344,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia5.addView(titol5)
 
         val titol6: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -355,7 +353,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia6.addView(titol6)
 
         val titol7: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
@@ -363,13 +361,225 @@ class CalendariSetmanal : AppCompatActivity() {
         titol7.text = "MENÚ DIA 7"
         layoutDia7.addView(titol7)
 
+        val layoutI11: LinearLayout = LinearLayout(this)
+        val layoutI12: LinearLayout = LinearLayout(this)
+        val layoutI13: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI11.layoutParams = params
+        layoutI12.layoutParams = params
+        layoutI13.layoutParams = params
+        layoutI11.orientation = LinearLayout.HORIZONTAL
+        layoutI12.orientation = LinearLayout.HORIZONTAL
+        layoutI13.orientation = LinearLayout.HORIZONTAL
+
+        var apat1: TextView = TextView(this)
+        var apat2: TextView = TextView(this)
+        var apat3: TextView = TextView(this)
+        var nom1: TextView = TextView(this)
+        var nom2: TextView = TextView(this)
+        var nom3: TextView = TextView(this)
+        var mesInfo1: Button = Button(this)
+        var mesInfo2: Button = Button(this)
+        var mesInfo3: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat1.layoutParams = params
+        apat2.layoutParams = params
+        apat3.layoutParams = params
+        apat1.text = "Esmorzar: "
+        apat2.text = "Dinar: "
+        apat3.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom1.layoutParams = params
+        nom2.layoutParams = params
+        nom3.layoutParams = params
+        nom1.text = "Proposta 1"
+        nom2.text = "Proposta 2"
+        nom3.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo1.layoutParams = params
+        mesInfo1.text = "+INFO"
+        mesInfo2.layoutParams = params
+        mesInfo2.text = "+INFO"
+        mesInfo3.layoutParams = params
+        mesInfo3.text = "+INFO"
+
+        //DIA 2
+        val layoutI21: LinearLayout = LinearLayout(this)
+        val layoutI22: LinearLayout = LinearLayout(this)
+        val layoutI23: LinearLayout = LinearLayout(this)
+
+        params = LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            100
+        )
+        layoutI21.layoutParams = params
+        layoutI22.layoutParams = params
+        layoutI23.layoutParams = params
+        layoutI21.orientation = LinearLayout.HORIZONTAL
+        layoutI22.orientation = LinearLayout.HORIZONTAL
+        layoutI23.orientation = LinearLayout.HORIZONTAL
+
+        var apat21: TextView = TextView(this)
+        var apat22: TextView = TextView(this)
+        var apat23: TextView = TextView(this)
+        var nom21: TextView = TextView(this)
+        var nom22: TextView = TextView(this)
+        var nom23: TextView = TextView(this)
+        var mesInfo21: Button = Button(this)
+        var mesInfo22: Button = Button(this)
+        var mesInfo23: Button = Button(this)
+        params = LinearLayout.LayoutParams(
+            175,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        apat21.layoutParams = params
+        apat22.layoutParams = params
+        apat23.layoutParams = params
+        apat21.text = "Esmorzar: "
+        apat22.text = "Dinar: "
+        apat23.text = "Sopar: "
+
+
+        params = LinearLayout.LayoutParams(
+            229,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+
+        nom21.layoutParams = params
+        nom22.layoutParams = params
+        nom23.layoutParams = params
+        nom21.text = "Proposta 1"
+        nom22.text = "Proposta 2"
+        nom23.text = "Proposta 3"
+
+        params = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        mesInfo21.layoutParams = params
+        mesInfo21.text = "+INFO"
+        mesInfo22.layoutParams = params
+        mesInfo22.text = "+INFO"
+        mesInfo23.layoutParams = params
+        mesInfo23.text = "+INFO"
+
+
+
         val llistaMenus = controlador.recorrerMenus(setmanaActual)
-        //es creen els textViews
+        //es recorre l'array de menús trobats i s'escriuen en els textViews
+        var apats: Int = 1
+        var dies: Int = 1
         if (llistaMenus != null) {
             for (i in llistaMenus) {
+                if (i.equals("-2")) {
+                    dies++
+                    apats = 1
+                }
+                else if (i.equals("-1")) apats++
+                else {
+                    //assignar a nomXY el valor de i
+                    when (dies) {
+                        1 -> {
+                            when (apats) {
+                                1 -> nom1.text = i
+                                2 -> nom2.text = i
+                                3 -> nom3.text = i
+                            }
+                        }
+                        2 -> {
+                            when (apats) {
+                                1 -> nom21.text = i
+                                2 -> nom22.text = i
+                                3 -> nom23.text = i
+                            }
+                        }
+
+                    }
+                    println(i)
+                }
 
             }
         }
+
+        layoutI11.addView(apat1)
+        layoutI11.addView(nom1)
+        layoutI11.addView(mesInfo1)
+        layoutI21.addView(apat21)
+        layoutI21.addView(nom21)
+        layoutI21.addView(mesInfo21)
+
+        layoutI12.addView(apat2)
+        layoutI12.addView(nom2)
+        layoutI12.addView(mesInfo2)
+        layoutI22.addView(apat22)
+        layoutI22.addView(nom22)
+        layoutI22.addView(mesInfo22)
+
+        layoutI13.addView(apat3)
+        layoutI13.addView(nom3)
+        layoutI13.addView(mesInfo3)
+        layoutI23.addView(apat23)
+        layoutI23.addView(nom23)
+        layoutI23.addView(mesInfo23)
+
+        layoutDia1.addView(layoutI11)
+        layoutDia1.addView(layoutI12)
+        layoutDia1.addView(layoutI13)
+        layoutDia2.addView(layoutI21)
+        layoutDia2.addView(layoutI22)
+        layoutDia2.addView(layoutI23)
+        /* var arrayLayouts: ArrayList<LinearLayout> = ArrayList()
+         arrayLayouts.addAll(listOf(layoutI1, layoutI2, layoutI3, layoutI4, layoutI5, layoutI6, layoutI7))
+         for (i in arrayLayouts) {
+             var apat1: TextView = TextView(this)
+             var apat2: TextView = TextView(this)
+             var apat3: TextView = TextView(this)
+             var nom: TextView = TextView(this)
+             var mesInfo: Button = Button(this)
+             params = LinearLayout.LayoutParams(
+                 70,
+                 ViewGroup.LayoutParams.WRAP_CONTENT
+             )
+             apat1.layoutParams = params
+             apat2.layoutParams = params
+             apat3.layoutParams = params
+
+             apat1.text = "Esmorzar"
+             apat2.text = "Dinar"
+             apat3.text = "Sopar"
+             i.addView(apat1)
+             i.addView(apat2)
+             i.addView(apat3)
+         }*/
+
+
+        //enganxa els layouts de cada dia al contenidor
+        layoutMostrarMenus.addView(layoutDia1)
+        layoutMostrarMenus.addView(layoutDia2)
+        layoutMostrarMenus.addView(layoutDia3)
+        layoutMostrarMenus.addView(layoutDia4)
+        layoutMostrarMenus.addView(layoutDia5)
+        layoutMostrarMenus.addView(layoutDia6)
+        layoutMostrarMenus.addView(layoutDia7)
+
+
     }
 
 }

@@ -46,8 +46,17 @@ object Controlador {
         isFromProposta = false
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
+        facadeCarteraReceptes.getLlistaBaseDades()
+        facadeCarteraCuriositats.getLlistaBaseDades()
+        //initCuriositatsBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
+
+    /*private fun initCuriositatsBD() {
+        for (curiositat in facadeCarteraCuriositats.getLlistaCuriositats()) {
+            baseDades.addCuriositat(curiositat)
+        }
+    }*/
 
 
     fun actualizarUsuariActiu(){
@@ -88,10 +97,10 @@ object Controlador {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun getSetmanaActual(): String {
+    fun getSetmanaActual(): Int {
         val setInicial = facadeCarteraUsuaris.getSetmanaUser(usuariActiu)
         val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
-        return "Setmana " + ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
+        return ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
 
     /**
@@ -99,7 +108,7 @@ object Controlador {
      *         **********************
      */
 
-    fun recorrerMenus(setmanaActual: String): ArrayList<String>? {
+    fun recorrerMenus(setmanaActual: Int): ArrayList<String>? {
         val usuari: Usuari? = usuariActiu?.let { getUsuariByName(it) }
         if (usuari != null) {
             return usuari.recorrerMenus(setmanaActual)
@@ -141,20 +150,21 @@ object Controlador {
 
     fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
         if(usuariActiu != null) {
-
             return facadeCarteraUsuaris.getUsuariByName(usuariActiu!!)
                 ?.getCategoriaApatDia(setmana, dia, apat)
         }
         return null
     }
 
-    fun afegirReceptaNova(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
+    fun afegirReceptaNova(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,
                           comensals:String, tipusRecepta:String, ingredients: ArrayList<String>): Int {
         if (nom.isEmpty() or pasos.isEmpty() or tempsPrep.isEmpty() or
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
-        if (facadeCarteraReceptes.addRecepta(nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)){
+        val proposta = facadeCarteraReceptes.addRecepta(lastpath,nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
+        if (proposta!=null){
+            baseDades.addProposta(proposta)
             return 0
         }
         return 2
@@ -168,11 +178,11 @@ object Controlador {
         return facadeCarteraReceptes.getNumPropostes()
     }
 
-    fun afegirPropostaLayout(
+    fun afegirPropostaLayout(context: Context,
         position: Int, imatge: ImageView, title: TextView, tempsP: TextView,
         tempsC: TextView, numPersones: TextView, icona: ImageView
     ) {
-        imatge.setImageResource(facadeCarteraReceptes.getImage(position))
+        baseDades.carregarImatge(context,imatge,facadeCarteraReceptes.getPath(position))
         title.text = facadeCarteraReceptes.getTitle(position)
         tempsP.text = facadeCarteraReceptes.getTPrep(position)
         tempsC.text = facadeCarteraReceptes.getTCuina(position)
@@ -184,7 +194,7 @@ object Controlador {
         return facadeCarteraReceptes.getTitle(position)
     }
 
-    fun afegirReceptaLayout(
+    fun afegirReceptaLayout(context: Context,
         titolRecepta: TextView, autor: TextView, passos: TextView,
         tPrep: TextView, tCuina: TextView, comensales: TextView, iconRecepta: ImageView
     ) {
@@ -195,7 +205,7 @@ object Controlador {
         tPrep.text = facadeCarteraReceptes.getTPrep(position)
         tCuina.text = facadeCarteraReceptes.getTCuina(position)
         comensales.text = facadeCarteraReceptes.getNPax(position)
-        facadeCarteraReceptes.setIcona(iconRecepta, position)
+        baseDades.carregarImatge(context,iconRecepta,facadeCarteraReceptes.getPath(position))
     }
 
     fun getIconaReceptaActiva(): String? {
@@ -220,7 +230,12 @@ object Controlador {
     }
 
     fun addCuriositat(tema: String, desc: String, imatge: Int): Boolean {
-        return facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        val curiositat = facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
+        if (curiositat!=null){
+            baseDades.addCuriositat(curiositat)
+            return true
+        }
+        return false
     }
 
     fun removeCuriositat(index: Int) {
@@ -351,10 +366,19 @@ object Controlador {
     fun getUsuari(descripcio: String): String {
         return facadeCarteraPreguntes.getUsari(descripcio)
     }
-
+  
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
         return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
     }
 
+    fun recuperarContra(correu: String,context: Context) {
+        /*
+       baseDades.recuperarContra(correu,context)
+       */
 
+    }
+
+    fun getIngredientsProp(): ArrayList<String> {
+        return facadeCarteraReceptes.getIngredients(receptaActiva)
+    }
 }

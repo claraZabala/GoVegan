@@ -30,33 +30,13 @@ class Recepta : AppCompatActivity() {
         "camiIcona4(ex:gluten)"
     )
     var esCertificat = false
-    var controlador: Controlador
-
-    init {
-        controlador = Controlador
-    }
-
+    var controlador: Controlador = Controlador
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.recepta)
-        var recepta = controlador.getReceptaByName(controlador.getReceptaActiva()!!)
-        titol_recepta.text = recepta?.title
-        autor.text = recepta?.autor
-        passos.text = recepta?.descripcio
-        t_prep.text = recepta?.tempsPrep
-        t_cuina.text = recepta?.tempsCuina
-        comensales.text = recepta?.numPersones
-        this.ingredients = recepta?.ingredients!!
-        if (recepta?.icona.equals("0")) {
-            iconRecepta.setImageResource(R.drawable.cara)
-        }
-        if (recepta?.equals("1")!!) {
-            iconRecepta.setImageResource(R.drawable.ou)
-        }
-        if (recepta?.equals("2")!!) {
-            iconRecepta.setImageResource(R.drawable.carn)
-        }
+        controlador.afegirReceptaLayout(this,titol_recepta,autor,passos,t_prep,t_cuina,comensales,iconRecepta)
+        ingredients = controlador.getIngredientsProp()
     }
 
     fun llista(view: View) {
@@ -88,7 +68,7 @@ class Recepta : AppCompatActivity() {
 
     fun actualitzarLlistaIngredients(dialogView: View) {
         for (i in ingredients) {
-            val btnIngredient: CheckBox = CheckBox(this)
+            val btnIngredient = CheckBox(this)
             btnIngredient.text = i
             dialogView.layoutIngredientsBD.addView(btnIngredient)
             btnIngredient.isChecked = true
@@ -102,7 +82,5 @@ class Recepta : AppCompatActivity() {
                 }
             }
         }
-
-
     }
 }

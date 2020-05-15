@@ -41,7 +41,7 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         val numPersones: TextView = view.findViewById(R.id.numPersones)
         val icona: ImageView = view.findViewById(R.id.iconRecepta)
 
-        controlador.afegirPropostaLayout(position,imatge,title,tempsP,tempsC,numPersones,icona)
+        controlador.afegirPropostaLayout(context,position,imatge,title,tempsP,tempsC,numPersones,icona)
 
 
         /*imatge.setImageResource(propostes[position].imatge)

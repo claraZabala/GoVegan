@@ -16,11 +16,12 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         controlador = Controlador
     }
 
-    fun addRecepta(nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Boolean {
-        carteraReceptes.addRecepta(nom, pasos, tempsPrep, tempsCuina, comensals, tipusRecepta,autor,
-            ingredients) ?: return false
+    fun addRecepta(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,ingredients: ArrayList<String>, autor:String): Proposta? {
+        val proposta = carteraReceptes.addRecepta(lastpath,nom, pasos, tempsPrep, tempsCuina, comensals,
+            tipusRecepta, autor, ingredients)
+            ?: return null
         controlador.setReceptaActiva(nom)
-        return true
+        return proposta
     }
 
     fun getReceptaByName(nom: String): Proposta? {
@@ -34,7 +35,9 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
     fun getImage(position: Int): Int {
         return carteraReceptes.getImage(position)
     }
-
+    fun getPath(position: Int): String? {
+        return carteraReceptes.getPath(position)
+    }
     fun getTitle(position: Int): String? {
         return carteraReceptes.getTitle(position)
     }
@@ -55,6 +58,7 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
         carteraReceptes.setIcona(icona,position)
     }
 
+
     fun getPos(receptaActiva: String?): Int {
         return carteraReceptes.getPos(receptaActiva)
     }
@@ -69,5 +73,17 @@ class FacadeCarteraReceptes(baseDades: BaseDades) {
 
     fun getIcona(receptaActiva: String?): String? {
         return carteraReceptes.getIcona(receptaActiva)
+    }
+
+    fun getAllReceptes(): ArrayList<Proposta> {
+        return carteraReceptes.getReceptes()
+    }
+
+    fun getIngredients(receptaActiva: String?): ArrayList<String> {
+        return carteraReceptes.getIngredients(receptaActiva)
+    }
+
+    fun getLlistaBaseDades() {
+        carteraReceptes.propostes = baseDades.getAllPropostes()
     }
 }

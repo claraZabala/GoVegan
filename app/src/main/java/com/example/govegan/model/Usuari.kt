@@ -62,10 +62,10 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         }
     }
 
-    fun recorrerMenus(setmanaActual: String): ArrayList<String> {
+    fun recorrerMenus(setmanaActual: Int): ArrayList<String> {
         var llistaMenus: ArrayList<String> = ArrayList()
         for (i in setmanes) {
-            if (i.getName().equals(setmanaActual)) {
+            if (i.getName().equals("Setmana "+setmanaActual)) {
                 llistaMenus = i.recorrerDies()
             }
         }
@@ -80,9 +80,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
                         return j.getApat(apat)
                     }
                 }
-
         }
         return null
-
     }
 }

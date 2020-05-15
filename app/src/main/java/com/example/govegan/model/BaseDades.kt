@@ -1,21 +1,42 @@
 package com.example.govegan.model
 
+import android.content.Context
+import android.net.Uri
 import android.util.Log
+import android.widget.ImageView
+import android.widget.Toast
+import com.bumptech.glide.Glide
 import com.example.govegan.controlador.Controlador
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
+import com.google.firebase.storage.FirebaseStorage
 
 class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
     var userID:String = ""
+    var mStorage = FirebaseStorage.getInstance().getReference()
 
     companion object {
         private val TAG = "DocSnippets"
     }
-
+    fun carregarImatge(context: Context,imatge:ImageView,lastPath:String?){
+        if(lastPath != null) {
+            var storageRef =
+            FirebaseStorage.getInstance().getReference();
+            storageRef.child("fotosRecepta").child(lastPath).getDownloadUrl()
+                .addOnSuccessListener {
+                    if(it != null){
+                        Glide.with(context)
+                            .load(it)
+                            .fitCenter()
+                            .centerCrop()
+                            .into(imatge)
+                    }
+                    }
+        }
+    }
     fun actualitzarUsuariActiu() {
         var usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
         if (usuari != null) {
@@ -33,11 +54,40 @@ class BaseDades(val db: FirebaseFirestore) {
         return ingredients
 
     }
+
+    fun getAllPropostes():ArrayList<Proposta>{
+        var propostes:ArrayList<Proposta> = ArrayList()
+        db.collection("propostes").get().addOnSuccessListener {
+                resultat->
+            for(proposta: QueryDocumentSnapshot in resultat){
+                propostes.add(proposta.toObject(Proposta::class.java))
+            }
+        }
+        return propostes
+    }
+
+    fun getAllCuriositats():ArrayList<Curiositat>{
+        var curiositats:ArrayList<Curiositat> = ArrayList()
+        db.collection("curiositats").get().addOnSuccessListener {
+                resultat->
+            for(curiositat: QueryDocumentSnapshot in resultat){
+                curiositats.add(curiositat.toObject(Curiositat::class.java))
+            }
+        }
+        return curiositats
+    }
+
     fun addIngredients(ingredient: Ingredient){
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
     }
 
+    fun addProposta(proposta: Proposta){
+        db.collection("propostes").document(proposta.title).set(proposta)
+    }
 
+    fun addCuriositat(curiositat: Curiositat){
+        db.collection("curiositats").document(curiositat.title).set(curiositat)
+    }
 
     fun getUsuariActiu(ID:String){
         var usuari:Usuari?
@@ -100,5 +150,16 @@ class BaseDades(val db: FirebaseFirestore) {
         si coincideix --> setmanes_usuari.add(i)
          */
         return setmanesUsuari
+    }
+
+    fun recuperarContra(correu: String,context: Context){
+        FirebaseAuth.getInstance().sendPasswordResetEmail(correu)
+            .addOnCompleteListener { task ->
+                if(task.isSuccessful){
+                    Toast.makeText(context,"CORREU ENVIAT", Toast.LENGTH_LONG).show()}
+                else{
+                    Toast.makeText(context,"CORREU ERRONI o s'acaba d'enviar", Toast.LENGTH_LONG).show()}
+            }
+
     }
 }

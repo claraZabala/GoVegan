@@ -29,15 +29,15 @@ class CarteraCuriositats {
         }
         return false
     }
-    fun addCuriositat(tema:String,desc:String,imatge:Int):Boolean{
+    fun addCuriositat(tema:String,desc:String,imatge:Int):Curiositat?{
         for (item in llistaCuriositats) {
             if (item.title.equals(tema)){
-                return false
+                return null
             }
         }
-        val curiositat:Curiositat = Curiositat(imatge,tema,desc)
+        val curiositat = Curiositat(imatge,tema,desc)
         llistaCuriositats.add(curiositat)
-        return true
+        return curiositat
     }
 
     fun removeCuriositat(index: Int){

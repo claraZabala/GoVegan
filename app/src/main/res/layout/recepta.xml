@@ -5,6 +5,15 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <LinearLayout
+        android:background="@color/taronjaClar"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -22,19 +31,15 @@
         android:layout_marginEnd="30dp"
         android:layout_marginStart="15dp" />
 
-        <ImageView
-            android:id="@+id/iconRecepta"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ou" />
+
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/iconRecepta"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="158dp"
-        android:src="@drawable/batut" />
+        android:layout_height="158dp" />
 
     <TextView
         android:id="@+id/autor"
@@ -49,7 +54,7 @@
     <TextView
         android:id="@+id/passos"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:textSize="15sp"
         android:layout_marginLeft="10dp"
@@ -190,4 +195,15 @@
             app:fabSize="mini"
             app:srcCompat="@drawable/afegir" />
     </LinearLayout>
+        <Button
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/verdClar"
+            android:layout_gravity="center"
+            android:text="AFEGIR RECEPTA CALENDARI"
+            android:onClick="calendari"></Button>
+
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>
