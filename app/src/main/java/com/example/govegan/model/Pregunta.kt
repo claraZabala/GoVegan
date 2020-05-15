@@ -50,18 +50,19 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         )
     }
 
-    fun crearResposta(
+    fun crearResposta (
         tema: String,
         descripcio: String,
         esCertificat: Boolean,
         idUsuari: String,
         idDestinatari: String,
         descPreg : String
-    ) {
+    ) : Resposta{
         var idP = idDestinatari + "-" + descPreg + "-" + tema
         var resp = Resposta(idUsuari, descripcio, tema, esCertificat, idP)
         respostes.add(resp)
         contRespostes++
+        return resp
     }
 
     fun mostrarRespostes(): ArrayList<Resposta>? {
@@ -81,10 +82,7 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         var idPreg: String = idUsuari + "-" + desc + "-" + tema
         var respostesDesc: ArrayList<String>? = ArrayList()
         for (i: Resposta in respostes) {
-            println("Descripcio: " + i.descripcio + "Id PREGUNTA: " + i.idPregunta)
             if (i.idPregunta.equals(idPreg)) {
-                println("Els ids coincideixen!")
-                println("La resposta eeeeeeeeees: " + i.idUsuari + ": " + i.descripcio)
                 var resp : String = (i.idUsuari + ": " + i.descripcio)
                 respostesDesc?.add(resp)
             }
@@ -92,4 +90,9 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         return respostesDesc
     }
 
+    constructor():this( "", "", ""){
+
+    }
+
 }
+
