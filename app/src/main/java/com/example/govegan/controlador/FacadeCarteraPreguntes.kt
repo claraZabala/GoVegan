@@ -19,8 +19,8 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
         return carteraPreguntes.mostrarPreguntesPerTema(temaP)
     }
 
-    fun crearRespostaF(tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String){
-        carteraPreguntes.crearResp(tema, descripcio, esCertificat, idUsuari, idDestinatari)
+    fun crearRespostaF(tema: String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String, descPreg : String){
+        carteraPreguntes.crearResp(tema, descripcio, esCertificat, idUsuari, idDestinatari, descPreg )
     }
 
     fun mostrarRespPerIdPregF(tema:  String, descripcio: String, esCertificat: Boolean, idUsuari: String, idDestinatari: String): ArrayList<Resposta>?{
@@ -33,6 +33,10 @@ class FacadeCarteraPreguntes(baseDades: BaseDades) {
 
     fun getUsari(descripcioo: String): String{
         return carteraPreguntes.getUsari(descripcioo)
+    }
+
+    fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
+        return carteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
     }
 
 }

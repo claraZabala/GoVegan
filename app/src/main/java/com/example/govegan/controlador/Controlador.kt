@@ -330,14 +330,16 @@ object Controlador {
         descripcio: String,
         esCertificat: Boolean,
         idUsuari: String,
-        idDestinatari: String
+        idDestinatari: String,
+        descPreg : String
     ) {
         facadeCarteraPreguntes.crearRespostaF(
             tema,
             descripcio,
             esCertificat,
             idUsuari,
-            idDestinatari
+            idDestinatari,
+            descPreg
         )
     }
 
@@ -364,6 +366,10 @@ object Controlador {
     fun getUsuari(descripcio: String): String {
         return facadeCarteraPreguntes.getUsari(descripcio)
     }
+  
+    fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
+        return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
+    }
 
     fun recuperarContra(correu: String,context: Context) {
         /*
@@ -375,5 +381,4 @@ object Controlador {
     fun getIngredientsProp(): ArrayList<String> {
         return facadeCarteraReceptes.getIngredients(receptaActiva)
     }
-
 }

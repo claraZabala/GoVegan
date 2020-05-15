@@ -16,12 +16,15 @@ import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import com.example.govegan.model.Pregunta
 import kotlinx.android.synthetic.main.dialog_resposta.*
+import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
 import kotlinx.android.synthetic.main.forum.preguntaVew
+import kotlinx.android.synthetic.main.llista_compra.*
 
 
 class Forum : AppCompatActivity() {
     var llistaPreguntes: ArrayList<String> = ArrayList()
+    var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
     var tema: String = ""
 
@@ -95,33 +98,6 @@ class Forum : AppCompatActivity() {
                     //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
                         mostrarPrgeunta(descripcio, layoutpreg)
                 }
-
-
-                /*
-                    // Que passa quan cliquem als botons creapts per cada pregunta:
-
-                }
-
-
-                fun actualitzarLlistaRespostes(dialogView: View, tema: String){
-                    dialogView.layoutIngredientsBD.removeAllViews()
-                    for (i in llistaIngredients) {
-                        var btnIngredient: CheckBox = CheckBox(this)
-                        btnIngredient.setText(i)
-                        dialogView.layoutIngredientsBD.addView(btnIngredient)
-                        if (i in llistaIngredientsCompra)
-                            btnIngredient.isChecked = true
-                        btnIngredient.setOnClickListener {
-                            if (btnIngredient.isChecked) {
-                                llistaIngredientsCompra.add(btnIngredient.text.toString())
-                                textIngredients.text = llistaIngredientsCompra.toString()
-                            }
-                            if (!btnIngredient.isChecked) {
-                                llistaIngredientsCompra.remove(btnIngredient.text.toString())
-                                textIngredients.text = llistaIngredientsCompra.toString()
-                            }
-                        }
-                    }*/
             }
         }
     }
@@ -145,10 +121,10 @@ class Forum : AppCompatActivity() {
 
         //Text View descripcio
         var textViewDesc: TextView = TextView(this)
-        textViewDesc.text = i +  " Respostes: " + controlador.getContadorPreguntes(i, tema)
+        textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
         params = ViewGroup.LayoutParams(
-            670,
+            700,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         textViewDesc.layoutParams = params
@@ -171,7 +147,6 @@ class Forum : AppCompatActivity() {
         )
         lay.layoutParams = params
 
-
         layoutpreg.addView(lay)
 
         botoRespostes.setOnClickListener() {
@@ -181,16 +156,70 @@ class Forum : AppCompatActivity() {
             dialog.setCancelable(false)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
-            var botoEnviar : Button = findViewById(R.id.enviarRespostaAlForumm)
+            mostrarResposta(i, dialogView)
 
-            //TODO: Arreglar aquesta part i/o possar un altre botó per tancar
-            botoEnviar.setOnClickListener {
+            dialogView.enviarRespostaAlForumm.setOnClickListener() {
+                var descripcioResp: String = dialogView.respostaText.text.toString()
+                if (descripcioResp == null){
+                    toast("Has d'omplir tots els camps")
+                }else{
+                    controlador.crearResposta(tema, descripcioResp, false,
+                    controlador.getUsuariActiu()!!, controlador.getUsuari(i), i)
+                    dialogView.respostaText.setText("")
+                    llistaRespostesPerDesc = controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
+                    mostrarResposta(i, dialogView)
+                }
+            }
+
+            dialogView.buttonEnrere.setOnClickListener {
                 mAlertDialog.dismiss()
             }
         }
 
     }
-}
+
+    fun mostrarResposta (i: String , dialogView: View) {
+
+        dialogView.layoutRespostes.removeAllViews()
+
+        var textViewUsuari: TextView = TextView(this)
+        var params = ViewGroup.LayoutParams(
+            1280,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        textViewUsuari.layoutParams = params
+        textViewUsuari.text = controlador.getUsuari(i) + " pregunta: " + i + "\nRespostes: "
+        textViewUsuari.textSize = 20F
+        textViewUsuari.gravity = Gravity.LEFT
+        textViewUsuari.setBackgroundColor(resources.getColor(R.color.gris))
+
+
+        dialogView.layoutRespostes.addView(textViewUsuari)
+
+        llistaRespostesPerDesc =
+            controlador.mostrarRespostesPerDesc(controlador.getUsuari(i), i, tema)!!
+        for (j in llistaRespostesPerDesc) {
+            mostrarRespConcreta(j, dialogView)
+        }
+    }
+
+        fun mostrarRespConcreta(j: String, dialogView: View){
+            // Creem un text View per cada resposta
+            var textViewResp: TextView = TextView(this)
+            textViewResp.text = j
+            textViewResp.gravity = Gravity.LEFT
+            var params = ViewGroup.LayoutParams(
+                1280,
+                150
+            )
+            textViewResp.layoutParams = params
+            textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
+
+            dialogView.layoutRespostes.addView(textViewResp)
+        }
+
+    }
+
 
 
 
