@@ -4,7 +4,7 @@ package com.example.govegan.model
 class Ingredient (nom:String){
 
 
-    var imatge:Int = 0
+    var imatge:String? = null
      var nom:String
 
     init{
@@ -14,7 +14,7 @@ class Ingredient (nom:String){
     constructor():this(""){
 
     }
-    constructor(nom:String,imatge:Int):this(nom) {
+    constructor(nom:String,imatge:String?):this(nom) {
         this.nom = nom
         this.imatge = imatge
     }

@@ -21,7 +21,23 @@ class BaseDades(val db: FirebaseFirestore) {
     companion object {
         private val TAG = "DocSnippets"
     }
-    fun carregarImatge(context: Context,imatge:ImageView,lastPath:String?){
+    fun carregarImatgeIngredient(context: Context,imatge:ImageView,lastPath:String?){
+        if(lastPath != null) {
+            var storageRef =
+                FirebaseStorage.getInstance().getReference();
+            storageRef.child("ingredients").child(lastPath).getDownloadUrl()
+                .addOnSuccessListener {
+                    if(it != null){
+                        Glide.with(context)
+                            .load(it)
+                            .fitCenter()
+                            .centerCrop()
+                            .into(imatge)
+                    }
+                }
+        }
+    }
+    fun carregarImatgeRecepta(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
             var storageRef =
             FirebaseStorage.getInstance().getReference();

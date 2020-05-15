@@ -5,20 +5,28 @@ class CarteraIngredients {
     var ingredients: ArrayList<Ingredient> = ArrayList()
 
     init {
-        /*
-        ingredients.add(Ingredient("llentia",R.drawable.llentia))
-        ingredients.add(Ingredient("maduixa",R.drawable.maduixa))
-        ingredients.add(Ingredient("brocoli",R.drawable.brocoli))
-        ingredients.add(Ingredient("xocolata",R.drawable.xocolata))
-        ingredients.add(Ingredient("batut",R.drawable.batut))
-        ingredients.add(Ingredient("ou",R.drawable.ou))
-        ingredients.add(Ingredient("arros",R.drawable.arros))
-        ingredients.add(Ingredient("macarrons",R.drawable.macarrons))
-        ingredients.add(Ingredient("pa",R.drawable.pa))
-        ingredients.add(Ingredient("pebrot",R.drawable.pebrot))
-        ingredients.add(Ingredient("tomaquet",R.drawable.tomaquet))
-        ingredients.add(Ingredient("ceba",R.drawable.ceba))
-        */
+        ingredients.add(Ingredient("llentia","llentia.png"))
+        ingredients.add(Ingredient("maduixa","maduixa.png"))
+        ingredients.add(Ingredient("brocoli","brocoli.png"))
+        ingredients.add(Ingredient("xocolata","xocolata.png"))
+        ingredients.add(Ingredient("arros","arros.jpg"))
+        ingredients.add(Ingredient("macarrons","macarrons.ppg"))
+        ingredients.add(Ingredient("pa","pa.jpg"))
+        ingredients.add(Ingredient("pebrot","pebrot.jpg"))
+        ingredients.add(Ingredient("tomaquet","tomaquet.jpeg"))
+        ingredients.add(Ingredient("ceba","ceba.jpg"))
+        ingredients.add(Ingredient("pastanaga","pastanaga.jpg"))
+        ingredients.add(Ingredient("carbassó","carbasso.jpg"))
+        ingredients.add(Ingredient("quinoa","quinoa.jpg"))
+        ingredients.add(Ingredient("cuscus","cuscus.jpg"))
+        ingredients.add(Ingredient("espinacs","espinacs.jpg"))
+        ingredients.add(Ingredient("Llet de soja","lletSoja.jpg"))
+        ingredients.add(Ingredient("champinyons","champi.jpg"))
+        ingredients.add(Ingredient("oli d'oliva","oli.jpg"))
+        ingredients.add(Ingredient("blat de moro","blat.jpg"))
+        ingredients.add(Ingredient("sucre","sucre.jpg"))
+        ingredients.add(Ingredient("curcuma","curcuma.jpg"))
+
 
 
     }
@@ -47,7 +55,7 @@ class CarteraIngredients {
         return nomIngredients
     }
 
-    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int):Ingredient{
+    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: String?):Ingredient{
         val nouIngredient:Ingredient = Ingredient(nomIngredient,fotoInt)
         ingredients.add(nouIngredient)
         return nouIngredient
@@ -60,13 +68,13 @@ class CarteraIngredients {
         return nouIngredient
     }
     
-    fun getImatgeIngredient(nomIngredient: String):Int{
+    fun getImatgeIngredient(nomIngredient: String):String?{
         for (i in ingredients){
             if(i.nom.equals(nomIngredient))
                 if(i.imatge != null)
                     return  i.imatge
         }
-        return 0
+        return null
 
     }
 

@@ -32,7 +32,7 @@ class FacadeCarteraIngredients(baseDades: BaseDades) {
         return carteraIngredients.getNameIngredients()
     }
 
-    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: Int){
+    fun addNouIngredientAmbFoto(nomIngredient: String,fotoInt: String?){
         baseDades.addIngredients(carteraIngredients.addNouIngredientAmbFoto(nomIngredient,fotoInt))
     }
 
@@ -45,7 +45,7 @@ class FacadeCarteraIngredients(baseDades: BaseDades) {
         return  carteraIngredients.getAllIngredientsByName()
     }
 
-    fun getImatgeIngredient(nomIngredient: String):Int{
+    fun getImatgeIngredient(nomIngredient: String):String?{
         return carteraIngredients.getImatgeIngredient(nomIngredient)
     }
 }

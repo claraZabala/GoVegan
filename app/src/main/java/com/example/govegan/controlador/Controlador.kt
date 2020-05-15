@@ -59,6 +59,7 @@ object Controlador {
     }*/
 
 
+
     fun actualizarUsuariActiu(){
         baseDades.actualitzarUsuariActiu()
 
@@ -177,12 +178,15 @@ object Controlador {
     fun getNumPropostes(): Int {
         return facadeCarteraReceptes.getNumPropostes()
     }
+    fun carregarImatgeIngredient(context: Context,imatge: ImageView,ingredient: String){
+        baseDades.carregarImatgeIngredient(context,imatge, facadeCarteraIngredients.getImatgeIngredient(ingredient))
 
+    }
     fun afegirPropostaLayout(context: Context,
         position: Int, imatge: ImageView, title: TextView, tempsP: TextView,
         tempsC: TextView, numPersones: TextView, icona: ImageView
     ) {
-        baseDades.carregarImatge(context,imatge,facadeCarteraReceptes.getPath(position))
+        baseDades.carregarImatgeRecepta(context,imatge,facadeCarteraReceptes.getPath(position))
         title.text = facadeCarteraReceptes.getTitle(position)
         tempsP.text = facadeCarteraReceptes.getTPrep(position)
         tempsC.text = facadeCarteraReceptes.getTCuina(position)
@@ -205,7 +209,7 @@ object Controlador {
         tPrep.text = facadeCarteraReceptes.getTPrep(position)
         tCuina.text = facadeCarteraReceptes.getTCuina(position)
         comensales.text = facadeCarteraReceptes.getNPax(position)
-        baseDades.carregarImatge(context,iconRecepta,facadeCarteraReceptes.getPath(position))
+        baseDades.carregarImatgeRecepta(context,iconRecepta,facadeCarteraReceptes.getPath(position))
     }
 
     fun getIconaReceptaActiva(): String? {
@@ -274,7 +278,7 @@ object Controlador {
         return facadeCarteraIngredients.getNameIngredients()
     }
 
-    fun addNouIngredientAmbFoto(nomIngredient: String, fotoInt: Int) {
+    fun addNouIngredientAmbFoto(nomIngredient: String, fotoInt: String?) {
         facadeCarteraIngredients.addNouIngredientAmbFoto(nomIngredient, fotoInt)
     }
 
@@ -304,7 +308,7 @@ object Controlador {
 
 
 
-    fun getImatgeIngredient(nomIngredient: String): Int? {
+    fun getImatgeIngredient(nomIngredient: String): String? {
         return facadeCarteraIngredients.getImatgeIngredient(nomIngredient)
     }
 
