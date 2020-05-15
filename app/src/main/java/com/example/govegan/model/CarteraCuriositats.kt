@@ -6,10 +6,6 @@ class CarteraCuriositats {
     var llistaCuriositats: ArrayList<Curiositat> = ArrayList()
 
     init {
-        llistaCuriositats.add(Curiositat("gastronomia.jpg", "Gastronomia", "la gastronomia ..."))
-        llistaCuriositats.add(Curiositat("healthy.jpg", "Salut", "la salut ..."))
-        llistaCuriositats.add(Curiositat("moda.jpg", "Moda", "la moda ..."))
-        llistaCuriositats.add(Curiositat("altres.jpg", "Altres", "la salut ..."))
     }
 
     fun getCuriositatByTheme(tema: String): Curiositat? {
