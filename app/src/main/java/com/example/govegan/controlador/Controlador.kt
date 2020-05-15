@@ -48,8 +48,6 @@ object Controlador {
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
         facadeCarteraCuriositats.getLlistaBaseDades()
-        facadeCarteraPreguntes.getLListaBaseDades()
-
         //initPreguntesBD()
         //initCuriositatsBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
@@ -241,7 +239,7 @@ object Controlador {
         return facadeCarteraCuriositats.changeDescCuriositat(tema, descNova)
     }
 
-    fun addCuriositat(tema: String, desc: String, imatge: Int): Boolean {
+    fun addCuriositat(tema: String, desc: String, imatge: String?): Boolean {
         val curiositat = facadeCarteraCuriositats.addCuriositat(tema, desc, imatge)
         if (curiositat!=null){
             baseDades.addCuriositat(curiositat)
@@ -262,13 +260,13 @@ object Controlador {
         return facadeCarteraCuriositats.getNumCuriositats()
     }
 
-    fun afegirCuriositatLayout(
+    fun afegirCuriositatLayout(context: Context,
         position: Int,
         imatge: ImageView,
         title: TextView,
         explicacio: TextView
     ) {
-        imatge.setImageResource(facadeCarteraCuriositats.getImatge(position))
+        baseDades.carregarImatgeCuriositat(context,imatge, facadeCarteraCuriositats.getImatge(position))
         title.text = facadeCarteraCuriositats.getTitle(position)
         explicacio.text = facadeCarteraCuriositats.getDescripcio(position)
     }

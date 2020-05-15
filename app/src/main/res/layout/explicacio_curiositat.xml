@@ -10,10 +10,11 @@
          app:cardCornerRadius="20dp"
          android:layout_margin="8dp"
          android:layout_height="wrap_content">
-         <RelativeLayout
+         <LinearLayout
              android:background="@color/verdMoltClar"
              android:layout_width="match_parent"
              android:layout_height="550dp"
+             android:orientation="vertical"
              >
 
              <ImageView
@@ -37,20 +38,24 @@
 
              </TextView>
 
-             <TextView
-                 android:id="@+id/explicacióGastronomia"
-                 android:layout_below="@+id/titolGastronomia"
-                 android:layout_marginTop="3dp"
+             <ScrollView
+                 android:layout_width="278dp"
+                 android:layout_height="200dp"
                  android:layout_marginLeft="16dp"
+                 android:layout_marginTop="3dp"
                  android:layout_marginRight="16dp"
-                 android:drawablePadding="10dp"
-                 android:ellipsize="end"
-                 android:text="La industria se empeña en elaborar productos que contenten el alma de los veganos. Mercadona, por ejemplo, no deja de ampliar y mejorar el catálogo de alimentación para este nuevo nicho. Sus productos estéticos ya casi no están testados en animales."
-                 android:textColor="@color/negre"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content" />
+                 android:ellipsize="end">
 
-         </RelativeLayout>
+                 <TextView
+                     android:id="@+id/explicacióGastronomia"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_below="@+id/titolGastronomia"
+                     android:text="La industria se empeña en elaborar productos que contenten el alma de los veganos. Mercadona, por ejemplo, no deja de ampliar y mejorar el catálogo de alimentación para este nuevo nicho. Sus productos estéticos ya casi no están testados en animales."
+                     android:textColor="@color/negre" />
+             </ScrollView>
+
+         </LinearLayout>
 
      </androidx.cardview.widget.CardView>
 </LinearLayout>

@@ -13,6 +13,9 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
         this.baseDades = baseDades
     }
 
+    fun getImatge(position: Int):String?{
+       return carteraCuriositats.llistaCuriositats[position].imatge
+    }
     fun getLlistaCuriositats(): ArrayList<Curiositat> {
         return carteraCuriositats.llistaCuriositats
     }
@@ -25,7 +28,7 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
         return carteraCuriositats.changeDescCuriositat(tema, descNova)
     }
 
-    fun addCuriositat(tema: String, desc: String, imatge: Int): Curiositat? {
+    fun addCuriositat(tema: String, desc: String, imatge: String?): Curiositat? {
         return carteraCuriositats.addCuriositat(tema, desc, imatge)
     }
 
@@ -41,10 +44,6 @@ class FacadeCarteraCuriositats(baseDades: BaseDades) {
 
     fun getNumCuriositats(): Int {
         return carteraCuriositats.llistaCuriositats.size
-    }
-
-    fun getImatge(position: Int): Int {
-        return carteraCuriositats.getImage(position)
     }
 
     fun getTitle(position: Int): String {

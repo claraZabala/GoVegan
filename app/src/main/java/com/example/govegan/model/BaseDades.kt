@@ -35,6 +35,22 @@ class BaseDades(val db: FirebaseFirestore) {
                 }
         }
     }
+    fun carregarImatgeCuriositat(context: Context,imatge:ImageView,lastPath:String?){
+        if(lastPath != null) {
+            var storageRef =
+                FirebaseStorage.getInstance().reference
+            storageRef.child("curiositats").child(lastPath).downloadUrl
+                .addOnSuccessListener {
+                    if(it != null){
+                        Glide.with(context)
+                            .load(it)
+                            .fitCenter()
+                            .centerCrop()
+                            .into(imatge)
+                    }
+                }
+        }
+    }
     fun carregarImatgeRecepta(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
             var storageRef =
