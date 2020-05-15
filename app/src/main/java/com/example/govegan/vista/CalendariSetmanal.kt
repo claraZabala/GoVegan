@@ -262,7 +262,13 @@ class CalendariSetmanal : AppCompatActivity() {
     * Quan es prem mostrar menús, es fa un recorregut pels dies de la setmana activa de l'usuari actiu
     * i s'imprimeixen els menús en TextViews a sota en un scrollView
      */
-    fun mostrarMenus(view: View) {
+    fun mostrarMenus(view: View): Int {
+        if (!mostrarMenus.isChecked) {
+            //netegem el que hi havia
+            layoutMostrarMenus.removeAllViews()
+            return 0
+        }
+
         //netegem el que hi havia
         layoutMostrarMenus.removeAllViews()
 
@@ -788,7 +794,7 @@ class CalendariSetmanal : AppCompatActivity() {
         val noms: List<TextView> = listOf<TextView>(nom1, nom2, nom3, nom21, nom22, nom23, nom31,
             nom32, nom33, nom41, nom42, nom43, nom51, nom52, nom53, nom61, nom62, nom63, nom71,
             nom72, nom73)
-        for (i in noms) println(i)
+
         recorregutMenus(noms)
 
         layoutI11.addView(apat1)
@@ -887,6 +893,8 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutMostrarMenus.addView(layoutDia5)
         layoutMostrarMenus.addView(layoutDia6)
         layoutMostrarMenus.addView(layoutDia7)
+
+        return 0
     }
 
 
