@@ -1,13 +1,11 @@
 package com.example.govegan.model
 
 import android.content.Context
-import android.net.Uri
 import android.util.Log
 import android.widget.ImageView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.govegan.controlador.Controlador
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
@@ -16,7 +14,7 @@ import com.google.firebase.storage.FirebaseStorage
 class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
     var userID:String = ""
-    var mStorage = FirebaseStorage.getInstance().getReference()
+    var mStorage = FirebaseStorage.getInstance().reference
 
     companion object {
         private val TAG = "DocSnippets"
@@ -24,8 +22,8 @@ class BaseDades(val db: FirebaseFirestore) {
     fun carregarImatgeIngredient(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
             var storageRef =
-                FirebaseStorage.getInstance().getReference();
-            storageRef.child("ingredients").child(lastPath).getDownloadUrl()
+                FirebaseStorage.getInstance().reference
+            storageRef.child("ingredients").child(lastPath).downloadUrl
                 .addOnSuccessListener {
                     if(it != null){
                         Glide.with(context)
@@ -40,8 +38,8 @@ class BaseDades(val db: FirebaseFirestore) {
     fun carregarImatgeRecepta(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
             var storageRef =
-            FirebaseStorage.getInstance().getReference();
-            storageRef.child("fotosRecepta").child(lastPath).getDownloadUrl()
+            FirebaseStorage.getInstance().reference
+            storageRef.child("fotosRecepta").child(lastPath).downloadUrl
                 .addOnSuccessListener {
                     if(it != null){
                         Glide.with(context)
