@@ -1,5 +1,6 @@
 package com.example.govegan.vista
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -64,6 +65,7 @@ class CalendariSetmanal : AppCompatActivity() {
                     id: Long
                 ) {
                     inicialitzarIconesCalendari()
+
                     Toast.makeText(
                         adapterView.context,
                         adapterView.getItemAtPosition(pos) as String, Toast.LENGTH_SHORT
@@ -174,7 +176,7 @@ class CalendariSetmanal : AppCompatActivity() {
             }
         ))
     }
-
+/*
     fun recepta1(view: View){
         if (controlador.getReceptaByName(esmorzar.text.toString())==null){
             toast("La recepta no té més informació")
@@ -204,7 +206,7 @@ class CalendariSetmanal : AppCompatActivity() {
             startActivity(intent)
         }
     }
-
+*/
     /*
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */
@@ -262,6 +264,7 @@ class CalendariSetmanal : AppCompatActivity() {
     * Quan es prem mostrar menús, es fa un recorregut pels dies de la setmana activa de l'usuari actiu
     * i s'imprimeixen els menús en TextViews a sota en un scrollView
      */
+    @SuppressLint("ResourceType")
     fun mostrarMenus(view: View): Int {
         if (!mostrarMenus.isChecked) {
             //netegem el que hi havia
@@ -368,7 +371,6 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia7.addView(titol7)
 
         //DIA 1
-
         val layoutI11: LinearLayout = LinearLayout(this)
         val layoutI12: LinearLayout = LinearLayout(this)
         val layoutI13: LinearLayout = LinearLayout(this)
@@ -394,7 +396,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo2: Button = Button(this)
         var mesInfo3: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat1.layoutParams = params
@@ -413,9 +415,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom1.layoutParams = params
         nom2.layoutParams = params
         nom3.layoutParams = params
-        nom1.text = "Proposta 1"
-        nom2.text = "Proposta 2"
-        nom3.text = "Proposta 3"
+        nom1.text = ""
+        nom2.text = ""
+        nom3.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -423,10 +425,14 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo1.layoutParams = params
         mesInfo1.text = "+INFO"
+        mesInfo1.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo2.layoutParams = params
         mesInfo2.text = "+INFO"
+        mesInfo2.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo3.layoutParams = params
         mesInfo3.text = "+INFO"
+        mesInfo3.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+
 
 
         //DIA 2
@@ -455,7 +461,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo22: Button = Button(this)
         var mesInfo23: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat21.layoutParams = params
@@ -474,9 +480,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom21.layoutParams = params
         nom22.layoutParams = params
         nom23.layoutParams = params
-        nom21.text = "Proposta 1"
-        nom22.text = "Proposta 2"
-        nom23.text = "Proposta 3"
+        nom21.text = ""
+        nom22.text = ""
+        nom23.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -484,10 +490,14 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo21.layoutParams = params
         mesInfo21.text = "+INFO"
+        mesInfo21.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo22.layoutParams = params
         mesInfo22.text = "+INFO"
+        mesInfo22.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo23.layoutParams = params
         mesInfo23.text = "+INFO"
+        mesInfo23.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+
 
 
         //DIA 3
@@ -516,7 +526,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo32: Button = Button(this)
         var mesInfo33: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat31.layoutParams = params
@@ -535,9 +545,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom31.layoutParams = params
         nom32.layoutParams = params
         nom33.layoutParams = params
-        nom31.text = "Proposta 1"
-        nom32.text = "Proposta 2"
-        nom33.text = "Proposta 3"
+        nom31.text = ""
+        nom32.text = ""
+        nom33.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -545,10 +555,14 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo31.layoutParams = params
         mesInfo31.text = "+INFO"
+        mesInfo31.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo32.layoutParams = params
         mesInfo32.text = "+INFO"
+        mesInfo32.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo33.layoutParams = params
         mesInfo33.text = "+INFO"
+        mesInfo33.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+
 
         //DIA 4
         val layoutI41: LinearLayout = LinearLayout(this)
@@ -576,7 +590,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo42: Button = Button(this)
         var mesInfo43: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat41.layoutParams = params
@@ -595,9 +609,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom41.layoutParams = params
         nom42.layoutParams = params
         nom43.layoutParams = params
-        nom41.text = "Proposta 1"
-        nom42.text = "Proposta 2"
-        nom43.text = "Proposta 3"
+        nom41.text = ""
+        nom42.text = ""
+        nom43.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -605,10 +619,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo41.layoutParams = params
         mesInfo41.text = "+INFO"
+        mesInfo41.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo42.layoutParams = params
         mesInfo42.text = "+INFO"
+        mesInfo42.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo43.layoutParams = params
         mesInfo43.text = "+INFO"
+        mesInfo43.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
 
         //DIA 5
         val layoutI51: LinearLayout = LinearLayout(this)
@@ -636,7 +653,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo52: Button = Button(this)
         var mesInfo53: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat51.layoutParams = params
@@ -655,9 +672,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom51.layoutParams = params
         nom52.layoutParams = params
         nom53.layoutParams = params
-        nom51.text = "Proposta 1"
-        nom52.text = "Proposta 2"
-        nom53.text = "Proposta 3"
+        nom51.text = ""
+        nom52.text = ""
+        nom53.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -665,10 +682,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo51.layoutParams = params
         mesInfo51.text = "+INFO"
+        mesInfo51.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo52.layoutParams = params
         mesInfo52.text = "+INFO"
+        mesInfo52.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo53.layoutParams = params
         mesInfo53.text = "+INFO"
+        mesInfo53.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
 
         //DIA 6
         val layoutI61: LinearLayout = LinearLayout(this)
@@ -696,7 +716,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo62: Button = Button(this)
         var mesInfo63: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat61.layoutParams = params
@@ -715,9 +735,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom61.layoutParams = params
         nom62.layoutParams = params
         nom63.layoutParams = params
-        nom61.text = "Proposta 1"
-        nom62.text = "Proposta 2"
-        nom63.text = "Proposta 3"
+        nom61.text = ""
+        nom62.text = ""
+        nom63.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -725,10 +745,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo61.layoutParams = params
         mesInfo61.text = "+INFO"
+        mesInfo61.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo62.layoutParams = params
         mesInfo62.text = "+INFO"
+        mesInfo62.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo63.layoutParams = params
         mesInfo63.text = "+INFO"
+        mesInfo63.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
 
         //DIA 7
         val layoutI71: LinearLayout = LinearLayout(this)
@@ -756,7 +779,7 @@ class CalendariSetmanal : AppCompatActivity() {
         var mesInfo72: Button = Button(this)
         var mesInfo73: Button = Button(this)
         params = LinearLayout.LayoutParams(
-            175,
+            180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         apat71.layoutParams = params
@@ -775,9 +798,9 @@ class CalendariSetmanal : AppCompatActivity() {
         nom71.layoutParams = params
         nom72.layoutParams = params
         nom73.layoutParams = params
-        nom71.text = "Proposta 1"
-        nom72.text = "Proposta 2"
-        nom73.text = "Proposta 3"
+        nom71.text = ""
+        nom72.text = ""
+        nom73.text = ""
 
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
@@ -785,10 +808,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo71.layoutParams = params
         mesInfo71.text = "+INFO"
+        mesInfo71.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo72.layoutParams = params
         mesInfo72.text = "+INFO"
+        mesInfo72.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
         mesInfo73.layoutParams = params
         mesInfo73.text = "+INFO"
+        mesInfo73.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
 
         //s'omplen els textViews amb els menús de l'usuari actual
         val noms: List<TextView> = listOf<TextView>(nom1, nom2, nom3, nom21, nom22, nom23, nom31,
@@ -902,7 +928,9 @@ class CalendariSetmanal : AppCompatActivity() {
     * Actualitza els noms dels menús de la setmana actual en l'ScrollView
      */
     fun recorregutMenus(noms: List<TextView>) {
-        val llistaMenus = controlador.recorrerMenus(setmanaActual)
+        //agafem la setmana que es troba actualment a l'spinner
+        var setmana = spinner2.selectedItem.toString().takeLastWhile { it.isDigit() }
+        val llistaMenus = controlador.recorrerMenus(setmana.toInt())
         //es recorre l'array de menús trobats i s'escriuen en els textViews
         var apats: Int = 1
         var dies: Int = 1
