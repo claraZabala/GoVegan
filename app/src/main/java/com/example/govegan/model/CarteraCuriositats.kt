@@ -6,10 +6,6 @@ class CarteraCuriositats {
     var llistaCuriositats: ArrayList<Curiositat> = ArrayList()
 
     init {
-        llistaCuriositats.add(Curiositat(R.drawable.gastronomia, "Gastronomia", "la gastronomia ..."))
-        llistaCuriositats.add(Curiositat(R.drawable.healthy, "Salut", "la salut ..."))
-        llistaCuriositats.add(Curiositat(R.drawable.moda, "Moda", "la moda ..."))
-        llistaCuriositats.add(Curiositat(R.drawable.altres, "Altres", "la salut ..."))
     }
 
     fun getCuriositatByTheme(tema: String): Curiositat? {
@@ -29,7 +25,7 @@ class CarteraCuriositats {
         }
         return false
     }
-    fun addCuriositat(tema:String,desc:String,imatge:Int):Curiositat?{
+    fun addCuriositat(tema:String,desc:String,imatge:String?):Curiositat?{
         for (item in llistaCuriositats) {
             if (item.title.equals(tema)){
                 return null
@@ -57,9 +53,6 @@ class CarteraCuriositats {
 
     }
 
-    fun getImage(position: Int): Int {
-        return llistaCuriositats[position].imatge
-    }
 
     fun getTitle(position: Int): String {
         return llistaCuriositats[position].title

@@ -1,8 +1,8 @@
 package com.example.govegan.model
 
 
-class Curiositat (imatge:Int, title:String, desc:String) {
-    var imatge:Int = 0
+class Curiositat (imatge:String?, title:String, desc:String) {
+    var imatge:String? = null
 
     var title:String = ""
 
@@ -14,7 +14,7 @@ class Curiositat (imatge:Int, title:String, desc:String) {
         this.desc = desc
     }
 
-    constructor():this(0,"",""){
+    constructor():this(null,"",""){
 
     }
 }

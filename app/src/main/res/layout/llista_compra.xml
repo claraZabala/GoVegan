@@ -22,15 +22,14 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="361dp">
+        android:layout_height="413dp">
 
         <LinearLayout
             android:id="@+id/layoutLlistaCompra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/white"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <Button
@@ -40,7 +39,7 @@
         android:background="@color/taronjaFosc"
         android:text="Afegir"
         android:translationX="260dp"
-        android:translationY="130dp" />
+        android:translationY="90dp" />
 
     <Button
         android:id="@+id/eliminar"
@@ -49,7 +48,7 @@
         android:background="@color/taronjaFosc"
         android:text="Eliminar"
         android:translationX="260dp"
-        android:translationY="145dp"/>
+        android:translationY="105dp"/>
 
 
 </LinearLayout>

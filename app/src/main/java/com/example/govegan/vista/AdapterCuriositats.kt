@@ -33,7 +33,7 @@ class AdapterCuriositats(context: Context): PagerAdapter() {
         val imatge:ImageView = view.findViewById(R.id.imageGastronomia)
         val title:TextView = view.findViewById(R.id.titolGastronomia)
         val explicacio:TextView = view.findViewById(R.id.explicacióGastronomia)
-        controlador.afegirCuriositatLayout(position,imatge,title,explicacio)
+        controlador.afegirCuriositatLayout(context,position,imatge,title,explicacio)
         container.addView(view,0)
         return view
     }
