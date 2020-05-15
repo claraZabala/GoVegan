@@ -10,4 +10,8 @@ class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Bo
     fun esCertificat(): Boolean{
         return esCertificat
     }
+
+    constructor():this( "", "", "", false, ""){
+
+    }
 }

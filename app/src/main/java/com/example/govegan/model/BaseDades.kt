@@ -93,6 +93,18 @@ class BaseDades(val db: FirebaseFirestore) {
         return curiositats
     }
 
+    fun getAllPreguntes():ArrayList<Pregunta>{
+        var preguntes:ArrayList<Pregunta> = ArrayList()
+        db.collection("preguntes").get().addOnSuccessListener {
+                resultat->
+            for(pregunta: QueryDocumentSnapshot in resultat){
+                preguntes.add(pregunta.toObject(Pregunta::class.java))
+            }
+        }
+        return preguntes
+    }
+
+
     fun addIngredients(ingredient: Ingredient){
         db.collection("ingredients").document(ingredient.nom).set(ingredient)
     }
@@ -103,6 +115,10 @@ class BaseDades(val db: FirebaseFirestore) {
 
     fun addCuriositat(curiositat: Curiositat){
         db.collection("curiositats").document(curiositat.title).set(curiositat)
+    }
+
+    fun addPregunta(pregunta: Pregunta){
+        db.collection("preguntes").document(pregunta.idPregunta).set(pregunta)
     }
 
     fun getUsuariActiu(ID:String){
@@ -178,4 +194,5 @@ class BaseDades(val db: FirebaseFirestore) {
             }
 
     }
+
 }

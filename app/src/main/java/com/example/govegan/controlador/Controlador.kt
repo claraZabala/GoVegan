@@ -48,6 +48,9 @@ object Controlador {
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
         facadeCarteraCuriositats.getLlistaBaseDades()
+        facadeCarteraPreguntes.getLListaBaseDades()
+
+        //initPreguntesBD()
         //initCuriositatsBD()
         //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
@@ -58,6 +61,11 @@ object Controlador {
         }
     }*/
 
+    private fun initPreguntesBD() {
+        for (pregunta in facadeCarteraPreguntes.getLlistaPreguntes()!!) {
+            baseDades.addPregunta(pregunta)
+        }
+    }
 
 
     fun actualizarUsuariActiu(){
@@ -322,7 +330,8 @@ object Controlador {
      */
 
     fun crearPregunta(descripcio: String, tema: String) {
-        facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!, descripcio, tema)
+        var pregunta:Pregunta = facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!, descripcio, tema)
+        baseDades.addPregunta(pregunta)
     }
 
     fun mostrarPreguntesPerTema(temaP: String): ArrayList<String>? {
@@ -337,7 +346,7 @@ object Controlador {
         idDestinatari: String,
         descPreg : String
     ) {
-        facadeCarteraPreguntes.crearRespostaF(
+        var preg = facadeCarteraPreguntes.crearRespostaF(
             tema,
             descripcio,
             esCertificat,
@@ -345,6 +354,10 @@ object Controlador {
             idDestinatari,
             descPreg
         )
+        var idPreg = idDestinatari + "-" + descPreg + "-" + tema
+        if (preg != null) {
+            baseDades.addPregunta(preg)
+        }
     }
 
     fun mostrarRespPerIdPreg(
