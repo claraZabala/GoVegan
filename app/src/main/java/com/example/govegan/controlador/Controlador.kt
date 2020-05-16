@@ -48,6 +48,7 @@ object Controlador {
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
         facadeCarteraCuriositats.getLlistaBaseDades()
+        facadeCarteraPreguntes.getLListaBaseDades()
         //initPreguntesBD()
     }
 
@@ -57,11 +58,11 @@ object Controlador {
         }
     }*/
 
-    /*private fun initPreguntesBD() {
+    private fun initPreguntesBD() {
         for (pregunta in facadeCarteraPreguntes.getLlistaPreguntes()!!) {
             baseDades.addPregunta(pregunta)
         }
-    }*/
+    }
 
     fun getCorreuUsuariActiu():String?{
         return correuUsuariActiu
