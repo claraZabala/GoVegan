@@ -192,27 +192,27 @@ class CalendariSetmanal : AppCompatActivity() {
     fun escollirDiaIApat(id: Int,categoria:String?): String? {
         val s = spinner2.selectedItem.toString()
         when (id) {
-            R.id.int1 -> {return controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int2 -> {return controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int3 -> {return controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int4 -> {return controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int5 -> {return controlador.setDiaRecepta("divendres","esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int6 -> {return controlador.setDiaRecepta("dissabte","esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int7 -> {return controlador.setDiaRecepta("diumenge","esmorzar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int8 -> {return controlador.setDiaRecepta("dilluns","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int9 -> {return controlador.setDiaRecepta("dimarts","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int10 -> {return controlador.setDiaRecepta("dimecres","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int11 -> {return controlador.setDiaRecepta("dijous","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int12 -> {return controlador.setDiaRecepta("divendres","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int13 -> {return controlador.setDiaRecepta("dissabte","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int14 -> {return controlador.setDiaRecepta("diumenge","dinar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int15 -> {return controlador.setDiaRecepta("dilluns","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int16 -> {return controlador.setDiaRecepta("dimarts","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int17 -> {return controlador.setDiaRecepta("dimecres","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int18 -> {return controlador.setDiaRecepta("dijous","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int19 -> {return controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int20 -> {return controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString(),categoria)}
-            R.id.int21 -> {return controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int1 -> {return controlador.setDiaRecepta("dilluns", "esmorzar",s,categoria)}
+            R.id.int2 -> {return controlador.setDiaRecepta("dimarts", "esmorzar",s,categoria)}
+            R.id.int3 -> {return controlador.setDiaRecepta("dimecres", "esmorzar",s,categoria)}
+            R.id.int4 -> {return controlador.setDiaRecepta("dijous","esmorzar",s,categoria)}
+            R.id.int5 -> {return controlador.setDiaRecepta("divendres","esmorzar",s,categoria)}
+            R.id.int6 -> {return controlador.setDiaRecepta("dissabte","esmorzar",s,categoria)}
+            R.id.int7 -> {return controlador.setDiaRecepta("diumenge","esmorzar",s,categoria)}
+            R.id.int8 -> {return controlador.setDiaRecepta("dilluns","dinar",s,categoria)}
+            R.id.int9 -> {return controlador.setDiaRecepta("dimarts","dinar",s,categoria)}
+            R.id.int10 -> {return controlador.setDiaRecepta("dimecres","dinar",s,categoria)}
+            R.id.int11 -> {return controlador.setDiaRecepta("dijous","dinar",s,categoria)}
+            R.id.int12 -> {return controlador.setDiaRecepta("divendres","dinar",s,categoria)}
+            R.id.int13 -> {return controlador.setDiaRecepta("dissabte","dinar",s,categoria)}
+            R.id.int14 -> {return controlador.setDiaRecepta("diumenge","dinar",s,categoria)}
+            R.id.int15 -> {return controlador.setDiaRecepta("dilluns","sopar",s,categoria)}
+            R.id.int16 -> {return controlador.setDiaRecepta("dimarts","sopar",s,categoria)}
+            R.id.int17 -> {return controlador.setDiaRecepta("dimecres","sopar",s,categoria)}
+            R.id.int18 -> {return controlador.setDiaRecepta("dijous","sopar",s,categoria)}
+            R.id.int19 -> {return controlador.setDiaRecepta("divendres","sopar",s,categoria)}
+            R.id.int20 -> {return controlador.setDiaRecepta("dissabte","sopar",s,categoria)}
+            R.id.int21 -> {return controlador.setDiaRecepta("diumenge","sopar",s,categoria)}
             else -> return null
         }
     }
