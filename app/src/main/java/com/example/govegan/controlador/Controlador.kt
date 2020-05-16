@@ -311,11 +311,9 @@ object Controlador {
     }
 
     fun treureIngredientLlistaCompra(ingredient: String):Boolean{
-        if(facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu(), ingredient)){
-            actualizarUsuariActiu()
+        facadeCarteraUsuaris.treureIngredientLlistaCompra(getUsuariActiu(), ingredient)
+        actualizarUsuariActiu()
             return true
-        }
-        return false
     }
 
     fun getImatgeIngredient(nomIngredient: String): String? {
