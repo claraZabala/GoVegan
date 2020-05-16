@@ -390,7 +390,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -455,7 +455,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -520,7 +520,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -584,7 +584,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -647,7 +647,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -710,7 +710,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -773,7 +773,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
 
         params = LinearLayout.LayoutParams(
-            229,
+            600,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
 
@@ -941,51 +941,137 @@ class CalendariSetmanal : AppCompatActivity() {
                     when (dies) {
                         1 -> {
                             when (apats) {
-                                1 ->  noms[0].text = noms[0].text.toString() + "\n" + i
-                                2 -> noms[1].text = noms[1].text.toString() + "\n" + i
-                                3 -> noms[2].text = noms[2].text.toString() + "\n" + i
+                                1 ->  {
+                                    if (noms[0].text.toString().isBlank()){
+                                        noms[0].text = i
+                                    } else{
+                                        noms[0].text = noms[0].text.toString() + ", " + i
+                                    }
+                                }
+                                2 -> if (noms[1].text.toString().isBlank()){
+                                    noms[1].text = i
+                                    } else{
+                                        noms[1].text = noms[1].text.toString() + ", " + i
+                                    }
+                                3 ->  if (noms[2].text.toString().isBlank()){
+                                    noms[2].text = i
+                                    } else{
+                                        noms[2].text = noms[2].text.toString() + ", " + i
+                                    }
                             }
                         }
                         2 -> {
                             when (apats) {
-                                1 -> noms[3].text = noms[3].text.toString() + "\n" + i
-                                2 -> noms[4].text = noms[4].text.toString() + "\n" + i
-                                3 -> noms[5].text = noms[5].text.toString() + "\n" + i
+                                1 ->  if (noms[3].text.toString().isBlank()){
+                                    noms[3].text = i
+                                } else{
+                                    noms[3].text = noms[3].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[4].text.toString().isBlank()){
+                                    noms[4].text = i
+                                } else{
+                                    noms[4].text = noms[4].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[5].text.toString().isBlank()){
+                                    noms[5].text = i
+                                } else{
+                                    noms[5].text = noms[5].text.toString() + ", " + i
+                                }
                             }
                         }
                         3 -> {
                             when (apats) {
-                                1 -> noms[6].text = noms[6].text.toString() + "\n" + i
-                                2 -> noms[7].text = noms[7].text.toString() + "\n" + i
-                                3 -> noms[8].text = noms[8].text.toString() + "\n" + i
+                                1 ->  if (noms[6].text.toString().isBlank()){
+                                    noms[6].text = i
+                                } else{
+                                    noms[6].text = noms[6].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[7].text.toString().isBlank()){
+                                    noms[7].text = i
+                                } else{
+                                    noms[7].text = noms[7].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[8].text.toString().isBlank()){
+                                    noms[8].text = i
+                                } else{
+                                    noms[8].text = noms[8].text.toString() + ", " + i
+                                }
                             }
                         }
                         4 -> {
                             when (apats) {
-                                1 -> noms[9].text = noms[9].text.toString() + "\n" + i
-                                2 -> noms[10].text = noms[10].text.toString() + "\n" + i
-                                3 -> noms[11].text = noms[11].text.toString() + "\n" + i
+                                1 ->  if (noms[9].text.toString().isBlank()){
+                                    noms[9].text = i
+                                } else{
+                                    noms[9].text = noms[9].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[10].text.toString().isBlank()){
+                                    noms[10].text = i
+                                } else{
+                                    noms[10].text = noms[10].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[11].text.toString().isBlank()){
+                                    noms[11].text = i
+                                } else{
+                                    noms[11].text = noms[11].text.toString() + ", " + i
+                                }
                             }
                         }
                         5 -> {
                             when (apats) {
-                                1 -> noms[12].text = noms[12].text.toString() + "\n" + i
-                                2 -> noms[14].text = noms[13].text.toString() + "\n" + i
-                                3 -> noms[14].text = noms[14].text.toString() + "\n" + i
+                                1 ->  if (noms[12].text.toString().isBlank()){
+                                    noms[12].text = i
+                                } else{
+                                    noms[12].text = noms[12].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[13].text.toString().isBlank()){
+                                    noms[13].text = i
+                                } else{
+                                    noms[13].text = noms[13].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[14].text.toString().isBlank()){
+                                    noms[14].text = i
+                                } else{
+                                    noms[14].text = noms[14].text.toString() + ", " + i
+                                }
                             }
                         }
                         6 -> {
                             when (apats) {
-                                1 -> noms[15].text = noms[15].text.toString() + "\n" + i
-                                2 -> noms[16].text = noms[16].text.toString() + "\n" + i
-                                3 -> noms[17].text = noms[17].text.toString() + "\n" + i
+                                1 ->  if (noms[15].text.toString().isBlank()){
+                                    noms[15].text = i
+                                } else{
+                                    noms[15].text = noms[15].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[16].text.toString().isBlank()){
+                                    noms[16].text = i
+                                } else{
+                                    noms[16].text = noms[16].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[17].text.toString().isBlank()){
+                                    noms[17].text = i
+                                } else{
+                                    noms[17].text = noms[17].text.toString() + ", " + i
+                                }
                             }
                         }
                         7 -> {
                             when (apats) {
-                                1 -> noms[18].text = noms[18].text.toString() + "\n" + i
-                                2 -> noms[19].text = noms[19].text.toString() + "\n" + i
-                                3 -> noms[20].text = noms[20].text.toString() + "\n" + i
+                                1 ->  if (noms[18].text.toString().isBlank()){
+                                    noms[18].text = i
+                                } else{
+                                    noms[18].text = noms[18].text.toString() + ", " + i
+                                }
+                                2 ->  if (noms[19].text.toString().isBlank()){
+                                    noms[19].text = i
+                                } else{
+                                    noms[19].text = noms[19].text.toString() + ", " + i
+                                }
+                                3 ->  if (noms[20].text.toString().isBlank()){
+                                    noms[20].text = i
+                                } else{
+                                    noms[20].text = noms[20].text.toString() + ", " + i
+                                }
                             }
                         }
 
