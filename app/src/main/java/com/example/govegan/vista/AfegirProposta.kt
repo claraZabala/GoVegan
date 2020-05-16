@@ -164,6 +164,9 @@ class AfegirProposta : AppCompatActivity() {
                 }
 
             }
+            else{
+                toast("No hi ha imatge")
+            }
 
 
     }
