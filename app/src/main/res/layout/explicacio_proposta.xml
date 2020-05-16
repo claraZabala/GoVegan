@@ -27,7 +27,7 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/gastronomia"
                 android:layout_alignParentTop="true"
-                android:contentDescription="TODO" />
+                android:contentDescription="Foto proposta" />
 
             <TextView
                 android:id="@+id/titolReceptaP"

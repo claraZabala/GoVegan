@@ -12,7 +12,7 @@
         android:layout_height="213dp"
         android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/icono"
-        android:contentDescription="TODO" />
+        android:contentDescription="Logo" />
 
     <EditText
         android:id="@+id/correu"

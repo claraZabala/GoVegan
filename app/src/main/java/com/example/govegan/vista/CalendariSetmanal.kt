@@ -1,6 +1,7 @@
 package com.example.govegan.vista
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
+import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
 
@@ -101,9 +103,18 @@ class CalendariSetmanal : AppCompatActivity() {
     fun canviIcona(iconaVella: ImageView, iconaNova: String?) {
         if (iconaNova != null) {
             when (iconaNova) {
-                "0" -> iconaVella.setImageResource(R.drawable.icono)
-                "1" -> iconaVella.setImageResource(R.drawable.ou)
-                "2" -> iconaVella.setImageResource(R.drawable.carn)
+                "0" -> {
+                    iconaVella.setImageResource(R.drawable.icono)
+                    iconaVella.contentDescription = "Vegà"
+                }
+                "1" -> {
+                    iconaVella.setImageResource(R.drawable.ou)
+                    iconaVella.contentDescription = "Derivat d'animals"
+                }
+                "2" -> {
+                    iconaVella.setImageResource(R.drawable.carn)
+                    iconaVella.contentDescription = "Conté carn"
+                }
             }
         }
         else{

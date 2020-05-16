@@ -23,7 +23,7 @@
                  android:layout_height="200dp"
                  android:scaleType="centerCrop"
                  android:src="@drawable/gastronomia"
-                 android:contentDescription="TODO" />
+                 android:contentDescription="Foto de la curiositat" />
 
              <TextView
                  android:id="@+id/titolGastronomia"
