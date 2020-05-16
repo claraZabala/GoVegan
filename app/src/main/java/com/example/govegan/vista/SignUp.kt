@@ -23,8 +23,8 @@ import java.util.*
 
 class SignUp: AppCompatActivity() {
     var controlador: Controlador = Controlador
-    private lateinit var dbReference:DatabaseReference
-    private lateinit var auth:FirebaseAuth
+     lateinit var dbReference:DatabaseReference
+     lateinit var auth:FirebaseAuth
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

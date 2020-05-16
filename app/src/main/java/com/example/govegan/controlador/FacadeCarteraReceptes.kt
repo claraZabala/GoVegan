@@ -6,8 +6,8 @@ import com.example.govegan.model.CarteraReceptes
 import com.example.govegan.model.Proposta
 
 class FacadeCarteraReceptes(baseDades: BaseDades) {
-    private var baseDades: BaseDades
-    private var carteraReceptes: CarteraReceptes = CarteraReceptes()
+    var baseDades: BaseDades
+    var carteraReceptes: CarteraReceptes = CarteraReceptes()
     var controlador: Controlador
 
     init {

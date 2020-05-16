@@ -25,10 +25,22 @@ class Setmana (usuari: String, id: Int){
 
     fun recorrerDies(): ArrayList<String> {
         val llistaApats: ArrayList<String> = ArrayList()
-        for (i in dies) {
-            llistaApats.addAll(i.value.recorrerApats())
-            llistaApats.add("-2")
-        }
+
+        llistaApats.addAll(dies.getValue("dilluns").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("dimarts").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("dimecres").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("dijous").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("divendres").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("dissabte").recorrerApats())
+        llistaApats.add("-2")
+        llistaApats.addAll(dies.getValue("diumenge").recorrerApats())
+        llistaApats.add("-2")
+
         return llistaApats
     }
 

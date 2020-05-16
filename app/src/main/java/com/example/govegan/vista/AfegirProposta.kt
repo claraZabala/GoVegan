@@ -21,11 +21,11 @@ import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 
 
 class AfegirProposta : AppCompatActivity() {
-    private var llistaIngredients:ArrayList<String> = ArrayList()
+    var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador:Controlador = Controlador
-    private var llistaIngredientsCompra:ArrayList<String> = ArrayList()
-    private var lastpath:String? = null
-    private var imatgeUri:Uri? = null
+    var llistaIngredientsCompra:ArrayList<String> = ArrayList()
+    var lastpath:String? = null
+    var imatgeUri:Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +75,7 @@ class AfegirProposta : AppCompatActivity() {
         dialogView.textCercaIngredient.setText("")
     }
 
-    private fun actualitzarLlistaIngredients(dialogView: View){
+    fun actualitzarLlistaIngredients(dialogView: View){
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             val btnIngredient: CheckBox = CheckBox(this)
@@ -152,7 +152,7 @@ class AfegirProposta : AppCompatActivity() {
                             }
                             0 -> {
                                 toast("RECEPTA AFEGIDA CORRECTAMENT")
-                                intent = Intent(this, PaginaPrincipal::class.java)
+                                intent = Intent(this, Recepta::class.java)
                                 startActivity(intent)
                             }
                         }
@@ -173,7 +173,7 @@ class AfegirProposta : AppCompatActivity() {
 
     }
 
-    private fun selectImageInAlbum() {
+    fun selectImageInAlbum() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
         if (intent.resolveActivity(packageManager) != null) {
@@ -187,8 +187,8 @@ class AfegirProposta : AppCompatActivity() {
         }
     }
     companion object {
-        private const val REQUEST_TAKE_PHOTO = 0
-        private const val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
+        const val REQUEST_TAKE_PHOTO = 0
+        const val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

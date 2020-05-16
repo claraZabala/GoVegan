@@ -20,7 +20,7 @@ import kotlinx.android.synthetic.main.forum.*
 
 class Forum : AppCompatActivity() {
     var llistaPreguntes: ArrayList<String> = ArrayList()
-    private var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
+    var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
     var tema: String = ""
 
@@ -173,7 +173,7 @@ class Forum : AppCompatActivity() {
 
     }
 
-    private fun mostrarResposta (i: String, dialogView: View) {
+    fun mostrarResposta (i: String, dialogView: View) {
 
         dialogView.layoutRespostes.removeAllViews()
 
@@ -198,7 +198,7 @@ class Forum : AppCompatActivity() {
         }
     }
 
-        private fun mostrarRespConcreta(j: String, dialogView: View){
+         fun mostrarRespConcreta(j: String, dialogView: View){
             // Creem un text View per cada resposta
             val textViewResp: TextView = TextView(this)
             textViewResp.text = j

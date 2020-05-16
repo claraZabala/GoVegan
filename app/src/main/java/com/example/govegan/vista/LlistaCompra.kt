@@ -20,9 +20,9 @@ import kotlinx.android.synthetic.main.llista_compra.*
 
 class LlistaCompra : AppCompatActivity() {
     var ingredients:ArrayList<String> = ArrayList()
-    private var llistaIngredients:ArrayList<String> = ArrayList()
+    var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
-    private var removeIngredient:ArrayList<String> = ArrayList()
+    var removeIngredient:ArrayList<String> = ArrayList()
 
     init{
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
@@ -61,7 +61,7 @@ class LlistaCompra : AppCompatActivity() {
 }
 
 
-    private fun actualitzarLlistaIngredients(dialogView: View) {
+     fun actualitzarLlistaIngredients(dialogView: View) {
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             if (i !in ingredients) {
@@ -80,14 +80,14 @@ class LlistaCompra : AppCompatActivity() {
             }
         }
     }
-    private fun removeIngredients(){
+     fun removeIngredients(){
         for(i in removeIngredient){
             ingredients.remove(i)
             controlador.treureIngredientLlistaCompra(i)
         }
         removeIngredient.clear()
     }
-    private fun actualitzarLlistaCompra(){
+     fun actualitzarLlistaCompra(){
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
         layoutLlistaCompra.removeAllViews()
         for(i in ingredients) {
@@ -169,7 +169,7 @@ class LlistaCompra : AppCompatActivity() {
     }
 
 
-    private fun afegirNouIngredientLlista(dialogView: View){
+     fun afegirNouIngredientLlista(dialogView: View){
         if (dialogView.textAfegirNousIngredients.toString().length > 1){
             val chkBoxNouIngredient: CheckBox = CheckBox(this)
             chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()

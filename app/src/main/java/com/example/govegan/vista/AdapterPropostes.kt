@@ -13,7 +13,7 @@ import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 
 class AdapterPropostes(context: Context): PagerAdapter() {
-    private var context:Context = context
+    var context:Context = context
     var controlador: Controlador
     //var propostes: ArrayList<Proposta>
     init{

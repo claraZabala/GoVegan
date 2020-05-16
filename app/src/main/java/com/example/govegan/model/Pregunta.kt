@@ -2,10 +2,10 @@ package com.example.govegan.model
 
 class Pregunta (idUsuari: String, descripcio:String, tema:String) {
     var idPregunta: String = "$idUsuari-$descripcio-$tema"
-    private var contRespostes: Int = 0
+    var contRespostes: Int = 0
 
     // Tenim un array de respostes
-    private var respostes: ArrayList<Resposta> = ArrayList()
+    var respostes: ArrayList<Resposta> = ArrayList()
     var idUsuari: String = idUsuari
     var descripcio: String = descripcio
     var tema: String = tema

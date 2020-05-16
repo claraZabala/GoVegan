@@ -11,13 +11,13 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.storage.FirebaseStorage
 
-class BaseDades(private val db: FirebaseFirestore) {
+class BaseDades(val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
-    private var userID:String = ""
+    var userID:String = ""
     var mStorage = FirebaseStorage.getInstance().reference
 
     companion object {
-        private const val TAG = "DocSnippets"
+        const val TAG = "DocSnippets"
     }
     fun carregarImatgeIngredient(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {

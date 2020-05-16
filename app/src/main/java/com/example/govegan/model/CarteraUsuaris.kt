@@ -2,7 +2,7 @@ package com.example.govegan.model
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CarteraUsuaris(baseDades: BaseDades) {
-    private val llistaUsuaris: ArrayList<Usuari> = ArrayList()
+    val llistaUsuaris: ArrayList<Usuari> = ArrayList()
     lateinit var db:FirebaseFirestore
 
     init {

@@ -1,6 +1,7 @@
 package com.example.govegan.vista
 
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
@@ -36,6 +37,13 @@ class Recepta : AppCompatActivity() {
         ingredients = controlador.getIngredientsProp()
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        intent = Intent(this, PaginaPrincipal::class.java)
+        startActivity(intent)
+    }
+
+
     fun llista(view: View) {
         val dialog = AlertDialog.Builder(this)
         val dialogView = layoutInflater.inflate(R.layout.dialog_ingredients, null)
@@ -63,7 +71,7 @@ class Recepta : AppCompatActivity() {
     }
 
 
-    private fun actualitzarLlistaIngredients(dialogView: View) {
+     fun actualitzarLlistaIngredients(dialogView: View) {
         for (i in ingredients) {
             val btnIngredient = CheckBox(this)
             btnIngredient.text = i

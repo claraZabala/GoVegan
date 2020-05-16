@@ -3,8 +3,8 @@ package com.example.govegan.controlador
 import com.example.govegan.model.*
 
 class FacadeCarteraPreguntes(baseDades: BaseDades) {
-    private var carteraPreguntes: CarteraPregunta = CarteraPregunta()
-    private var baseDades: BaseDades
+    var carteraPreguntes: CarteraPregunta = CarteraPregunta()
+    var baseDades: BaseDades
 
     init {
         this.baseDades = baseDades

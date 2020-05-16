@@ -4,7 +4,7 @@ class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Bo
     var idUsuari:String = idUsuari
     var descripcio: String = descripcio
     var tema: String = tema
-    private var esCertificat:Boolean = esCertificat
+    var esCertificat:Boolean = esCertificat
     var idPregunta: String = idPregunta
 
     fun esCertificat(): Boolean{

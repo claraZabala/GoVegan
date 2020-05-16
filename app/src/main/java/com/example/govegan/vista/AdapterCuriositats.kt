@@ -11,7 +11,7 @@ import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 
 class AdapterCuriositats(context: Context): PagerAdapter() {
-    private var context:Context = context
+    var context:Context = context
     val controlador:Controlador
     //var curiositats:ArrayList<Curiositat>
     init{

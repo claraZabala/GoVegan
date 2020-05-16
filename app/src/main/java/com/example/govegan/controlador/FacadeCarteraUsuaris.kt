@@ -5,9 +5,9 @@ import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Usuari
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
-    private var carteraUsuaris: CarteraUsuaris = CarteraUsuaris(baseDades)
+    var carteraUsuaris: CarteraUsuaris = CarteraUsuaris(baseDades)
     var controlador: Controlador = Controlador
-    private var baseDades: BaseDades = baseDades
+    var baseDades: BaseDades = baseDades
 
     fun carregarUsuari(usuari: Usuari?){
         carteraUsuaris.carregarUsuari(usuari)

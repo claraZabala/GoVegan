@@ -34,7 +34,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
      */
     constructor():this("","","","","",0, ArrayList(),ArrayList(),0)
 
-    private fun iniSetmanes(){
+    fun iniSetmanes(){
         for (i in 1..24) {
             setmanes.add(Setmana(nomUsuari, i))
         }

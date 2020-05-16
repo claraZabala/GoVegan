@@ -22,7 +22,7 @@ class CalendariSetmanal : AppCompatActivity() {
     var controlador: Controlador = Controlador
 
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
-    private var setmanaActual: Int
+    var setmanaActual: Int
     init {
         setmanaActual = controlador.getSetmanaActual()
     }
@@ -127,7 +127,7 @@ class CalendariSetmanal : AppCompatActivity() {
     * S'obre un AlertDialog on omplir el nom i si és vegà l'àpat i s'afegeix la informació a les
     * dades de l'usuari, a banda de canviar la icona del calendari per la adient.
      */
-    private fun afegirPlat(im: ImageView) {
+    fun afegirPlat(im: ImageView) {
         im.setOnClickListener (
             DoubleClickListener(
                 callback = object : DoubleClickListener.Callback {
@@ -275,7 +275,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia6.orientation = LinearLayout.VERTICAL
         layoutDia7.orientation = LinearLayout.VERTICAL
         var params = LinearLayout.LayoutParams(
-            1280,
+            LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutDia1.layoutParams = params
@@ -922,7 +922,8 @@ class CalendariSetmanal : AppCompatActivity() {
     /*
     * Actualitza els noms dels menús de la setmana actual en l'ScrollView
      */
-    private fun recorregutMenus(noms: List<TextView>) {
+    @SuppressLint("SetTextI18n")
+    fun recorregutMenus(noms: List<TextView>) {
         //agafem la setmana que es troba actualment a l'spinner
         val llistaMenus = controlador.recorrerMenus(spinner2.selectedItem.toString())
         //es recorre l'array de menús trobats i s'escriuen en els textViews
@@ -940,51 +941,51 @@ class CalendariSetmanal : AppCompatActivity() {
                     when (dies) {
                         1 -> {
                             when (apats) {
-                                1 -> noms[0].text = i
-                                2 -> noms[1].text = i
-                                3 -> noms[2].text = i
+                                1 ->  noms[0].text = noms[0].text.toString() + "\n" + i
+                                2 -> noms[1].text = noms[1].text.toString() + "\n" + i
+                                3 -> noms[2].text = noms[2].text.toString() + "\n" + i
                             }
                         }
                         2 -> {
                             when (apats) {
-                                1 -> noms[3].text = i
-                                2 -> noms[4].text = i
-                                3 -> noms[5].text = i
+                                1 -> noms[3].text = noms[3].text.toString() + "\n" + i
+                                2 -> noms[4].text = noms[4].text.toString() + "\n" + i
+                                3 -> noms[5].text = noms[5].text.toString() + "\n" + i
                             }
                         }
                         3 -> {
                             when (apats) {
-                                1 -> noms[6].text = i
-                                2 -> noms[7].text = i
-                                3 -> noms[8].text = i
+                                1 -> noms[6].text = noms[6].text.toString() + "\n" + i
+                                2 -> noms[7].text = noms[7].text.toString() + "\n" + i
+                                3 -> noms[8].text = noms[8].text.toString() + "\n" + i
                             }
                         }
                         4 -> {
                             when (apats) {
-                                1 -> noms[9].text = i
-                                2 -> noms[10].text = i
-                                3 -> noms[11].text = i
+                                1 -> noms[9].text = noms[9].text.toString() + "\n" + i
+                                2 -> noms[10].text = noms[10].text.toString() + "\n" + i
+                                3 -> noms[11].text = noms[11].text.toString() + "\n" + i
                             }
                         }
                         5 -> {
                             when (apats) {
-                                1 -> noms[12].text = i
-                                2 -> noms[14].text = i
-                                3 -> noms[14].text = i
+                                1 -> noms[12].text = noms[12].text.toString() + "\n" + i
+                                2 -> noms[14].text = noms[13].text.toString() + "\n" + i
+                                3 -> noms[14].text = noms[14].text.toString() + "\n" + i
                             }
                         }
                         6 -> {
                             when (apats) {
-                                1 -> noms[15].text = i
-                                2 -> noms[16].text = i
-                                3 -> noms[17].text = i
+                                1 -> noms[15].text = noms[15].text.toString() + "\n" + i
+                                2 -> noms[16].text = noms[16].text.toString() + "\n" + i
+                                3 -> noms[17].text = noms[17].text.toString() + "\n" + i
                             }
                         }
                         7 -> {
                             when (apats) {
-                                1 -> noms[18].text = i
-                                2 -> noms[19].text = i
-                                3 -> noms[20].text = i
+                                1 -> noms[18].text = noms[18].text.toString() + "\n" + i
+                                2 -> noms[19].text = noms[19].text.toString() + "\n" + i
+                                3 -> noms[20].text = noms[20].text.toString() + "\n" + i
                             }
                         }
 

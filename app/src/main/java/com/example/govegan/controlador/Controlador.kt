@@ -14,18 +14,18 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 object Controlador {
-    private var facadeCarteraCuriositats: FacadeCarteraCuriositats
-    private var facadeCarteraIngredients: FacadeCarteraIngredients
-    private var facadeCarteraPreguntes: FacadeCarteraPreguntes
-    private var facadeCarteraUsuaris: FacadeCarteraUsuaris
-    private var facadeCarteraReceptes: FacadeCarteraReceptes
+    var facadeCarteraCuriositats: FacadeCarteraCuriositats
+    var facadeCarteraIngredients: FacadeCarteraIngredients
+    var facadeCarteraPreguntes: FacadeCarteraPreguntes
+    var facadeCarteraUsuaris: FacadeCarteraUsuaris
+    var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: String?
     private var correuUsuariActiu: String?
     private var receptaActiva: String?
-    private var isFromProposta: Boolean
-    private var titolReceptaProp: String
-    private val baseDades: BaseDades
-    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
+    var isFromProposta: Boolean
+    var titolReceptaProp: String
+    val baseDades: BaseDades
+    val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
 
     /**
@@ -66,7 +66,7 @@ object Controlador {
     fun getCorreuUsuariActiu():String?{
         return correuUsuariActiu
     }
-    private fun actualizarUsuariActiu(){
+    fun actualizarUsuariActiu(){
         baseDades.actualitzarUsuariActiu()
 
     }
@@ -151,9 +151,10 @@ object Controlador {
 
     //usuariActiu afegir dia, apat, setmana i titol
     fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:String?): String? {
+        val categoria = facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
         isFromProposta = false
         actualizarUsuariActiu()
-        return facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
+        return categoria
     }
 
     fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{
@@ -173,6 +174,7 @@ object Controlador {
         val proposta = facadeCarteraReceptes.addRecepta(lastpath,nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
         if (proposta!=null){
             baseDades.addProposta(proposta)
+            setReceptaActiva(nom)
             return 0
         }
         return 2
