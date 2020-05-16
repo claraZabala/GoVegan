@@ -7,20 +7,19 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.LinearLayout
-import com.example.govegan.R
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.model.Ingredient
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.llista_compra.*
 
 class LlistaCompra : AppCompatActivity() {
     var ingredients:ArrayList<String> = ArrayList()
-    var llistaIngredients:ArrayList<String> = ArrayList()
+    private var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
-    var removeIngredient:ArrayList<String> = ArrayList()
+    private var removeIngredient:ArrayList<String> = ArrayList()
 
     init{
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
@@ -59,7 +58,7 @@ class LlistaCompra : AppCompatActivity() {
 }
 
 
-    fun actualitzarLlistaIngredients(dialogView: View) {
+    private fun actualitzarLlistaIngredients(dialogView: View) {
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             if (i !in ingredients) {
@@ -78,13 +77,13 @@ class LlistaCompra : AppCompatActivity() {
             }
         }
     }
-    fun removeIngredients(){
+    private fun removeIngredients(){
         for(i in removeIngredient){
             ingredients.remove(i)
         }
         removeIngredient.clear()
     }
-    fun actualitzarLlistaCompra(){
+    private fun actualitzarLlistaCompra(){
         ingredients  = controlador.getLlistaIngredientsUsuari()!!
         layoutLlistaCompra.removeAllViews()
         for(i in ingredients) {
@@ -139,7 +138,7 @@ class LlistaCompra : AppCompatActivity() {
 
 
     fun buscarIngredient(dialogView: View) {
-        if (dialogView.textCercaIngredient.text.toString().length == 0) {
+        if (dialogView.textCercaIngredient.text.toString().isEmpty()) {
             actualitzarLlistaIngredients(dialogView)
         }
 
@@ -167,7 +166,7 @@ class LlistaCompra : AppCompatActivity() {
     }
 
 
-    fun afegirNouIngredientLlista(dialogView: View){
+    private fun afegirNouIngredientLlista(dialogView: View){
         if (dialogView.textAfegirNousIngredients.toString().length > 1){
             val chkBoxNouIngredient: CheckBox = CheckBox(this)
             chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()

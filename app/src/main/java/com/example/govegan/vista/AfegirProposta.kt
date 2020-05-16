@@ -18,15 +18,14 @@ import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.afegir_proposta.*
 import kotlinx.android.synthetic.main.afegir_proposta.floatingAfegirIngredients
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
-import java.net.URI
 
 
 class AfegirProposta : AppCompatActivity() {
-    var llistaIngredients:ArrayList<String> = ArrayList()
+    private var llistaIngredients:ArrayList<String> = ArrayList()
     var controlador:Controlador = Controlador
-    var llistaIngredientsCompra:ArrayList<String> = ArrayList()
-    var lastpath:String? = null
-    var imatgeUri:Uri? = null
+    private var llistaIngredientsCompra:ArrayList<String> = ArrayList()
+    private var lastpath:String? = null
+    private var imatgeUri:Uri? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +48,7 @@ class AfegirProposta : AppCompatActivity() {
                 mAlertDialog.dismiss()
             }
             dialogView.floatingNousIngredients.setOnClickListener{
-                AfegirNouIngredientLlista(dialogView)
+                afegirNouIngredientLlista(dialogView)
             }
             dialogView.floatingLupa.setOnClickListener{
                 buscarIngredient(dialogView)
@@ -59,7 +58,7 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun buscarIngredient(dialogView: View) {
-        if (dialogView.textCercaIngredient.text.toString().length == 0) {
+        if (dialogView.textCercaIngredient.text.toString().isEmpty()) {
             actualitzarLlistaIngredients(dialogView)
         }
 
@@ -76,7 +75,7 @@ class AfegirProposta : AppCompatActivity() {
         dialogView.textCercaIngredient.setText("")
     }
 
-    fun actualitzarLlistaIngredients(dialogView: View){
+    private fun actualitzarLlistaIngredients(dialogView: View){
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
             val btnIngredient: CheckBox = CheckBox(this)
@@ -97,7 +96,7 @@ class AfegirProposta : AppCompatActivity() {
         }
     }
 
-    fun AfegirNouIngredientLlista(dialogView: View){
+    fun afegirNouIngredientLlista(dialogView: View){
         if (!dialogView.textAfegirNousIngredients.toString().equals("")){
             val chkBoxNouIngredient: CheckBox = CheckBox(this)
             chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()
@@ -113,7 +112,7 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun recepta(view: View){
-        var mStorage = FirebaseStorage.getInstance().getReference()
+        val mStorage = FirebaseStorage.getInstance().reference
         val nom: String = resposta.text.toString()
         val pasos: String = pasos.text.toString()
         val tempsPrep: String = temps_prep.text.toString()
@@ -132,7 +131,7 @@ class AfegirProposta : AppCompatActivity() {
         val ingredients: ArrayList<String> = llistaIngredientsCompra
 
             if( lastpath != null) {
-                var filepath = mStorage.child("fotosRecepta").child(lastpath!!)
+                val filepath = mStorage.child("fotosRecepta").child(lastpath!!)
                 filepath.putFile(imatgeUri!!).addOnCompleteListener(this) {task->
                     if(task.isSuccessful) {
                         val result = controlador.afegirReceptaNova(lastpath,
@@ -144,14 +143,18 @@ class AfegirProposta : AppCompatActivity() {
                             tipusRecepta,
                             ingredients
                         )
-                        if (result == 1) {
-                            toast("Has d'omplir tots els camps")
-                        } else if (result == 2) {
-                            toast("El nom de recepta ja existeix")
-                        } else if (result == 0) {
-                            toast("RECEPTA AFEGIDA CORRECTAMENT")
-                            intent = Intent(this, PaginaPrincipal::class.java)
-                            startActivity(intent)
+                        when (result) {
+                            1 -> {
+                                toast("Has d'omplir tots els camps")
+                            }
+                            2 -> {
+                                toast("El nom de recepta ja existeix")
+                            }
+                            0 -> {
+                                toast("RECEPTA AFEGIDA CORRECTAMENT")
+                                intent = Intent(this, PaginaPrincipal::class.java)
+                                startActivity(intent)
+                            }
                         }
                     }
                     else{
@@ -170,7 +173,7 @@ class AfegirProposta : AppCompatActivity() {
 
     }
 
-    fun selectImageInAlbum() {
+    private fun selectImageInAlbum() {
         val intent = Intent(Intent.ACTION_GET_CONTENT)
         intent.type = "image/*"
         if (intent.resolveActivity(packageManager) != null) {
@@ -184,14 +187,14 @@ class AfegirProposta : AppCompatActivity() {
         }
     }
     companion object {
-        private val REQUEST_TAKE_PHOTO = 0
-        private val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
+        private const val REQUEST_TAKE_PHOTO = 0
+        private const val REQUEST_SELECT_IMAGE_IN_ALBUM = 1
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        var imatge: ImageView = ImageView(this)
-        var params = ViewGroup.LayoutParams(
+        val imatge: ImageView = ImageView(this)
+        val params = ViewGroup.LayoutParams(
             300,
             300
         )

@@ -6,11 +6,10 @@ import com.example.govegan.model.Ingredient
 
 class FacadeCarteraIngredients(baseDades: BaseDades) {
 
-    var carteraIngredients: CarteraIngredients
-    var baseDades: BaseDades
+    private var carteraIngredients: CarteraIngredients = CarteraIngredients()
+    private var baseDades: BaseDades
 
     init {
-        carteraIngredients = CarteraIngredients()
         this.baseDades = baseDades
     }
 

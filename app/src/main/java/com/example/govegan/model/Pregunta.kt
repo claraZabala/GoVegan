@@ -1,11 +1,11 @@
 package com.example.govegan.model
 
 class Pregunta (idUsuari: String, descripcio:String, tema:String) {
-    var idPregunta: String = idUsuari + "-" + descripcio + "-" + tema
-    var contRespostes: Int = 0
+    var idPregunta: String = "$idUsuari-$descripcio-$tema"
+    private var contRespostes: Int = 0
 
     // Tenim un array de respostes
-    var respostes: ArrayList<Resposta> = ArrayList()
+    private var respostes: ArrayList<Resposta> = ArrayList()
     var idUsuari: String = idUsuari
     var descripcio: String = descripcio
     var tema: String = tema
@@ -58,8 +58,8 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
         idDestinatari: String,
         descPreg : String
     ) : Resposta{
-        var idP = idDestinatari + "-" + descPreg + "-" + tema
-        var resp = Resposta(idUsuari, descripcio, tema, esCertificat, idP)
+        val idP = "$idDestinatari-$descPreg-$tema"
+        val resp = Resposta(idUsuari, descripcio, tema, esCertificat, idP)
         respostes.add(resp)
         contRespostes++
         return resp
@@ -79,20 +79,18 @@ class Pregunta (idUsuari: String, descripcio:String, tema:String) {
 
 
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
-        var idPreg: String = idUsuari + "-" + desc + "-" + tema
-        var respostesDesc: ArrayList<String>? = ArrayList()
+        val idPreg: String = "$idUsuari-$desc-$tema"
+        val respostesDesc: ArrayList<String>? = ArrayList()
         for (i: Resposta in respostes) {
             if (i.idPregunta.equals(idPreg)) {
-                var resp : String = (i.idUsuari + ": " + i.descripcio)
+                val resp : String = (i.idUsuari + ": " + i.descripcio)
                 respostesDesc?.add(resp)
             }
         }
         return respostesDesc
     }
 
-    constructor():this( "", "", ""){
-
-    }
+    constructor():this( "", "", "")
 
 }
 

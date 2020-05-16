@@ -1,4 +1,4 @@
-<resources xmlns:xsl="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">GoVegan</string>
     
     <string-array name="preguntes">

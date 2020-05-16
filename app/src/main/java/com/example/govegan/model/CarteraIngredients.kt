@@ -1,5 +1,5 @@
 package com.example.govegan.model
-import com.example.govegan.R
+
 class CarteraIngredients {
 
     var ingredients: ArrayList<Ingredient> = ArrayList()

@@ -17,9 +17,7 @@ class Setmana (usuari: String, id: Int){
         dies.add(Dia(id,"dissabte"))
         dies.add(Dia(id,"diumenge"))
     }
-    constructor():this("",0){
-
-    }
+    constructor():this("",0)
 
     fun getName(): String {
         return """Setmana ${this.id}"""

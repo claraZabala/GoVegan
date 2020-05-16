@@ -12,7 +12,8 @@
         android:id="@+id/textCercaIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Nom ingredient">
+        android:hint="Nom ingredient"
+        android:inputType="text">
     </EditText>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingLupa"
@@ -23,7 +24,8 @@
             android:clickable="true"
             app:fabSize="mini"
             android:onClick="buscarIngredient"
-            app:srcCompat="@drawable/lupa"/>
+            app:srcCompat="@drawable/lupa"
+            android:focusable="true" />
 
 
     </LinearLayout>
@@ -51,17 +53,18 @@
             android:backgroundTint="@color/verdClar"
             android:clickable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/afegir" />
+            app:srcCompat="@drawable/afegir"
+            android:focusable="true" />
         <EditText
             android:id="@+id/textAfegirNousIngredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Afegeix ingredient si no està a la llista" /></LinearLayout>
+            android:hint="Afegeix ingredient si no està a la llista"
+            android:inputType="text" /></LinearLayout>
 
     <Button
         android:id="@+id/butAfegirIngredients"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="aceptarAfegirIngredients"
         android:text="Afegir ingredients" />
 </LinearLayout>

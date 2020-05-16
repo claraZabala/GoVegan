@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Context
 import android.content.Intent
@@ -9,11 +9,11 @@ import android.widget.ImageView
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.vista.Recepta
 
 class AdapterPropostes(context: Context): PagerAdapter() {
-    var context:Context = context
+    private var context:Context = context
     var controlador: Controlador
     //var propostes: ArrayList<Proposta>
     init{
@@ -59,7 +59,7 @@ class AdapterPropostes(context: Context): PagerAdapter() {
         }*/
             recepta.setOnClickListener{
             controlador.setReceptaActiva(controlador.getReceptaByPosition(position))
-                var intent = Intent(context,Recepta::class.java)
+                val intent = Intent(context,Recepta::class.java)
                 context.startActivity(intent)
         }
         container.addView(view,0)

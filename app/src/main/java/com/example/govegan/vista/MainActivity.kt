@@ -14,7 +14,7 @@ import kotlinx.android.synthetic.main.login.*
 class MainActivity: AppCompatActivity() {
     //private lateinit var auth: FirebaseAuth
     var controlador: Controlador = Controlador
-    lateinit var auth:FirebaseAuth
+    private lateinit var auth:FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
@@ -33,8 +33,8 @@ class MainActivity: AppCompatActivity() {
     }
 
     fun login(view: View) {
-        var correu = correu.text.toString()
-        var password = pwd.text.toString()
+        val correu = correu.text.toString()
+        val password = pwd.text.toString()
         if(!TextUtils.isEmpty(correu) && !TextUtils.isEmpty(password)){
             auth.signInWithEmailAndPassword(correu,password)
                 .addOnCompleteListener(this){
@@ -42,9 +42,9 @@ class MainActivity: AppCompatActivity() {
                     if(task.isSuccessful){
                         intent = Intent(this, PaginaPrincipal::class.java)
                         startActivity(intent)
-                        var ID:String? = auth.currentUser?.uid
-                        if(ID != null) {
-                            controlador.login(ID)
+                        val iD:String? = auth.currentUser?.uid
+                        if(iD != null) {
+                            controlador.login(iD)
                         }
                     }
                     else{

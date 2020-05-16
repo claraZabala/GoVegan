@@ -3,11 +3,10 @@ package com.example.govegan.controlador
 import com.example.govegan.model.*
 
 class FacadeCarteraPreguntes(baseDades: BaseDades) {
-    var carteraPreguntes: CarteraPregunta
-    var baseDades: BaseDades
+    private var carteraPreguntes: CarteraPregunta = CarteraPregunta()
+    private var baseDades: BaseDades
 
     init {
-        carteraPreguntes = CarteraPregunta()
         this.baseDades = baseDades
     }
 

@@ -11,9 +11,7 @@ class Ingredient (nom:String){
         this.nom = nom
         //this.icones = icones
     }
-    constructor():this(""){
-
-    }
+    constructor():this("")
     constructor(nom:String,imatge:String?):this(nom) {
         this.nom = nom
         this.imatge = imatge

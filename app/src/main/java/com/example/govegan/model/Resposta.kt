@@ -4,14 +4,12 @@ class Resposta (idUsuari:String, descripcio:String, tema:String, esCertificat:Bo
     var idUsuari:String = idUsuari
     var descripcio: String = descripcio
     var tema: String = tema
-    var esCertificat:Boolean = esCertificat
+    private var esCertificat:Boolean = esCertificat
     var idPregunta: String = idPregunta
 
     fun esCertificat(): Boolean{
         return esCertificat
     }
 
-    constructor():this( "", "", "", false, ""){
-
-    }
+    constructor():this( "", "", "", false, "")
 }

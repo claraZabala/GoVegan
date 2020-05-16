@@ -1,4 +1,4 @@
-package com.example.govegan
+package com.example.govegan.vista
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.viewpager.widget.PagerAdapter
+import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 
 class AdapterCuriositats(context: Context): PagerAdapter() {
-    var context:Context = context
+    private var context:Context = context
     val controlador:Controlador
     //var curiositats:ArrayList<Curiositat>
     init{

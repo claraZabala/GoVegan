@@ -1,10 +1,8 @@
 package com.example.govegan.model
-import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
 class CarteraUsuaris(baseDades: BaseDades) {
-    val llistaUsuaris: ArrayList<Usuari> = ArrayList()
+    private val llistaUsuaris: ArrayList<Usuari> = ArrayList()
     lateinit var db:FirebaseFirestore
 
     init {
@@ -64,9 +62,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
     fun setUsuariActiu(nomUsuari: String) {
         val usuari: Usuari? = getByID(nomUsuari)
         val setmanes: ArrayList<Setmana> = usuari?.setmanes!!
-        if (usuari != null) {
-            usuari.setSetmanesUsuari(setmanes)
-        }
+        usuari?.setSetmanesUsuari(setmanes)
     }
 
 

@@ -5,11 +5,10 @@ import com.example.govegan.model.CarteraCuriositats
 import com.example.govegan.model.Curiositat
 
 class FacadeCarteraCuriositats(baseDades: BaseDades) {
-    var carteraCuriositats: CarteraCuriositats
-    var baseDades: BaseDades
+    private var carteraCuriositats: CarteraCuriositats = CarteraCuriositats()
+    private var baseDades: BaseDades
 
     init {
-        carteraCuriositats = CarteraCuriositats()
         this.baseDades = baseDades
     }
 
