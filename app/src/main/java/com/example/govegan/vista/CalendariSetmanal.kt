@@ -207,6 +207,16 @@ class CalendariSetmanal : AppCompatActivity() {
         }
     }
 */
+    fun mesInfo(nom: String) {
+        if (controlador.getReceptaByName(nom) == null){
+            toast("La recepta no té més informació")
+        }
+        else {
+            controlador.setReceptaActiva(nom)
+            intent = Intent(this, Recepta::class.java)
+            startActivity(intent)
+        }
+    }
     /*
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */
@@ -919,6 +929,19 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutMostrarMenus.addView(layoutDia5)
         layoutMostrarMenus.addView(layoutDia6)
         layoutMostrarMenus.addView(layoutDia7)
+
+        //quan es premi els botons de +info es farà un intent cap a la recepta o be un missatge
+        //toast si no és disponible
+        val llistaBotons: List<Button> = listOf(mesInfo1, mesInfo2, mesInfo3, mesInfo21, mesInfo22,
+            mesInfo23, mesInfo31, mesInfo32, mesInfo33, mesInfo41, mesInfo42, mesInfo43, mesInfo51,
+            mesInfo52, mesInfo53, mesInfo61, mesInfo62, mesInfo63, mesInfo71, mesInfo72, mesInfo73)
+        for (i in 0..20) {
+            llistaBotons[i].setOnClickListener {
+                val nom = noms[i].text.toString()
+                mesInfo(nom)
+            }
+        }
+
 
         return 0
     }

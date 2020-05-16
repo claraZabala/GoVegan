@@ -180,6 +180,7 @@ object Controlador {
     }
 
     fun getReceptaByName(nom: String): Proposta? {
+
         return facadeCarteraReceptes.getReceptaByName(nom)
     }
 
