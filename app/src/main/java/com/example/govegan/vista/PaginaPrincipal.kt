@@ -13,6 +13,12 @@ class PaginaPrincipal : AppCompatActivity() {
         setContentView(R.layout.pagina_principal)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+    }
+
     fun calendari(view: View) {
         intent = Intent(this, CalendariSetmanal::class.java)
         startActivity(intent)
