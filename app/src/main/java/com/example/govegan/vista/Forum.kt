@@ -89,10 +89,14 @@ class Forum : AppCompatActivity() {
                 // Que passa quan cliquem al botó crear pregunta
                 sendPregunta.setOnClickListener {
                     val descripcio: String = preguntaVew.text.toString()
-                    controlador.crearPregunta(descripcio, tema)
-                    preguntaVew.setText(" ")
-                    //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
+                    if (descripcio == "") {
+                        println("No s'afegirà la resposta")
+                    }else {
+                        controlador.crearPregunta(descripcio, tema)
+                        preguntaVew.setText(" ")
+                        //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
                         mostrarPrgeunta(descripcio, layoutpreg)
+                    }
                 }
             }
         }
@@ -155,8 +159,8 @@ class Forum : AppCompatActivity() {
 
             dialogView.enviarRespostaAlForumm.setOnClickListener {
                 val descripcioResp: String = dialogView.respostaText.text.toString()
-                if (descripcioResp == null){
-                    toast("Has d'omplir tots els camps")
+                if (descripcioResp == ""){
+                    println("No s'imprimirà per pantalla")
                 }else{
                     controlador.crearResposta(tema, descripcioResp, false,
                     controlador.getUsuariActiu()!!, controlador.getUsuari(i), i)
