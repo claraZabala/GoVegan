@@ -209,7 +209,7 @@ class Forum : AppCompatActivity() {
             textViewResp.gravity = Gravity.START
             val params = ViewGroup.LayoutParams(
                 1280,
-                150
+                165
             )
             textViewResp.layoutParams = params
             textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
