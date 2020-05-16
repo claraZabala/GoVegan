@@ -359,7 +359,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI11.layoutParams = params
         layoutI12.layoutParams = params
@@ -424,7 +424,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI21.layoutParams = params
         layoutI22.layoutParams = params
@@ -489,7 +489,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI31.layoutParams = params
         layoutI32.layoutParams = params
@@ -553,7 +553,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI41.layoutParams = params
         layoutI42.layoutParams = params
@@ -616,7 +616,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI51.layoutParams = params
         layoutI52.layoutParams = params
@@ -679,7 +679,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI61.layoutParams = params
         layoutI62.layoutParams = params
@@ -742,7 +742,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
-            100
+            LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI71.layoutParams = params
         layoutI72.layoutParams = params
