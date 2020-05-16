@@ -4,18 +4,18 @@ class Setmana (usuari: String, id: Int){
 
     var id: Int = 0
     var usuari: String
-    var dies: ArrayList<Dia> = ArrayList(7)
+    var dies: MutableMap<String,Dia> = mutableMapOf()
 
     init {
         this.id = id
         this.usuari = usuari
-        dies.add(Dia(id, "dilluns"))
-        dies.add(Dia(id,"dimarts"))
-        dies.add(Dia(id,"dimecres"))
-        dies.add(Dia(id,"dijous"))
-        dies.add(Dia(id,"divendres"))
-        dies.add(Dia(id,"dissabte"))
-        dies.add(Dia(id,"diumenge"))
+        dies.put("dilluns",Dia(id, "dilluns"))
+        dies.put("dimarts",Dia(id,"dimarts"))
+        dies.put("dimecres",Dia(id,"dimecres"))
+        dies.put("dijous",Dia(id,"dijous"))
+        dies.put("divendres",Dia(id,"divendres"))
+        dies.put("dissabte",Dia(id,"dissabte"))
+        dies.put("diumenge",Dia(id,"diumenge"))
     }
     constructor():this("",0)
 
@@ -26,7 +26,7 @@ class Setmana (usuari: String, id: Int){
     fun recorrerDies(): ArrayList<String> {
         val llistaApats: ArrayList<String> = ArrayList()
         for (i in dies) {
-            llistaApats.addAll(i.recorrerApats())
+            llistaApats.addAll(i.value.recorrerApats())
             llistaApats.add("-2")
         }
         return llistaApats

@@ -146,7 +146,7 @@ class BaseDades(private val db: FirebaseFirestore) {
     }
 
     fun addUser(usuari:Usuari,userID:String) {
-        db.collection("users").document(userID).set(usuari)
+       db.collection("users").document(userID).set(usuari)
     }
 
     fun userExists(nomUsuari: String): Boolean {

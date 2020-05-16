@@ -3,11 +3,11 @@ package com.example.govegan.model
 class Dia(idSetmana: Int, nom: String) {
 
 
-    private val idSetmana: Int
+    val idSetmana: Int
     var nom: String = nom
-    private var esmorzar: MutableMap<String?, String>
-    private var dinar: MutableMap<String?, String>
-    private var sopar: MutableMap<String?, String>
+    var esmorzar: MutableMap<String?, String>
+    var dinar: MutableMap<String?, String>
+    var sopar: MutableMap<String?, String>
 
 
     init {

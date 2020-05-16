@@ -20,6 +20,7 @@ object Controlador {
     private var facadeCarteraUsuaris: FacadeCarteraUsuaris
     private var facadeCarteraReceptes: FacadeCarteraReceptes
     private var usuariActiu: String?
+    private var correuUsuariActiu: String?
     private var receptaActiva: String?
     private var isFromProposta: Boolean
     private var titolReceptaProp: String
@@ -42,6 +43,7 @@ object Controlador {
         usuariActiu = null
         receptaActiva = null
         isFromProposta = false
+        correuUsuariActiu = null
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
@@ -61,7 +63,9 @@ object Controlador {
         }
     }*/
 
-
+    fun getCorreuUsuariActiu():String?{
+        return correuUsuariActiu
+    }
     private fun actualizarUsuariActiu(){
         baseDades.actualitzarUsuariActiu()
 

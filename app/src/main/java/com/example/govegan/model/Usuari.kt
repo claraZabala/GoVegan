@@ -7,11 +7,11 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
 
 
     var nom:String = nom
-    private var cognoms:String
+    var cognoms:String
     var nomUsuari:String
     var pwd:String
-    private var edat:Int
-    private var email:String
+    var edat:Int
+    var email:String
     var setmanes: ArrayList<Setmana>
     var llistaIngredientsCompra:ArrayList<String>
     var weekNumber: Int
@@ -53,8 +53,8 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
             if (i.getName().equals(setmana)) {
                 //recorrem els dies d'aquesta setmana per localitzar el dia cercat
                 for (j in i.dies) {
-                    if (j.nom.equals(dia)) {
-                        retorn = j.afegirApat(apat, titolRecepta,categoria)
+                    if (j.value.nom.equals(dia)) {
+                        retorn = j.value.afegirApat(apat, titolRecepta,categoria)
                     }
                 }
             }
@@ -76,8 +76,8 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
         for (i in setmanes){
             if(i.getName().equals(setmana))
                 for (j in i.dies) {
-                    if (j.nom.equals(dia)) {
-                        return j.getApat(apat)
+                    if (j.value.nom.equals(dia)) {
+                        return j.value.getApat(apat)
                     }
                 }
         }
