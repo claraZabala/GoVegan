@@ -155,10 +155,9 @@ class CalendariSetmanal : AppCompatActivity() {
                                 //es reutilitza la funció setReceptaFromProposta per a tenir a
                                 // Controlador el titol de la recepta, tot i que o provingui d'un aproposta
                                 controlador.setTitolReceptaFromCalendari(titol)
-                                escollirDiaIApat(im.id,categoria)
-
+                                val categoriaFinal = escollirDiaIApat(im.id,categoria)
                                 //es canvia la icona del calendari
-                                canviIcona(im, categoria)
+                                canviIcona(im, categoriaFinal)
                                 mAlertDialog.dismiss()
                             }
                         }
@@ -166,47 +165,17 @@ class CalendariSetmanal : AppCompatActivity() {
                             //s'afegeix la info a memòria
                             //es reutilitza la funció setReceptaFromProposta per a tenir a
                             // Controlador el titol de la recepta, tot i que o provingui d'una proposta
-                            escollirDiaIApat(im.id,controlador.getIconaReceptaActiva())
+                            val categoriaFinal = escollirDiaIApat(im.id,controlador.getIconaReceptaActiva())
 
                             //es canvia la icona del calendari
-                            canviIcona(im, controlador.getIconaReceptaActiva())
+                            canviIcona(im, categoriaFinal)
 
                         }
                     }
             }
         ))
     }
-/*
-    fun recepta1(view: View){
-        if (controlador.getReceptaByName(esmorzar.text.toString())==null){
-            toast("La recepta no té més informació")
-        }
-        else {
-            intent = Intent(this, Recepta::class.java)
-            startActivity(intent)
-        }
-    }
 
-    fun recepta2(view: View){
-        if (controlador.getReceptaByName(dinar.text.toString())==null){
-            toast("La recepta no té més informació")
-        }
-        else {
-            intent = Intent(this, Recepta::class.java)
-            startActivity(intent)
-        }
-    }
-
-    fun recepta3(view: View){
-        if (controlador.getReceptaByName(sopar.text.toString())==null){
-            toast("La recepta no té més informació")
-        }
-        else {
-            intent = Intent(this, Recepta::class.java)
-            startActivity(intent)
-        }
-    }
-*/
     fun mesInfo(nom: String) {
         if (controlador.getReceptaByName(nom) == null){
             toast("La recepta no té més informació")
@@ -220,29 +189,30 @@ class CalendariSetmanal : AppCompatActivity() {
     /*
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */
-    fun escollirDiaIApat(id: Int,categoria:String?) {
+    fun escollirDiaIApat(id: Int,categoria:String?): String? {
         when (id) {
-            R.id.int1 -> controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int2 -> controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int3 -> controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int4 -> controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int5 -> controlador.setDiaRecepta("divendres","esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int6 -> controlador.setDiaRecepta("dissabte","esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int7 -> controlador.setDiaRecepta("diumenge","esmorzar",spinner2.selectedItem.toString(),categoria)
-            R.id.int8 -> controlador.setDiaRecepta("dilluns","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int9 -> controlador.setDiaRecepta("dimarts","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int10 -> controlador.setDiaRecepta("dimecres","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int11 -> controlador.setDiaRecepta("dijous","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int12 -> controlador.setDiaRecepta("divendres","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int13 -> controlador.setDiaRecepta("dissabte","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int14 -> controlador.setDiaRecepta("diumenge","dinar",spinner2.selectedItem.toString(),categoria)
-            R.id.int15 -> controlador.setDiaRecepta("dilluns","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int16 -> controlador.setDiaRecepta("dimarts","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int17 -> controlador.setDiaRecepta("dimecres","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int18 -> controlador.setDiaRecepta("dijous","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int19 -> controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int20 -> controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString(),categoria)
-            R.id.int21 -> controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString(),categoria)
+            R.id.int1 -> {return controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int2 -> {return controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int3 -> {return controlador.setDiaRecepta("dimecres", "esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int4 -> {return controlador.setDiaRecepta("dijous","esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int5 -> {return controlador.setDiaRecepta("divendres","esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int6 -> {return controlador.setDiaRecepta("dissabte","esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int7 -> {return controlador.setDiaRecepta("diumenge","esmorzar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int8 -> {return controlador.setDiaRecepta("dilluns","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int9 -> {return controlador.setDiaRecepta("dimarts","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int10 -> {return controlador.setDiaRecepta("dimecres","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int11 -> {return controlador.setDiaRecepta("dijous","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int12 -> {return controlador.setDiaRecepta("divendres","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int13 -> {return controlador.setDiaRecepta("dissabte","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int14 -> {return controlador.setDiaRecepta("diumenge","dinar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int15 -> {return controlador.setDiaRecepta("dilluns","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int16 -> {return controlador.setDiaRecepta("dimarts","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int17 -> {return controlador.setDiaRecepta("dimecres","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int18 -> {return controlador.setDiaRecepta("dijous","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int19 -> {return controlador.setDiaRecepta("divendres","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int20 -> {return controlador.setDiaRecepta("dissabte","sopar",spinner2.selectedItem.toString(),categoria)}
+            R.id.int21 -> {return controlador.setDiaRecepta("diumenge","sopar",spinner2.selectedItem.toString(),categoria)}
+            else -> return null
         }
     }
 
@@ -303,7 +273,7 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutDia6.orientation = LinearLayout.VERTICAL
         layoutDia7.orientation = LinearLayout.VERTICAL
         var params = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
+            1280,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutDia1.layoutParams = params

@@ -71,8 +71,8 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         setmana: String,
         titol: String,
         categoria:String?
-    ) {
-        carteraUsuaris.setRecepta(usuariActiu,dia, apat, setmana, titol,categoria)
+    ): String? {
+        return carteraUsuaris.setRecepta(usuariActiu,dia, apat, setmana, titol,categoria)
     }
 
     fun initUsers(allUsers: ArrayList<String>) {
@@ -87,7 +87,7 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         return carteraUsuaris.getByID(name)
     }
 
-    fun getSetmanaUser(usuariActiu: String?): Int {
+    fun getSetmanaUser(usuariActiu: String?): Int? {
         return carteraUsuaris.getSetmanaUser(usuariActiu)
     }
 

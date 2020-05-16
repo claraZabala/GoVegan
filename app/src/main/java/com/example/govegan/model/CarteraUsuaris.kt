@@ -113,11 +113,11 @@ class CarteraUsuaris(baseDades: BaseDades) {
         return getByID(nomUsuari!!)?.getCategoriaApatDia(setmana, dia, apat)
     }
 
-    fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: String?) {
-        getByID(usuariActiu!!)?.setRecepta(dia,apat,setmana,titol,categoria)
+    fun setRecepta(usuariActiu: String?, dia: String, apat: String, setmana: String, titol: String, categoria: String?): String? {
+        return getByID(usuariActiu!!)?.setRecepta(dia,apat,setmana,titol,categoria)
     }
 
-    fun getSetmanaUser(usuariActiu: String?): Int {
+    fun getSetmanaUser(usuariActiu: String?): Int? {
         return getByID(usuariActiu!!)!!.weekNumber
     }
 

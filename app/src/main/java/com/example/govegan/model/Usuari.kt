@@ -48,18 +48,20 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     /*
     * Desa un àpat provinent de recepta en el calendari personal
      */
-    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String,categoria:String?) {
+    fun setRecepta(dia: String, apat: String, setmana: String, titolRecepta: String,categoria:String?): String? {
+        var retorn: String? = null
         //recorrem les setmanes per a localitzar la cercada
         for (i in this.setmanes) {
             if (i.getName().equals(setmana)) {
                 //recorrem els dies d'aquesta setmana per localitzar el dia cercat
                 for (j in i.dies) {
                     if (j.nom.equals(dia)) {
-                        j.afegirApat(apat, titolRecepta,categoria)
+                        retorn = j.afegirApat(apat, titolRecepta,categoria)
                     }
                 }
             }
         }
+        return retorn
     }
 
     fun recorrerMenus(setmanaActual: Int): ArrayList<String> {

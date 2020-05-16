@@ -105,7 +105,7 @@ object Controlador {
     fun getSetmanaActual(): Int {
         val setInicial = facadeCarteraUsuaris.getSetmanaUser(usuariActiu)
         val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
-        return ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
+        return ((weekNumber- setInicial!!).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
 
     /*fun recuperarContra(correu: String,context: Context) {
@@ -150,11 +150,10 @@ object Controlador {
     }
 
     //usuariActiu afegir dia, apat, setmana i titol
-    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:String?) {
-        facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
+    fun setDiaRecepta(dia: String, apat: String, setmana: String,categoria:String?): String? {
         isFromProposta = false
         actualizarUsuariActiu()
-
+        return facadeCarteraUsuaris.afegirInfoPlat(usuariActiu, dia, apat, setmana, titolReceptaProp,categoria)
     }
 
     fun getCategoriaApatDia(setmana:String,dia:String,apat:String):String?{

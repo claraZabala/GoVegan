@@ -27,12 +27,25 @@ class Dia(idSetmana: Int, nom: String) {
     * vegetarià ---> 1
     * carn ---> 2
      */
-    fun afegirApat(apat: String, titolRecepta: String,categoria:String?) {
+    fun afegirApat(apat: String, titolRecepta: String,categoria:String?): String? {
         when (apat) {
-            "esmorzar" -> this.esmorzar.put(categoria, titolRecepta)
-            "dinar" -> this.dinar.put(categoria, titolRecepta)
-            "sopar" -> this.sopar.put(categoria, titolRecepta)
-            else -> print("caca")
+            "esmorzar" -> {
+                this.esmorzar.put(categoria, titolRecepta)
+                return getApat("esmorzar")
+            }
+            "dinar" -> {
+                this.dinar.put(categoria, titolRecepta)
+                return getApat("dinar")
+            }
+            "sopar" -> {
+                this.sopar.put(categoria, titolRecepta)
+                return getApat("sopar")
+            }
+            else -> {
+                print("caca")
+                return null
+
+            }
         }
 
     }
