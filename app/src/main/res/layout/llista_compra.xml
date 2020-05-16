@@ -41,6 +41,7 @@
         android:translationX="260dp"
         android:translationY="90dp" />
 
+    
     <Button
         android:id="@+id/eliminar"
         android:layout_width="wrap_content"

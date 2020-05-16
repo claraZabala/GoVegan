@@ -80,6 +80,7 @@ class LlistaCompra : AppCompatActivity() {
     private fun removeIngredients(){
         for(i in removeIngredient){
             ingredients.remove(i)
+            controlador.treureIngredientLlistaCompra(i)
         }
         removeIngredient.clear()
     }
