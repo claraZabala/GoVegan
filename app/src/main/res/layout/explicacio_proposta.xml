@@ -26,7 +26,8 @@
                 android:layout_alignParentLeft="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/gastronomia"
-                android:layout_alignParentTop="true"/>
+                android:layout_alignParentTop="true"
+                android:contentDescription="Foto proposta" />
 
             <TextView
                 android:id="@+id/titolReceptaP"
@@ -115,7 +116,8 @@
                 android:layout_below="@id/tempsC"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="30dp"
-                android:layout_marginStart="16dp" />
+                android:layout_marginStart="16dp"
+                android:contentDescription="TODO" />
 
         </RelativeLayout>
 

@@ -3,23 +3,20 @@ package com.example.govegan.model
 class Dia(idSetmana: Int, nom: String) {
 
 
-    val idSetmana: Int
-    var nom: String
-    var esmorzar: MutableMap<String?, String>
-    var dinar: MutableMap<String?, String>
-    var sopar: MutableMap<String?, String>
+    private val idSetmana: Int
+    var nom: String = nom
+    private var esmorzar: MutableMap<String?, String>
+    private var dinar: MutableMap<String?, String>
+    private var sopar: MutableMap<String?, String>
 
 
     init {
-        this.nom = nom
         this.idSetmana = idSetmana
         this.esmorzar = mutableMapOf()
         this.dinar = mutableMapOf()
         this.sopar = mutableMapOf()
     }
-    constructor():this(0,""){
-
-    }
+    constructor():this(0,"")
 
     /*
     * Afegeix als Diccionaris el titol del plat junt amb un Int
@@ -54,41 +51,35 @@ class Dia(idSetmana: Int, nom: String) {
         var tipus:String? = null
         when (apat) {
             "esmorzar" ->{for (i in esmorzar){
-                if(i.key?.equals("2")!!){
+                tipus = if(i.key?.equals("2")!!){
                     return "2"
-                }
-                else if(i.key?.equals("1")!!){
-                    tipus = "1"
-                }
-                else{
-                    tipus = "0"
+                } else if(i.key?.equals("1")!!){
+                    "1"
+                } else{
+                    "0"
                 }
 
             }
             }
 
             "dinar" ->{for (i in dinar){
-                if(i.key?.equals("2")!!){
+                tipus = if(i.key?.equals("2")!!){
                     return "2"
-                }
-                else if(i.key?.equals("1")!!){
-                    tipus = "1"
-                }
-                else{
-                    tipus ="0"
+                } else if(i.key?.equals("1")!!){
+                    "1"
+                } else{
+                    "0"
                 }
 
             }
             }
             "sopar" ->{for (i in sopar){
-                if(i.key?.equals("2")!!){
+                tipus = if(i.key?.equals("2")!!){
                     return "2"
-                }
-                else if(i.key?.equals("1")!!){
-                    tipus = "1"
-                }
-                else{
-                    tipus ="0"
+                } else if(i.key?.equals("1")!!){
+                    "1"
+                } else{
+                    "0"
                 }
 
             }

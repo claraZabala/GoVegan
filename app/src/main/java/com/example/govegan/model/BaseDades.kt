@@ -11,17 +11,17 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QueryDocumentSnapshot
 import com.google.firebase.storage.FirebaseStorage
 
-class BaseDades(val db: FirebaseFirestore) {
+class BaseDades(private val db: FirebaseFirestore) {
     var controlador:Controlador = Controlador
-    var userID:String = ""
+    private var userID:String = ""
     var mStorage = FirebaseStorage.getInstance().reference
 
     companion object {
-        private val TAG = "DocSnippets"
+        private const val TAG = "DocSnippets"
     }
     fun carregarImatgeIngredient(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
-            var storageRef =
+            val storageRef =
                 FirebaseStorage.getInstance().reference
             storageRef.child("ingredients").child(lastPath).downloadUrl
                 .addOnSuccessListener {
@@ -37,7 +37,7 @@ class BaseDades(val db: FirebaseFirestore) {
     }
     fun carregarImatgeCuriositat(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
-            var storageRef =
+            val storageRef =
                 FirebaseStorage.getInstance().reference
             storageRef.child("curiositats").child(lastPath).downloadUrl
                 .addOnSuccessListener {
@@ -53,7 +53,7 @@ class BaseDades(val db: FirebaseFirestore) {
     }
     fun carregarImatgeRecepta(context: Context,imatge:ImageView,lastPath:String?){
         if(lastPath != null) {
-            var storageRef =
+            val storageRef =
             FirebaseStorage.getInstance().reference
             storageRef.child("fotosRecepta").child(lastPath).downloadUrl
                 .addOnSuccessListener {
@@ -68,13 +68,13 @@ class BaseDades(val db: FirebaseFirestore) {
         }
     }
     fun actualitzarUsuariActiu() {
-        var usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
+        val usuari: Usuari? = controlador.getUsuariByName(controlador.getUsuariActiu()!!)
         if (usuari != null) {
             db.collection("users").document(userID).set(usuari)
         }
     }
     fun getAllIngredients():ArrayList<Ingredient>{
-        var ingredients:ArrayList<Ingredient> = ArrayList()
+        val ingredients:ArrayList<Ingredient> = ArrayList()
         db.collection("ingredients").get().addOnSuccessListener {
             resultat->
             for(ingredient: QueryDocumentSnapshot in resultat){
@@ -86,7 +86,7 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun getAllPropostes():ArrayList<Proposta>{
-        var propostes:ArrayList<Proposta> = ArrayList()
+        val propostes:ArrayList<Proposta> = ArrayList()
         db.collection("propostes").get().addOnSuccessListener {
                 resultat->
             for(proposta: QueryDocumentSnapshot in resultat){
@@ -97,7 +97,7 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun getAllCuriositats():ArrayList<Curiositat>{
-        var curiositats:ArrayList<Curiositat> = ArrayList()
+        val curiositats:ArrayList<Curiositat> = ArrayList()
         db.collection("curiositats").get().addOnSuccessListener {
                 resultat->
             for(curiositat: QueryDocumentSnapshot in resultat){
@@ -108,7 +108,7 @@ class BaseDades(val db: FirebaseFirestore) {
     }
 
     fun getAllPreguntes():ArrayList<Pregunta>{
-        var preguntes:ArrayList<Pregunta> = ArrayList()
+        val preguntes:ArrayList<Pregunta> = ArrayList()
         db.collection("preguntes").get().addOnSuccessListener {
                 resultat->
             for(pregunta: QueryDocumentSnapshot in resultat){
@@ -154,12 +154,12 @@ class BaseDades(val db: FirebaseFirestore) {
         val docRef = db.collection("users").document(nomUsuari)
         docRef.get()
             .addOnSuccessListener { document ->
-                if (document != null) {
+                exists = if (document != null) {
                     Log.d(TAG, "DocumentSnapshot data: ${document.data}")
-                    exists = true
+                    true
                 } else {
                     Log.d(TAG, "No such document")
-                    exists = false
+                    false
                 }
             }
             .addOnFailureListener { exception ->

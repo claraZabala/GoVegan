@@ -14,17 +14,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
-import com.example.govegan.model.Pregunta
-import kotlinx.android.synthetic.main.dialog_resposta.*
 import kotlinx.android.synthetic.main.dialog_resposta.view.*
 import kotlinx.android.synthetic.main.forum.*
-import kotlinx.android.synthetic.main.forum.preguntaVew
-import kotlinx.android.synthetic.main.llista_compra.*
 
 
 class Forum : AppCompatActivity() {
     var llistaPreguntes: ArrayList<String> = ArrayList()
-    var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
+    private var llistaRespostesPerDesc : ArrayList<String> = ArrayList()
     var controlador: Controlador = Controlador
     var tema: String = ""
 
@@ -46,7 +42,7 @@ class Forum : AppCompatActivity() {
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             // Apply the adapter to the spinner
             spinner.adapter = adapter
-            spinner.setAdapter(adapter)
+            spinner.adapter = adapter
             spinner.onItemSelectedListener = object : OnItemSelectedListener {
                 override fun onItemSelected(
                     adapterView: AdapterView<*>,
@@ -66,7 +62,7 @@ class Forum : AppCompatActivity() {
         }
 
 
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        spinner.onItemSelectedListener = object : OnItemSelectedListener {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
                 toast("Selecciona un tema")
@@ -79,10 +75,10 @@ class Forum : AppCompatActivity() {
                 id: Long
             ) {
 
-                var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
+                val layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
                 layoutpreg.removeAllViews()
-                tema = spinner.getItemAtPosition(spinner.getSelectedItemPosition()).toString();
-                println("tema = " + tema)
+                tema = spinner.getItemAtPosition(spinner.selectedItemPosition).toString()
+                println("tema = $tema")
                 // Mostrem les preguntes inicialment segons el tema seleccionat
                 llistaPreguntes =
                     controlador.mostrarPreguntesPerTema(tema)!!
@@ -92,7 +88,7 @@ class Forum : AppCompatActivity() {
 
                 // Que passa quan cliquem al botó crear pregunta
                 sendPregunta.setOnClickListener {
-                    var descripcio: String = preguntaVew.text.toString()
+                    val descripcio: String = preguntaVew.text.toString()
                     controlador.crearPregunta(descripcio, tema)
                     preguntaVew.setText(" ")
                     //Cal tornar a cridar al mètode de controlador per actualitzar les preguntes
@@ -103,24 +99,23 @@ class Forum : AppCompatActivity() {
     }
 
     fun mostrarPrgeunta(i : String, layoutpreg : LinearLayout){
-        var layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
-        var params:ViewGroup.LayoutParams
-        var lay: LinearLayout = LinearLayout(this)
+        val layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
+        val lay: LinearLayout = LinearLayout(this)
         lay.orientation = LinearLayout.HORIZONTAL
 
         // Text View Usuari
-        var textView: TextView = TextView(this)
-        params = ViewGroup.LayoutParams(
+        val textView: TextView = TextView(this)
+        var params:ViewGroup.LayoutParams = ViewGroup.LayoutParams(
             250,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         textView.layoutParams = params
         textView.text = controlador.getUsuari(i)
-        textView.gravity = Gravity.LEFT
+        textView.gravity = Gravity.START
         lay.addView(textView)
 
         //Text View descripcio
-        var textViewDesc: TextView = TextView(this)
+        val textViewDesc: TextView = TextView(this)
         textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
         params = ViewGroup.LayoutParams(
@@ -131,14 +126,14 @@ class Forum : AppCompatActivity() {
         lay.addView(textViewDesc)
 
         //Boto inicialitzat fora per poder fer mètodes de clicar
-        var botoRespostes: Button = Button(this)
+        val botoRespostes: Button = Button(this)
         params = ViewGroup.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         botoRespostes.layoutParams = params
         botoRespostes.text = "respostes"
-        botoRespostes.setBackgroundColor(getResources().getColor(R.color.verdClar))
+        botoRespostes.setBackgroundColor(resources.getColor(R.color.verdClar))
         botoRespostes.gravity = Gravity.CENTER
         lay.addView(botoRespostes)
         params = ViewGroup.LayoutParams(
@@ -149,7 +144,7 @@ class Forum : AppCompatActivity() {
 
         layoutpreg.addView(lay)
 
-        botoRespostes.setOnClickListener() {
+        botoRespostes.setOnClickListener {
             val dialog = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
             dialog.setView(dialogView)
@@ -158,8 +153,8 @@ class Forum : AppCompatActivity() {
             val customDialog = dialog.create()
             mostrarResposta(i, dialogView)
 
-            dialogView.enviarRespostaAlForumm.setOnClickListener() {
-                var descripcioResp: String = dialogView.respostaText.text.toString()
+            dialogView.enviarRespostaAlForumm.setOnClickListener {
+                val descripcioResp: String = dialogView.respostaText.text.toString()
                 if (descripcioResp == null){
                     toast("Has d'omplir tots els camps")
                 }else{
@@ -178,19 +173,19 @@ class Forum : AppCompatActivity() {
 
     }
 
-    fun mostrarResposta (i: String , dialogView: View) {
+    private fun mostrarResposta (i: String, dialogView: View) {
 
         dialogView.layoutRespostes.removeAllViews()
 
-        var textViewUsuari: TextView = TextView(this)
-        var params = ViewGroup.LayoutParams(
+        val textViewUsuari: TextView = TextView(this)
+        val params = ViewGroup.LayoutParams(
             1280,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         textViewUsuari.layoutParams = params
-        textViewUsuari.text = controlador.getUsuari(i) + " pregunta: " + i + "\nRespostes: "
+        textViewUsuari.text = """${controlador.getUsuari(i)} pregunta: $i Respostes: """
         textViewUsuari.textSize = 20F
-        textViewUsuari.gravity = Gravity.LEFT
+        textViewUsuari.gravity = Gravity.START
         textViewUsuari.setBackgroundColor(resources.getColor(R.color.gris))
 
 
@@ -203,12 +198,12 @@ class Forum : AppCompatActivity() {
         }
     }
 
-        fun mostrarRespConcreta(j: String, dialogView: View){
+        private fun mostrarRespConcreta(j: String, dialogView: View){
             // Creem un text View per cada resposta
-            var textViewResp: TextView = TextView(this)
+            val textViewResp: TextView = TextView(this)
             textViewResp.text = j
-            textViewResp.gravity = Gravity.LEFT
-            var params = ViewGroup.LayoutParams(
+            textViewResp.gravity = Gravity.START
+            val params = ViewGroup.LayoutParams(
                 1280,
                 150
             )

@@ -15,7 +15,6 @@ class Proposta (lastPath:String?, title: String, tempsPrep: String, tempsCuina: 
     var lastPath:String? = null
 
     init{
-        this.imatge = imatge
         this.title = title
         this.tempsPrep = tempsPrep
         this.tempsCuina = tempsCuina
@@ -26,8 +25,6 @@ class Proposta (lastPath:String?, title: String, tempsPrep: String, tempsCuina: 
         this.autor = autor
         this.lastPath = lastPath
     }
-    constructor():this(null,"","","","", "0", "", ArrayList<String>(), ""){
-
-    }
+    constructor():this(null,"","","","", "0", "", ArrayList<String>(), "")
 
 }

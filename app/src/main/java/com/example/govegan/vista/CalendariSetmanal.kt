@@ -15,23 +15,14 @@ import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
-import java.time.LocalDate
-import java.time.LocalDateTime
-import java.time.temporal.TemporalField
-import java.time.temporal.WeekFields
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 class CalendariSetmanal : AppCompatActivity() {
-    var controlador: Controlador
-    init {
-        controlador = Controlador
-    }
+    var controlador: Controlador = Controlador
 
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
-    var setmanaActual: Int
+    private var setmanaActual: Int
     init {
         setmanaActual = controlador.getSetmanaActual()
     }
@@ -112,9 +103,18 @@ class CalendariSetmanal : AppCompatActivity() {
     fun canviIcona(iconaVella: ImageView, iconaNova: String?) {
         if (iconaNova != null) {
             when (iconaNova) {
-                "0" -> iconaVella.setImageResource(R.drawable.icono)
-                "1" -> iconaVella.setImageResource(R.drawable.ou)
-                "2" -> iconaVella.setImageResource(R.drawable.carn)
+                "0" -> {
+                    iconaVella.setImageResource(R.drawable.icono)
+                    iconaVella.contentDescription = "Vegà"
+                }
+                "1" -> {
+                    iconaVella.setImageResource(R.drawable.ou)
+                    iconaVella.contentDescription = "Derivat d'animals"
+                }
+                "2" -> {
+                    iconaVella.setImageResource(R.drawable.carn)
+                    iconaVella.contentDescription = "Conté carn"
+                }
             }
         }
         else{
@@ -127,7 +127,7 @@ class CalendariSetmanal : AppCompatActivity() {
     * S'obre un AlertDialog on omplir el nom i si és vegà l'àpat i s'afegeix la informació a les
     * dades de l'usuari, a banda de canviar la icona del calendari per la adient.
      */
-    fun afegirPlat(im: ImageView) {
+    private fun afegirPlat(im: ImageView) {
         im.setOnClickListener (
             DoubleClickListener(
                 callback = object : DoubleClickListener.Callback {
@@ -190,6 +190,7 @@ class CalendariSetmanal : AppCompatActivity() {
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */
     fun escollirDiaIApat(id: Int,categoria:String?): String? {
+        val s = spinner2.selectedItem.toString()
         when (id) {
             R.id.int1 -> {return controlador.setDiaRecepta("dilluns", "esmorzar",spinner2.selectedItem.toString(),categoria)}
             R.id.int2 -> {return controlador.setDiaRecepta("dimarts", "esmorzar",spinner2.selectedItem.toString(),categoria)}
@@ -217,27 +218,28 @@ class CalendariSetmanal : AppCompatActivity() {
     }
 
     fun inicialitzarIconesCalendari(){
-        canviIcona(int1,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dilluns","esmorzar"))
-        canviIcona(int2,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimarts","esmorzar"))
-        canviIcona(int3,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimecres","esmorzar"))
-        canviIcona(int4,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dijous","esmorzar"))
-        canviIcona(int5,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"divendres","esmorzar"))
-        canviIcona(int6,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dissabte","esmorzar"))
-        canviIcona(int7,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"diumenge","esmorzar"))
-        canviIcona(int8,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dilluns","dinar"))
-        canviIcona(int9,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimarts","dinar"))
-        canviIcona(int10,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimecres","dinar"))
-        canviIcona(int11,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dijous","dinar"))
-        canviIcona(int12,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"divendres","dinar"))
-        canviIcona(int13,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dissabte","dinar"))
-        canviIcona(int14,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"diumenge","dinar"))
-        canviIcona(int15,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dilluns","sopar"))
-        canviIcona(int16,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimarts","sopar"))
-        canviIcona(int17,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dimecres","sopar"))
-        canviIcona(int18,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dijous","sopar"))
-        canviIcona(int19,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"divendres","sopar"))
-        canviIcona(int20,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"dissabte","sopar"))
-        canviIcona(int21,controlador.getCategoriaApatDia(spinner2.selectedItem.toString(),"diumenge","sopar"))
+        val s = spinner2.selectedItem.toString()
+        canviIcona(int1,controlador.getCategoriaApatDia(s,"dilluns","esmorzar"))
+        canviIcona(int2,controlador.getCategoriaApatDia(s,"dimarts","esmorzar"))
+        canviIcona(int3,controlador.getCategoriaApatDia(s,"dimecres","esmorzar"))
+        canviIcona(int4,controlador.getCategoriaApatDia(s,"dijous","esmorzar"))
+        canviIcona(int5,controlador.getCategoriaApatDia(s,"divendres","esmorzar"))
+        canviIcona(int6,controlador.getCategoriaApatDia(s,"dissabte","esmorzar"))
+        canviIcona(int7,controlador.getCategoriaApatDia(s,"diumenge","esmorzar"))
+        canviIcona(int8,controlador.getCategoriaApatDia(s,"dilluns","dinar"))
+        canviIcona(int9,controlador.getCategoriaApatDia(s,"dimarts","dinar"))
+        canviIcona(int10,controlador.getCategoriaApatDia(s,"dimecres","dinar"))
+        canviIcona(int11,controlador.getCategoriaApatDia(s,"dijous","dinar"))
+        canviIcona(int12,controlador.getCategoriaApatDia(s,"divendres","dinar"))
+        canviIcona(int13,controlador.getCategoriaApatDia(s,"dissabte","dinar"))
+        canviIcona(int14,controlador.getCategoriaApatDia(s,"diumenge","dinar"))
+        canviIcona(int15,controlador.getCategoriaApatDia(s,"dilluns","sopar"))
+        canviIcona(int16,controlador.getCategoriaApatDia(s,"dimarts","sopar"))
+        canviIcona(int17,controlador.getCategoriaApatDia(s,"dimecres","sopar"))
+        canviIcona(int18,controlador.getCategoriaApatDia(s,"dijous","sopar"))
+        canviIcona(int19,controlador.getCategoriaApatDia(s,"divendres","sopar"))
+        canviIcona(int20,controlador.getCategoriaApatDia(s,"dissabte","sopar"))
+        canviIcona(int21,controlador.getCategoriaApatDia(s,"diumenge","sopar"))
     }
 
     /*
@@ -258,13 +260,13 @@ class CalendariSetmanal : AppCompatActivity() {
         /*
         * Creem els LinearLayout per a cada dia de la setmana amb les característiques desitjades
          */
-        var layoutDia1: LinearLayout = LinearLayout(this)
-        var layoutDia2: LinearLayout = LinearLayout(this)
-        var layoutDia3: LinearLayout = LinearLayout(this)
-        var layoutDia4: LinearLayout = LinearLayout(this)
-        var layoutDia5: LinearLayout = LinearLayout(this)
-        var layoutDia6: LinearLayout = LinearLayout(this)
-        var layoutDia7: LinearLayout = LinearLayout(this)
+        val layoutDia1 = LinearLayout(this)
+        val layoutDia2 = LinearLayout(this)
+        val layoutDia3 = LinearLayout(this)
+        val layoutDia4 = LinearLayout(this)
+        val layoutDia5 = LinearLayout(this)
+        val layoutDia6 = LinearLayout(this)
+        val layoutDia7 = LinearLayout(this)
         layoutDia1.orientation = LinearLayout.VERTICAL
         layoutDia2.orientation = LinearLayout.VERTICAL
         layoutDia3.orientation = LinearLayout.VERTICAL
@@ -287,7 +289,7 @@ class CalendariSetmanal : AppCompatActivity() {
         /*
         * Afegim a cada layout de cada dia el titol MENÚ DIA X
          */
-        val titol1: TextView = TextView(this)
+        val titol1 = TextView(this)
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -296,7 +298,7 @@ class CalendariSetmanal : AppCompatActivity() {
         titol1.text = "MENÚ DIA 1"
         layoutDia1.addView(titol1)
 
-        val titol2: TextView = TextView(this)
+        val titol2 = TextView(this)
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -305,7 +307,7 @@ class CalendariSetmanal : AppCompatActivity() {
         titol2.text = "MENÚ DIA 2"
         layoutDia2.addView(titol2)
 
-        val titol3: TextView = TextView(this)
+        val titol3 = TextView(this)
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -314,7 +316,7 @@ class CalendariSetmanal : AppCompatActivity() {
         titol3.text = "MENÚ DIA 3"
         layoutDia3.addView(titol3)
 
-        val titol4: TextView = TextView(this)
+        val titol4 = TextView(this)
         params = LinearLayout.LayoutParams(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -366,15 +368,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI12.orientation = LinearLayout.HORIZONTAL
         layoutI13.orientation = LinearLayout.HORIZONTAL
 
-        var apat1: TextView = TextView(this)
-        var apat2: TextView = TextView(this)
-        var apat3: TextView = TextView(this)
-        var nom1: TextView = TextView(this)
-        var nom2: TextView = TextView(this)
-        var nom3: TextView = TextView(this)
-        var mesInfo1: Button = Button(this)
-        var mesInfo2: Button = Button(this)
-        var mesInfo3: Button = Button(this)
+        val apat1: TextView = TextView(this)
+        val apat2: TextView = TextView(this)
+        val apat3: TextView = TextView(this)
+        val nom1: TextView = TextView(this)
+        val nom2: TextView = TextView(this)
+        val nom3: TextView = TextView(this)
+        val mesInfo1: Button = Button(this)
+        val mesInfo2: Button = Button(this)
+        val mesInfo3: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -405,13 +407,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo1.layoutParams = params
         mesInfo1.text = "+INFO"
-        mesInfo1.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo1.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo2.layoutParams = params
         mesInfo2.text = "+INFO"
-        mesInfo2.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo2.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo3.layoutParams = params
         mesInfo3.text = "+INFO"
-        mesInfo3.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo3.background = resources.getDrawable(R.drawable.estil_botons_2)
 
 
 
@@ -431,15 +433,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI22.orientation = LinearLayout.HORIZONTAL
         layoutI23.orientation = LinearLayout.HORIZONTAL
 
-        var apat21: TextView = TextView(this)
-        var apat22: TextView = TextView(this)
-        var apat23: TextView = TextView(this)
-        var nom21: TextView = TextView(this)
-        var nom22: TextView = TextView(this)
-        var nom23: TextView = TextView(this)
-        var mesInfo21: Button = Button(this)
-        var mesInfo22: Button = Button(this)
-        var mesInfo23: Button = Button(this)
+        val apat21: TextView = TextView(this)
+        val apat22: TextView = TextView(this)
+        val apat23: TextView = TextView(this)
+        val nom21: TextView = TextView(this)
+        val nom22: TextView = TextView(this)
+        val nom23: TextView = TextView(this)
+        val mesInfo21: Button = Button(this)
+        val mesInfo22: Button = Button(this)
+        val mesInfo23: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -470,13 +472,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo21.layoutParams = params
         mesInfo21.text = "+INFO"
-        mesInfo21.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo21.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo22.layoutParams = params
         mesInfo22.text = "+INFO"
-        mesInfo22.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo22.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo23.layoutParams = params
         mesInfo23.text = "+INFO"
-        mesInfo23.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo23.background = resources.getDrawable(R.drawable.estil_botons_2)
 
 
 
@@ -496,15 +498,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI32.orientation = LinearLayout.HORIZONTAL
         layoutI33.orientation = LinearLayout.HORIZONTAL
 
-        var apat31: TextView = TextView(this)
-        var apat32: TextView = TextView(this)
-        var apat33: TextView = TextView(this)
-        var nom31: TextView = TextView(this)
-        var nom32: TextView = TextView(this)
-        var nom33: TextView = TextView(this)
-        var mesInfo31: Button = Button(this)
-        var mesInfo32: Button = Button(this)
-        var mesInfo33: Button = Button(this)
+        val apat31: TextView = TextView(this)
+        val apat32: TextView = TextView(this)
+        val apat33: TextView = TextView(this)
+        val nom31: TextView = TextView(this)
+        val nom32: TextView = TextView(this)
+        val nom33: TextView = TextView(this)
+        val mesInfo31: Button = Button(this)
+        val mesInfo32: Button = Button(this)
+        val mesInfo33: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -535,13 +537,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo31.layoutParams = params
         mesInfo31.text = "+INFO"
-        mesInfo31.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo31.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo32.layoutParams = params
         mesInfo32.text = "+INFO"
-        mesInfo32.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo32.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo33.layoutParams = params
         mesInfo33.text = "+INFO"
-        mesInfo33.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo33.background = resources.getDrawable(R.drawable.estil_botons_2)
 
 
         //DIA 4
@@ -560,15 +562,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI42.orientation = LinearLayout.HORIZONTAL
         layoutI43.orientation = LinearLayout.HORIZONTAL
 
-        var apat41: TextView = TextView(this)
-        var apat42: TextView = TextView(this)
-        var apat43: TextView = TextView(this)
-        var nom41: TextView = TextView(this)
-        var nom42: TextView = TextView(this)
-        var nom43: TextView = TextView(this)
-        var mesInfo41: Button = Button(this)
-        var mesInfo42: Button = Button(this)
-        var mesInfo43: Button = Button(this)
+        val apat41: TextView = TextView(this)
+        val apat42: TextView = TextView(this)
+        val apat43: TextView = TextView(this)
+        val nom41: TextView = TextView(this)
+        val nom42: TextView = TextView(this)
+        val nom43: TextView = TextView(this)
+        val mesInfo41: Button = Button(this)
+        val mesInfo42: Button = Button(this)
+        val mesInfo43: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -599,13 +601,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo41.layoutParams = params
         mesInfo41.text = "+INFO"
-        mesInfo41.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo41.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo42.layoutParams = params
         mesInfo42.text = "+INFO"
-        mesInfo42.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo42.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo43.layoutParams = params
         mesInfo43.text = "+INFO"
-        mesInfo43.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo43.background = resources.getDrawable(R.drawable.estil_botons_2)
 
         //DIA 5
         val layoutI51: LinearLayout = LinearLayout(this)
@@ -623,15 +625,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI52.orientation = LinearLayout.HORIZONTAL
         layoutI53.orientation = LinearLayout.HORIZONTAL
 
-        var apat51: TextView = TextView(this)
-        var apat52: TextView = TextView(this)
-        var apat53: TextView = TextView(this)
-        var nom51: TextView = TextView(this)
-        var nom52: TextView = TextView(this)
-        var nom53: TextView = TextView(this)
-        var mesInfo51: Button = Button(this)
-        var mesInfo52: Button = Button(this)
-        var mesInfo53: Button = Button(this)
+        val apat51: TextView = TextView(this)
+        val apat52: TextView = TextView(this)
+        val apat53: TextView = TextView(this)
+        val nom51: TextView = TextView(this)
+        val nom52: TextView = TextView(this)
+        val nom53: TextView = TextView(this)
+        val mesInfo51: Button = Button(this)
+        val mesInfo52: Button = Button(this)
+        val mesInfo53: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -662,13 +664,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo51.layoutParams = params
         mesInfo51.text = "+INFO"
-        mesInfo51.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo51.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo52.layoutParams = params
         mesInfo52.text = "+INFO"
-        mesInfo52.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo52.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo53.layoutParams = params
         mesInfo53.text = "+INFO"
-        mesInfo53.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo53.background = resources.getDrawable(R.drawable.estil_botons_2)
 
         //DIA 6
         val layoutI61: LinearLayout = LinearLayout(this)
@@ -686,15 +688,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI62.orientation = LinearLayout.HORIZONTAL
         layoutI63.orientation = LinearLayout.HORIZONTAL
 
-        var apat61: TextView = TextView(this)
-        var apat62: TextView = TextView(this)
-        var apat63: TextView = TextView(this)
-        var nom61: TextView = TextView(this)
-        var nom62: TextView = TextView(this)
-        var nom63: TextView = TextView(this)
-        var mesInfo61: Button = Button(this)
-        var mesInfo62: Button = Button(this)
-        var mesInfo63: Button = Button(this)
+        val apat61: TextView = TextView(this)
+        val apat62: TextView = TextView(this)
+        val apat63: TextView = TextView(this)
+        val nom61: TextView = TextView(this)
+        val nom62: TextView = TextView(this)
+        val nom63: TextView = TextView(this)
+        val mesInfo61: Button = Button(this)
+        val mesInfo62: Button = Button(this)
+        val mesInfo63: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -725,13 +727,13 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo61.layoutParams = params
         mesInfo61.text = "+INFO"
-        mesInfo61.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo61.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo62.layoutParams = params
         mesInfo62.text = "+INFO"
-        mesInfo62.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo62.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo63.layoutParams = params
         mesInfo63.text = "+INFO"
-        mesInfo63.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo63.background = resources.getDrawable(R.drawable.estil_botons_2)
 
         //DIA 7
         val layoutI71: LinearLayout = LinearLayout(this)
@@ -749,15 +751,15 @@ class CalendariSetmanal : AppCompatActivity() {
         layoutI72.orientation = LinearLayout.HORIZONTAL
         layoutI73.orientation = LinearLayout.HORIZONTAL
 
-        var apat71: TextView = TextView(this)
-        var apat72: TextView = TextView(this)
-        var apat73: TextView = TextView(this)
-        var nom71: TextView = TextView(this)
-        var nom72: TextView = TextView(this)
-        var nom73: TextView = TextView(this)
-        var mesInfo71: Button = Button(this)
-        var mesInfo72: Button = Button(this)
-        var mesInfo73: Button = Button(this)
+        val apat71: TextView = TextView(this)
+        val apat72: TextView = TextView(this)
+        val apat73: TextView = TextView(this)
+        val nom71: TextView = TextView(this)
+        val nom72: TextView = TextView(this)
+        val nom73: TextView = TextView(this)
+        val mesInfo71: Button = Button(this)
+        val mesInfo72: Button = Button(this)
+        val mesInfo73: Button = Button(this)
         params = LinearLayout.LayoutParams(
             180,
             ViewGroup.LayoutParams.WRAP_CONTENT
@@ -788,16 +790,16 @@ class CalendariSetmanal : AppCompatActivity() {
         )
         mesInfo71.layoutParams = params
         mesInfo71.text = "+INFO"
-        mesInfo71.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo71.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo72.layoutParams = params
         mesInfo72.text = "+INFO"
-        mesInfo72.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo72.background = resources.getDrawable(R.drawable.estil_botons_2)
         mesInfo73.layoutParams = params
         mesInfo73.text = "+INFO"
-        mesInfo73.setBackground(getResources().getDrawable(R.drawable.estil_botons_2))
+        mesInfo73.background = resources.getDrawable(R.drawable.estil_botons_2)
 
         //s'omplen els textViews amb els menús de l'usuari actual
-        val noms: List<TextView> = listOf<TextView>(nom1, nom2, nom3, nom21, nom22, nom23, nom31,
+        val noms: List<TextView> = listOf(nom1, nom2, nom3, nom21, nom22, nom23, nom31,
             nom32, nom33, nom41, nom42, nom43, nom51, nom52, nom53, nom61, nom62, nom63, nom71,
             nom72, nom73)
 
@@ -920,9 +922,9 @@ class CalendariSetmanal : AppCompatActivity() {
     /*
     * Actualitza els noms dels menús de la setmana actual en l'ScrollView
      */
-    fun recorregutMenus(noms: List<TextView>) {
+    private fun recorregutMenus(noms: List<TextView>) {
         //agafem la setmana que es troba actualment a l'spinner
-        var setmana = spinner2.selectedItem.toString().takeLastWhile { it.isDigit() }
+        val setmana = spinner2.selectedItem.toString().takeLastWhile { it.isDigit() }
         val llistaMenus = controlador.recorrerMenus(setmana.toInt())
         //es recorre l'array de menús trobats i s'escriuen en els textViews
         var apats: Int = 1

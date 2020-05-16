@@ -22,12 +22,9 @@ import java.time.temporal.WeekFields
 import java.util.*
 
 class SignUp: AppCompatActivity() {
-    var controlador: Controlador
+    var controlador: Controlador = Controlador
     private lateinit var dbReference:DatabaseReference
     private lateinit var auth:FirebaseAuth
-    init {
-        controlador = Controlador
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {

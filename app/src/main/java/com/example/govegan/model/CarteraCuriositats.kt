@@ -1,12 +1,7 @@
 package com.example.govegan.model
 
-import com.example.govegan.R
-
 class CarteraCuriositats {
     var llistaCuriositats: ArrayList<Curiositat> = ArrayList()
-
-    init {
-    }
 
     fun getCuriositatByTheme(tema: String): Curiositat? {
         for (item in llistaCuriositats) {

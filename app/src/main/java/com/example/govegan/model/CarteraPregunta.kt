@@ -7,7 +7,7 @@ class CarteraPregunta {
 
 
     fun crearPregunta(idUsuari: String, descripcio: String, tema: String): Pregunta{
-        var preg = Pregunta(idUsuari, descripcio, tema)
+        val preg = Pregunta(idUsuari, descripcio, tema)
         preguntes.add(preg)
         return preg
     }
@@ -23,7 +23,7 @@ class CarteraPregunta {
     }
 
     fun crearResp( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String , descPreg : String) : Pregunta? {
-        val idPreg = idDestinatari + "-" + descPreg + "-" + temaa
+        val idPreg = "$idDestinatari-$descPreg-$temaa"
         var preg : Pregunta? = null
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {
@@ -35,7 +35,7 @@ class CarteraPregunta {
     }
 
     fun mostrarRespPerIdPregunta( temaa: String, descripcioo: String, esCertificat: Boolean, idUsuarii: String, idDestinatari: String): ArrayList<Resposta>? {
-        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+        val idPreg = "$idUsuarii-$descripcioo-$temaa"
         var respostesPerIdPregunta: ArrayList<Resposta>? = ArrayList()
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {
@@ -47,7 +47,7 @@ class CarteraPregunta {
 
     fun getCount(idUsuarii:String,descripcioo: String, temaa: String): Int{
         var cont:Int = 0
-        val idPreg = idUsuarii + "-" + descripcioo + "-" + temaa
+        val idPreg = "$idUsuarii-$descripcioo-$temaa"
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {
                 cont = i.getContador()
@@ -67,7 +67,7 @@ class CarteraPregunta {
     }
 
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
-        val idPreg = idUsuari + "-" + desc + "-" + tema
+        val idPreg = "$idUsuari-$desc-$tema"
         var respostesDesc: ArrayList<String>? = ArrayList()
         for (i: Pregunta in preguntes) {
             if (i.idPregunta.equals(idPreg)) {

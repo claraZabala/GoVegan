@@ -3,15 +3,13 @@ package com.example.govegan.controlador
 import com.example.govegan.model.BaseDades
 import com.example.govegan.model.CarteraUsuaris
 import com.example.govegan.model.Usuari
-import com.google.firebase.firestore.FirebaseFirestore
 
 class FacadeCarteraUsuaris (baseDades: BaseDades) {
-    var carteraUsuaris: CarteraUsuaris
+    private var carteraUsuaris: CarteraUsuaris = CarteraUsuaris(baseDades)
     var controlador: Controlador
-    var baseDades: BaseDades
+    private var baseDades: BaseDades
 
     init{
-        carteraUsuaris = CarteraUsuaris(baseDades)
         controlador = Controlador
         this.baseDades = baseDades
     }
@@ -42,14 +40,14 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
         }
 
         else {
-            var usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat, weekNumber)
-            if (usuariNou != null) {
+            val usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat, weekNumber)
+            return if (usuariNou != null) {
                 if(userID != null) {
                     baseDades.addUser(usuariNou,userID)
                 }
-                return 0
+                0
             } else {
-                return 3
+                3
             }
         }
     }

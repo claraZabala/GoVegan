@@ -14,7 +14,5 @@ class Curiositat (imatge:String?, title:String, desc:String) {
         this.desc = desc
     }
 
-    constructor():this(null,"",""){
-
-    }
+    constructor():this(null,"","")
 }

@@ -4,13 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.CheckBox
-import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
-import com.example.govegan.model.Ingredient
-import kotlinx.android.synthetic.main.afegir_proposta.*
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
 import kotlinx.android.synthetic.main.recepta.*
 
@@ -66,7 +63,7 @@ class Recepta : AppCompatActivity() {
     }
 
 
-    fun actualitzarLlistaIngredients(dialogView: View) {
+    private fun actualitzarLlistaIngredients(dialogView: View) {
         for (i in ingredients) {
             val btnIngredient = CheckBox(this)
             btnIngredient.text = i

@@ -4,11 +4,7 @@ import android.widget.ImageView
 import com.example.govegan.R
 
 class CarteraReceptes {
-    var propostes: ArrayList<Proposta>
-
-    init {
-        propostes = ArrayList()
-    }
+    var propostes: ArrayList<Proposta> = ArrayList()
 
     fun addRecepta(lastpath:String?,nom: String, pasos: String, tempsPrep: String, tempsCuina: String,comensals:String,tipusRecepta:String,autor:String,ingredients:ArrayList<String>): Proposta? {
         val recepta = Proposta(lastpath, nom, tempsPrep, tempsCuina, comensals,tipusRecepta, pasos, ingredients,autor)
@@ -58,7 +54,7 @@ class CarteraReceptes {
     }
 
     fun setIcona(icona: ImageView, position: Int) {
-        var tipus = propostes[position].icona
+        val tipus = propostes[position].icona
         if (tipus.equals("0")){
             icona.setImageResource(R.drawable.cara)
         } else if (tipus.equals("1")){

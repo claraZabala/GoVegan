@@ -39,7 +39,8 @@
         android:id="@+id/iconRecepta"
         android:layout_margin="20dp"
         android:layout_width="match_parent"
-        android:layout_height="158dp" />
+        android:layout_height="158dp"
+        android:contentDescription="Foto recepta" />
 
     <TextView
         android:id="@+id/autor"
@@ -168,7 +169,8 @@
             android:clickable="true"
             app:fabSize="mini"
             android:onClick="llista"
-            app:srcCompat="@drawable/afegir" />
+            app:srcCompat="@drawable/afegir"
+            android:focusable="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -193,8 +195,10 @@
             android:clickable="true"
             android:onClick="calendari"
             app:fabSize="mini"
-            app:srcCompat="@drawable/afegir" />
+            app:srcCompat="@drawable/afegir"
+            android:focusable="true" />
     </LinearLayout>
+
         <Button
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
@@ -202,7 +206,7 @@
             android:background="@color/verdClar"
             android:layout_gravity="center"
             android:text="AFEGIR RECEPTA CALENDARI"
-            android:onClick="calendari"></Button>
+            android:onClick="calendari" />
 
     </LinearLayout>
     </ScrollView>

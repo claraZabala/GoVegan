@@ -6,19 +6,18 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
 
 
 
-    var nom:String
-    var cognoms:String
+    var nom:String = nom
+    private var cognoms:String
     var nomUsuari:String
     var pwd:String
-    var edat:Int
-    var email:String
+    private var edat:Int
+    private var email:String
     var setmanes: ArrayList<Setmana>
     var llistaIngredientsCompra:ArrayList<String>
     var weekNumber: Int
 
 
     init {
-        this.nom = nom
         this.cognoms = cognoms
         this.edat = edat
         this.nomUsuari = nomUsuari
@@ -33,10 +32,9 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     /*
     * Inicialitza l'atribut llistat de setmanes que conté tota la info de l'usuari
      */
-    constructor():this("","","","","",0, ArrayList(),ArrayList(),0){
+    constructor():this("","","","","",0, ArrayList(),ArrayList(),0)
 
-    }
-    fun iniSetmanes(){
+    private fun iniSetmanes(){
         for (i in 1..24) {
             setmanes.add(Setmana(nomUsuari, i))
         }
@@ -67,7 +65,7 @@ class Usuari(nom:String, cognoms:String, nomUsuari:String, pwd:String, email:Str
     fun recorrerMenus(setmanaActual: Int): ArrayList<String> {
         var llistaMenus: ArrayList<String> = ArrayList()
         for (i in setmanes) {
-            if (i.getName().equals("Setmana "+setmanaActual)) {
+            if (i.getName().equals("Setmana $setmanaActual")) {
                 llistaMenus = i.recorrerDies()
             }
         }

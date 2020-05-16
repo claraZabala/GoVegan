@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi
 import com.example.govegan.model.*
 import com.google.firebase.firestore.FirebaseFirestore
 import java.time.LocalDate
-import java.time.temporal.TemporalField
 import java.time.temporal.WeekFields
 import java.util.*
 import kotlin.collections.ArrayList
@@ -24,8 +23,8 @@ object Controlador {
     private var receptaActiva: String?
     private var isFromProposta: Boolean
     private var titolReceptaProp: String
-    val baseDades: BaseDades
-    val db: FirebaseFirestore
+    private val baseDades: BaseDades
+    private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
 
     /**
@@ -34,7 +33,6 @@ object Controlador {
      */
 
     init {
-        db = FirebaseFirestore.getInstance()
         baseDades = BaseDades(db)
         facadeCarteraCuriositats = FacadeCarteraCuriositats(baseDades)
         facadeCarteraIngredients = FacadeCarteraIngredients(baseDades)
@@ -64,7 +62,7 @@ object Controlador {
     }*/
 
 
-    fun actualizarUsuariActiu(){
+    private fun actualizarUsuariActiu(){
         baseDades.actualitzarUsuariActiu()
 
     }
@@ -119,9 +117,9 @@ object Controlador {
 
     fun recorrerMenus(setmanaActual: Int): ArrayList<String>? {
         val usuari: Usuari? = usuariActiu?.let { getUsuariByName(it) }
-        if (usuari != null) {
-            return usuari.recorrerMenus(setmanaActual)
-        } else return null
+        return if (usuari != null) {
+            usuari.recorrerMenus(setmanaActual)
+        } else null
     }
 
     fun setReceptaActiva(recepta: String?) {
@@ -332,7 +330,7 @@ object Controlador {
      */
 
     fun crearPregunta(descripcio: String, tema: String) {
-        var pregunta:Pregunta = facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!, descripcio, tema)
+        val pregunta:Pregunta = facadeCarteraPreguntes.crearPreguntaF(usuariActiu!!, descripcio, tema)
         baseDades.addPregunta(pregunta)
     }
 
@@ -348,7 +346,7 @@ object Controlador {
         idDestinatari: String,
         descPreg : String
     ) {
-        var preg = facadeCarteraPreguntes.crearRespostaF(
+        val preg = facadeCarteraPreguntes.crearRespostaF(
             tema,
             descripcio,
             esCertificat,
