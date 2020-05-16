@@ -48,7 +48,8 @@ object Controlador {
         facadeCarteraIngredients.getLlistaBaseDades()
         facadeCarteraReceptes.getLlistaBaseDades()
         facadeCarteraCuriositats.getLlistaBaseDades()
-        initPreguntesBD()
+        facadeCarteraPreguntes.getLListaBaseDades()
+        //initPreguntesBD()
     }
 
     /*private fun initCuriositatsBD() {
