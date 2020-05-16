@@ -119,11 +119,9 @@ object Controlador {
      *         **********************
      */
 
-    fun recorrerMenus(setmanaActual: Int): ArrayList<String>? {
-        val usuari: Usuari? = usuariActiu?.let { getUsuariByName(it) }
-        return if (usuari != null) {
-            usuari.recorrerMenus(setmanaActual)
-        } else null
+    fun recorrerMenus(setmanaActual: String): ArrayList<String>? {
+        val usuari: Usuari? = getUsuariByName(usuariActiu!!)
+        return usuari?.recorrerMenus(setmanaActual)
     }
 
     fun setReceptaActiva(recepta: String?) {

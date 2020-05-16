@@ -924,8 +924,7 @@ class CalendariSetmanal : AppCompatActivity() {
      */
     private fun recorregutMenus(noms: List<TextView>) {
         //agafem la setmana que es troba actualment a l'spinner
-        val setmana = spinner2.selectedItem.toString().takeLastWhile { it.isDigit() }
-        val llistaMenus = controlador.recorrerMenus(setmana.toInt())
+        val llistaMenus = controlador.recorrerMenus(spinner2.selectedItem.toString())
         //es recorre l'array de menús trobats i s'escriuen en els textViews
         var apats: Int = 1
         var dies: Int = 1
