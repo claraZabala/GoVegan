@@ -49,8 +49,6 @@ object Controlador {
         facadeCarteraReceptes.getLlistaBaseDades()
         facadeCarteraCuriositats.getLlistaBaseDades()
         //initPreguntesBD()
-        //initCuriositatsBD()
-        //facadeCarteraUsuaris.initUsers(baseDades.getAllUsers())
     }
 
     /*private fun initCuriositatsBD() {
@@ -59,11 +57,11 @@ object Controlador {
         }
     }*/
 
-    private fun initPreguntesBD() {
+    /*private fun initPreguntesBD() {
         for (pregunta in facadeCarteraPreguntes.getLlistaPreguntes()!!) {
             baseDades.addPregunta(pregunta)
         }
-    }
+    }*/
 
 
     fun actualizarUsuariActiu(){
@@ -109,6 +107,10 @@ object Controlador {
         val weekNumber = LocalDate.now().get(WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear())
         return ((weekNumber-setInicial).rem(52)) + 1 //(actual-inicial)mod52 + 1
     }
+
+    /*fun recuperarContra(correu: String,context: Context) {
+       baseDades.recuperarContra(correu,context)
+    }*/
 
     /**
      * RECEPTA *********************
@@ -222,6 +224,10 @@ object Controlador {
         return facadeCarteraReceptes.getIcona(receptaActiva)
     }
 
+    fun getIngredientsProp(): ArrayList<String> {
+        return facadeCarteraReceptes.getIngredients(receptaActiva)
+    }
+
     /**
      * CURIOSITATS *********************
      *             **********************
@@ -312,8 +318,6 @@ object Controlador {
         return false
     }
 
-
-
     fun getImatgeIngredient(nomIngredient: String): String? {
         return facadeCarteraIngredients.getImatgeIngredient(nomIngredient)
     }
@@ -352,7 +356,6 @@ object Controlador {
             idDestinatari,
             descPreg
         )
-        var idPreg = idDestinatari + "-" + descPreg + "-" + tema
         if (preg != null) {
             baseDades.addPregunta(preg)
         }
@@ -384,15 +387,5 @@ object Controlador {
   
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
         return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
-    }
-
-    fun recuperarContra(correu: String,context: Context) {
-        /*
-       baseDades.recuperarContra(correu,context)
-       */
-    }
-
-    fun getIngredientsProp(): ArrayList<String> {
-        return facadeCarteraReceptes.getIngredients(receptaActiva)
     }
 }
