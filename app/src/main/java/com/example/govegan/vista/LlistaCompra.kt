@@ -10,6 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginRight
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
@@ -113,7 +114,7 @@ class LlistaCompra : AppCompatActivity() {
             }
             val textIngredient: TextView = TextView(this)
             params = ViewGroup.LayoutParams(
-                1200,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             textIngredient.layoutParams = params
@@ -127,7 +128,6 @@ class LlistaCompra : AppCompatActivity() {
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             controlador.carregarImatgeIngredient(this,imatgeFoto,i)
-
             imatgeFoto.layoutParams = params
             layoutIngredient.addView(checkIngredient)
             layoutIngredient.addView(textIngredient)
