@@ -198,16 +198,6 @@
             app:srcCompat="@drawable/afegir"
             android:focusable="true" />
     </LinearLayout>
-
-        <Button
-            android:layout_marginTop="10dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/verdClar"
-            android:layout_gravity="center"
-            android:text="AFEGIR RECEPTA CALENDARI"
-            android:onClick="calendari" />
-
     </LinearLayout>
     </ScrollView>
 </LinearLayout>

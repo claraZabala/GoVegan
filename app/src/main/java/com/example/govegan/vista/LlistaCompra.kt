@@ -10,7 +10,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginLeft
 import androidx.core.view.marginRight
+import androidx.core.view.setPadding
 import com.example.govegan.R
 import com.example.govegan.controlador.Controlador
 import kotlinx.android.synthetic.main.dialog_ingredients.view.*
@@ -114,7 +116,7 @@ class LlistaCompra : AppCompatActivity() {
             }
             val textIngredient: TextView = TextView(this)
             params = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
+                600,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             textIngredient.layoutParams = params

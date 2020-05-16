@@ -64,56 +64,60 @@ class SignUp: AppCompatActivity() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun paginaPrincipal(view: View) {
-        auth= FirebaseAuth.getInstance()
-        auth.createUserWithEmailAndPassword(mail.text.toString(),pwd.text.toString())
-            .addOnCompleteListener(this) {task ->
+        if (mail.text.toString().isBlank() or pwd.text.toString().isBlank()){
+            toast("Has d'omplir tots els camps")
+        }
+        else {
+            auth = FirebaseAuth.getInstance()
+            auth.createUserWithEmailAndPassword(mail.text.toString(), pwd.text.toString())
+                .addOnCompleteListener(this) { task ->
 
-                if (task.isSuccessful ) {
-                    val userID = auth.currentUser?.uid
-                    val date: LocalDate = LocalDate.now()
-                    val woy: TemporalField = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear()
-                    val weekNumber: Int = date.get(woy) //Aquesta variable et diu el nombre de setmana de l'any
-                    val registre = controlador.registre(userID,
-                        nom.text.toString(),
-                        cognoms.text.toString(),
-                        correu.text.toString(),
-                        mail.text.toString(),
-                        pwd.text.toString(),
-                        pwd2.text.toString(),
-                        edat.selectedItem.toString(),
-                        weekNumber
-                    )
-                    if(registre.equals(0)) {
-                        intent = Intent(this, MainActivity::class.java)
-                        startActivity(intent)
-                    }
-                    else if (registre.equals(1)){
-                        toast("Has d'omplir tots els camps")
-                        auth.currentUser?.delete()
-                    } else if (registre.equals(2)){
-                        toast("Les contrasenyes han de coincidir")
-                        auth.currentUser?.delete()
-                    } else if (registre.equals(4)){
-                        toast("Correu no valid")
-                        auth.currentUser?.delete()
-                    }else if (registre.equals(3)){
-                        toast("El nom d'usuari ja existeix")
-                        auth.currentUser?.delete()
-                    }
-                    else if (registre.equals(5)){
-                        toast("Contrasenya molt curta")
-                        auth.currentUser?.delete()
+                    if (task.isSuccessful) {
+                        val userID = auth.currentUser?.uid
+                        val date: LocalDate = LocalDate.now()
+                        val woy: TemporalField =
+                            WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear()
+                        val weekNumber: Int =
+                            date.get(woy) //Aquesta variable et diu el nombre de setmana de l'any
+                        val registre = controlador.registre(
+                            userID,
+                            nom.text.toString(),
+                            cognoms.text.toString(),
+                            correu.text.toString(),
+                            mail.text.toString(),
+                            pwd.text.toString(),
+                            pwd2.text.toString(),
+                            edat.selectedItem.toString(),
+                            weekNumber
+                        )
+                        if (registre.equals(0)) {
+                            intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else if (registre.equals(1)) {
+                            toast("Has d'omplir tots els camps")
+                            auth.currentUser?.delete()
+                        } else if (registre.equals(2)) {
+                            toast("Les contrasenyes han de coincidir")
+                            auth.currentUser?.delete()
+                        } else if (registre.equals(4)) {
+                            toast("Correu no valid")
+                            auth.currentUser?.delete()
+                        } else if (registre.equals(3)) {
+                            toast("El nom d'usuari ja existeix")
+                            auth.currentUser?.delete()
+                        } else if (registre.equals(5)) {
+                            toast("Contrasenya molt curta")
+                            auth.currentUser?.delete()
+                        }
+                    } else {
+                        //TODO: aixo ja s'ha comprovat abans, no?
+                        if (pwd.toString().length < 6) {
+                            toast("Contrasenya molt curta")
+                        } else {
+                            toast("Correu repetit")
+                        }
                     }
                 }
-                else{
-                    //TODO: aixo ja s'ha comprovat abans, no?
-                    if(pwd.toString().length < 6){
-                        toast("Contrasenya molt curta")
-                    }
-                    else {
-                        toast("Correu repetit")
-                    }
-                }
-            }
+        }
     }
 }
