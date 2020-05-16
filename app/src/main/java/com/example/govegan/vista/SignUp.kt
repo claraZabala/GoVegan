@@ -91,7 +91,7 @@ class SignUp: AppCompatActivity() {
                             weekNumber
                         )
                         if (registre.equals(0)) {
-                            intent = Intent(this, PaginaPrincipal::class.java)
+                            intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
                         } else if (registre.equals(1)) {
                             toast("Has d'omplir tots els camps")

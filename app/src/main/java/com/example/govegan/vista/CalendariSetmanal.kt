@@ -246,7 +246,9 @@ class CalendariSetmanal : AppCompatActivity() {
     * Quan es prem mostrar menús, es fa un recorregut pels dies de la setmana activa de l'usuari actiu
     * i s'imprimeixen els menús en TextViews a sota en un scrollView
      */
-    @SuppressLint("ResourceType")
+
+
+
     fun mostrarMenus(view: View): Int {
         if (!mostrarMenus.isChecked) {
             //netegem el que hi havia
@@ -256,6 +258,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //netegem el que hi havia
         layoutMostrarMenus.removeAllViews()
+
 
         /*
         * Creem els LinearLayout per a cada dia de la setmana amb les característiques desitjades
