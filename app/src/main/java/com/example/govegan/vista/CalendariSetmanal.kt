@@ -15,11 +15,14 @@ import com.example.govegan.controlador.Controlador
 import com.example.govegan.controlador.Controlador.toast
 import kotlinx.android.synthetic.main.calendari_setmanal.*
 import kotlinx.android.synthetic.main.dialog_afegir_plat.view.*
+import kotlinx.android.synthetic.main.dialog_ingredients.view.*
+import kotlinx.android.synthetic.main.dialog_mes_info.view.*
 
 
 @RequiresApi(Build.VERSION_CODES.O)
 class CalendariSetmanal : AppCompatActivity() {
     var controlador: Controlador = Controlador
+    var receptaMesInfo: String = ""
 
     //quan s'inicialitza l'app es carrega la setmana actual, que ha de canviar cada setmana
     var setmanaActual: Int
@@ -177,15 +180,44 @@ class CalendariSetmanal : AppCompatActivity() {
     }
 
     fun mesInfo(nom: String) {
-        if (controlador.getReceptaByName(nom) == null){
-            toast("La recepta no té més informació")
-        }
-        else {
-            controlador.setReceptaActiva(nom)
-            intent = Intent(this, Recepta::class.java)
-            startActivity(intent)
+        val dialog = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.dialog_mes_info, null)
+        dialog.setView(dialogView)
+        dialog.setCancelable(false)
+        val mAlertDialog = dialog.show()
+        val customDialog = dialog.create()
+        actualitzarLlistaReceptes(dialogView,nom)
+        dialogView.butSelecRecepta.setOnClickListener{
+            if (controlador.getReceptaByName(receptaMesInfo) == null){
+                toast("La recepta no té més informació")
+            }
+            else {
+                controlador.setReceptaActiva(receptaMesInfo)
+                intent = Intent(this, Recepta::class.java)
+                startActivity(intent)
+            }
+            mAlertDialog.dismiss()
         }
     }
+
+    private fun actualitzarLlistaReceptes(dialogView: View, nom: String) {
+        dialogView.layoutMesInfo.removeAllViews()
+        var radioGroup = RadioGroup(this)
+        var j = 0
+        for (i in 0..nom.length){
+            if (i == nom.length || nom.get(i).equals(',')){
+                val btnRecepta = RadioButton(this)
+                btnRecepta.text = nom.substring(j,i)
+                j = i+2
+                radioGroup.addView(btnRecepta)
+                btnRecepta.setOnClickListener {
+                    receptaMesInfo = btnRecepta.text.toString()
+                }
+            }
+        }
+        dialogView.layoutMesInfo.addView(radioGroup)
+    }
+
     /*
     * Segons la icona clicada s'afegeix el plat en el dia i àpat adequats
      */

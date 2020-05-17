@@ -114,7 +114,7 @@ class CarteraUsuaris(baseDades: BaseDades) {
     }
 
     fun getSetmanaUser(usuariActiu: String?): Int? {
-        return getByID(usuariActiu!!)!!.weekNumber
+        return getByID(usuariActiu!!)?.weekNumber
     }
 
 }

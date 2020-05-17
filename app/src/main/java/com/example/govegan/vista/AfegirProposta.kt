@@ -78,7 +78,7 @@ class AfegirProposta : AppCompatActivity() {
     fun actualitzarLlistaIngredients(dialogView: View){
         dialogView.layoutIngredientsBD.removeAllViews()
         for (i in llistaIngredients) {
-            val btnIngredient: CheckBox = CheckBox(this)
+            val btnIngredient = CheckBox(this)
             btnIngredient.text = i
             dialogView.layoutIngredientsBD.addView(btnIngredient)
             if (i in llistaIngredientsCompra)
