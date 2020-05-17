@@ -180,23 +180,38 @@ class CalendariSetmanal : AppCompatActivity() {
     }
 
     fun mesInfo(nom: String) {
-        val dialog = AlertDialog.Builder(this)
-        val dialogView = layoutInflater.inflate(R.layout.dialog_mes_info, null)
-        dialog.setView(dialogView)
-        dialog.setCancelable(false)
-        val mAlertDialog = dialog.show()
-        val customDialog = dialog.create()
-        actualitzarLlistaReceptes(dialogView,nom)
-        dialogView.butSelecRecepta.setOnClickListener{
-            if (controlador.getReceptaByName(receptaMesInfo) == null){
+        if (nom.contains(',')){
+            val dialog = AlertDialog.Builder(this)
+            val dialogView = layoutInflater.inflate(R.layout.dialog_mes_info, null)
+            dialog.setView(dialogView)
+            dialog.setCancelable(false)
+            val mAlertDialog = dialog.show()
+            val customDialog = dialog.create()
+            actualitzarLlistaReceptes(dialogView,nom)
+            dialogView.butSelecRecepta.setOnClickListener{
+                if (controlador.getReceptaByName(receptaMesInfo) == null){
+                    toast("La recepta no té més informació")
+                }
+                else {
+                    controlador.setReceptaActiva(receptaMesInfo)
+                    intent = Intent(this, Recepta::class.java)
+                    startActivity(intent)
+                }
+                mAlertDialog.dismiss()
+            }
+        }
+        else {
+            if (nom.isBlank()){
+                toast("Encara no has afegit cap recepta a l'apat")
+            }
+            else if (controlador.getReceptaByName(nom) == null){
                 toast("La recepta no té més informació")
             }
             else {
-                controlador.setReceptaActiva(receptaMesInfo)
+                controlador.setReceptaActiva(nom)
                 intent = Intent(this, Recepta::class.java)
                 startActivity(intent)
             }
-            mAlertDialog.dismiss()
         }
     }
 
