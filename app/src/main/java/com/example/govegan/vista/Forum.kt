@@ -183,7 +183,7 @@ class Forum : AppCompatActivity() {
 
         val textViewUsuari: TextView = TextView(this)
         val params = ViewGroup.LayoutParams(
-            1280,
+            ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT
         )
         textViewUsuari.layoutParams = params
@@ -208,8 +208,8 @@ class Forum : AppCompatActivity() {
             textViewResp.text = j
             textViewResp.gravity = Gravity.START
             val params = ViewGroup.LayoutParams(
-                1280,
-                165
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                167
             )
             textViewResp.layoutParams = params
             textViewResp.setBackgroundColor(resources.getColor(R.color.gris))
