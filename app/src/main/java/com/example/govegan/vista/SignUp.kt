@@ -77,6 +77,9 @@ class SignUp: AppCompatActivity() {
                             weekNumber
                         )
                         if (registre.equals(0)) {
+                            if (userID != null) {
+                                controlador.login(userID)
+                            }
                             intent = Intent(this, PaginaPrincipal::class.java)
                             startActivity(intent)
                         } else if (registre.equals(1)) {
@@ -97,7 +100,7 @@ class SignUp: AppCompatActivity() {
                         }
                     } else {
                         //TODO: aixo ja s'ha comprovat abans, no?
-                        if (pwd.toString().length < 6) {
+                        if (pwd.toString().length < 7) {
                             toast("Contrasenya molt curta")
                         } else {
                             toast("Correu repetit")

@@ -140,7 +140,6 @@ class CalendariSetmanal : AppCompatActivity() {
                             val dialog = AlertDialog.Builder(this@CalendariSetmanal)
                             val dialogView = layoutInflater.inflate(R.layout.dialog_afegir_plat, null)
                             dialog.setView(dialogView)
-                            dialog.setCancelable(false)
                             val mAlertDialog = dialog.show()
                             val customDialog = dialog.create()
 

@@ -105,14 +105,18 @@ class Forum : AppCompatActivity() {
     fun mostrarPrgeunta(i : String, layoutpreg : LinearLayout){
         val layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
         val lay: LinearLayout = LinearLayout(this)
+        var paramsLayout = LinearLayout.LayoutParams(
+            ViewGroup.LayoutParams.MATCH_PARENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        )
+        lay.layoutParams = paramsLayout
+        lay.weightSum = 6f
         lay.orientation = LinearLayout.HORIZONTAL
 
         // Text View Usuari
         val textView: TextView = TextView(this)
-        var params:ViewGroup.LayoutParams = ViewGroup.LayoutParams(
-            250,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        var params:LinearLayout.LayoutParams = lay.layoutParams as LinearLayout.LayoutParams
+        params.weight = 0.5f
         textView.layoutParams = params
         textView.text = controlador.getUsuari(i)
         textView.gravity = Gravity.START
@@ -122,29 +126,21 @@ class Forum : AppCompatActivity() {
         val textViewDesc: TextView = TextView(this)
         textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
-        params = ViewGroup.LayoutParams(
-            700,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        params = lay.layoutParams as LinearLayout.LayoutParams
+        params.weight = 3.5f
         textViewDesc.layoutParams = params
         lay.addView(textViewDesc)
 
         //Boto inicialitzat fora per poder fer mètodes de clicar
         val botoRespostes: Button = Button(this)
-        params = ViewGroup.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
+        params = lay.layoutParams as LinearLayout.LayoutParams
+        params.weight = 2f
         botoRespostes.layoutParams = params
         botoRespostes.text = "respostes"
         botoRespostes.setBackgroundColor(resources.getColor(R.color.verdClar))
         botoRespostes.gravity = Gravity.CENTER
         lay.addView(botoRespostes)
-        params = ViewGroup.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
-        )
-        lay.layoutParams = params
+
 
         layoutpreg.addView(lay)
 
