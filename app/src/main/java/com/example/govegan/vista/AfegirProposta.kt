@@ -150,6 +150,12 @@ class AfegirProposta : AppCompatActivity() {
                             2 -> {
                                 toast("El nom de recepta ja existeix")
                             }
+                            3 -> {
+                                toast("El nombre de comensals ha de ser de dos dígits màxim")
+                            }
+                            4 -> {
+                                toast("Els camps de temps són massa llargs")
+                            }
                             0 -> {
                                 toast("RECEPTA AFEGIDA CORRECTAMENT")
                                 intent = Intent(this, Recepta::class.java)

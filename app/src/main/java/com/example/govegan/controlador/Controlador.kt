@@ -172,6 +172,8 @@ object Controlador {
             tempsCuina.isEmpty() or comensals.isEmpty() or ingredients.isNullOrEmpty()){
             return 1
         }
+        if (comensals.length > 2) return 3
+        if (tempsCuina.length > 10 || tempsPrep.length > 10) return 4
         val proposta = facadeCarteraReceptes.addRecepta(lastpath,nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
         if (proposta!=null){
             baseDades.addProposta(proposta)
