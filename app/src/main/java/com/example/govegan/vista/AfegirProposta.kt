@@ -164,7 +164,7 @@ class AfegirProposta : AppCompatActivity() {
                         }
                     }
                     else{
-                        toast("PROBLEMA AMB L'IMATGE")
+                        toast("PROBLEMA AMB LA IMATGE")
                     }
 
                 }
