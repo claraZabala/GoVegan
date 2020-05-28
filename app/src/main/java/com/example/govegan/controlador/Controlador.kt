@@ -22,6 +22,7 @@ object Controlador {
     private var usuariActiu: String?
     private var correuUsuariActiu: String?
     private var receptaActiva: String?
+    var afegitRecepta: Boolean
     var isFromProposta: Boolean
     var titolReceptaProp: String
     val baseDades: BaseDades
@@ -43,6 +44,7 @@ object Controlador {
         usuariActiu = null
         receptaActiva = null
         isFromProposta = false
+        afegitRecepta = false
         correuUsuariActiu = null
         titolReceptaProp = ""
         facadeCarteraIngredients.getLlistaBaseDades()
@@ -174,6 +176,7 @@ object Controlador {
         }
         if (comensals.length > 2) return 3
         if (tempsCuina.length > 10 || tempsPrep.length > 10) return 4
+        if (nom.length > 18) return 5
         val proposta = facadeCarteraReceptes.addRecepta(lastpath,nom,pasos,tempsPrep,tempsCuina,comensals,tipusRecepta,ingredients, usuariActiu!!)
         if (proposta!=null){
             baseDades.addProposta(proposta)
@@ -390,5 +393,17 @@ object Controlador {
   
     fun mostrarRespostesPerDesc( idUsuari: String, desc : String, tema: String): ArrayList<String>?{
         return facadeCarteraPreguntes.mostrarRespostesPerDesc( idUsuari, desc , tema)
+    }
+
+    fun afegirRecepta() {
+        this.afegitRecepta = true
+    }
+
+    fun heCreatRecepta(): Boolean {
+        if (afegitRecepta){
+            afegitRecepta = false
+            return true
+        }
+        return false
     }
 }

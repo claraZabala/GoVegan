@@ -44,20 +44,6 @@ class SignUp: AppCompatActivity() {
             // Apply the adapter to the spinner
             spinner.adapter = adapter
             spinner.adapter = adapter
-            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(
-                    adapterView: AdapterView<*>,
-                    view: View?,
-                    pos: Int,
-                    id: Long
-                ) {
-                    Toast.makeText(
-                        adapterView.context,
-                        adapterView.getItemAtPosition(pos) as String, Toast.LENGTH_SHORT
-                    ).show()
-                }
-                override fun onNothingSelected(parent: AdapterView<*>?) {}
-            }
 
         }
     }
@@ -91,7 +77,7 @@ class SignUp: AppCompatActivity() {
                             weekNumber
                         )
                         if (registre.equals(0)) {
-                            intent = Intent(this, MainActivity::class.java)
+                            intent = Intent(this, PaginaPrincipal::class.java)
                             startActivity(intent)
                         } else if (registre.equals(1)) {
                             toast("Has d'omplir tots els camps")

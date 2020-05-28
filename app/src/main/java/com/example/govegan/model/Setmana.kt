@@ -4,18 +4,18 @@ class Setmana (usuari: String, id: Int){
 
     var id: Int = 0
     var usuari: String
-    var dies: MutableMap<String,Dia> = mutableMapOf()
+    var dies: MutableMap<String, Dia> = mutableMapOf()
 
     init {
         this.id = id
         this.usuari = usuari
-        dies.put("dilluns",Dia(id, "dilluns"))
-        dies.put("dimarts",Dia(id,"dimarts"))
-        dies.put("dimecres",Dia(id,"dimecres"))
-        dies.put("dijous",Dia(id,"dijous"))
-        dies.put("divendres",Dia(id,"divendres"))
-        dies.put("dissabte",Dia(id,"dissabte"))
-        dies.put("diumenge",Dia(id,"diumenge"))
+        dies.put("dilluns", Dia(id, "dilluns"))
+        dies.put("dimarts", Dia(id,"dimarts"))
+        dies.put("dimecres", Dia(id,"dimecres"))
+        dies.put("dijous", Dia(id,"dijous"))
+        dies.put("divendres", Dia(id,"divendres"))
+        dies.put("dissabte", Dia(id,"dissabte"))
+        dies.put("diumenge", Dia(id,"diumenge"))
     }
     constructor():this("",0)
 

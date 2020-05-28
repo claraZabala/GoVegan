@@ -5,16 +5,16 @@ class Dia(idSetmana: Int, nom: String) {
 
     val idSetmana: Int
     var nom: String = nom
-    var esmorzar: MutableMap<String?, String>
-    var dinar: MutableMap<String?, String>
-    var sopar: MutableMap<String?, String>
+    var esmorzar: ArrayList<String?>
+    var dinar: ArrayList<String?>
+    var sopar: ArrayList<String?>
 
 
     init {
         this.idSetmana = idSetmana
-        this.esmorzar = mutableMapOf()
-        this.dinar = mutableMapOf()
-        this.sopar = mutableMapOf()
+        this.esmorzar = arrayListOf()
+        this.dinar = arrayListOf()
+        this.sopar = arrayListOf()
     }
     constructor():this(0,"")
 
@@ -27,15 +27,15 @@ class Dia(idSetmana: Int, nom: String) {
     fun afegirApat(apat: String, titolRecepta: String,categoria:String?): String? {
         when (apat) {
             "esmorzar" -> {
-                this.esmorzar.put(categoria, titolRecepta)
+                this.esmorzar.add(categoria + titolRecepta)
                 return getApat("esmorzar")
             }
             "dinar" -> {
-                this.dinar.put(categoria, titolRecepta)
+                this.dinar.add(categoria + titolRecepta)
                 return getApat("dinar")
             }
             "sopar" -> {
-                this.sopar.put(categoria, titolRecepta)
+                this.sopar.add(categoria + titolRecepta)
                 return getApat("sopar")
             }
             else -> {
@@ -51,9 +51,9 @@ class Dia(idSetmana: Int, nom: String) {
         var tipus:String? = null
         when (apat) {
             "esmorzar" ->{for (i in esmorzar){
-                tipus = if(i.key?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals("2")!!){
                     return "2"
-                } else if(i.key?.equals("1")!!){
+                } else if(i?.get(0)?.equals("1")!!){
                     "1"
                 } else{
                     "0"
@@ -63,9 +63,9 @@ class Dia(idSetmana: Int, nom: String) {
             }
 
             "dinar" ->{for (i in dinar){
-                tipus = if(i.key?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals("2")!!){
                     return "2"
-                } else if(i.key?.equals("1")!!){
+                } else if(i?.get(0)?.equals("1")!!){
                     "1"
                 } else{
                     "0"
@@ -74,9 +74,9 @@ class Dia(idSetmana: Int, nom: String) {
             }
             }
             "sopar" ->{for (i in sopar){
-                tipus = if(i.key?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals("2")!!){
                     return "2"
-                } else if(i.key?.equals("1")!!){
+                } else if(i?.get(0)?.equals("1")!!){
                     "1"
                 } else{
                     "0"
@@ -97,17 +97,17 @@ class Dia(idSetmana: Int, nom: String) {
 
         //es recorre esmorzar
         for (i in esmorzar) {
-            llistatApats.add(i.value)
+            llistatApats.add(i!!.substring(1))
         }
         llistatApats.add("-1")
         //Es recorre dinar
         for (i in dinar) {
-            llistatApats.add(i.value)
+            llistatApats.add(i!!.substring(1))
         }
         llistatApats.add("-1")
         //es recorre sopar
         for (i in sopar) {
-            llistatApats.add(i.value)
+            llistatApats.add(i!!.substring(1))
         }
 
         return llistatApats

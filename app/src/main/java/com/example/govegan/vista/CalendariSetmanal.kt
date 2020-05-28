@@ -149,7 +149,7 @@ class CalendariSetmanal : AppCompatActivity() {
                                 val titol = dialogView.resposta.text.toString()
                                 val carnivor = dialogView.teCarn.isChecked
                                 val vegetaria = dialogView.teDerivats.isChecked
-                                var categoria: String ="0"
+                                var categoria = "0"
                                 if (carnivor) categoria = "2"
                                 else if (vegetaria) categoria = "1"
 

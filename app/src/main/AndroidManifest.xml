@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.govegan">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission
@@ -18,17 +19,39 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:fullBackupContent="@xml/backup_descriptor">
-        <activity android:name=".vista.Forum"/>
-        <activity android:name=".vista.CalendariSetmanal" />
-        <activity android:name=".vista.LlistaCompra"/>
-        <activity android:name=".vista.Recepta"/>
-        <activity android:name=".vista.PaginaPrincipal"/>
-        <activity android:name=".vista.LayoutCuriositats"/>
-        <activity android:name=".vista.LayoutPropostes"/>
-        <activity android:name=".vista.RecuperarContra"/>
-        <activity android:name=".vista.AfegirProposta"/>
-        <activity android:name=".vista.SignUp"/>
-        <activity android:name=".vista.MainActivity">
+        <activity android:name=".vista.Forum"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".vista.CalendariSetmanal"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.LlistaCompra"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.Recepta"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.PaginaPrincipal"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.LayoutCuriositats"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.LayoutPropostes"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.RecuperarContra"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.AfegirProposta"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.SignUp"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
+        <activity android:name=".vista.MainActivity"
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

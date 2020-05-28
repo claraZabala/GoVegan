@@ -18,6 +18,12 @@ class LayoutPropostes : AppCompatActivity() {
         viewPager.setPadding(130,0,130,0)
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        intent = Intent(this, PaginaPrincipal::class.java)
+        startActivity(intent)
+    }
+
     fun proposta(view: View){
         intent = Intent(this, AfegirProposta::class.java)
         startActivity(intent)

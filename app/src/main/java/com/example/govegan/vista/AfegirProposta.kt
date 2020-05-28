@@ -156,8 +156,12 @@ class AfegirProposta : AppCompatActivity() {
                             4 -> {
                                 toast("Els camps de temps són massa llargs")
                             }
+                            5 -> {
+                                toast("El del nom de la recepta és massa llarg")
+                            }
                             0 -> {
                                 toast("RECEPTA AFEGIDA CORRECTAMENT")
+                                controlador.afegirRecepta()
                                 intent = Intent(this, Recepta::class.java)
                                 startActivity(intent)
                             }

@@ -39,8 +39,10 @@ class Recepta : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        intent = Intent(this, PaginaPrincipal::class.java)
-        startActivity(intent)
+        if (controlador.heCreatRecepta()) {
+            intent = Intent(this, LayoutPropostes::class.java)
+            startActivity(intent)
+        }
     }
 
 
