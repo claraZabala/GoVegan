@@ -39,6 +39,7 @@ class FacadeCarteraUsuaris (baseDades: BaseDades) {
             val usuariNou = carteraUsuaris.registre(nom, cognoms, nomUsuari, pwd, mail, edat, weekNumber)
             return if (usuariNou != null) {
                 if(userID != null) {
+                    controlador.setUsuariActiu(usuariNou)
                     baseDades.addUser(usuariNou,userID)
                 }
                 0
