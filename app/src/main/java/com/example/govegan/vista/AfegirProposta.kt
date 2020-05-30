@@ -97,14 +97,16 @@ class AfegirProposta : AppCompatActivity() {
     }
 
     fun afegirNouIngredientLlista(dialogView: View){
-        if (!dialogView.textAfegirNousIngredients.toString().equals("")){
-            val chkBoxNouIngredient: CheckBox = CheckBox(this)
-            chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()
-            if(dialogView.textAfegirNousIngredients.text.toString() !in llistaIngredients) {
-                dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
-                llistaIngredients.add(chkBoxNouIngredient.text.toString())
-                llistaIngredientsCompra.add(chkBoxNouIngredient.text.toString())
-                controlador.addNouIngredientSenseFoto(chkBoxNouIngredient.text.toString())
+        val ingredient = dialogView.textAfegirNousIngredients.text.toString()
+        if (!ingredient.equals("")){
+            val chkBoxNouIngredient = CheckBox(this)
+            chkBoxNouIngredient.text = ingredient
+            if(ingredient !in llistaIngredients) {
+                dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient,0)
+                chkBoxNouIngredient.isChecked = true
+                llistaIngredients.add(ingredient)
+                llistaIngredientsCompra.add(ingredient)
+                controlador.addNouIngredientSenseFoto(ingredient)
                 textIngredients.text = llistaIngredientsCompra.toString()
             }
         }

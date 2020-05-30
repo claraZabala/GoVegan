@@ -170,12 +170,14 @@ class LlistaCompra : AppCompatActivity() {
 
 
      fun afegirNouIngredientLlista(dialogView: View){
-        if (dialogView.textAfegirNousIngredients.toString().length > 1){
-            val chkBoxNouIngredient: CheckBox = CheckBox(this)
-            chkBoxNouIngredient.text = dialogView.textAfegirNousIngredients.text.toString()
-            if(dialogView.textAfegirNousIngredients.text.toString() !in llistaIngredients) {
-                dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient)
-                ingredients.add(chkBoxNouIngredient.text.toString())
+         val ingredient = dialogView.textAfegirNousIngredients.text.toString()
+        if (!ingredient.equals("")){
+            val chkBoxNouIngredient = CheckBox(this)
+            chkBoxNouIngredient.text = ingredient
+            if(ingredient !in llistaIngredients) {
+                dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient, 0)
+                chkBoxNouIngredient.isChecked = true
+                ingredients.add(ingredient)
             }
         }
         dialogView.textAfegirNousIngredients.setText("")

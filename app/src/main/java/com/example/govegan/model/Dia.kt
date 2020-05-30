@@ -1,14 +1,11 @@
 package com.example.govegan.model
 
 class Dia(idSetmana: Int, nom: String) {
-
-
     val idSetmana: Int
     var nom: String = nom
     var esmorzar: ArrayList<String?>
     var dinar: ArrayList<String?>
     var sopar: ArrayList<String?>
-
 
     init {
         this.idSetmana = idSetmana
@@ -41,10 +38,8 @@ class Dia(idSetmana: Int, nom: String) {
             else -> {
                 print("caca")
                 return null
-
             }
         }
-
     }
 
     fun getApat(apat:String):String?{
@@ -58,10 +53,8 @@ class Dia(idSetmana: Int, nom: String) {
                 } else{
                     "0"
                 }
-
             }
             }
-
             "dinar" ->{for (i in dinar){
                 tipus = if(i?.get(0)?.equals("2")!!){
                     return "2"
@@ -70,7 +63,6 @@ class Dia(idSetmana: Int, nom: String) {
                 } else{
                     "0"
                 }
-
             }
             }
             "sopar" ->{for (i in sopar){
@@ -81,20 +73,14 @@ class Dia(idSetmana: Int, nom: String) {
                 } else{
                     "0"
                 }
-
             }
             }
-
-
         }
         return tipus
-
-
     }
 
     fun recorrerApats(): ArrayList<String>{
         val llistatApats: ArrayList<String> = ArrayList()
-
         //es recorre esmorzar
         for (i in esmorzar) {
             llistatApats.add(i!!.substring(1))
@@ -109,8 +95,6 @@ class Dia(idSetmana: Int, nom: String) {
         for (i in sopar) {
             llistatApats.add(i!!.substring(1))
         }
-
         return llistatApats
     }
-
 }
