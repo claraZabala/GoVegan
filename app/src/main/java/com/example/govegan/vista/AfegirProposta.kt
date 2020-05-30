@@ -38,7 +38,7 @@ class AfegirProposta : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.dialog_ingredients, null)
             dialog.setView(dialogView)
-            dialog.setCancelable(false)
+            dialog.setCancelable(true)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
             actualitzarLlistaIngredients(dialogView)

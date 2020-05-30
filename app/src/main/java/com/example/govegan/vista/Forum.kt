@@ -151,7 +151,7 @@ class Forum : AppCompatActivity() {
             val dialog = AlertDialog.Builder(this)
             val dialogView = layoutInflater.inflate(R.layout.dialog_resposta, null)
             dialog.setView(dialogView)
-            dialog.setCancelable(false)
+            dialog.setCancelable(true)
             val mAlertDialog = dialog.show()
             val customDialog = dialog.create()
             mostrarResposta(i, dialogView)
