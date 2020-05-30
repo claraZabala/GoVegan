@@ -115,8 +115,9 @@ class Forum : AppCompatActivity() {
 
         // Text View Usuari
         val textView: TextView = TextView(this)
-        var params:LinearLayout.LayoutParams = lay.layoutParams as LinearLayout.LayoutParams
-        params.weight = 0.5f
+        var params = LinearLayout.LayoutParams(0,
+        ViewGroup.LayoutParams.WRAP_CONTENT,1f
+        )
         textView.layoutParams = params
         textView.text = controlador.getUsuari(i)
         textView.gravity = Gravity.START
@@ -126,15 +127,17 @@ class Forum : AppCompatActivity() {
         val textViewDesc: TextView = TextView(this)
         textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
         textViewDesc.gravity = Gravity.CENTER
-        params = lay.layoutParams as LinearLayout.LayoutParams
-        params.weight = 3.5f
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3.5f
+        )
         textViewDesc.layoutParams = params
         lay.addView(textViewDesc)
 
         //Boto inicialitzat fora per poder fer mètodes de clicar
         val botoRespostes: Button = Button(this)
-        params = lay.layoutParams as LinearLayout.LayoutParams
-        params.weight = 2f
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
+        )
         botoRespostes.layoutParams = params
         botoRespostes.text = "respostes"
         botoRespostes.setBackgroundColor(resources.getColor(R.color.verdClar))
