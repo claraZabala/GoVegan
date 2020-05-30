@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:gravity="center|top"
+        android:gravity="center"
         android:text="Calendari Setmanal"
         android:background="@color/verdFosc"
         android:textAppearance="@style/TextBlancTitolSecundari"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp" />
-    <ScrollView
+    <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     <GridLayout
@@ -306,7 +306,7 @@
 
 
     </GridLayout>
-    </ScrollView>
+    </HorizontalScrollView>
 
     <TextView
         android:layout_width="wrap_content"

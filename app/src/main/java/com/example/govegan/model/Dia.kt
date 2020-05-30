@@ -46,9 +46,9 @@ class Dia(idSetmana: Int, nom: String) {
         var tipus:String? = null
         when (apat) {
             "esmorzar" ->{for (i in esmorzar){
-                tipus = if(i?.get(0)?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals('2')!!){
                     return "2"
-                } else if(i?.get(0)?.equals("1")!!){
+                } else if(i?.get(0)?.equals('1')!!){
                     "1"
                 } else{
                     "0"
@@ -56,9 +56,9 @@ class Dia(idSetmana: Int, nom: String) {
             }
             }
             "dinar" ->{for (i in dinar){
-                tipus = if(i?.get(0)?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals('2')!!){
                     return "2"
-                } else if(i?.get(0)?.equals("1")!!){
+                } else if(i?.get(0)?.equals('1')!!){
                     "1"
                 } else{
                     "0"
@@ -66,9 +66,9 @@ class Dia(idSetmana: Int, nom: String) {
             }
             }
             "sopar" ->{for (i in sopar){
-                tipus = if(i?.get(0)?.equals("2")!!){
+                tipus = if(i?.get(0)?.equals('2')!!){
                     return "2"
-                } else if(i?.get(0)?.equals("1")!!){
+                } else if(i?.get(0)?.equals('1')!!){
                     "1"
                 } else{
                     "0"

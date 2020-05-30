@@ -1,5 +1,6 @@
 package com.example.govegan.vista
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
@@ -102,6 +103,7 @@ class Forum : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("ResourceAsColor")
     fun mostrarPrgeunta(i : String, layoutpreg : LinearLayout){
         val layoutpreg: LinearLayout = findViewById(R.id.layoutpreg)
         val lay: LinearLayout = LinearLayout(this)
@@ -120,12 +122,14 @@ class Forum : AppCompatActivity() {
         )
         textView.layoutParams = params
         textView.text = controlador.getUsuari(i)
+        //textView.setTextColor(R.color.negre)
         textView.gravity = Gravity.START
         lay.addView(textView)
 
         //Text View descripcio
-        val textViewDesc: TextView = TextView(this)
+        val textViewDesc = TextView(this)
         textViewDesc.text = i //+  " Respostes: " + controlador.getContadorPreguntes(i, tema)
+        //textViewDesc.setTextColor(R.color.negre)
         textViewDesc.gravity = Gravity.CENTER
         params = LinearLayout.LayoutParams(0,
             ViewGroup.LayoutParams.WRAP_CONTENT,3.5f

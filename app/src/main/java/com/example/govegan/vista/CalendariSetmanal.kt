@@ -160,6 +160,7 @@ class CalendariSetmanal : AppCompatActivity() {
                                 val categoriaFinal = escollirDiaIApat(im.id,categoria)
                                 //es canvia la icona del calendari
                                 canviIcona(im, categoriaFinal)
+                                mostrarMenus(im)
                                 mAlertDialog.dismiss()
                             }
                         }
@@ -171,7 +172,7 @@ class CalendariSetmanal : AppCompatActivity() {
 
                             //es canvia la icona del calendari
                             canviIcona(im, categoriaFinal)
-
+                            mostrarMenus(im)
                         }
                     }
             }

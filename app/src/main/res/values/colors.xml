@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="verdClar">#508F46</color>
-    <color name="verdMoltClar">#5FE46C</color>
+    <color name="verdMoltClar">#58C163</color>
     <color name="verdFosc">#345736</color>
     <color name="taronjaClar">#EDAD68</color>
     <color name="taronjaFosc">#D3985105</color>
