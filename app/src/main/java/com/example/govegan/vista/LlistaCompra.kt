@@ -178,6 +178,14 @@ class LlistaCompra : AppCompatActivity() {
                 dialogView.layoutIngredientsBD.addView(chkBoxNouIngredient, 0)
                 chkBoxNouIngredient.isChecked = true
                 ingredients.add(ingredient)
+                chkBoxNouIngredient.setOnClickListener {
+                    if (chkBoxNouIngredient.isChecked) {
+                        controlador.afegirIngredientLlistaCompra(chkBoxNouIngredient.text.toString())
+                    }
+                    if (!chkBoxNouIngredient.isChecked) {
+                        controlador.treureIngredientLlistaCompra(chkBoxNouIngredient.text.toString())
+                    }
+                }
             }
         }
         dialogView.textAfegirNousIngredients.setText("")
