@@ -412,8 +412,11 @@ class CalendariSetmanal : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI11.layoutParams = params
+        layoutI11.weightSum = 6f
         layoutI12.layoutParams = params
+        layoutI12.weightSum = 6f
         layoutI13.layoutParams = params
+        layoutI13.weightSum = 6f
         layoutI11.orientation = LinearLayout.HORIZONTAL
         layoutI12.orientation = LinearLayout.HORIZONTAL
         layoutI13.orientation = LinearLayout.HORIZONTAL
@@ -427,9 +430,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo1: Button = Button(this)
         val mesInfo2: Button = Button(this)
         val mesInfo3: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat1.layoutParams = params
         apat2.layoutParams = params
@@ -439,9 +441,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat3.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom1.layoutParams = params
@@ -451,9 +452,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom2.text = ""
         nom3.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo1.layoutParams = params
         mesInfo1.text = "+INFO"
@@ -469,8 +469,11 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //DIA 2
         val layoutI21: LinearLayout = LinearLayout(this)
+         layoutI21.weightSum = 6f
         val layoutI22: LinearLayout = LinearLayout(this)
+        layoutI22.weightSum = 6f
         val layoutI23: LinearLayout = LinearLayout(this)
+        layoutI23.weightSum = 6f
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -492,9 +495,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo21: Button = Button(this)
         val mesInfo22: Button = Button(this)
         val mesInfo23: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat21.layoutParams = params
         apat22.layoutParams = params
@@ -504,9 +506,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat23.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom21.layoutParams = params
@@ -516,9 +517,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom22.text = ""
         nom23.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo21.layoutParams = params
         mesInfo21.text = "+INFO"
@@ -542,8 +542,11 @@ class CalendariSetmanal : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI31.layoutParams = params
+        layoutI31.weightSum = 6f
         layoutI32.layoutParams = params
+        layoutI32.weightSum = 6f
         layoutI33.layoutParams = params
+        layoutI33.weightSum = 6f
         layoutI31.orientation = LinearLayout.HORIZONTAL
         layoutI32.orientation = LinearLayout.HORIZONTAL
         layoutI33.orientation = LinearLayout.HORIZONTAL
@@ -557,9 +560,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo31: Button = Button(this)
         val mesInfo32: Button = Button(this)
         val mesInfo33: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat31.layoutParams = params
         apat32.layoutParams = params
@@ -569,11 +571,9 @@ class CalendariSetmanal : AppCompatActivity() {
         apat33.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
-
         nom31.layoutParams = params
         nom32.layoutParams = params
         nom33.layoutParams = params
@@ -581,9 +581,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom32.text = ""
         nom33.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo31.layoutParams = params
         mesInfo31.text = "+INFO"
@@ -606,8 +605,11 @@ class CalendariSetmanal : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI41.layoutParams = params
+        layoutI41.weightSum = 6f
         layoutI42.layoutParams = params
+        layoutI42.weightSum = 6f
         layoutI43.layoutParams = params
+        layoutI43.weightSum = 6f
         layoutI41.orientation = LinearLayout.HORIZONTAL
         layoutI42.orientation = LinearLayout.HORIZONTAL
         layoutI43.orientation = LinearLayout.HORIZONTAL
@@ -621,9 +623,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo41: Button = Button(this)
         val mesInfo42: Button = Button(this)
         val mesInfo43: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat41.layoutParams = params
         apat42.layoutParams = params
@@ -633,9 +634,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat43.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom41.layoutParams = params
@@ -645,9 +645,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom42.text = ""
         nom43.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo41.layoutParams = params
         mesInfo41.text = "+INFO"
@@ -661,8 +660,11 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //DIA 5
         val layoutI51: LinearLayout = LinearLayout(this)
+        layoutI51.weightSum = 6f
         val layoutI52: LinearLayout = LinearLayout(this)
+        layoutI52.weightSum = 6f
         val layoutI53: LinearLayout = LinearLayout(this)
+        layoutI53.weightSum = 6f
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -684,9 +686,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo51: Button = Button(this)
         val mesInfo52: Button = Button(this)
         val mesInfo53: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat51.layoutParams = params
         apat52.layoutParams = params
@@ -696,9 +697,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat53.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom51.layoutParams = params
@@ -708,9 +708,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom52.text = ""
         nom53.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo51.layoutParams = params
         mesInfo51.text = "+INFO"
@@ -724,8 +723,11 @@ class CalendariSetmanal : AppCompatActivity() {
 
         //DIA 6
         val layoutI61: LinearLayout = LinearLayout(this)
+        layoutI61.weightSum = 6f
         val layoutI62: LinearLayout = LinearLayout(this)
+        layoutI62.weightSum = 6f
         val layoutI63: LinearLayout = LinearLayout(this)
+        layoutI63.weightSum = 6f
 
         params = LinearLayout.LayoutParams(
             LinearLayout.LayoutParams.MATCH_PARENT,
@@ -747,9 +749,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo61: Button = Button(this)
         val mesInfo62: Button = Button(this)
         val mesInfo63: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat61.layoutParams = params
         apat62.layoutParams = params
@@ -759,9 +760,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat63.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom61.layoutParams = params
@@ -771,9 +771,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom62.text = ""
         nom63.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo61.layoutParams = params
         mesInfo61.text = "+INFO"
@@ -795,8 +794,11 @@ class CalendariSetmanal : AppCompatActivity() {
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
         layoutI71.layoutParams = params
+        layoutI71.weightSum = 6f
         layoutI72.layoutParams = params
+        layoutI72.weightSum = 6f
         layoutI73.layoutParams = params
+        layoutI73.weightSum = 6f
         layoutI71.orientation = LinearLayout.HORIZONTAL
         layoutI72.orientation = LinearLayout.HORIZONTAL
         layoutI73.orientation = LinearLayout.HORIZONTAL
@@ -810,9 +812,8 @@ class CalendariSetmanal : AppCompatActivity() {
         val mesInfo71: Button = Button(this)
         val mesInfo72: Button = Button(this)
         val mesInfo73: Button = Button(this)
-        params = LinearLayout.LayoutParams(
-            180,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         apat71.layoutParams = params
         apat72.layoutParams = params
@@ -822,9 +823,8 @@ class CalendariSetmanal : AppCompatActivity() {
         apat73.text = "Sopar: "
 
 
-        params = LinearLayout.LayoutParams(
-            600,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,3f
         )
 
         nom71.layoutParams = params
@@ -834,9 +834,8 @@ class CalendariSetmanal : AppCompatActivity() {
         nom72.text = ""
         nom73.text = ""
 
-        params = LinearLayout.LayoutParams(
-            ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+        params = LinearLayout.LayoutParams(0,
+            ViewGroup.LayoutParams.WRAP_CONTENT,1.5f
         )
         mesInfo71.layoutParams = params
         mesInfo71.text = "+INFO"
