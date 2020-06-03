@@ -98,10 +98,11 @@ class LlistaCompra : AppCompatActivity() {
                 100
             )
             layoutIngredient.layoutParams = params
+            layoutIngredient.weightSum = 7f
+
             val checkIngredient: CheckBox = CheckBox(this)
-            params = ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT
+            params = LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT,1f
             )
             checkIngredient.setBackgroundColor(resources.getColor(R.color.verdClar))
             checkIngredient.layoutParams = params
@@ -115,9 +116,8 @@ class LlistaCompra : AppCompatActivity() {
 
             }
             val textIngredient: TextView = TextView(this)
-            params = ViewGroup.LayoutParams(
-                600,
-                ViewGroup.LayoutParams.MATCH_PARENT
+            params = LinearLayout.LayoutParams(0,
+                ViewGroup.LayoutParams.WRAP_CONTENT,5f
             )
             textIngredient.layoutParams = params
             textIngredient.text = i
@@ -126,7 +126,7 @@ class LlistaCompra : AppCompatActivity() {
 
             val imatgeFoto: ImageView = ImageView(this)
             params = ViewGroup.LayoutParams(
-                100,
+                75,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             controlador.carregarImatgeIngredient(this,imatgeFoto,i)

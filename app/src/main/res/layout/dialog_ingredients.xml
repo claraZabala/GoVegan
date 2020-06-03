@@ -45,21 +45,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
             android:orientation="horizontal">
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingNousIngredients"
-            android:layout_width="0dp"
+            android:layout_width="54dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="@color/verdClar"
             android:clickable="true"
+            android:focusable="true"
             app:fabSize="mini"
-            app:srcCompat="@drawable/afegir"
-            android:focusable="true" />
+            app:srcCompat="@drawable/afegir" />
         <EditText
             android:id="@+id/textAfegirNousIngredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Afegeix ingredient si no està a la llista"
+            android:hint="Afegeix ingredient"
             android:inputType="text" /></LinearLayout>
 
     <Button
